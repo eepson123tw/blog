@@ -5,7 +5,7 @@ tags: [javascript,G/O,prototype chain]
 categories: [javascript]
 sticky: 999
 ---
-
+<!-- xtoc -->
 在許多的面試裡，js的基礎問題是常常會被面試官詢問，像是Hoisting，var/let/const差異，閉包...，而今天想跟各位分享的也是眾多基礎題的其中之一，原型鍊(prototype chain)，要分享原型鍊則需提到js記憶體中的布局。
 
 在我們尚未執行代碼之前，我們所寫的 JS 以及宿主環境預設的API 會被存放在「靜態區」，執行時V8會按照執行順序將代碼移動到相應的其他區域，而甚麼是宿主的環境呢?常被提到的像是client端(browser)、sever端(node)

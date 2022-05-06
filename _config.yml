@@ -98,6 +98,16 @@ include:
 exclude:
 ignore:
 
+toc:
+  maxdepth: 3
+  class: toc
+  slugify: transliteration
+  decodeEntities: false
+  anchor:
+    position: after
+    symbol: '#'
+    style: header-anchor
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
