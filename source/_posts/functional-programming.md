@@ -18,11 +18,12 @@ categories: [javascript]
 例如現代js的三大框架，也是經過許多深度的封裝後，提供開發者便利的api及框架環境~
 
 例如:
+
 - vue2、vue3 ->響應式物件代理(proxy,object.defineproperty)、觀察者、訂閱者、渲染器 。
 - react  的 render、redux、hook函式
 
+---
 
-# 簡易函式封裝
 今天想介紹最簡單的幾種函數封裝的方式
 
 ```javascript
@@ -33,6 +34,7 @@ categories: [javascript]
     ()=>x?x:y //返回 condition
     (function(root){})(window)//基礎封裝  匿名函數
 ```
+
 ## 返回function
 
 ```javascript
@@ -48,6 +50,7 @@ categories: [javascript]
   複雜表達式
   (x=>y=>x+y)(10)(20)
 ```
+
 我們利用閉包的特性將m及n分別暫存住各自的值，等到return後記憶體便會釋放，我們也能得到30最為回傳值。
 我們也可以利用複雜表達式的寫法去重寫上面的程式碼，兩種寫法是等價的。
 
@@ -68,9 +71,11 @@ categories: [javascript]
   emailVaild('aaa@gmail.com')
   true
 ```
+
 經過了這一層的封裝，我們就能依照不同的正則規則，去檢驗不同的輸入，非常的方便且複用性相當高。
 
 ## 返回帶有方法的{}
+
 我們封裝一個會回傳物件的函式，讓他再回傳封裝在其中的邏輯，做出一個可以與之互動的錢包。
 
 ```javascript
@@ -104,40 +109,12 @@ allenMoney.checkMoney();
 allenMoney.printLog();
 >{buyDrink: '2022/5/7 下午2:24:34', buylunch: '2022/5/7 下午2:24:34'}
 ```
+
 ---
+
 ## 返回 array
 
 我們可以透過一個封裝過的函式，return出我們想要的值，更可以透過之前分享的嵌套模式，複合這些邏輯，相當地有趣。
-
-```javascript
-  const arr = [1, 3, 'a', 'd', 5, 8, '9']
-  // 封裝 過濾出數字
-  function getNumbers(arr) {
-      const newArr = []
-      arr.forEach(item => {
-          if (typeof item === 'number') {
-              newArr.push(item)
-          }
-      })
-      return newArr
-  }
-  getNumbers(arr) //取得數字
-  
-  function getEvenNumber(arr) {
-      const newArr = []
-      arr.forEach(item => {
-          if (item%2===0) {
-              newArr.push(item)
-          }
-      })
-      return newArr
-  }
-  getEvenNumber(getNumbers(arr)) //取得偶數
-
-
-```
----
-## 返回 array
 
 ```javascript
   const arr = [1, 3, 'a', 'd', 5, 8, '9']
@@ -191,7 +168,9 @@ allenMoney.printLog();
   beSoldier({name:'Allen',height:180},{name:'Eric',height:170}) //allen 當兵去QQ
 
 ```
+
 ---
+
 ## 基礎封裝  匿名函數
 
 這邊就是框架們使用的方式，把一些東西掛載至window，方便調用。
@@ -229,4 +208,5 @@ allenMoney.printLog();
   Who.show('age')
   Who.codingTime()
 ```
+
 以上介紹的這幾種方式，若經過良好的細節處理及互相應用，你也可以寫出有趣的lib供人們使用~
