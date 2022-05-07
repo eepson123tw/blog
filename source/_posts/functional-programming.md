@@ -165,7 +165,7 @@ allenMoney.printLog();
       return a.height > b.height  ?  conditionOne(a,b) :  conditionTwo(a,b)
   }
 
-  beSoldier({name:'Allen',height:180},{name:'Eric',height:170}) //allen 當兵去囉QQ
+  beSoldier({name:'Allen',height:180},{name:'Eric',height:170})  //allen 當兵去囉QQ
 
 ```
 
