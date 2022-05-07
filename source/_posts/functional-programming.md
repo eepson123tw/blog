@@ -104,3 +104,129 @@ allenMoney.checkMoney();
 allenMoney.printLog();
 >{buyDrink: '2022/5/7 下午2:24:34', buylunch: '2022/5/7 下午2:24:34'}
 ```
+---
+## 返回 array
+
+我們可以透過一個封裝過的函式，return出我們想要的值，更可以透過之前分享的嵌套模式，複合這些邏輯，相當地有趣。
+
+```javascript
+  const arr = [1, 3, 'a', 'd', 5, 8, '9']
+  // 封裝 過濾出數字
+  function getNumbers(arr) {
+      const newArr = []
+      arr.forEach(item => {
+          if (typeof item === 'number') {
+              newArr.push(item)
+          }
+      })
+      return newArr
+  }
+  getNumbers(arr) //取得數字
+  
+  function getEvenNumber(arr) {
+      const newArr = []
+      arr.forEach(item => {
+          if (item%2===0) {
+              newArr.push(item)
+          }
+      })
+      return newArr
+  }
+  getEvenNumber(getNumbers(arr)) //取得偶數
+
+
+```
+---
+## 返回 array
+
+```javascript
+  const arr = [1, 3, 'a', 'd', 5, 8, '9']
+  // 封裝 過濾出數字
+  function getNumbers(arr) {
+      const newArr = []
+      arr.forEach(item => {
+          if (typeof item === 'number') {
+              newArr.push(item)
+          }
+      })
+      return newArr
+  }
+  getNumbers(arr) //取得數字
+  
+  function getEvenNumber(arr) {
+      const newArr = []
+      arr.forEach(item => {
+          if (item%2===0) {
+              newArr.push(item)
+          }
+      })
+      return newArr
+  }
+  getEvenNumber(getNumbers(arr)) //取得偶數
+
+
+```
+
+## 返回 condition
+
+```javascript
+  function tellme(b) {
+      return b === true ? '可' : '不可'
+  }
+  tellme(false)
+
+  function isNumberEven(number) {
+      return number > 0  ?  (number % 2 ===0 ? true : false) : false
+  }
+  isNumberEven(8)
+
+  也可以結合之前的應用 
+
+  const conditionOne = (a, b) => { return console.log(`${a.name} 比 ${b.name} 高${a.height-b.height}公分，他當兵`)}
+  const conditionTwo = (a, b) => { return console.log(`${b.name} 比 ${a.name} 高 ${b.height-a.height}公分，他當兵`)}
+  function beSoldier(a,b) {
+      return a.height > b.height  ?  conditionOne(a,b) :  conditionTwo(a,b)
+  }
+
+  beSoldier({name:'Allen',height:180},{name:'Eric',height:170}) //allen 當兵去QQ
+
+```
+---
+## 基礎封裝  匿名函數
+
+這邊就是框架們使用的方式，把一些東西掛載至window，方便調用。
+
+```javascript
+  (function (root, undefined) {
+      // 私有狀態
+      const age = 20
+      const name = 'allen'
+      let money = 87
+
+      function show(x) {
+          return x === 'you'
+              ? `Your name is  ${name} and ${age} years old.`
+              : x === 'money'
+                  ? `your money is ` + money
+                  : 'what?'
+      }
+      function getMoney() {
+          return `your money is ` + money
+      }
+      function setMoney(m) {
+        return money += m
+      }
+      function codingTime(){
+        return ((Math.abs(new Date(2022,05) -  new Date(2020, 10))) / (1000 * 60 * 60 * 24))+ '天'
+  
+      }
+
+      // 將引用保存在外部，一種簡單的對外開放方法的方式
+      root.Who = { show, getMoney, setMoney,codingTime }
+  })(window)
+
+  Who.show('you')
+  Who.show('age')
+  Who.codingTime()
+```
+以上介紹的這幾種方式，若經過良好的細節處理及互相應用，你也可以寫出有趣的lib供人們使用~
