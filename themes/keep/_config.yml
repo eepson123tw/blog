@@ -6,7 +6,7 @@ base_info:
   author: Allen Shih
   url: https://eepson123tw.github.io/
   # Logo image (You can use local image, image external link or don’t fill)
-  logo_img:
+  logo_img: /images/logo/logo_transparent.png
 
 # ---------------------------------------------------------------------------------------
 # Theme style settings
@@ -19,7 +19,7 @@ style:
   avatar: /images/avatar.svg
 
   # Favicon (You can use local image or image external link)
-  favicon: /images/logo.svg
+  favicon: /images/logo/favicon.png
 
   # Article image align position, value: left | center
   article_img_align: center
@@ -37,9 +37,9 @@ style:
 
   # First screen
   first_screen:
-    enable: false
+    enable: true
     background_img: /images/bg.svg # You can use local image or image external link
-    description: Keep writing and Keep loving....
+    description: 圍繞核心，漸進增強!
 
   # Scroll style settings
   scroll:
@@ -72,7 +72,7 @@ menu:
   # Categories: /categories
   # Tags: /tags
   # Links: /links
-  # About: /about
+  About: /about
   # Changelog: /changelog
   # ......
 
