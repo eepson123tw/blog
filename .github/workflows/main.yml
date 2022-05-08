@@ -13,13 +13,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: main
-          
+
       # 安裝Nodejs環境
-      - name: Use Node.js 17.7.1
+      - name: Use Node.js 14.15.1
         uses: actions/setup-node@v2
         with:
-          node-version: '17'
-          
+          node-version: '14'
+
       # 緩存
       - name: Cache NPM Dependencies
         uses: actions/cache@v2
@@ -28,8 +28,8 @@ jobs:
           key: ${{ runner.OS }}-npm-cache
           restore-keys: |
             ${{ runner.OS }}-npm-cache
-            
-      # 增加SSH KEY的配置      
+
+      # 增加SSH KEY的配置
       - name: Add SSH Private Key
         env:
           SSH_PRIVATE: ${{ secrets.HEXO_SSH_PRIVATE_KEY }}
@@ -40,13 +40,13 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.email "eepson123@gmail.com"
           git config --global user.name "eepson123tw"
-      
+
       # 安裝Hexo需要的環境（針對Hexo根目錄的package.json）
       - name: Install Dependencies
         run: |
           npm install hexo-cli -g
           npm install
-      
+
       # 一鍵化部署
       - name: Hexo Deploy
         run: |
