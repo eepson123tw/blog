@@ -108,6 +108,15 @@ toc:
     symbol: '#'
     style: header-anchor
 
+sitemap:
+  path:
+    - sitemap.xml
+    - sitemap.txt
+
+  rel: false
+  tags: true
+  categories: true
+
 # Google Analytics
 google_analytics: '{G-R6YQL587WJ}'
 # google_analytics:
