@@ -10,7 +10,7 @@ jobs:
     steps:
       # 拉取當前Repository的分支main的Code到他們的容器（如配置檔中使用的Runs-on的Ubuntu）上
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
         with:
           ref: main
           
