@@ -109,9 +109,10 @@ toc:
     style: header-anchor
 
 # Google Analytics
-google_analytics:
-  tracking_id: G-R6YQL587WJ
-  localhost_ignored: true
+google_analytics: '{G-R6YQL587WJ}'
+# google_analytics:
+#   tracking_id: G-R6YQL587WJ
+#   localhost_ignored: true
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
