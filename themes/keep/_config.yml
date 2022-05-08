@@ -1,0 +1,224 @@
+# ---------------------------------------------------------------------------------------
+#  Your basic info
+# ---------------------------------------------------------------------------------------
+base_info:
+  title: Allen Blog
+  author: Allen Shih
+  url: https://eepson123tw.github.io/
+  # Logo image (You can use local image, image external link or don’t fill)
+  logo_img:
+
+# ---------------------------------------------------------------------------------------
+# Theme style settings
+# ---------------------------------------------------------------------------------------
+style:
+  # Theme primary color
+  primary_color: "#ada9a7"
+
+  # Avatar (You can use local image or image external link)
+  avatar: /images/avatar.svg
+
+  # Favicon (You can use local image or image external link)
+  favicon: /images/logo.svg
+
+  # Article image align position, value: left | center
+  article_img_align: center
+
+  # Left side width
+  left_side_width: 260px
+
+  # Content area max width
+  content_max_width: 920px
+
+  # Mouse hover
+  hover:
+    shadow: true # shadow effect when the mouse hover
+    scale: true # scale effect when the mouse hover
+
+  # First screen
+  first_screen:
+    enable: false
+    background_img: /images/bg.svg # You can use local image or image external link
+    description: Keep writing and Keep loving....
+
+  # Scroll style settings
+  scroll:
+    progress_bar:
+      enable: true
+    percent:
+      enable: true
+
+# ---------------------------------------------------------------------------------------
+# Social contact link
+# ---------------------------------------------------------------------------------------
+social_contact:
+  enable: true
+  links:
+    github: https://github.com/eepson123tw # your GitHub URL
+    weixin: # your WeChat QR-Code URL
+    qq: # your QQ QR-Code URL
+    weibo: # your WeiBo URL
+    zhihu: # your ZhiHu URL
+    twitter: # your twitter URL
+    facebook: # your facebook URL
+    email: eepson123tw@gmail.com # your email
+
+# ---------------------------------------------------------------------------------------
+# Navigation menu
+# ---------------------------------------------------------------------------------------
+menu:
+  Home: /
+  Archives: /archives
+  # Categories: /categories
+  # Tags: /tags
+  # Links: /links
+  # About: /about
+  # Changelog: /changelog
+  # ......
+
+# ---------------------------------------------------------------------------------------
+# Home page article block display settings
+# ---------------------------------------------------------------------------------------
+home_article:
+  category:
+    enable: true # show category in home page article block
+    limit: 3 # max number of categories shown in home page article block
+  tag:
+    enable: true # show tags in home page article block
+    limit: 5 # max number of tags shown in home page article block
+
+# ---------------------------------------------------------------------------------------
+# Post page Settings
+# ---------------------------------------------------------------------------------------
+post:
+  # Post word count
+  # Dependencies: hexo-wordcount (npm install hexo-wordcount)
+  # See: https://github.com/willin/hexo-wordcount
+  word_count:
+    enable: true
+    wordcount: true # word count, one article
+    min2read: true # time to read, one article
+
+  # Author label
+  author_label:
+    enable: true
+    auto: true # if true, show Lv1, Lv2, Lv3... , If false, show custom label
+    # label array item can be one or more
+    custom_label_list: ["front end", "Engineer"]
+
+# ---------------------------------------------------------------------------------------
+# Code copy
+# ---------------------------------------------------------------------------------------
+code_copy:
+  enable: false
+  style: default # values: default | mac
+
+# ---------------------------------------------------------------------------------------
+# Table of Contents in the Sidebar
+# ---------------------------------------------------------------------------------------
+toc:
+  enable: true
+
+  # Automatically add list number to toc.
+  number: true
+
+  # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
+  expand_all: true
+
+  # If true, open TOC every time when you enter the article page
+  init_open: true
+
+# ---------------------------------------------------------------------------------------
+# Post copyright info
+# ---------------------------------------------------------------------------------------
+copyright_info:
+  enable: false
+
+# ---------------------------------------------------------------------------------------
+# Website count
+# ---------------------------------------------------------------------------------------
+website_count:
+  # busuanzi
+  # See: http://ibruce.info/2015/04/04/busuanzi/
+  busuanzi_count:
+    enable: true
+    site_uv: true
+    site_pv: true
+    page_pv: true
+
+# ---------------------------------------------------------------------------------------
+# Local Search
+# Dependencies: hexo-generator-searchdb
+# See: https://github.com/theme-next/hexo-generator-searchdb
+# ---------------------------------------------------------------------------------------
+local_search:
+  enable: true
+  preload: false # Preload the search data when the page loads
+
+# ---------------------------------------------------------------------------------------
+# RSS
+# Dependencies: hexo-generator-feed
+# See: https://github.com/hexojs/hexo-generator-feed
+# ---------------------------------------------------------------------------------------
+rss:
+  enable: false
+
+# ---------------------------------------------------------------------------------------
+# Lazyload image
+# ---------------------------------------------------------------------------------------
+lazyload:
+  enable: true
+
+# ---------------------------------------------------------------------------------------
+# CDN
+# ---------------------------------------------------------------------------------------
+cdn:
+  enable: false
+
+# ---------------------------------------------------------------------------------------
+# PJAX
+# ---------------------------------------------------------------------------------------
+pjax:
+  enable: false
+
+# ---------------------------------------------------------------------------------------
+# Footer settings
+# ---------------------------------------------------------------------------------------
+footer:
+  since: 2022 # the starting year of your website, Can be null
+  icp: # ICP record number of your website, Can be null
+  upyun: # url
+
+# Search
+## See: https://github.com/theme-next/hexo-generator-searchdb
+search:
+  path: search.json
+  field: post
+  content: true
+  format: striptags
+
+post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
+# ---------------------------------------------------------------------------------------
+# Comment plugin
+# ---------------------------------------------------------------------------------------
+
+comment:
+  enable: true
+  use: gitalk # values: valine | gitalk | twikoo
+
+  # Gitalk
+  # See: https://github.com/gitalk/gitalk
+  gitalk:
+    github_id: eepson123tw # GitHub repo owner
+    repository: eepson123tw.gitalk # Repository name to store issues
+    client_id: b57e764afef07bde3085 # GitHub Application Client ID
+    client_secret: 7b8d5b15886c8be0aaaac7fe3945bd94a6aff797 # GitHub Application Client Secret
+    owner: eepson123tw
+    admin: [eepson123tw]
+# ---------------------------------------------------------------------------------------
+# Keep version (Please don't modify)
+# ---------------------------------------------------------------------------------------
+version: 3.4.5
