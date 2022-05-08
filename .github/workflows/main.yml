@@ -51,4 +51,4 @@ jobs:
       - name: Hexo Deploy
         run: |
           hexo clean
-          hexo deploy
+          hexo d -g
