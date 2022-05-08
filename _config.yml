@@ -108,6 +108,11 @@ toc:
     symbol: '#'
     style: header-anchor
 
+# Google Analytics
+google_analytics:
+  tracking_id: G-R6YQL587WJ
+  localhost_ignored: true
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
