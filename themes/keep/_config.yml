@@ -181,6 +181,11 @@ cdn:
 pjax:
   enable: false
 
+# Google Analytics
+google_analytics:
+  tracking_id: G-R6YQL587WJ
+  localhost_ignored: true
+
 # ---------------------------------------------------------------------------------------
 # Footer settings
 # ---------------------------------------------------------------------------------------
