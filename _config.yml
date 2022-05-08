@@ -117,5 +117,5 @@ theme: keep
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/eepson123tw/eepson123tw.github.io.git
+  repo: git@github.com:eepson123tw/eepson123tw.github.io.git
   branch: master
