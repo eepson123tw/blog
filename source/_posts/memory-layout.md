@@ -92,6 +92,17 @@ undefined
 ![範例2](/images/memory_layout/sv.gif)
 
 
+補充:
+若在瀏覽器中測試下方程式碼，會發生一個很有趣的事件。
+
+```javascript
+function person (){}
+```
+person.__proto__ 指向 funciton.prototype (如上方解釋)
+若呼叫，person.prototype 瀏覽器會回傳一個空物件{constructor: ƒ}，
+會讓人誤以為person.prototype 會在一開始開出這個物件的記憶體位置，其實不然。
+需要等到呼叫時才會建立。例如  特地寫 person.prototype 或是 new obj 時產生。
+
 
 
 
