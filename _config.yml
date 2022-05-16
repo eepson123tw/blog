@@ -95,6 +95,7 @@ pagination_dir: page
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
 include:
+  - .nojekyll
 exclude:
 ignore:
 
@@ -133,4 +134,5 @@ theme: keep
 deploy:
   type: git
   repo: git@github.com:eepson123tw/eepson123tw.github.io.git
+  ignore_hidden: false
   branch: master
