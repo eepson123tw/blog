@@ -116,7 +116,7 @@ h2是標籤，在DOM內部會生成兩個節點。
 ![DOM Tree](/images/dom/DomTree.png)
 
 ---
-###  Element Node 與 Text Node
+###  NodeList 與 HTMLCollection
 
 - NodeList 靜態/動態集合，包含所有的 Node 節點 Element、Text、屬性、註解，等 12 種節點(querySelector系列)
 - HTMLCollection 動態集合，只有 Element 1種節點 (getElement系列) 
