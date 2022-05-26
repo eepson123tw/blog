@@ -110,10 +110,7 @@ toc:
     style: header-anchor
 
 sitemap:
-  path:
-    - sitemap.xml
-    - sitemap.txt
-
+  path: sitemap.xml
   rel: false
   tags: true
   categories: true
