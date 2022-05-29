@@ -18,12 +18,11 @@ timezone: ""
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: "https://eepson123tw.github.io"
-root: /
+# root: /
 permalink: :title/
-permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -114,9 +113,9 @@ sitemap:
   path:
     - sitemap.xml
     - sitemap.txt
-  rel: false
-  tags: true
-  categories: true
+  # rel: false
+  # tags: true
+  # categories: true
 
 # Google Analytics
 google_analytics: "{G-R6YQL587WJ}"
