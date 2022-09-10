@@ -7,12 +7,81 @@ layout: false
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>關於我</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        container: {
+          center: true,
+        },
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html,body{
+      width: 100%;
+      height: 100%;
+    }
+
+    h2 a{
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>這是標題</h1>
-    <button class="btn btn-outline-primary" type="button">這是一段話</button>
+  <h1 class="sr-only">About me</h1>
+  <div class="container mx-auto pb-5  mt-10 outline outline-offset-2 outline-blue-500 hover:outline-blue-400 bg-slate-100 ">
+    <section>
+      <h2 class="text-3xl font-bold underline text-center py-5">About me</h2>
+        <img class="w-24 h-24 rounded-full mx-auto"   alt="" width="384" height="512">
+        <div class="pt-6 space-y-4 text-center">
+          <blockquote>
+            <p class="text-lg font-medium">
+              “We are what we repeatedly do. Excellence, then, is not an act but a habit.”
+            </p>
+          </blockquote>
+          <figcaption class="font-medium">
+            <div>
+              Aristotle 
+            </div>
+          </figcaption>
+        </div>
+      </figure>
+    </section>
+
+    <section>
+      <h2 class="normal-case">Personal info</h2>
+
+    </section>
+
+    <section>
+      <h2 class="normal-case">Resume</h2>
+
+    </section>
+    <button class="btn bg-cyan-500 hover:bg-cyan-600 text-white p-2 block mx-auto my-5">Back</button>
   </div>
+
+
+  <script>
+
+    
+
+
+
+    let img = document.querySelector('img')
+    img.src ="https://picsum.photos/seed/picsum/200/300"
+
+    let bnt = document.querySelector('.btn')
+    bnt.addEventListener('click',()=>{
+      window.location.href = location.origin 
+    })
+
+  </script>
+
 </body>
 </html>
