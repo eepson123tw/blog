@@ -69,8 +69,8 @@ social_contact:
 menu:
   Home: /
   Archives: /archives
-  # Categories: /categories
-  # Tags: /tags
+  Categories: /categories
+  Tags: /tags
   # Links: /links
   About: /about
   # Changelog: /changelog
