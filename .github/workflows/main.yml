@@ -18,7 +18,7 @@ jobs:
       - name: Use Node.js 14.15.1
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       # 緩存
       - name: Cache NPM Dependencies
@@ -41,7 +41,7 @@ jobs:
           git config --global user.email "eepson123@gmail.com"
           git config --global user.name "eepson123tw"
 
-      # 安裝Hexo需要的環境（針對Hexo根目錄的package.json）
+      # 安裝Hexo需要的環境（針對Hexo根目錄的package.json）ts
       - name: Install Dependencies
         run: |
           npm install hexo-cli -g
