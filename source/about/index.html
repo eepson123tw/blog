@@ -33,18 +33,23 @@ layout: false
     html,body{
       width: 100%;
       height: 100%;
-      overflow: hidden;
+    }
+    body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     h2 a{
       display: none;
     }
+
   </style>
 </head>
 <body class="bg-gradient-to-r from-cyan-500 to-blue-500 font-mono">
   <h1 class="sr-only">About me</h1>
-  <div class="container mt-20">
-    <div class=" bg-slate-100 py-10 px-10">
+  <div class="container">
+    <div class=" bg-slate-100 py-10 px-10 ">
     <section>
       <h2 class="text-3xl font-bold underline text-center py-5">About me</h2>
         <img class="w-24 h-24 rounded-full mx-auto" alt="" width="384" height="512">
@@ -62,30 +67,30 @@ layout: false
         </div>
       </figure>
     </section>
-    <section class="mb-5">
+    <section class="mb-3">
       <h2 class="normal-case font-extrabold text-lg">Personal Info:</h2>
       <ul class="pl-10">
-        <li>Name:Allen</li>
-        <li>about me:A passionate frontend developer from Taiwan</li>
-        <li>contact:How to reach me <span class="font-bold underline cursor-pointer">eepson123@gmail.com</span></li>
+        <li>Name:Allen Chou</li>
+        <li>About me:A passionate frontend developer from Taiwan</li>
+        <li>Contact:How to reach me <span class="font-bold underline cursor-pointer">eepson123@gmail.com</span></li>
       </ul>
     </section>
 
-    <section  class="mb-5">
+    <section  class="mb-3">
       <h2 class="normal-case font-extrabold text-lg">Work Experience:</h2>
       <ul class="pl-10">
-        <li>Frontend Engineer, ShengJin Integrated Service (1 year,2021/03~2022/03)</li>
-        <li>Frontend Engineer, STARLUX AIRLINES CO.,LTD. (current,2022/04~)</li>
+        <li>Frontend Engineer, ShengJin Integrated Service<br>(1 year,2021/03~2022/03)</li>
+        <li>Frontend Engineer, STARLUX AIRLINES CO.,LTD.<br>(current,2022/04~)</li>
       </ul>
     </section>
-    <section  class="mb-5">
+    <section  class="mb-3">
       <h2 class="normal-case font-extrabold text-lg">Now Learning:</h2>
       <ul class="pl-10">
-        <li>skill: react,aws,docker</li>
-        <li>habit: gitar</li>
+        <li>Skill: react,aws,docker</li>
+        <li>Habit: gitar,photo,reading,thinking</li>
       </ul>
     </section>
-    <button class="btn block bg-black text-white mx-auto p-2 rounded-full hover:text-black hover:bg-white drop-shadow-md">Go Back</button>
+    <button class="btn mb-3 block bg-black text-white mx-auto p-3 rounded-full hover:text-black hover:bg-white drop-shadow-md">Go Back</button>
     </div> 
   </div>
 
