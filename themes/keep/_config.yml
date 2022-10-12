@@ -174,7 +174,7 @@ cdn:
 # PJAX
 # ---------------------------------------------------------------------------------------
 pjax:
-  enable: true
+  enable: false
 
 # Google Analytics
 google_analytics: "{G-R6YQL587WJ}"
