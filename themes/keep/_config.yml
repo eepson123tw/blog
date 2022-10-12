@@ -13,7 +13,7 @@ base_info:
 # ---------------------------------------------------------------------------------------
 style:
   # Theme primary color
-  primary_color: "#ada9a7"
+  primary_color: "#9999CC"
 
   # Avatar (You can use local image or image external link)
   avatar: /images/avatar.svg
@@ -102,9 +102,9 @@ post:
   # Author label
   author_label:
     enable: true
-    auto: true # if true, show Lv1, Lv2, Lv3... , If false, show custom label
+    auto: false # if true, show Lv1, Lv2, Lv3... , If false, show custom label
     # label array item can be one or more
-    custom_label_list: ["front end", "Engineer"]
+    custom_label_list: ["前端工程師", "轉職打工仔"]
 
 # ---------------------------------------------------------------------------------------
 # Code copy
@@ -118,16 +118,11 @@ code_copy:
 # ---------------------------------------------------------------------------------------
 toc:
   enable: true
-
   # Automatically add list number to toc.
   number: true
-
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
-  expand_all: true
-
+  expand_all: false
   # If true, open TOC every time when you enter the article page
-  init_open: true
-
 # ---------------------------------------------------------------------------------------
 # Post copyright info
 # ---------------------------------------------------------------------------------------
@@ -179,7 +174,7 @@ cdn:
 # PJAX
 # ---------------------------------------------------------------------------------------
 pjax:
-  enable: false
+  enable: true
 
 # Google Analytics
 google_analytics: "{G-R6YQL587WJ}"
@@ -191,7 +186,7 @@ google_analytics: "{G-R6YQL587WJ}"
 # Footer settings
 # ---------------------------------------------------------------------------------------
 footer:
-  since: 2022 # the starting year of your website, Can be null
+  since: 2021 # the starting year of your website, Can be null
   icp: # ICP record number of your website, Can be null
   upyun: # url
 

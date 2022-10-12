@@ -4,7 +4,6 @@ date: 2022-05-07 13:15:06
 tags: [javascript,function,program,Encapsulation]
 categories: [javascript]
 ---
-<!-- xtoc -->
 
 ![編成範式圖](/images/fn/fn1.png)
 
