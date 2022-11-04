@@ -1,8 +1,8 @@
 ---
 title: 前端與框架的關係
 date: 2022-10-28 00:06:03
-tags: [javascript,framework,vue]
-categories: [javascript]
+tags: [JavaScript, framework, vue]
+categories: [JavaScript]
 sticky: 999
 ---
 
@@ -71,6 +71,7 @@ ViewModel： 業務邏輯層。
 開發者不用再依賴一堆 jQ 套件，前端不需要再把邏輯和頁面混在一起做撒尿牛丸，資料實時反映在 view 上，後端不需要再對前端頁面進行加工，降低開發者們的精神負擔,達到各端專注分工的合作模式。
 
 <!-- # MVC 與 MVVM 資料夾架構差異 -->
+
 # 框架御三家
 
 **React** 開源於 2013 年 5 月，目前有 196K 星數，爸爸是 FB。
