@@ -85,6 +85,14 @@ Object.values(obj2).filter((d)=>d.name==='mindy') => {name: 'mindy'}
 
 ```
 
+## 邏輯拆解
+
+找出我們所需的關鍵資料的一個想法或概念,我們可以透過畫出flow，去嘗試構思哪些資料是我們所需的，且在解題時為必要，
+透過這些拆分，我們可以把複雜的資料給拆解出細小原子，在不斷的組合起來。
+
+
+## 解題
+
 在熟悉這些組合操作後，我們來挑戰一題較為困難的題目吧!
 
 ```javascript
@@ -124,16 +132,15 @@ const memberList = [
 Ｑ：按照分數高低，最後導出使用者的希望組別，組別不可以重複
 
 
-memberList.sort((a,b)=>{a.score-b.score})
+memberList.sort((a,b)=>{a.score-b.score}) //先照高分順序排序
 
 
 //按照 組別分組
 let groupBox = memberList.reduce((acc, cur, i) => {
-  i === 0 && cur.order.forEach((d) => (acc[d] = []));
+  i === 0 && cur.order.forEach((d) => (acc[d] = [])); //先將組別放入物件中，並將值設為陣列
   cur.order.forEach((d, x) => {
-    acc[d].push({ d, n: cur.member, s: cur.score, hopeIndex: x });
+    acc[d].push({ d, n: cur.member, s: cur.score, hopeIndex: x }); //依照順序送入陣列中
   });
-
   return acc;
 }, {});
 
@@ -142,14 +149,16 @@ let pointer = 0;
 //指針移動推入希望組別
 while (pointer < memberList.length) {
   for (key in groupBox) {
-    console.log(key,groupBox)
-    map.push(groupBox[key][pointer]);
+    map.push(groupBox[key][pointer]); //此時的map陣列中就是按照分數高低及使用者意願的順序
     pointer++;
   }
 }
+
+但這解法有一個問題，就是for in 並保證key順序，若為重要資料陣列，建議還是另外保存索引值，較為理想喔!
 
 ```
 
 若有更有趣的實現方式，歡迎在下方留言~
 
 [陣列實現](https://github.com/eepson123tw/DeepLearnJs/blob/master/10%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E6%93%8D%E4%BD%9C%E5%8F%8A%E5%AF%A6%E7%8F%BE/arrayApi.js)
+[for in](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/for...in)
