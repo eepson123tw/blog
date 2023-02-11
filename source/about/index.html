@@ -182,13 +182,17 @@ layout: false
     renderer.render(scene, camera)
   }
   animate()
-  })
 
-    window.addEventListener('resize', () => {
+  window.addEventListener('resize', () => {
     camera.updateProjectionMatrix()
     camera.aspect = window.innerWidth / window.innerHeight
     renderer.setSize(window.innerWidth, window.innerHeight)
   })
+
+
+  })
+
+
 
 
 
