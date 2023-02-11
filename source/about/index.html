@@ -59,11 +59,11 @@ layout: false
   <canvas id="bg"></canvas>
   <h1 class="sr-only">About me</h1>
   <div class="container z-10">
-    <div class=" bg-slate-100 bg-opacity-50 py-10 px-10 ">
+    <div class=" bg-indigo-50 bg-opacity-60 py-10 px-10 ">
     <section>
       <h2 class="text-3xl font-bold underline text-center py-5">About me</h2>
         <img class="w-24 h-24 rounded-full mx-auto" alt="" width="384" height="512">
-        <div class="pt-6 space-y-4 text-center">
+        <div class="pt-6 space-y-4 text-center ">
           <blockquote>
             <p class="text-lg font-medium">
               “We are what we repeatedly do. Excellence, then, is not an act but a habit.”
@@ -140,7 +140,7 @@ layout: false
   scene.add(mesh)
 
   // light
-  const light = new THREE.PointLight(0xffffff, 1, 100)
+  const light = new THREE.PointLight(0xcccccc, 1, 100)
   light.position.set(0, 10, 10)
   light.intensity = 1.25
   scene.add(light)
