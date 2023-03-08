@@ -1,7 +1,7 @@
 ---
 title: ChatGPT 橫空出世，工程師該如何看待這現象?
 date: 2023-03-08 22:14:47
-categories: [trend]
+categories: [Trend]
 tags: [AI,ChatGPT]
 ---
 
