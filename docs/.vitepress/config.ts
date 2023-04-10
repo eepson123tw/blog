@@ -10,17 +10,14 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       {
         text: 'FrontEnd',
-        items: [
-          { text: 'dom', link: '/view/posts/dom' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
+        items: [{ text: 'DOM', link: '/view/posts/dom' }]
       }
     ],
 
     sidebar: [
       {
         text: 'FrontEnd',
-        items: [{ text: 'dom', link: '/view/posts/dom' }],
+        items: [{ text: 'DOM', link: '/view/posts/dom' }],
         collapsed: true
       }
     ],
