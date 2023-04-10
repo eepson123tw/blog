@@ -36,7 +36,7 @@ const fn = () => {};
 
 ### 記憶體繪圖
 
-![範例1](/images/memory_layout/ex1.png)
+![範例1](/assets/images/memory_layout/ex1.png)
 
 在簡易的繪圖中，發現若我們聲明的變量被覆值為基礎值時，記憶體所存的就會是那個值(**其實仍然會是一個地址，因為記憶方便我們先簡化為基礎值本身**)，而引用值則會是以一個地址被記憶體記住。
 
@@ -68,7 +68,7 @@ var f = {};
 const fn = () => {};
 ```
 
-![範例2](/images/memory_layout/ex2.png)
+![範例2](/assets/images/memory_layout/ex2.png)
 
 ```javascript
 const e = [];
@@ -94,7 +94,7 @@ undefined;
 大致上分享完了，原型鍊簡單來說就引用值的 proto 地址像一條鍊子把原型方法分享給串連起來的樣子。
 這樣就能理解，為什麼我們聲明變量為引用值時，可以調用那些方法了~
 
-![範例2](/images/memory_layout/sv.gif)
+![範例2](/assets/images/memory_layout/sv.gif)
 
 補充:
 若在瀏覽器中測試下方程式碼，會發生一個很有趣的事件。

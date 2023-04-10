@@ -5,7 +5,7 @@ tags: [JavaScript, function, program, Encapsulation]
 categories: [JavaScript]
 ---
 
-![編成範式圖](/images/fn/fn1.png)
+![編成範式圖](/assets/images/fn/fn1.png)
 
 - 面向過程 關心執行流程與控制，通過順序執行一組語句來實現一個功能，這些語句的執行過程就是整個程式
 - 物件導向 將數據與指令組織成模塊，模塊間通過繼承、多態、委託等方式實現複用

@@ -12,13 +12,13 @@ outline: deep
 ## 瀏覽器如何實現 Dom
 
 之前提到 DOM 是存在於 Webkit 記憶體中的，而具體操作可以簡略成下圖
-![內部關係圖](/images/dom/內部關係圖.png)
+![內部關係圖](/assets/images/dom/內部關係圖.png)
 
 ## 映射物件和 V8binding
 
 而瀏覽器透過內部引擎與 WebKit(dom)進行綁定(v8 binding)，建立出一個可以在記憶體中訪問到的 **映射物件(wrapper object)** 。
 
-![binding](/images/dom/bindingV8.png)
+![binding](/assets/images/dom/bindingV8.png)
 
 v8 與 dom 的[詳細實現](https://www.jianshu.com/p/53de5e4deb43)，而我們日常開發中在 devtools 看到畫面並不是 dom，而是**渲染樹**，是 DOM 和 CSSOM 的組合。
 
@@ -35,7 +35,7 @@ document.body.lastChild.xxx; // 123
 
 透過生成 Dom 的 api 會**建立出映射**，並存放在記憶體中，讓我們能夠進行操作，且不會被**GC 回收**。
 
-![記憶體布局](/images/dom/DOM記憶體關係圖.png)
+![記憶體布局](/assets/images/dom/DOM記憶體關係圖.png)
 
 由此圖我們可以瞭解，只要建造出映射，就算我們取消記憶體位置指向，映射仍會存在，DOM 仍然可以訪問，**_若要取消映射，只能透過 DOM api remove_**。
 
@@ -121,7 +121,7 @@ h2 是標籤，在 DOM 內部會生成兩個節點。
 
 描述 DOM 的一種稱呼，與 DOM 一樣，指 WebKit 記憶體內部的 Object，只不過講 DOM Tree 時，重點是**在樹形結構**，而若是講 DOM 時，則是在對比 JS 中的**Wrapper object**。
 
-![DOM Tree](/images/dom/DomTree.png)
+![DOM Tree](/assets/images/dom/DomTree.png)
 
 ---
 
@@ -134,7 +134,7 @@ h2 是標籤，在 DOM 內部會生成兩個節點。
 
 ## 重排與重繪
 
-![Repaint ReFlow](/images/dom/webkit_render.png)
+![Repaint ReFlow](/assets/images/dom/webkit_render.png)
 
 頁面生成過程：
 
