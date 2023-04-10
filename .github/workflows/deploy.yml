@@ -13,17 +13,9 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: https://eepson123tw.github.io/
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-      - run: npm ci
-        # 增加SSH KEY的配置
+       # 增加SSH KEY的配置
       - name: Add SSH Private Key
         env:
           SSH_PRIVATE: ${{ secrets.HEXO_SSH_PRIVATE_KEY }}
@@ -34,6 +26,14 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.email "eepson123@gmail.com"
           git config --global user.name "eepson123tw"
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+      - run: npm ci
       - name: Build
         run: npm run docs:build
       - uses: actions/configure-pages@v2
