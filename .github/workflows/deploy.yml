@@ -1,7 +1,9 @@
-# 配置檔名稱
 name: Deploy
-# 進行什麼行為時觸發，也可多行為觸發，例如[push, fork]
-on: [push]
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - feature/vitepress
 
 jobs:
   deploy:
