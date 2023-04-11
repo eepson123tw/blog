@@ -3,15 +3,12 @@ FROM node:18-alpine AS builder
 WORKDIR /app
 COPY . .
 
-
-
-RUN npm install && \
-  npm run docs:build
+RUN  rm -rf node_modules && npm install && npm run docs:build
 
 FROM nginx:alpine
 
-COPY nginx.conf /etc/nginx/conf.d/configfile.template
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf 
+COPY --from=builder /app/docs/.vitepress/dist /usr/share/nginx/html
 
 ENV \
   PORT=8080 \
@@ -19,4 +16,6 @@ ENV \
 
 EXPOSE 8080
 
-CMD sh -c "envsubst '\$PORT' < /etc/nginx/conf.d/configfile.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+# CMD [ "npm", "run", "dev" ]
+
+CMD sh -c "envsubst '\$PORT' < /etc/nginx/nginx.conf  > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
