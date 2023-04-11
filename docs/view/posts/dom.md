@@ -1,5 +1,5 @@
 ---
-outline: deep
+layout: doc
 ---
 
 # Dom 到底是甚麼呢?
