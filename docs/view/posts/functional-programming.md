@@ -1,9 +1,13 @@
 ---
+layout: doc
+---
+
+<!-- ---
 title: 簡易函式封裝
 date: 2022-05-07 13:15:06
 tags: [JavaScript, function, program, Encapsulation]
 categories: [JavaScript]
----
+--- -->
 
 ![編成範式圖](/assets/images/fn/fn1.png)
 

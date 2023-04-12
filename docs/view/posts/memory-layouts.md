@@ -1,9 +1,12 @@
 ---
+layout: doc
+---
+<!-- ---
 title: 記憶體布局
 date: 2022-05-06 23:23:00
 tags: [JavaScript, G/O, prototype chain]
 categories: [JavaScript]
----
+--- -->
 
 在許多的面試裡，js 的基礎問題是常常會被面試官詢問，像是 Hoisting，var/let/const 差異，閉包...，而今天想跟各位分享的也是眾多基礎題的其中之一，原型鍊(prototype chain)，要分享原型鍊則需提到 js 記憶體中的布局。
 在我們尚未執行代碼之前，我們所寫的 JS 以及宿主環境預設的 API 會被存放在「靜態區」，執行時 V8 會按照執行順序將代碼移動到相應的其他區域，而甚麼是宿主的環境呢?常被提到的像是 client 端(browser)、sever 端(node)

@@ -1,9 +1,12 @@
 ---
+layout: doc
+---
+<!-- ---
 title: Type與Interface的差異
 date: 2023-01-30 21:23:41
 categories: [TypeScript]
 tags: [Type,Interface]
----
+--- -->
 
 最近在學習TypeScript時，覺得Type跟Interface這兩種定義型別的方式，有種若即若離的關係，
 定義型別何時要用type、何時要用Interface呢?自己也無法解釋的很清楚，於是想把在網路上找到的知識，
