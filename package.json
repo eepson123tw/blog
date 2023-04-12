@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "vitepress dev --port 8080",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs --minify false",
+    "docs:build": "vitepress build docs",
+    "build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {},
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.65"
+    "vitepress": "1.0.0-alpha.49"
   }
 }

@@ -4,6 +4,9 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Allen's blog",
   description: 'A VitePress Site',
+  appearance: true,
+  lastUpdated: true,
+  cleanUrls: true,
   head: [
     [
       'meta',
