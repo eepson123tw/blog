@@ -302,7 +302,7 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.192.tgz#5790406361a2852d332d41635d927f1600811285"
   integrity sha512-km+Vyn3BYm5ytMO13k9KTp27O75rbQ0NFw+U//g+PX7VZyjCioXaRFisqSIJRECljcTv73G3i6BpglNGHgUQ5A==
 
-"@types/node@*":
+"@types/node@*", "@types/node@^18.0.1":
   version "18.15.11"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.15.11.tgz#b3b790f09cb1696cffcec605de025b088fa4225f"
   integrity sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q==
@@ -319,10 +319,22 @@
   dependencies:
     "@types/node" "*"
 
+"@types/three@^0.148.0":
+  version "0.148.1"
+  resolved "https://registry.yarnpkg.com/@types/three/-/three-0.148.1.tgz#e999a1a4840c12da8723187c315d8c8781d1066b"
+  integrity sha512-gZwIyTBMxKXqJHXmZ0dzvDieuQ4hz8MPNHtkRrAwER/xPlAh9eP2WIfaolvQY+wJAzlNV5a9ceS4JT+i/jybsw==
+  dependencies:
+    "@types/webxr" "*"
+
 "@types/web-bluetooth@^0.0.16":
   version "0.0.16"
   resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.16.tgz#1d12873a8e49567371f2a75fe3e7f7edca6662d8"
   integrity sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==
+
+"@types/webxr@*":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@types/webxr/-/webxr-0.5.1.tgz#4908349419104bd476a4252d04e4c3abb496748d"
+  integrity sha512-xlFXPfgJR5vIuDefhaHuUM9uUgvPaXB6GKdXy2gdEh8gBWQZ2ul24AJz3foUd8NNKlSTQuWYJpCb1/pL81m1KQ==
 
 "@vitejs/plugin-vue@^4.1.0":
   version "4.1.0"
@@ -627,9 +639,9 @@ node-bin-setup@^1.0.0:
   integrity sha512-opgw9iSCAzT2+6wJOETCpeRYAQxSopqQ2z+N6BXwIMsQQ7Zj5M8MaafQY8JMlolRR6R1UXg2WmhKp0p9lSOivg==
 
 node@^18.14.0:
-  version "18.14.0"
-  resolved "https://registry.yarnpkg.com/node/-/node-18.14.0.tgz#044b4ca0dc8530a5a30909c0b63f8a5811b134bc"
-  integrity sha512-H1TUHf7/SsJdgb+b5Y20f986pu+KItqQ8s6oV+QkUCWPn7v+kicZM8ewldtjWB3XrD3+zTW8DFLzDNjFg/nl7A==
+  version "18.15.0"
+  resolved "https://registry.yarnpkg.com/node/-/node-18.15.0.tgz#4d8b58629b250cd68dfefb23e4020e4a11b6c670"
+  integrity sha512-y6G6jOU7iZ4QjFLCc1srvPBtk+K8Lak0JbNS6ocGSAI30+wvIWaolbhj3f+jqOv58gSIAlDMyTJckQO9lD5wwQ==
   dependencies:
     node-bin-setup "^1.0.0"
 
@@ -637,6 +649,11 @@ normalize-wheel-es@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/normalize-wheel-es/-/normalize-wheel-es-1.2.0.tgz#0fa2593d619f7245a541652619105ab076acf09e"
   integrity sha512-Wj7+EJQ8mSuXr2iWfnujrimU35R2W4FAErEyTmJoJ7ucwTn2hOUSsRehMb5RSYkxXGTM7Y9QpvPmp++w5ftoJw==
+
+orbit-controls-es6@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/orbit-controls-es6/-/orbit-controls-es6-2.0.1.tgz#43ee3d470007364106aaae337edbe4a74eedc041"
+  integrity sha512-Np+XREwlIFl7tSpMSqHuJ20ySonCwCJO+vxyMGmijCJv5+I1SqGQMNfn2fwJC3TVvakXRIxa4ayxJdzeF5dPAA==
 
 path-parse@^1.0.7:
   version "1.0.7"

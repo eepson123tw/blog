@@ -13,7 +13,7 @@ layout: doc
 import * as THREE from 'three'
 import gsap from 'gsap'
 import { onMounted } from 'vue'
-const OrbitControls = require('three-orbit-controls')(THREE);
+import OrbitControls from 'orbit-controls-es6';
 
 onMounted(() => {
   //scene

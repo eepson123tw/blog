@@ -11,11 +11,15 @@
   },
   "dependencies": {
     "element-plus": "^2.3.3",
+    "gsap": "^3.11.4",
     "node": "^18.14.0",
+    "orbit-controls-es6": "^2.0.1",
     "sitemap": "^7.1.1",
-    "vitepress": "^1.0.0-alpha.65",
     "three": "^0.148.0",
-    "gsap": "^3.11.4"
+    "vitepress": "^1.0.0-alpha.65"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "@types/three": "^0.148.0"
+  }
 }
