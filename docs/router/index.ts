@@ -1,5 +1,6 @@
 export const nav = [
   { text: 'Home', link: '/' },
+  { text: 'About', link: '/view/about' },
   {
     text: 'FrontEnd',
     items: [

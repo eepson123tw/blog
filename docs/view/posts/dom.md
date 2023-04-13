@@ -7,7 +7,6 @@ layout: doc
 其實 Dom 是一個[定義](https://www.w3.org/TR/WebIDL/)，是由 W3C WebIDL 所規定，宿主瀏覽器應用程式按此定義實現(底層為 C++)，
 並且是一種資料結構，存在於[WebKit][1]的記憶體中。
 
----
 
 ## 瀏覽器如何實現 Dom
 
