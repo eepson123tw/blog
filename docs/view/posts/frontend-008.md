@@ -122,7 +122,7 @@ similar plots ⇒ 類似情節
 若有更好的使用模式，也請提供給我喔~~
 
 
-[OpenAI wiki](https://zh.wikipedia.org/zh-tw/OpenAI)
-[ChatGPT研究框架2023](https://www.slidestalk.com/ai_algorithms/ChatGPT20232023277231656)
-[What Is It and How Does It Work?](https://www.entrepreneur.com/science-technology/chatgpt-what-is-it-and-how-does-it-work/445014)
-[ChatGPT 未來式：從語言學習延伸到日常工作的高效 AI 工具](https://shop.wordup.com.tw/product/1022)
+- [OpenAI wiki](https://zh.wikipedia.org/zh-tw/OpenAI)
+- [ChatGPT研究框架2023](https://www.slidestalk.com/ai_algorithms/ChatGPT20232023277231656)
+- [What Is It and How Does It Work?](https://www.entrepreneur.com/science-technology/chatgpt-what-is-it-and-how-does-it-work/445014)
+- [ChatGPT 未來式：從語言學習延伸到日常工作的高效 AI 工具](https://shop.wordup.com.tw/product/1022)

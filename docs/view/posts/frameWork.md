@@ -122,9 +122,9 @@ Vue 核心分為`聲明式的描述UI，渲染器，組件，編譯器`。
 
 參考資料：
 
-[Js 起源與前世](https://javascript.alphacamp.co/javascript-past-and-present.html)
-[盤點 Web20 年](https://kknews.cc/tech/vlypb5l.html)
-[前端框架演進之路](https://www.notion.so/b9059106045a4432a2f697402372126e#29689bd6e5954a1f979289312dcdbd6f)
-[UI is a function of state](https://www.kn8.lt/blog/ui-is-a-function-of-data/)
-[Front-end frameworks and librariese](https://2021.stateofjs.com/zh-Hant/libraries/front-end-frameworks/)
-[如何利用 Qwik 和 Partytown 削减掉 页面中 99% 的 JavaScript ](https://zhuanlan.zhihu.com/p/445122206)
+- [Js 起源與前世](https://javascript.alphacamp.co/javascript-past-and-present.html)
+- [盤點 Web20 年](https://kknews.cc/tech/vlypb5l.html)
+- [前端框架演進之路](https://www.notion.so/b9059106045a4432a2f697402372126e#29689bd6e5954a1f979289312dcdbd6f)
+- [UI is a function of state](https://www.kn8.lt/blog/ui-is-a-function-of-data/)
+- [Front-end frameworks and librariese](https://2021.stateofjs.com/zh-Hant/libraries/front-end-frameworks/)
+- [如何利用 Qwik 和 Partytown 削减掉 页面中 99% 的 JavaScript ](https://zhuanlan.zhihu.com/p/445122206)

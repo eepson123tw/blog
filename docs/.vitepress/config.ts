@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import { createWriteStream } from 'node:fs'
 import { resolve } from 'node:path'
 import { SitemapStream } from 'sitemap'
+import { nav, sidebar } from '../router/index'
 
 const links = []
 
@@ -39,23 +40,12 @@ export default defineConfig({
     await new Promise((r) => writeStream.on('finish', r))
   },
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      {
-        text: 'FrontEnd',
-        items: [{ text: 'DOM', link: '/view/posts/dom' }]
-      }
-    ],
-
-    sidebar: [
-      {
-        text: 'FrontEnd',
-        items: [{ text: 'DOM', link: '/view/posts/dom' }],
-        collapsed: true
-      }
-    ],
-
+    nav,
+    sidebar,
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2021-present Allen Shih'
+    },
     socialLinks: [
       {
         icon: 'github',

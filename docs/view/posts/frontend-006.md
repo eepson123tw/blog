@@ -1,20 +1,14 @@
 ---
 layout: doc
 ---
-<!-- ---
-title: Type與Interface的差異
-date: 2023-01-30 21:23:41
-categories: [TypeScript]
-tags: [Type,Interface]
---- -->
+# Type與Interface的差異
 
 最近在學習TypeScript時，覺得Type跟Interface這兩種定義型別的方式，有種若即若離的關係，
 定義型別何時要用type、何時要用Interface呢?自己也無法解釋的很清楚，於是想把在網路上找到的知識，
 以及自己的實作做些統整，加深自己的記憶點。
 
----
+## Type
 
-# Type
 定義型別的一種方法，可採用顯式的定義，也可使用隱式的類型推斷，常用來定義較為簡易的型別類型(較為推薦)，
 對定義之型別，有較多的操作空間，TypeScript提供了許多工具類型的type供我們使用。可以表示原始類型、聯合類型、元組類型和物件類型。
 
@@ -37,7 +31,6 @@ function test(s:allen){
   return new s('allen')
 }
 
----
 
 //工具類型操作 getType 
  type GetType<T,K extends keyof T> = {[S in K]:T[S]}
@@ -63,9 +56,7 @@ type x = ReadonlyRemove<Book>
 
 ```
 
----
-
-# Interface
+## Interface
 
 用來形容或描述物件的結構或屬性的型別，也因為Js有許多物件結構的描述，較能用來描述這些預設的js行為~
 
@@ -111,9 +102,7 @@ const a:cake<number,string> ={
 
 **補充 [key:string|number|symbol] 若建立key必須符合以下型別，不然會ERROR。**
 
----
-
-# Type vs Interface
+## Type vs Interface
 
 **與interface的差異在於無法重複覆值，沒有overload特性及merging特性，並且不能繼承實作物件與其屬性。**
 而且語意上也有些需差異，需要多方評估後挑適合的使用。
