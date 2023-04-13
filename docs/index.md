@@ -4,20 +4,25 @@ layout: home
 
 hero:
   name: "Allen's Blog"
-  text: "We are what we repeatedly do. Excellence, then, is not an act but a habit."
+  text: "Cogito, ergo sum"
   tagline: Development notes, miscellaneous, small talk, and life.
   actions:
     - theme: brand
-      text: Dom
+      text: What for?
+      link: /view/posts/dom
+    - theme: alt
+      text: About Me
       link: /view/posts/dom
 
-
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - icon: 🖥
+    title: Front-end
+    details: Vue、Nuxt、React、Vite、webpack、TypeScript、JavaScript、Three.js、StorkBook
+  - icon: 🖱
+    title: Back-end
+    details: Docker、Nginx、HTTP、Jenkins、Shell
+  - icon: 🍺
+    title: Weekend
+    details: Coding、Reading、Leaning、Trying
 ---
 
