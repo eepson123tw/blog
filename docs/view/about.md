@@ -13,7 +13,7 @@ layout: doc
 import * as THREE from 'three'
 import gsap from 'gsap'
 import { onMounted } from 'vue'
-import OrbitControls from 'orbit-controls-es6';
+
 
 onMounted(() => {
   //scene
@@ -50,12 +50,7 @@ onMounted(() => {
     canvas: canvas,
   })
   // 與滑鼠事件建立連線
-  const controls = new OrbitControls(camera, canvas)
-  controls.enableDamping = true
-  controls.enablePan = false
-  controls.enableZoom = false
-  controls.autoRotate = true
-  controls.autoRotateSpeed = 5
+
 
   renderer.setSize(860,500)
   renderer.setPixelRatio(2)
@@ -66,7 +61,7 @@ onMounted(() => {
     // mesh.rotation.x += 0.01
     // light.position.y += 0.01
     // light.position.z += 0.01
-    controls.update()
+
     renderer.render(scene, camera)
   }
   animate()
