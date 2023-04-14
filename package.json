@@ -12,12 +12,12 @@
     "element-plus": "^2.3.3",
     "gsap": "^3.11.4",
     "sitemap": "^7.1.1",
-    "three": "^0.148.0",
-    "vitepress": "^1.0.0-alpha.65"
+    "three": "^0.148.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
     "@types/three": "^0.148.0",
-    "node": "^18.14.0"
+    "node": "^18.14.0",
+    "vitepress": "^1.0.0-alpha.65"
   }
 }
