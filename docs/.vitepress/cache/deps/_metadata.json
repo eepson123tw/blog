@@ -1,53 +1,23 @@
 {
-  "hash": "daefaf87",
-  "browserHash": "a0304bec",
+  "hash": "1dad54bd",
+  "browserHash": "4342f660",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "627157bc",
+      "fileHash": "2ebbf115",
       "needsInterop": false
     },
     "element-plus": {
       "src": "../../../../node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "5b458bc5",
-      "needsInterop": false
-    },
-    "three": {
-      "src": "../../../../node_modules/three/build/three.module.js",
-      "file": "three.js",
-      "fileHash": "e03c49bf",
-      "needsInterop": false
-    },
-    "gsap": {
-      "src": "../../../../node_modules/gsap/index.js",
-      "file": "gsap.js",
-      "fileHash": "b67f7c9f",
-      "needsInterop": false
-    },
-    "orbit-controls-es6": {
-      "src": "../../../../node_modules/orbit-controls-es6/build/orbit-controls-es6.es6.js",
-      "file": "orbit-controls-es6.js",
-      "fileHash": "83f1d756",
-      "needsInterop": false
-    },
-    "three/examples/jsm/controls/OrbitControls": {
-      "src": "../../../../node_modules/three/examples/jsm/controls/OrbitControls.js",
-      "file": "three_examples_jsm_controls_OrbitControls.js",
-      "fileHash": "8bf01c5e",
+      "fileHash": "b4d0882e",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-4S7LXNVO": {
-      "file": "chunk-4S7LXNVO.js"
-    },
-    "chunk-G4AWDJY5": {
-      "file": "chunk-G4AWDJY5.js"
-    },
-    "chunk-DFKQJ226": {
-      "file": "chunk-DFKQJ226.js"
+    "chunk-YJNUPD57": {
+      "file": "chunk-YJNUPD57.js"
     }
   }
 }

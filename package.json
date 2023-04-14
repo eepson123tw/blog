@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vitepress dev --port 8080",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "build": "vitepress build docs",
@@ -12,14 +11,13 @@
   "dependencies": {
     "element-plus": "^2.3.3",
     "gsap": "^3.11.4",
-    "node": "^18.14.0",
-    "orbit-controls-es6": "^2.0.1",
     "sitemap": "^7.1.1",
     "three": "^0.148.0",
     "vitepress": "^1.0.0-alpha.65"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
-    "@types/three": "^0.148.0"
+    "@types/three": "^0.148.0",
+    "node": "^18.14.0"
   }
 }

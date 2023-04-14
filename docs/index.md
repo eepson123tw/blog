@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: What for?
-      link: /view/posts/dom
+      link: /view/intro
     - theme: alt
       text: About Me
       link: /view/posts/dom

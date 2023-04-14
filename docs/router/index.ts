@@ -10,6 +10,7 @@ export const nav = [
   }
 ]
 export const sidebar = [
+  { text: 'Intro', link: '/view/intro' },
   {
     text: 'FrontEnd',
     items: [
