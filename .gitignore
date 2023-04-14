@@ -7,3 +7,4 @@ node_modules/
 _multiconfig.yml
 .deploy_git
 .vitepress
+docker
