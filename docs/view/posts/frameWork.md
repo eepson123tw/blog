@@ -1,14 +1,10 @@
 ---
 layout: doc
+date: 2022-10-28 00:06:03
+description: My awesome post description
+title: 前端與框架的關係
 ---
 
-<!-- ---
-title: 前端與框架的關係
-date: 2022-10-28 00:06:03
-tags: [JavaScript, framework, vue]
-categories: [JavaScript]
-sticky: 999
---- -->
 
 # 前端與框架的秘密
 

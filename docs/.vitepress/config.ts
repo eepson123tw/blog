@@ -1,11 +1,14 @@
-import { defineConfig } from 'vitepress'
-import { createWriteStream } from 'node:fs'
+import { defineConfig, createContentLoader, type SiteConfig } from 'vitepress'
+import { createWriteStream, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { SitemapStream } from 'sitemap'
 import { nav, sidebar } from '../router/index'
 import { description, docsVersion, github, keywords, name, site } from './meta'
+import { Feed } from 'feed'
+import path from 'path'
 
 const links = []
+const hostname: string = 'https://allenvitepress.zeabur.app/'
 
 export default defineConfig({
   title: "Allen's blog",
@@ -78,13 +81,56 @@ export default defineConfig({
   },
   buildEnd: async ({ outDir }) => {
     const sitemap = new SitemapStream({
-      hostname: 'https://allenvitepress.zeabur.app/'
+      hostname
     })
     const writeStream = createWriteStream(resolve(outDir, 'sitemap.xml'))
+
+    const feed = new Feed({
+      title: 'Allen Shih',
+      description: 'My personal blog',
+      id: hostname,
+      link: hostname,
+      language: 'en',
+      favicon: `${hostname}/favicon.ico`,
+      copyright: 'Copyright (c) 2021-present, Allen Shih'
+    })
+
+    const posts = await createContentLoader('*.md', {
+      excerpt: true,
+      render: true
+    }).load()
+
+    posts.sort(
+      (a, b) =>
+        +new Date(b.frontmatter.date as string) -
+        +new Date(a.frontmatter.date as string)
+    )
+
+    for (const { url, excerpt, frontmatter, html } of posts) {
+      feed.addItem({
+        title: frontmatter.title,
+        id: `${hostname}${url}`,
+        link: `${hostname}${url}`,
+        description: excerpt,
+        content: html,
+        author: [
+          {
+            name: 'AllenShih',
+            email: 'eepson123@gmial.com',
+            link: ''
+          }
+        ],
+        date: frontmatter.date
+      })
+    }
+
     sitemap.pipe(writeStream)
     links.forEach((link) => sitemap.write(link))
     sitemap.end()
     await new Promise((r) => writeStream.on('finish', r))
+    await new Promise((r) =>
+      writeFileSync(path.join(outDir, 'feed.rss'), feed.rss2())
+    )
   },
   themeConfig: {
     logo: '/logo.png',
