@@ -6,5 +6,5 @@ node_modules/
 .deploy*/
 _multiconfig.yml
 .deploy_git
-.vitepress
+.vitepress/dist
 docker
