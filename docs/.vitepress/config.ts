@@ -95,7 +95,7 @@ export default defineConfig({
       copyright: 'Copyright (c) 2021-present, Allen Shih'
     })
 
-    const posts = await createContentLoader('*.md', {
+    const posts = await createContentLoader('/view/**/*.md', {
       excerpt: true,
       render: true
     }).load()
