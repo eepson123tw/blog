@@ -26,6 +26,14 @@ export const sidebar = [
     collapsed: true
   },
   {
+    text: 'BackEnd',
+    items: [
+      { text: 'JWT機制(JSON Web Tokens)', link: '/view/posts/jwt' },
+      { text: 'Nginx', link: '/view/backend/nginx' }
+    ],
+    collapsed: true
+  },
+  {
     text: 'SmallTalk',
     items: [
       { text: '前端轉職很簡單?', link: '/view/posts/frontend-001' },

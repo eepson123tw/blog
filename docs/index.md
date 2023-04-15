@@ -6,6 +6,9 @@ hero:
   name: "Allen's Blog"
   text: "Cogito, ergo sum"
   tagline: Development notes, miscellaneous, small talk, and life.
+  image:
+    src: /logo.png
+    alt: Allen's logo
   actions:
     - theme: brand
       text: What for?

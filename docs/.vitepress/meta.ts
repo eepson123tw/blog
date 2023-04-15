@@ -8,7 +8,7 @@ export const keywords = '前端開發、React、Vue、Next.js、coding、github'
 export const description = ''
 
 // social link
-export const github = 'https://github.com/eepson123tw/blog/blob'
+export const github = 'https://github.com/eepson123tw/blog'
 
 // docs version
 export const docsVersion = version
