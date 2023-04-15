@@ -1,38 +1,23 @@
 {
-  "hash": "1dad54bd",
-  "browserHash": "ba26d3f2",
+  "hash": "8b56335a",
+  "browserHash": "baeca865",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "b5fd55bd",
+      "fileHash": "789eadcc",
       "needsInterop": false
     },
     "element-plus": {
       "src": "../../../../node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "e704d1f6",
-      "needsInterop": false
-    },
-    "three": {
-      "src": "../../../../node_modules/three/build/three.module.js",
-      "file": "three.js",
-      "fileHash": "81a51f8d",
-      "needsInterop": false
-    },
-    "gsap": {
-      "src": "../../../../node_modules/gsap/index.js",
-      "file": "gsap.js",
-      "fileHash": "1b49ed52",
+      "fileHash": "fd529590",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-4S7LXNVO": {
-      "file": "chunk-4S7LXNVO.js"
-    },
-    "chunk-DFKQJ226": {
-      "file": "chunk-DFKQJ226.js"
+    "chunk-YJNUPD57": {
+      "file": "chunk-YJNUPD57.js"
     }
   }
 }

@@ -13,6 +13,17 @@ export default defineConfig({
   // appearance: 'light', // default theme
   lastUpdated: true,
   cleanUrls: true, //clear the Url Html
+  markdown: {
+    theme: {
+      light: 'min-dark',
+      dark: 'one-dark-pro'
+    },
+    lineNumbers: true,
+    config: (md) => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      md.use(require('markdown-it-task-lists'))
+    }
+  },
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     [

@@ -17,6 +17,7 @@
   "devDependencies": {
     "@types/node": "^18.0.1",
     "@types/three": "^0.148.0",
+    "markdown-it-task-lists": "^2.1.1",
     "node": "^18.14.0",
     "vitepress": "^1.0.0-alpha.65"
   }
