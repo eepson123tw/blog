@@ -3,6 +3,7 @@ import { createWriteStream } from 'node:fs'
 import { resolve } from 'node:path'
 import { SitemapStream } from 'sitemap'
 import { nav, sidebar } from '../router/index'
+import { description, docsVersion, github, keywords, name, site } from './meta'
 
 const links = []
 
@@ -12,6 +13,7 @@ export default defineConfig({
   appearance: true,
   lastUpdated: true,
   cleanUrls: true,
+
   head: [
     [
       'meta',
@@ -42,6 +44,15 @@ export default defineConfig({
   themeConfig: {
     nav,
     sidebar,
+    // returnToTopLabel: '',
+    // outlineTitle: '',
+    // darkModeSwitchLabel: '',
+    // sidebarMenuLabel: '',
+    editLink: {
+      pattern: `${github}/feature/vitepress/docs/:path`,
+      text: '在 GitHub 上编辑此页'
+    },
+    lastUpdatedText: '最后一次更新于',
     footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2021-present Allen Shih'
@@ -51,6 +62,17 @@ export default defineConfig({
         icon: 'github',
         link: 'https://github.com/eepson123tw/eepson123tw.github.io'
       }
-    ]
+    ],
+    algolia: {
+      appId: 'JQ4IJY9BK1',
+      apiKey: '78d9ab43228a430dd43bed1ffd1965d6',
+      indexName: 'AllenBlog',
+      placeholder: '關鍵字',
+      translations: {
+        button: {
+          buttonText: '搜尋DOC'
+        }
+      }
+    }
   }
 })
