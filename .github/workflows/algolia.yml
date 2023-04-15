@@ -23,4 +23,4 @@ jobs:
         env:
           APPLICATION_ID: ${{secrets.APPLICATION_ID}}
           API_KEY: ${{secrets.API_KEY}}
-          CONFIG: ${{steps.algolia_config.outputs.config}}
+       
