@@ -1,16 +1,15 @@
 ---
 layout: doc
----
-<!-- ---
-title: 實作一個可視區域導讀提醒
 date: 2022-11-05 00:08:25
-categories: [JavaScript]
-tags: [JavaScript, Intersection Observer API]
---- -->
+description: Intersection Observer API
+title: 實作一個可視區域導讀提醒
+---
+
+# 實作一個可視區域導讀提醒
 
 在前端的開發過程中，常需要在某個視覺區塊進入頁面的可視範圍時，讓頁面進行某些變化，我們會使用一些第三方的套件庫，但第三方的套件庫可能相當龐大，或是使用上來說並沒有那麼直覺，那有沒有其他更便利方法呢？
 
-# Intersection Observer
+## Intersection Observer
 
 原生的 Api，可以用來觀測頁面元素與可見區域相交部分的比例，然後可以在達到比例時觸發 callback。
 常被用來在圖片的 lazyLoading，內容的無限滾動，及自動播放影片或音檔等功能。

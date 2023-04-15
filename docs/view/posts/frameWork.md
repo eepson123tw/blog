@@ -1,7 +1,7 @@
 ---
 layout: doc
 date: 2022-10-28 00:06:03
-description: My awesome post description
+description: 前端框架的進程
 title: 前端與框架的關係
 ---
 

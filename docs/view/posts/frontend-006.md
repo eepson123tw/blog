@@ -1,5 +1,8 @@
 ---
 layout: doc
+date: 2022-12-15 21:18:08
+description: TypeScript
+title: Type與Interface的差異
 ---
 # Type與Interface的差異
 

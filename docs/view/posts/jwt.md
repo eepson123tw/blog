@@ -1,12 +1,10 @@
 ---
 layout: doc
----
-<!-- ---
-title: JWT機制(JSON Web Tokens)
 date: 2023-03-25 11:14:47
-categories: [FrontendNote]
-tags: [JWT,Cryptography]
---- -->
+description:  JWT,Cryptography
+title: JWT機制(JSON Web Tokens)
+---
+
 
 # 什麼是JWT?
 

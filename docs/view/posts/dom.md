@@ -1,7 +1,9 @@
 ---
 layout: doc
+date: 2023-10-28 23:45:03
+description: Dom的底層
+title:  Dom 到底是甚麼呢
 ---
-
 # Dom 到底是甚麼呢?
 
 其實 Dom 是一個[定義](https://www.w3.org/TR/WebIDL/)，是由 W3C WebIDL 所規定，宿主瀏覽器應用程式按此定義實現(底層為 C++)，

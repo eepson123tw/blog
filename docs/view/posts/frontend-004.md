@@ -1,12 +1,10 @@
 ---
 layout: doc
----
-<!-- ---
-title: 如何操作複雜的物件結構
 date: 2022-11-26 00:45:20
-categories: [JavaScript]
-tags: [JavaScript,ArrayMethods,iterable Obj]
---- -->
+description: ArrayMethods,iterable Obj
+title: 如何操作複雜的物件結構
+---
+
 
 # 如何操作複雜的物件結構
 
