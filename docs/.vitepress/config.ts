@@ -8,7 +8,7 @@ import { Feed } from 'feed'
 import path from 'path'
 
 const links = []
-const hostname: string = 'https://allenvitepress.zeabur.app/'
+const hostname: string = 'https://allenvitepress.zeabur.app'
 
 export default defineConfig({
   title: "Allen's blog",
@@ -81,7 +81,7 @@ export default defineConfig({
   },
   buildEnd: async ({ outDir }) => {
     const sitemap = new SitemapStream({
-      hostname
+      hostname: 'https://allenvitepress.zeabur.app/'
     })
     const writeStream = createWriteStream(resolve(outDir, 'sitemap.xml'))
 
