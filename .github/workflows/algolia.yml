@@ -8,6 +8,10 @@ jobs:
   algolia:
     runs-on: ubuntu-latest
     steps:
+      - name: Use Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
       - uses: actions/checkout@v2
       - name: Get the content of algolia.json as config
         id: aligolia_config
