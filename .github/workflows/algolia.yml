@@ -18,9 +18,12 @@ jobs:
       - name: Get the content of algolia.json as config
         id: aligolia_config
         run: echo "config=$(cat crawlerConfig.json | jq -r tostring)" >> $GITHUB_OUTPUT
-      - name: Push indices to Algolia
-        uses: signcl/docsearch-scraper-action@master
+      - name: Run DocSearch Scraper
         env:
-          APPLICATION_ID: ${{secrets.APPLICATION_ID}}
-          API_KEY: ${{secrets.API_KEY}}
-       
+          APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
+          API_KEY: ${{ secrets.API_KEY }}
+        run: |
+          docker run \
+          -e APPLICATION_ID -e API_KEY \
+          -e CONFIG="$(cat .github/scrapeConfig/docusaurus-v2.json)" \
+          algolia/docsearch-scraper
