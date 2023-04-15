@@ -1,9 +1,9 @@
 name: algolia
 on:
+  workflow_dispatch: {}
   push:
     branches:
       - feature/vitepress
-
 jobs:
   algolia:
     runs-on: ubuntu-latest
