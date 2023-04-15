@@ -129,7 +129,7 @@ export default defineConfig({
     sitemap.end()
     await new Promise((r) => writeStream.on('finish', r))
     await new Promise((r) =>
-      writeFileSync(path.join(outDir, 'feed.rss'), feed.rss2())
+      writeFileSync(path.join(outDir, 'rss.xml'), feed.rss2())
     )
   },
   themeConfig: {
