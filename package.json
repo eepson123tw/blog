@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "element-plus": "^2.3.3",
+    "gitalk": "^1.8.0",
     "gsap": "^3.11.4",
     "sitemap": "^7.1.1",
     "three": "^0.148.0"

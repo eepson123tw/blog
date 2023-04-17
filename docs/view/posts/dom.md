@@ -9,7 +9,6 @@ title:  Dom 到底是甚麼呢
 其實 Dom 是一個[定義](https://www.w3.org/TR/WebIDL/)，是由 W3C WebIDL 所規定，宿主瀏覽器應用程式按此定義實現(底層為 C++)，
 並且是一種資料結構，存在於[WebKit][1]的記憶體中。
 
-
 ## 瀏覽器如何實現 Dom
 
 之前提到 DOM 是存在於 Webkit 記憶體中的，而具體操作可以簡略成下圖
@@ -446,3 +445,5 @@ document.dir // 文档的文字朝向 = 'ltr' || 'rtl'
 
 [1]: https://zh.m.wikipedia.org/zh-tw/WebKit "Webkit"
 [2]: https://www.796t.com/post/YjJ2dWc=.html "dom繼承"
+
+<GitTalk/>
