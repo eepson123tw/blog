@@ -12,7 +12,7 @@ const hostname: string = 'https://allenvitepress.zeabur.app'
 
 export default defineConfig({
   title: "Allen's blog",
-  description: "Keep evolving oneself through continuous iteration."
+  description: 'Keep evolving oneself through continuous iteration.',
   // appearance: 'light', // default theme
   lastUpdated: true,
   cleanUrls: true, //clear the Url Html
