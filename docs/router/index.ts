@@ -21,7 +21,14 @@ export const sidebar = [
       { text: '網頁的效能指標及優化', link: '/view/posts/frontend-005' },
       { text: 'Type與Interface的差異', link: '/view/posts/frontend-006' },
       { text: '簡易函式封裝', link: '/view/posts/functional-programming' },
-      { text: '記憶體布局', link: '/view/posts/memory-layouts' }
+      { text: '記憶體布局', link: '/view/posts/memory-layouts' },
+      {
+        text: 'React學習筆記',
+        items: [
+          { text: 'React-001 啟程', link: '/view/posts/react/react-001' }
+        ],
+        collapsed: false
+      }
     ],
     collapsed: true
   },

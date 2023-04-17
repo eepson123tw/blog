@@ -13,9 +13,9 @@ hero:
     - theme: brand
       text: What for?
       link: /view/intro
-    - theme: alt
-      text: About Me
-      link: /view/posts/dom
+    # - theme: alt
+    #   text: About Me
+    #   link: /view/posts/dom
 
 features:
   - icon: 🖥
