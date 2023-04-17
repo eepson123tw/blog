@@ -78,6 +78,11 @@ export default defineConfig({
         async: '',
         src: 'https://www.googletagmanager.com/gtag/js?id=G-R6YQL587WJ'
       }
+    ],
+    [
+      'script',
+      {},
+      "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-R6YQL587WJ');"
     ]
   ],
   transformHtml: (_, id, { pageData }) => {
