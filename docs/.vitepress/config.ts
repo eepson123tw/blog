@@ -70,7 +70,15 @@ export default defineConfig({
         content: 'SH2b8gzgTJT_CWEMppSWf_YLQ130Q9PDunRkjaf6EM'
       }
     ],
-    ['meta', { name: 'theme-color', content: '#3c8772' }]
+    ['meta', { name: 'theme-color', content: '#3c8772' }],
+    [
+      'script',
+
+      {
+        async: '',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-R6YQL587WJ'
+      }
+    ]
   ],
   transformHtml: (_, id, { pageData }) => {
     if (!/[\\/]404\.html$/.test(id))
