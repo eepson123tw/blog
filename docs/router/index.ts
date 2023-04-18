@@ -25,7 +25,11 @@ export const sidebar = [
       {
         text: 'React學習筆記',
         items: [
-          { text: 'React-001 啟程', link: '/view/posts/react/react-001' }
+          { text: 'React-001 啟程', link: '/view/posts/react/react-001' },
+          {
+            text: 'React-002 組件生成與傳參',
+            link: '/view/posts/react/react-002'
+          }
         ],
         collapsed: false
       }
