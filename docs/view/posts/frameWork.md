@@ -124,3 +124,5 @@ Vue 核心分為`聲明式的描述UI，渲染器，組件，編譯器`。
 - [UI is a function of state](https://www.kn8.lt/blog/ui-is-a-function-of-data/)
 - [Front-end frameworks and librariese](https://2021.stateofjs.com/zh-Hant/libraries/front-end-frameworks/)
 - [如何利用 Qwik 和 Partytown 削减掉 页面中 99% 的 JavaScript ](https://zhuanlan.zhihu.com/p/445122206)
+
+<GitTalk/>
