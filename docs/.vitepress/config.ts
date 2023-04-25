@@ -1,4 +1,9 @@
-import { defineConfig, createContentLoader, type SiteConfig } from 'vitepress'
+import {
+  defineConfig,
+  createContentLoader,
+  type SiteConfig,
+  PageData
+} from 'vitepress'
 import { createWriteStream, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { SitemapStream } from 'sitemap'
@@ -7,7 +12,12 @@ import { description, docsVersion, github, keywords, name, site } from './meta'
 import { Feed } from 'feed'
 import path from 'path'
 
-const links = []
+const links: {
+  url: string
+  lastmod?: number | RegExpMatchArray | null | undefined
+  changefreq: string
+  priority: number
+}[] = []
 const hostname: string = 'https://allenvitepress.zeabur.app'
 
 export default defineConfig({
@@ -86,17 +96,32 @@ export default defineConfig({
     ]
   ],
   transformHtml: (_, id, { pageData }) => {
-    if (!/[\\/]404\.html$/.test(id))
+    const regex = /[0-9]{0,4}-[0-9]{0,2}-[0-9]{0,2}/gm
+    const condition = pageData.frontmatter.date
+      ? `${pageData.frontmatter.date}`.match(regex)
+      : pageData.lastUpdated
+    if (!/[\\/]404\.html$/.test(id)) {
       links.push({
         url: pageData.relativePath.replace(/((^|\/)index)?\.md$/, '$2'),
-        lastmod: pageData.lastUpdated
+        lastmod: condition,
+        changefreq: 'weekly',
+        priority: 0.7
       })
+    }
   },
   buildEnd: async ({ outDir }) => {
     const sitemap = new SitemapStream({
-      hostname: 'https://allenvitepress.zeabur.app/'
+      hostname: 'https://allenvitepress.zeabur.app/',
+      lastmodDateOnly: true
     })
     const writeStream = createWriteStream(resolve(outDir, 'sitemap.xml'))
+
+    sitemap.pipe(writeStream)
+    links.forEach((link) => {
+      sitemap.write(link)
+    })
+    sitemap.end()
+    await new Promise((r) => writeStream.on('finish', r))
 
     const feed = new Feed({
       title: 'Allen Shih',
@@ -137,10 +162,6 @@ export default defineConfig({
       })
     }
 
-    sitemap.pipe(writeStream)
-    links.forEach((link) => sitemap.write(link))
-    sitemap.end()
-    await new Promise((r) => writeStream.on('finish', r))
     await new Promise((r) =>
       writeFileSync(path.join(outDir, 'rss.xml'), feed.rss2())
     )
