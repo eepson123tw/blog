@@ -1,6 +1,6 @@
 ---
 layout: doc
-date: 2023-10-28 23:45:03
+date: 2023-04-28 23:45:03
 description: Algolia
 title: Algolia
 ---

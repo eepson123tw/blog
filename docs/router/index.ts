@@ -1,6 +1,6 @@
 export const nav = [
   { text: 'Home', link: '/' },
-  { text: 'About', link: '/view/about' },
+  // { text: 'About', link: '/view/about' },
   {
     text: 'FrontEnd',
     items: [
@@ -29,6 +29,10 @@ export const sidebar = [
           {
             text: 'React-002 組件生成與傳參',
             link: '/view/posts/react/react-002'
+          },
+          {
+            text: 'React-003 組件狀態與副作用更新',
+            link: '/view/posts/react/react-003'
           }
         ],
         collapsed: false
