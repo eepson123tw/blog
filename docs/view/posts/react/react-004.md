@@ -29,7 +29,7 @@ React16前更新需透過reconciler(判斷哪先元件需要更新，可中斷)�
 
 [Reference](https://www.youtube.com/watch?v=0ympFIwQFJw&t=5s&ab_channel=PhilipFabianek)
 
-![fiberIs](/assets/images/react/fiberIs.png)
+![fiberInfo](/assets/images/react/fiberInfo.png)
 
 <details>
 <summary>FiberNode包含的屬性</summary>
