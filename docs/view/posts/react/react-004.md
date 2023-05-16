@@ -5,7 +5,7 @@ description: 學習React框架
 title: React框架第四天
 ---
 
-# 學習 React 框架 - 004 渲染切片與底層纖維
+# 學習 React 框架 - 004 渲染切片與底層fiber
 
 ## React怎麼render組件?
 
@@ -62,11 +62,11 @@ function FiberNode(
   this.pendingProps = pendingProps;
   //已從 React 元素中的新數據更新並需要應用於子組件或 DOM 元素的道具。
   this.memoizedProps = null;
-  //在上一次渲染期間用於創建輸出的纖維的道具。
+  //在上一次渲染期間用於創建輸出的fiber的道具。
   this.updateQueue = null; 
   // 狀態更新、回調和 DOM 更新隊列。
   this.memoizedState = null;
-  // 用於創建輸出的fiber的狀態。在處理更新時，它會反映當前在屏幕上呈現的狀態。
+  // 用於創建輸出的fiber的狀態。在處理更新時，它會反映當前在頁面上呈現的狀態。
   this.dependencies = null;
   this.mode = mode;
   
@@ -118,7 +118,7 @@ function ClickCounter (){
 
 第一次渲染後，React 得到一個 fiber 樹，它反映了用於渲染 UI 的應用程序的狀態。這棵樹通常被稱為當前樹(Current Fiber tree)。
 
-當 React 開始處理更新時，它會構建一個所謂的 workInProgress 樹，它反映了要刷新到屏幕的未來狀態。
+當 React 開始處理更新時，它會構建一個所謂的 workInProgress 樹，它反映了要刷新到頁面的未來狀態。
 
 一旦處理完更新並完成所有相關工作，React 將準備好的 workInProgress樹以刷新到頁面上。一旦這棵 workInProgress 樹被渲染到頁面上，它就變成了 current 樹。
 
@@ -134,7 +134,7 @@ React 總是一次性更新 DOM——它不會顯示部分結果。
 
 將 React 中的組件視為使用狀態和 props 來計算 UI 表示的函數。任何會觸發計算的函數，如改變 DOM 或調用生命週期方法，都應被視為副作用，或者簡稱為效果。
 
-因此fiber節點是一種除了更新之外還可以跟踪side-effects的便捷機制。每個fiber節點都可以有與之關聯的effect。它們在 effectTag 字段中被表明。
+因此fiber節點是一種除了更新之外還可以跟踪side-effects的便捷機制。每個fiber節點都可以有與之關聯的effect。它們在 effectTag 屬性中被表明。
 
 ## Effect List
 
