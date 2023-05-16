@@ -33,6 +33,10 @@ export const sidebar = [
           {
             text: 'React-003 組件狀態與副作用更新',
             link: '/view/posts/react/react-003'
+          },
+          {
+            text: 'React-004 渲染切片與底層纖維',
+            link: '/view/posts/react/react-004'
           }
         ],
         collapsed: false
