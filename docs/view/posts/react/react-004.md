@@ -4,7 +4,6 @@ date: 2023-05-16 21:50:00
 description: 學習React框架
 title: React框架第四天
 ---
-
 # 學習 React 框架 - 004 渲染切片與底層fiber
 
 ## React怎麼render組件?
@@ -24,7 +23,6 @@ React16前更新需透過reconciler(判斷哪先元件需要更新，可中斷)�
 
 透過fiber的結構，將同步渲染的方式更改為**非同步渲染**與任務片段技術，將各組件依virtual dom tree => fiber tree，實做出一個可以非同步更新的結構。使得渲染過程可以被中斷、暫停和恢復，從而更好地控制渲染的優先級，提高應用程式的響應性能，並避免等待渲染的時間以及JavaScript線程占用等待的問題。
 
-
 ## [Fiber](https://github.com/facebook/react/blob/769b1f270e1251d9dbdce0fcbd9e92e502d059b8/packages/react-reconciler/src/ReactFiber.js#L414)
 
 [Reference](https://www.youtube.com/watch?v=0ympFIwQFJw&t=5s&ab_channel=PhilipFabianek)
@@ -32,10 +30,13 @@ React16前更新需透過reconciler(判斷哪先元件需要更新，可中斷)�
 ![fiberInfo](/assets/images/react/fiberInfo.png)
 
 <details>
+
 <summary>FiberNode包含的屬性</summary>
 
 [取自](https://xiaochen1024.com/article_item/600aca0cecf02e002e6db56c)
+
 ```js
+
 function FiberNode(
   tag: WorkTag,
   pendingProps: mixed,
@@ -58,38 +59,39 @@ function FiberNode(
 
   this.ref = null;
 
-  //用来计算state---
+  // 用来计算state---
   this.pendingProps = pendingProps;
-  //已從 React 元素中的新數據更新並需要應用於子組件或 DOM 元素的道具。
+  // 已從 React 元素中的新數據更新並需要應用於子組件或 DOM 元素的道具。
   this.memoizedProps = null;
-  //在上一次渲染期間用於創建輸出的fiber的道具。
+  // 在上一次渲染期間用於創建輸出的fiber的道具。
   this.updateQueue = null; 
   // 狀態更新、回調和 DOM 更新隊列。
   this.memoizedState = null;
   // 用於創建輸出的fiber的狀態。在處理更新時，它會反映當前在頁面上呈現的狀態。
   this.dependencies = null;
   this.mode = mode;
-  
-	//effect相关---
+	// effect相关---
   this.effectTag = NoEffect;
   this.nextEffect = null;
   this.firstEffect = null;
   this.lastEffect = null;
 
-  //优先级相关的属性---
+  // 优先级相关的属性---
   this.lanes = NoLanes;
   this.childLanes = NoLanes;
 
-  //current和workInProgress的指针---
+  // current和workInProgress的指针---
   this.alternate = null;
 }
 ```
 
 </details>
 
-可以視為一種數據結構，保存了組件節點的屬性、類型、dom，並透過指向 child、sibling、return来形成Fiber樹，此數據結構將渲染過程劃分為可中斷的單元，以支持增量渲染和更好的使用者互動，區分元件樹的不同層級和渲染優先級。
+可以視為一種數據結構，保存了組件節點的屬性、類型、dom，並透過指向 child、sibling、return来形成並連接Fiber樹，此數據結構將渲染過程劃分為可中斷的單元，以支持增量渲染和更好的使用者互動，區分元件樹的不同層級和渲染優先級。
 
-
+:::warning
+在瀏覽器閒置時配合 [requestIdleCallback API](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestIdleCallback)的調用, 以實現任務拆分、中斷與恢復。
+:::
 
 ```js
 function ClickCounter (){
@@ -136,16 +138,89 @@ React 總是一次性更新 DOM——它不會顯示部分結果。
 
 ## Effect List
 
+在頁面組件的狀態發生更新時，需要紀錄那些組件在生命週期或函式中發生變動，觸發了副作用，而Effect List 則是使用一個可追溯的線性列表紀錄這些流程，
+順序由子到父層(深層到淺層紀錄)去執行，由fiberNode中不同的標籤(firstEffect、lastEffect、nextEffect)標記Effect順序，最後傳遞到Root，建構出列表。
 
 ## Render and Commit Phases
 
-## work loop
+React在兩個階段中執行 Virtual Dom 轉換 Fiber tree，及比對節點差異，執行副作用，最後顯示加載到頁面上等動作，分別為
 
+- Render(可以異步執行，可中斷) => 主要是創建Fiber Tree和生成EffectList。
 
-<!-- ### nextUnitOfWork 
-### performUnitOfWork
-## workLoop 
-## Reconciliation -->
+> React 元素的中 fiber 絕大多數都會被重新使用和更新，而不是重新生成，已降低記憶體消耗。
+
+- Commit(同步執行，無法中斷) => 將Render生成的effectList遍歷，觀測effectList上的Fiber節點中保存着對應的props變化及狀態。最後**進行Dom操作和生命周期的執行**、執行hooks中的操作或銷毀未使用的函数。
+
+> 此階段將單線程的執行，而使用者會看到畫面的變動，所以無法暫停。
+
+## Work loop
+
+所有fiber節點工作的查找都在工作循環(Work loop)中處理，nextUnitOfWork 擁有來自 workInProgress 樹的 fiber 節點的引用。
+在這個while迴圈中，將會不斷的遞迴節點，尋找是否有未完成的工作。**直到子節點開始的所有工作都完成後，才會完成父節點和回溯的工作。**
+
+:::info
+ completeUnitOfWork 和 completeUnitOfWork 主要用於迭代目的，而主要活動發生在 beginWork 和 completeWork 函數中。
+:::
+
+實現：
+
+```js
+function workLoop(isYieldy) {
+  if (!isYieldy) {
+    // Flush work without yielding
+    while (nextUnitOfWork !== null) {
+      nextUnitOfWork = performUnitOfWork(nextUnitOfWork); 
+    }
+  } else {
+    // Flush asynchronous work until the deadline runs out of time.
+    while (nextUnitOfWork !== null && !shouldYield()) {
+      nextUnitOfWork = performUnitOfWork(nextUnitOfWork);
+    }
+  }
+}
+
+function performUnitOfWork(workInProgress) {
+    let next = beginWork(workInProgress);
+    if (next === null) {
+        next = completeUnitOfWork(workInProgress);
+    }
+    return next;
+}
+
+function beginWork(workInProgress) {
+    console.log('work performed for ' + workInProgress.name);
+    return workInProgress.child;
+}
+
+function completeWork(workInProgress) {
+    console.log('work completed for ' + workInProgress.name);
+    return null;
+}
+
+function completeUnitOfWork(workInProgress) {
+    while (true) {
+        let returnFiber = workInProgress.return;
+        let siblingFiber = workInProgress.sibling;
+
+        nextUnitOfWork = completeWork(workInProgress);
+
+        if (siblingFiber !== null) {
+            // If there is a sibling, return it
+            // to perform work for this sibling
+            return siblingFiber;
+        } else if (returnFiber !== null) {
+            // If there's no more work in this returnFiber,
+            // continue the loop to complete the parent.
+            workInProgress = returnFiber;
+            continue;
+        } else {
+            // We've reached the root.
+            return null;
+        }
+    }
+}
+
+```
 
 ## 參考資料
 
