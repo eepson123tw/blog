@@ -37,6 +37,10 @@ export const sidebar = [
           {
             text: 'React-004 渲染切片與底層纖維',
             link: '/view/posts/react/react-004'
+          },
+          {
+            text: 'React-005 函式鉤子與狀態驅動',
+            link: '/view/posts/react/react-005'
           }
         ],
         collapsed: false
