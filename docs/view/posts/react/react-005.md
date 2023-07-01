@@ -68,3 +68,6 @@ react state 盡量將state封裝在真正需要他的地方 co locate the state 
 ## 參考資料
 
 [useState lazy initialization and function updates](https://kentcdodds.com/blog/use-state-lazy-initialization-and-function-updates)
+
+
+<GitTalk/>

@@ -28,6 +28,10 @@ const frontendRouter = {
         {
           text: 'React-005 函式鉤子與狀態驅動',
           link: '/view/posts/react/react-005'
+        },
+        {
+          text: 'React-006 進階鉤子與渲染控制',
+          link: '/view/posts/react/react-006'
         }
       ],
       collapsed: false
