@@ -96,19 +96,19 @@ const [state, dispatch] = React.useReducer(usePokemonReducer, {
 
 </details>
 
-可以發現我們將其分為 actionType 、 reducer 封裝，讓我們可以去執行更複雜的物件操作，且透過IDE的提示能夠快速地找到相對應的操作方法。
-在官網中多次提到我們需要提供[純粹的操作](https://react.dev/learn/keeping-components-pure)，以避免副作用造成非預期的組件變更及渲染。
+可以將其分為 actionType 、 reducer 封裝，讓我們可以去執行更複雜的物件操作，且透過IDE的提示能夠快速地找到相對應的操作方法。
+須注意在官網中多次提到我們需提供[純粹的操作](https://react.dev/learn/keeping-components-pure)，以避免副作用造成非預期的組件變更及渲染。
 
 ## useCallback
 
-> 優化函式回調，但使用上是否有需要仍需自我判斷
+> 優化函式回調，但使用上是否有需要仍需自我判斷，可能會沒優化到反而變更慢QQ
 
 ```JavaScript
 const cachedFn = useCallback(fn, dependencies)
 ```
 
-第一個參數是要緩存的函數值，第二個參數是一個依賴數組，類似於 `useEffect` 。
-當一個依賴項在渲染之間發生變化時，您在第一個參數中傳遞的回調將是從 `useCallback` 返回的回調。如果它們沒有改變，那麼您將獲得上一次返回的回調（因此回調在渲染之間保持相同）。
+第一個參數是緩存的函數值，第二個參數為一個依賴數組，類似於 `useEffect` 。
+當一個依賴項在渲染之間發生變化時，您在第一個參數中傳遞的回調將是從 `useCallback` 返回的回調。如果它們沒有改變，將獲得上一次返回的回調（因此回調在渲染之間保持相同）。
 透過 useCallback 可以記住 function 的記憶體位置，就可以避免 React.memo 在比較 props 值時因為**物件型別記憶體位置不同但值相同**而重新渲染的狀況。
 
 但因此Hook使用了緩存的模式，若非有特定必要，否則會增加記憶體的負擔。
@@ -143,6 +143,7 @@ function ChatRoom({ roomId }) {
 
 
 ## useContext
+> 這個Hook十分有趣，透過函式封裝自己的上下文環境，更簡單的說，React提供了一個全域的狀態傳遞方式。在應用層級複雜且巢狀時，能有效的傳遞狀態。
 
 ```JavaScript
 import { useContext } from 'react';
@@ -170,9 +171,6 @@ function Button() {
 
 - SomeContext：您之前使用 createContext 創建的上下文。上下文本身不保存信息，它僅表示您可以提供或從組件中讀取的信息類型
 - value: useContext 返回調用組件的上下文值。它被確定為傳遞給樹中調用組件上方最近的 SomeContext.Provider 的值。
-
-這個Hook十分有趣，我們透過函式封裝自己的上下文環境，更簡單的說，React提供了一個全域的狀態傳遞方式。
-在應用層級複雜且巢狀時，能有效的傳遞狀態。
 
 :::warning
 React 會自動重新渲染所有使用特定上下文的子級，從接收不同 value 的提供者開始。前一個值和後一個值通過 Object.is 進行比較。使用 memo 跳過重新渲染不會阻止子級接收新的上下文值。
@@ -260,12 +258,14 @@ export default App
 
 ## useLayoutEffect
 
+> useLayoutEffect 是 useEffect 的一個版本，**在瀏覽器重新繪製屏幕之前觸發**。當開發需求中有需要一開始時拿到某些資料或狀態，就可以使用。
+
+- before any other effects are called.
+- if the side effect that you are performing makes an observable change to the dom, that will require the browser to paint the update that you made.
+
 :::danger
 僅在客戶端上運行。它們在服務器渲染期間不會運行。useLayoutEffect中的代碼以及從中安排的所有狀態更新都會阻止瀏覽器重新繪製屏幕。當過度使用時，這會使您的應用程序變慢。
 :::
-useLayoutEffect 是 useEffect 的一個版本，**在瀏覽器重新繪製屏幕之前觸發**。當開發需求中有需要一開始時拿到某些資料或狀態，就可以使用。
-- before any other effects are called.
-- if the side effect that you are performing makes an observable change to the dom, that will require the browser to paint the update that you made.
 
 ## usememo
 
