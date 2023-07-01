@@ -29,7 +29,7 @@ const [state, dispatch] = useReducer(reducer, initialArg, init?)
 
 - optional init : 應返回初始狀態的初始化函數。如果未指定，則初始狀態設置為 initialArg 。否則，初始狀態將設置為調用 init(initialArg) 的結果。可避免重新創建初始狀態，即 lazy initialization 惰性初始化。
 
-- state : 目前的狀態 (響應式)
+- state : 目前的狀態 
 
 - dispatch : 函數可讓您將狀態更新為不同的值**並觸發重新渲染**。
 
