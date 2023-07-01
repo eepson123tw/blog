@@ -34,10 +34,10 @@ const frontendRouter = {
           link: '/view/posts/react/react-006'
         }
       ],
-      collapsed: false
+      collapsed: true
     }
   ],
-  collapsed: true
+  collapsed: false
 }
 
 export default frontendRouter
