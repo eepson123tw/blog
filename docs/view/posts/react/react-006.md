@@ -10,20 +10,20 @@ title: React框架第六天
 
 ## 本頁前言
 
-在前篇的基礎操作中，了解到 React 的操作模型，在每次的更新中，React 會觀測依賴屬性的差異及變動，若有差異則重新 Rerender，單向且直觀的操作模式。
-單靠 useState 及 useEffect ，其實就已能做出簡易的應用，但開發需求往往更為複雜且有條件性，不能只單單因依賴變動就馬上渲染組件，我們需有時間性、操作性、整體性的規劃，而 React 也提出了更進階的控制函式，讓開發者做出更豐富及細膩的操作。
+在前篇的基礎操作中，了解 React 的操作模型，每次的更新中，React 會觀測依賴屬性的差異及變動，若有差異則重新 Rerender，單向且直觀的操作模式。
+單靠 useState 及 useEffect ，其實就能做出簡易的應用，但開發需求往往更為複雜且有條件性，不能只單單因依賴變動就馬上渲染組件，我們需有時間性、操作性、整體性的規劃，而 React 也提出了更進階的控制函式，讓開發者做出更豐富及細膩的操作。
 
 ## Advanced Hooks
 
 ## useReducer
 
-相較於 useState 更易於操作複雜的物件解構，且可依照條件更新狀態。
+相較於 useState 更易於操作複雜的物件結構，且可依照條件更新狀態。
 
 ```JavaScript
 const [state, dispatch] = useReducer(reducer, initialArg, init?)
 ```
 
-- reducer ：reducer 函數，指定狀態如何更新。它必須是純粹的，應該以狀態和操作作為參數，並且應該返回下一個狀態。狀態和動作可以是任何類型。
+- reducer ：reducer 函數，指定狀態如何更新。它必須是純粹的，應該以狀態和操作作為參數，並且應返回下一個狀態。狀態和動作可以是任何類型。
 
 - initialArg ：計算初始狀態的值。它可以是任何類型的值。如何根據它計算初始狀態取決於下一個 init 參數。
 
@@ -31,10 +31,10 @@ const [state, dispatch] = useReducer(reducer, initialArg, init?)
 
 - state : 目前的狀態 
 
-- dispatch : 函數可讓您將狀態更新為不同的值**並觸發重新渲染**。
+- dispatch : 函數可將狀態更新為不同的值**並觸發重新渲染**。
 
 :::info
-在嚴格模式下，React 將調用您的減速器和初始化器兩次，以幫助您發現意外的雜質。這只是開發行為，不會影響生產。
+在嚴格模式下，React 將調用reducer和初始化兩次，以幫助您發現意外的雜質。這只是開發行為，不會影響生產。
 :::
 
 <details>
@@ -96,19 +96,19 @@ const [state, dispatch] = React.useReducer(usePokemonReducer, {
 
 </details>
 
-可以將其分為 actionType 、 reducer 封裝，讓我們可以去執行更複雜的物件操作，且透過IDE的提示能夠快速地找到相對應的操作方法。
-須注意在官網中多次提到我們需提供[純粹的操作](https://react.dev/learn/keeping-components-pure)，以避免副作用造成非預期的組件變更及渲染。
+將其分為 actionType 、 reducer 封裝，讓我們可以去執行更複雜的物件操作，且透過 IDE 的提示能夠快速地找到相對應的操作方法。
+須注意官網中多次提到需提供[純粹的操作](https://react.dev/learn/keeping-components-pure)，以避免副作用造成非預期的組件變更及渲染。
 
 ## useCallback
 
-> 優化函式回調，但使用上是否有需要仍需自我判斷，可能會沒優化到反而變更慢QQ
+> 優化函式回調，但使用上是否有必要仍需自我判斷，可能會沒優化到反而變更慢QQ
 
 ```JavaScript
 const cachedFn = useCallback(fn, dependencies)
 ```
 
 第一個參數是緩存的函數值，第二個參數為一個依賴數組，類似於 `useEffect` 。
-當一個依賴項在渲染之間發生變化時，您在第一個參數中傳遞的回調將是從 `useCallback` 返回的回調。如果它們沒有改變，將獲得上一次返回的回調（因此回調在渲染之間保持相同）。
+當一個依賴項在渲染之間發生變化時，在第一個參數中傳遞的回調將是從 `useCallback` 返回的回調。如果它們沒有改變，將獲得上一次返回的回調（因此回調在渲染之間保持相同）。
 透過 useCallback 可以記住 function 的記憶體位置，就可以避免 React.memo 在比較 props 值時因為**物件型別記憶體位置不同但值相同**而重新渲染的狀況。
 
 但因此Hook使用了緩存的模式，若非有特定必要，否則會增加記憶體的負擔。
@@ -169,7 +169,7 @@ function Button() {
 
 ```
 
-- SomeContext：您之前使用 createContext 創建的上下文。上下文本身不保存信息，它僅表示您可以提供或從組件中讀取的信息類型
+- SomeContext：使用 createContext 創建的上下文。上下文本身不保存信息，它僅表示您可以提供或從組件中讀取的信息類型
 - value: useContext 返回調用組件的上下文值。它被確定為傳遞給樹中調用組件上方最近的 SomeContext.Provider 的值。
 
 :::warning
@@ -210,7 +210,7 @@ function MyApp() {
 
 <details>
 
-<summary>useContext 可與 useReducer 搭配成一個註冊在巢狀組件中的狀態管理方式</summary>
+<summary> useContext 可與 useReducer 搭配成一個註冊在巢狀組件中的狀態管理方式</summary>
 
 ```JavaScript
 const PokemonContext = React.createContext(null)
@@ -264,7 +264,7 @@ export default App
 - if the side effect that you are performing makes an observable change to the dom, that will require the browser to paint the update that you made.
 
 :::danger
-僅在客戶端上運行。它們在服務器渲染期間不會運行。useLayoutEffect中的代碼以及從中安排的所有狀態更新都會阻止瀏覽器重新繪製屏幕。當過度使用時，這會使您的應用程序變慢。
+僅在客戶端上運行。它們在服務器渲染期間不會運行。useLayoutEffect中的代碼以及從中安排的所有狀態更新都會阻止瀏覽器重新繪製屏幕。當過度使用時，這會讓應用程序變慢QQ
 :::
 
 ## usememo
@@ -278,7 +278,7 @@ const cachedValue = useMemo(calculateValue, dependencies)
 const allItems = React.useMemo(() => getItems(inputValue), [inputValue])
 ```
 
-- calculateValue ：計算要緩存的值的函數。應該是純粹的，不應有任何入參，並且應有返回值(任意類型)。 React 將在初始渲染期間調用您的函數。在下一次渲染時，如果 dependencies 自上次渲染以來沒有更改，React 將再次返回相同的值。否則，它將調用 calculateValue ，返回其結果並存儲它以便以後可以重用。
+- calculateValue ：計算要緩存的值的函數。應該是純粹的，**不應有任何入參，並且應有返回值(任意類型)**。 React 將在初始渲染期間調用此函數。在下一次渲染時，如果 dependencies 自上次渲染以來沒有更改，React 將再次返回相同的值。否則，它將調用 calculateValue ，返回其結果並存儲它以便以後可以重用。
 - dependencies ： calculateValue 代碼內部引用的所有反應值的列表。反應性值包括 props、state 以及直接在組件體內聲明的所有變量和函數。
 
 :::warning
