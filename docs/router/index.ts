@@ -4,7 +4,7 @@ import smallTalkRouter from './smallTalk'
 
 export const nav = [
   { text: 'Home', link: '/' },
-  { text: 'AboutMe', link: 'https://r3f.zeabur.app/portfolio' },
+  { text: 'AboutMe', link: 'https://ph-portfolio.zeabur.app/' },
   { text: 'Categories', link: '/view/categories' },
   {
     text: 'FrontEnd',
