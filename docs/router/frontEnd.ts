@@ -32,6 +32,10 @@ const frontendRouter = {
         {
           text: 'React-006 進階鉤子與渲染控制',
           link: '/view/posts/react/react-006'
+        },
+        {
+          text: 'React-007 自定義鉤子 useHooks',
+          link: '/view/posts/react/react-007'
         }
       ],
       collapsed: true
