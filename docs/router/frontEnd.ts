@@ -2,6 +2,7 @@ const frontendRouter = {
   text: 'FrontEnd',
   items: [
     { text: 'DOM到底是甚麼呢?', link: '/view/posts/dom' },
+    { text: '瀏覽器是如何運作的', link: '/view/posts/how-browser-work' },
     { text: '前端與框架的關係', link: '/view/posts/frameWork' },
     { text: '實作一個可視區域導讀提醒', link: '/view/posts/frontend-003' },
     { text: '如何操作複雜的物件結構', link: '/view/posts/frontend-004' },

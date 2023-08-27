@@ -11,7 +11,6 @@
 import { useData } from 'vitepress'
 
 const { site: siteData, page, theme } = useData()
-
 const pageFormate = (sidebar) => {
   const mapRecursion = (childList, title, map) => {
     if (childList instanceof Array && childList.length) {
@@ -38,7 +37,6 @@ const pageFormate = (sidebar) => {
     return acc
   }, {})
 }
-
 const pageList = pageFormate(siteData.value.themeConfig.sidebar)
 </script>
 
