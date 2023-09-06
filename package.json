@@ -1,7 +1,18 @@
 {
   "name": "allen_blog",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "private": true,
+  "description": "A Blog to record life",
+  "license": "MIT",
+  "author": "Allen Shih <eepson123@gmail.com>",
+  "homepage": "https://allenvitepress.zeabur.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eepson123tw/blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eepson123tw/blog/issues"
+  },
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
