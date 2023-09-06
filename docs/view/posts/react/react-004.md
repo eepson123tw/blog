@@ -70,7 +70,7 @@ function FiberNode(
   // 用於創建輸出的fiber的狀態。在處理更新時，它會反映當前在頁面上呈現的狀態。
   this.dependencies = null;
   this.mode = mode;
-	// effect相关---
+  // effect相关---
   this.effectTag = NoEffect;
   this.nextEffect = null;
   this.firstEffect = null;

@@ -6,7 +6,9 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "lint:fix": "eslint --debug --ext .md .",
+    "lint": "eslint ."
   },
   "dependencies": {
     "element-plus": "^2.3.3",
@@ -18,9 +20,18 @@
   "devDependencies": {
     "@types/node": "^18.0.1",
     "@types/three": "^0.148.0",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-eslint-plugin": "^5.1.1",
+    "eslint-plugin-markdownlint": "^0.5.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-self": "^1.2.1",
     "feed": "^4.2.2",
+    "lint-staged": "^14.0.1",
     "markdown-it-task-lists": "^2.1.1",
     "node": "^18.14.0",
+    "prettier": "^3.0.3",
     "vitepress": "^1.0.0-alpha.65"
   }
 }

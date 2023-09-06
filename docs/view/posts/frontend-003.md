@@ -24,7 +24,7 @@ title: 實作一個可視區域導讀提醒
   - `rootMargin`：用來改變 root 元素觀察的範圍。
   - `threshold`：Target(目標元素) 的可見程度。可帶入浮點數或浮點數的 array，ex `[0， 0.25， 0.5， 0.75， 1]`，每當 target 的可見程度高於 threshold 時，`callback`  就會被頻繁地觸發， 也就是每 25% 或者减少 25% 的时候都通知一次。可看需求變動。
 
-## 使用方法：
+## 使用方法
 
 ```JavaScript
 const options = {
@@ -40,11 +40,11 @@ observer.observe(target);
 
 ```
 
-# 實際使用案例:
+# 實際使用案例
 
 筆者希望能夠模擬出閱讀網站的功能，即在當前閱讀區域時，可以在 menu list 標記閱讀區塊及變動 URL。
 
-> `實現程式碼使用 vue3，可貼上下方程式碼，觀看變化 `
+> `實現程式碼使用 vue3，可貼上下方程式碼，觀看變化`
 
 ```JavaScript
 <!DOCTYPE html>

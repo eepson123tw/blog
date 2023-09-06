@@ -141,9 +141,9 @@ http {
     error_page 400 404 error.html;   # 同上
     }
 
-		# 第二個虛擬主機
+# 第二個虛擬主機
     
-		server { 
+server { 
     }
 }
 
