@@ -7,7 +7,7 @@
     "docs:build": "vitepress build docs",
     "build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "lint:fix": "eslint --debug --ext .md .",
+    "lint:fix": "eslint --ext .md .",
     "lint": "lint-staged",
     "prepare": "husky install"
   },
@@ -37,10 +37,5 @@
     "node": "^18.14.0",
     "prettier": "^3.0.3",
     "vitepress": "^1.0.0-alpha.65"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
   }
 }
