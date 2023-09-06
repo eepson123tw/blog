@@ -38,9 +38,6 @@
     "prettier": "^3.0.3",
     "vitepress": "^1.0.0-alpha.65"
   },
-  "lint-staged": {
-    "src/**": "eslint"
-  },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
