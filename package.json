@@ -8,7 +8,8 @@
     "build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "lint:fix": "eslint --debug --ext .md .",
-    "lint": "eslint ."
+    "lint": "lint-staged",
+    "prepare": "husky install"
   },
   "dependencies": {
     "element-plus": "^2.3.3",
@@ -18,8 +19,10 @@
     "three": "^0.148.0"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^17.7.0",
     "@types/node": "^18.0.1",
     "@types/three": "^0.148.0",
+    "commitlint": "^17.7.1",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-eslint-plugin": "^5.1.1",
@@ -28,10 +31,19 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-self": "^1.2.1",
     "feed": "^4.2.2",
+    "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "markdown-it-task-lists": "^2.1.1",
     "node": "^18.14.0",
     "prettier": "^3.0.3",
     "vitepress": "^1.0.0-alpha.65"
+  },
+  "lint-staged": {
+    "src/**": "eslint"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
