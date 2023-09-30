@@ -1,36 +1,24 @@
 {
-  "hash": "08952e4f",
-  "browserHash": "29d755cd",
+  "hash": "97c7ba9d",
+  "browserHash": "7ad74c0a",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "ed627521",
+      "fileHash": "d0d344e4",
       "needsInterop": false
     },
     "element-plus": {
       "src": "../../../../node_modules/element-plus/es/index.mjs",
       "file": "element-plus.js",
-      "fileHash": "241b9492",
+      "fileHash": "20d31328",
       "needsInterop": false
     },
     "gitalk": {
       "src": "../../../../node_modules/gitalk/dist/gitalk.js",
       "file": "gitalk.js",
-      "fileHash": "28958b3b",
+      "fileHash": "401bc5fa",
       "needsInterop": true
-    },
-    "three": {
-      "src": "../../../../node_modules/three/build/three.module.js",
-      "file": "three.js",
-      "fileHash": "911623b7",
-      "needsInterop": false
-    },
-    "gsap": {
-      "src": "../../../../node_modules/gsap/index.js",
-      "file": "gsap.js",
-      "fileHash": "381ec6cf",
-      "needsInterop": false
     }
   },
   "chunks": {
