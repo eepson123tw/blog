@@ -13,6 +13,11 @@
   "bugs": {
     "url": "https://github.com/eepson123tw/blog/issues"
   },
+  "keywords": [
+    "react",
+    "vue",
+    "self learning"
+  ],
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
@@ -23,11 +28,15 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "dayjs": "^1.11.10",
     "element-plus": "^2.3.3",
     "gitalk": "^1.8.0",
     "gsap": "^3.11.4",
     "sitemap": "^7.1.1",
-    "three": "^0.148.0"
+    "three": "^0.148.0",
+    "unocss": "^0.56.4",
+    "unplugin-icons": "^0.17.0",
+    "unplugin-vue-components": "^0.25.2"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.7.0",

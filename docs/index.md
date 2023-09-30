@@ -13,19 +13,15 @@ hero:
     - theme: brand
       text: What for?
       link: /view/intro
-    # - theme: alt
-    #   text: About Me
-    #   link: /view/posts/dom
 
 features:
   - icon: 🖥
     title: Front-end
-    details: Vue、Nuxt、React、Vite、webpack、TypeScript、JavaScript、Three.js、StorkBook
-  - icon: 🖱
+    details: Vue、Nuxt、React、Vite、Webpack、TypeScript、JavaScript、Three.js、StorkBook、React-three-fiber
+  - icon: 📺
     title: Back-end
-    details: Docker、Nginx、HTTP、Jenkins、Shell
+    details: Docker、Nginx、HTTP、Jenkins、Shell、AWS
   - icon: 🍺
     title: Weekend
-    details: Coding、Reading、Leaning、Trying
+    details: Coding、Reading、Learning、Trying、sleeping
 ---
-
