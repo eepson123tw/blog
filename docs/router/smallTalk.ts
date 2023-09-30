@@ -1,6 +1,10 @@
 const smallTalkRouter = {
   text: "SmallTalk",
   items: [
+    {
+      text: "自學的進程",
+      link: "/view/posts/self-learning-smalltalk",
+    },
     { text: "前端轉職很簡單?", link: "/view/posts/change-job-smalltalk" },
     { text: "轉職前端前，你可能會想知道?", link: "/view/posts/frontend-job-smalltalk" },
     {
