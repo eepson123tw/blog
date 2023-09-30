@@ -9,6 +9,8 @@ import PageInfo from "../../component/PageInfo.vue";
 import "./style.css";
 import "gitalk/dist/gitalk.css";
 import "element-plus/dist/index.css";
+import "./rainbow.css";
+import "./overide.css";
 import "uno.css";
 
 export default {

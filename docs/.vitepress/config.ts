@@ -19,6 +19,7 @@ export default defineConfig({
   title: "Allen's blog",
   description: keywords,
   lastUpdated: true,
+  appearance: true,
   cleanUrls: true, //clear the Url Html
   markdown: {
     theme: {
