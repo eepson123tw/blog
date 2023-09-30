@@ -1,22 +1,22 @@
-import frontendRouter from './frontEnd'
-import backendRouter from './backEnd'
-import smallTalkRouter from './smallTalk'
+import frontendRouter from "./frontEnd";
+import backendRouter from "./backEnd";
+import smallTalkRouter from "./smallTalk";
 
 export const nav = [
-  { text: 'Home', link: '/' },
-  { text: 'AboutMe', link: 'https://ph-portfolio.zeabur.app/' },
-  { text: 'Categories', link: '/view/categories' },
+  { text: "Home", link: "/" },
+  { text: "AboutMe", link: "https://ph-portfolio.zeabur.app/" },
+  { text: "Categories", link: "/view/categories" },
   {
-    text: 'FrontEnd',
+    text: "FrontEnd",
     items: [
-      { text: 'DOM', link: '/view/posts/dom' },
-      { text: 'FrameWork-History', link: '/view/posts/frameWork' }
-    ]
-  }
-]
+      { text: "DOM", link: "/view/posts/dom" },
+      { text: "FrameWork-History", link: "/view/posts/frameWork" },
+    ],
+  },
+];
 export const sidebar = [
-  { text: 'Intro', link: '/view/intro' },
+  { text: "ℹ Intro", link: "/view/intro" },
   frontendRouter,
   backendRouter,
-  smallTalkRouter
-]
+  smallTalkRouter,
+];

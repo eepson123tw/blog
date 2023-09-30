@@ -1,10 +1,11 @@
 ---
 layout: doc
 date: 2023-03-25 11:14:47
-description:  JWT,Cryptography
+description: JWT,Cryptography
 title: JWT機制(JSON Web Tokens)
 ---
 
+<PageInfo/>
 
 # 什麼是JWT?
 
@@ -54,9 +55,9 @@ xxxxx.yyyyy.zzzzz
 
 ```md
 {
-  "sub": "1234567890",
-  "name": "John Doe",
-  "admin": true
+"sub": "1234567890",
+"name": "John Doe",
+"admin": true
 }
 ```
 
@@ -80,8 +81,7 @@ HMACSHA256(
 
 合起來就會產生[令牌](https://jwt.io/#debugger-io?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFsbGVuIiwiaWQiOjI3ODUwNjN9.NVSX8vVwjcw3oXbOsZv7hp9AzdAAU3gQR8htriPD9sQ)
 
-
-## 還有哪些加密概念?  
+## 還有哪些加密概念?
 
 硬件加密
 

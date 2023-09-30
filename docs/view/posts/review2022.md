@@ -5,6 +5,7 @@ description: review,life
 title: 2022年度回顧
 ---
 
+<PageInfo/>
 
 主要是想藉由回顧整年度發生的種種歷程，分析自己的學習歷程及評估是否繼續投資時間等等...
 期望能在回顧的過程中，能獲的新的展望及想法!並規劃明年要達成得目標及展望!!
@@ -17,27 +18,27 @@ title: 2022年度回顧
   - F2E 專案練習(檔案上傳及動態 landing page)。
   - 學習 hooks 調用 useState 實作等。
   - useEffect 與 useLayoutEffect 差異性等新知理解。
-  Vue3
+    Vue3
   - 重新再看了一次文件。
   - reactive ref 等 核心實作理解。
-  Ts
+    Ts
   - 針對聯集、和集等概念，理解集合應用在 ts 上的實作方式。
   - 與 Vue3 專案的實際操作。
-  Tailwind
+    Tailwind
   - 學習 tailwind 開發模式，並在 F2E 專案中使用。
-  CSS
+    CSS
   - 學習新的屬性，並觀摩實作大量範例(CodePen)。
-  hexo blog
+    hexo blog
   - 自行架設 blog，並維持每月更新的習慣。
   - 應用 google 的 search console 與 Analytic 分析。
-  Story Book
+    Story Book
   - 文件導讀並在小組會議中分享
   - 實作 Vue3+Story Book 的應用組件專案
 - Devops  
   Docker
   - udemy 課程學習
   - 實際在 AMS 中操作 Docker container，並上架前後台應用的網站。
-  Jenkins / CI/CD
+    Jenkins / CI/CD
   - 在公司專案中研究並撰寫流水線，修改各階段流程及最佳化部屬應用。
   - 在自己的部落格中也使用gitHub CI/CD 達成自動化部屬。
 - 程式碼

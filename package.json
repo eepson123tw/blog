@@ -28,10 +28,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@iconify/json": "^2.2.122",
+    "busuanzi.pure.js": "^1.0.3",
     "dayjs": "^1.11.10",
     "element-plus": "^2.3.3",
     "gitalk": "^1.8.0",
     "gsap": "^3.11.4",
+    "postcss": "^8.4.31",
+    "postcss-nested": "^6.0.1",
     "sitemap": "^7.1.1",
     "three": "^0.148.0",
     "unocss": "^0.56.4",

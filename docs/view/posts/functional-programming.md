@@ -1,10 +1,11 @@
 ---
 layout: doc
 date: 2022-05-07 13:15:06
-description:  JavaScript, function, program, Encapsulation
+description: JavaScript, function, program, Encapsulation
 title: 簡易函式封裝
 ---
 
+<PageInfo/>
 # 簡易函式封裝
 
 ![編成範式圖](/assets/images/fn/fn1.png)
@@ -63,9 +64,7 @@ const vaild = (rex) => {
   };
 };
 
-const emailVaild = vaild(
-  /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
-);
+const emailVaild = vaild(/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/);
 emailVaild("aaa@.asdasd");
 false;
 emailVaild("aaa@gmail.com");
@@ -158,14 +157,10 @@ isNumberEven(8);
 也可以結合之前的應用;
 
 const conditionOne = (a, b) => {
-  return console.log(
-    `${a.name} 比 ${b.name} 高${a.height - b.height}公分，他當兵`
-  );
+  return console.log(`${a.name} 比 ${b.name} 高${a.height - b.height}公分，他當兵`);
 };
 const conditionTwo = (a, b) => {
-  return console.log(
-    `${b.name} 比 ${a.name} 高 ${b.height - a.height}公分，他當兵`
-  );
+  return console.log(`${b.name} 比 ${a.name} 高 ${b.height - a.height}公分，他當兵`);
 };
 function beSoldier(a, b) {
   return a.height > b.height ? conditionOne(a, b) : conditionTwo(a, b);
@@ -202,9 +197,7 @@ beSoldier({ name: "Allen", height: 180 }, { name: "Eric", height: 170 }); //alle
   }
   function codingTime() {
     return (
-      Math.abs(new Date(2022, 05) - new Date(2020, 10)) /
-        (1000 * 60 * 60 * 24) +
-      "天"
+      Math.abs(new Date(2022, 05) - new Date(2020, 10)) / (1000 * 60 * 60 * 24) + "天"
     );
   }
 

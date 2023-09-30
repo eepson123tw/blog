@@ -4,6 +4,9 @@ date: 2022-12-15 21:18:08
 description: TypeScript
 title: Type與Interface的差異
 ---
+
+<PageInfo/>
+
 # Type與Interface的差異
 
 最近在學習TypeScript時，覺得Type跟Interface這兩種定義型別的方式，有種若即若離的關係，
@@ -17,7 +20,7 @@ title: Type與Interface的差異
 
 ```typescript
 //簡易地定義屬性
-type Apple = string 
+type Apple = string
 //以物件類型定義屬性
 type Allen ={
   year:number;
@@ -35,14 +38,14 @@ function test(s:allen){
 }
 
 
-//工具類型操作 getType 
+//工具類型操作 getType
  type GetType<T,K extends keyof T> = {[S in K]:T[S]}
- type c = GetType<allen, 'year'> 
+ type c = GetType<allen, 'year'>
  //type c = {
  //   year: number;
  // }
 
-//工具類型操作 exclude 
+//工具類型操作 exclude
 //利用簡單型別的分配律，去除限制型別，可以把 extends視為限制的關鍵，T 必須符合 K 的條件。
 type ExcludeType<T,K extends T> =  T extends K ?  never : T
 type a = ExcludeType<'year' | 'age' |'now', 'year'> // age,now
@@ -68,7 +71,7 @@ type x = ReadonlyRemove<Book>
 interface myInterFace{
   [propname:string]:any,
   name:string,
-  age?:number,  
+  age?:number,
   say():string,
 }
 interface myInterFace{
@@ -145,8 +148,5 @@ interface Point {
 
 若有不同的看法，歡迎在下方留言~
 
-
 [TypeScript官網描述](https://www.typescriptlang.org/cheatsheets)
 [TypeScript DeepDive](https://basarat.gitbook.io/typescript)
-
-

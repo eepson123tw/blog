@@ -1,4 +1,6 @@
 import { defineConfig } from "vitepress";
+
+// static file
 import generateSiteMap from "./plugins/sitemap";
 import generateFeed from "./plugins/feed";
 import generateMeta from "./plugins/head";
@@ -44,6 +46,7 @@ export default defineConfig({
       });
     }
   },
+
   buildEnd: async ({ outDir }) => {
     await generateSiteMap(outDir, links);
     await generateFeed(hostname, outDir);

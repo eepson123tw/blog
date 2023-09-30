@@ -5,6 +5,8 @@ description: How browser work?
 title: 瀏覽器是如何運作的?
 ---
 
+<PageInfo/>
+
 # How browser work?
 
 ::: tip
@@ -46,23 +48,23 @@ title: 瀏覽器是如何運作的?
 ![browser-structure](/assets/images/browser/browser-structure.png)
 
 1. UI介面
-    1. 除了 request page 之外的所有 UI 介面，
+   1. 除了 request page 之外的所有 UI 介面，
 2. [瀏覽器引擎](https://zh.wikipedia.org/zh-tw/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%95%E6%93%8E)
-    1. 將 UI 和渲染引擎之間的操作做連結. 
-    2. Google ⇒ **Blink**   Mozilla **⇒ Gecko [1998年啟用 最久遠]** Internet Explorer ⇒ **Blink**     Safari **⇒ Webkit 自有分支**
+   1. 將 UI 和渲染引擎之間的操作做連結.
+   2. Google ⇒ **Blink** Mozilla **⇒ Gecko [1998年啟用 最久遠]** Internet Explorer ⇒ **Blink** Safari **⇒ Webkit 自有分支**
 3. [渲染引擎](https://developer.mozilla.org/en-US/docs/Glossary/Rendering_engine)
-    1. 將需求的 HTML CSS 等渲染至瀏覽器頁面上
+   1. 將需求的 HTML CSS 等渲染至瀏覽器頁面上
 4. 網路工作
-    1. 處理 network calls 像是 HTTP 需求等, **獨立於平台接口,針對不同平台使用不同的實現！**
-    2. HTTP  **`java.net`** (Java平台) **`HttpClient`** (C#/.NET平台) **`requests`** (Python平台) **`NSURLSession`** (iOS/macOS平台)
+   1. 處理 network calls 像是 HTTP 需求等, **獨立於平台接口,針對不同平台使用不同的實現！**
+   2. HTTP **`java.net`** (Java平台) **`HttpClient`** (C#/.NET平台) **`requests`** (Python平台) **`NSURLSession`** (iOS/macOS平台)
 5. UI 後端介面
-    1. 用於繪製基本小工具（例如下拉框、視窗等）的後端。這個後端提供了一個通用的介面，並不依賴於特定平台。例如選擇框、輸入框、複選框和窗口。
+   1. 用於繪製基本小工具（例如下拉框、視窗等）的後端。這個後端提供了一個通用的介面，並不依賴於特定平台。例如選擇框、輸入框、複選框和窗口。
 6. JavaScript 解釋器
-    1. 是一個內建於瀏覽器的程式，用於解析並執行 JavaScript 代碼。
-    2. **V8 (Chrome 和其他 Chromium-based 瀏覽器)、SpiderMonkey (Firefox)、JavaScriptCore (Safari)**
+   1. 是一個內建於瀏覽器的程式，用於解析並執行 JavaScript 代碼。
+   2. **V8 (Chrome 和其他 Chromium-based 瀏覽器)、SpiderMonkey (Firefox)、JavaScriptCore (Safari)**
 7. 資料存儲
-    1. 用於在本地保存各種數據
-    2. as cookie。瀏覽器還支持 localStorage、IndexedDB、WebSQL 和 FileSystem
+   1. 用於在本地保存各種數據
+   2. as cookie。瀏覽器還支持 localStorage、IndexedDB、WebSQL 和 FileSystem
 
 > Chrome 等瀏覽器為`多進程架構`，以便運行渲染引擎的多個實例 ⇒ 每個選項卡 Tab 都在單獨的進程中運行。
 
@@ -106,7 +108,7 @@ Gecko 和 WebKit [現已轉移至 **Blink** ]是常用的引擎，它們在網�
 
 依照文檔規則，具有由詞彙和語法規則組成的確定性語法。它被稱為上下文無關語法(**註3**)。
 
-### 解析語法  ⇒ 解析器←→詞法分析器組合
+### 解析語法 ⇒ 解析器←→詞法分析器組合
 
 詞法分析器將輸入拆分成詞彙單元（ tokens ），這些單元是語言的有效構建塊。
 
@@ -150,13 +152,11 @@ tokenization 是詞法分析，將輸入解析成詞彙單元（tokens），包�
 
 tokenization 將詞彙單元傳遞給樹構造器，並逐個消耗輸入字符，直到輸入結束。
 
-想像一下會如何解析並建構 DOM 
+想像一下會如何解析並建構 DOM
 
 ```jsx
 <html>
-  <body>
-    Hello world
-  </body>
+  <body>Hello world</body>
 </html>
 ```
 
@@ -273,9 +273,9 @@ div.error, a.error {
 
 > 推測解析器僅解析對外部資源（如外部腳本、樣式表和圖像）的引用。不會進行修改 DOM 的動作[主線程負責]
 
-### 樣式表  ( **Style sheets** ) 載入順序
+### 樣式表 ( **Style sheets** ) 載入順序
 
-獲取 CSS 時不會阻止 HTML 解析或下載，且不會對 DOM  樹造成修改，但它會阻止 JavaScript 解析，並會造成錯誤。[因為 JavaScript 經常拿來查詢 CSS 屬性，並對元素造成影響]
+獲取 CSS 時不會阻止 HTML 解析或下載，且不會對 DOM 樹造成修改，但它會阻止 JavaScript 解析，並會造成錯誤。[因為 JavaScript 經常拿來查詢 CSS 屬性，並對元素造成影響]
 
 > 當樣式表仍在加載和解析時，Firefox 會阻止所有腳本。僅當腳本嘗試訪問可能受卸載樣式表影響的某些樣式屬性時，WebKit 才會阻止腳本。
 
@@ -308,7 +308,7 @@ RenderObject* RenderObject::createObject(Node* node, RenderStyle* style)
     ...
     RenderObject* o = 0;
 
-    switch (style->display()) { 
+    switch (style->display()) {
         case NONE:
             break;
         case INLINE:
@@ -412,6 +412,7 @@ RenderObject* RenderObject::createObject(Node* node, RenderStyle* style)
 ::: info
 根渲染器的位置是 0,0，其尺寸是視口 - 瀏覽器窗口的可見部分。
 :::
+
 ### 髒位註記 (Dirty bit 頁面重寫標誌位)
 
 為了不對每一個小變化都進行完整的佈局，瀏覽器使用“髒位”系統。有兩種標籤 "dirty", and "children are dirty” 區分本身及子級
@@ -443,13 +444,13 @@ RenderObject* RenderObject::createObject(Node* node, RenderStyle* style)
 
 1. 父渲染器確定自己的寬度。
 2. 父渲染器遍歷子渲染器，並進行以下操作：
-    - 放置子渲染器（設置其x和y位置）。
-    - 如果需要，調用子渲染器的佈局過程 - 這可能是因為子渲染器的內容發生了變化，或者在進行全局佈局時，或者其他一些原因。
-    - 計算子渲染器的高度。
+   - 放置子渲染器（設置其x和y位置）。
+   - 如果需要，調用子渲染器的佈局過程 - 這可能是因為子渲染器的內容發生了變化，或者在進行全局佈局時，或者其他一些原因。
+   - 計算子渲染器的高度。
 3. 父渲染器使用子渲染器的累積高度以及邊距和內邊距的高度，來設置自己的高度 - 這將被父渲染器的父渲染器使用。
 4. 將父渲染器的"dirty"標誌設置為false，表示佈局已經完成。
 
-另外有 寬度計算 與 佈局中斷  則不在此分享範圍內。
+另外有 寬度計算 與 佈局中斷 則不在此分享範圍內。
 
 ## 🀀 繪畫 ( Painting )
 
@@ -498,8 +499,8 @@ Firefox 遍歷渲染樹並為繪製的矩形構建顯示列表。它包含與矩
 當前面的步驟都處理完成後，就是將頁面顯示的階段。此階段會按照以下[步驟](https://www.w3.org/TR/CSS21/intro.html#processing-model):
 
 1. 解析 source code 並創建一個 DOM Tree。
-2. 確定目前媒體類型 
-![media](/assets/images/browser/media.png)
+2. 確定目前媒體類型
+   ![media](/assets/images/browser/media.png)
 3. 取回與當前媒體類型關聯的所有樣式表
 4. 透過適合目前媒體類型的機制，為 DOM Tree 的元素分配屬性（依照樣式計算的規則進行分配）
 5. 各屬性的計算部分取決於適用於目標媒體類型的格式化算法。例如，如果目標媒體是屏幕，使用者代理將應用[視覺格式化模型](https://www.w3.org/TR/CSS21/visuren.html)
@@ -574,7 +575,7 @@ Firefox 遍歷渲染樹並為繪製的矩形構建顯示列表。它包含與矩
 
 `移位歸約解析器（Shift-Reduce Parser）`:是一種用於語法分析（Parsing）的技術，通常用於解析編程語言、標記語言等的語法結構。它是一種自頂向下的語法分析方法，用於將輸入的序列（如代碼或文本）轉換為語法樹（Parse Tree）或抽象語法樹（Abstract Syntax Tree）。
 
-`深度優先遍歷（Depth-First Traversal）`：一種常見的遍歷方式，它從根節點開始，依次遍歷每個節點的子節點，直到達到樹的最深處，然後返回並繼續遍歷其他分支。 
+`深度優先遍歷（Depth-First Traversal）`：一種常見的遍歷方式，它從根節點開始，依次遍歷每個節點的子節點，直到達到樹的最深處，然後返回並繼續遍歷其他分支。
 
 ### 來源
 
