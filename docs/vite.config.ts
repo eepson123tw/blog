@@ -6,7 +6,7 @@ import UnoCSS from "unocss/vite";
 import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import Components from "unplugin-vue-components/vite";
-import { MarkdownTransform } from "./utils/markdown-pipe";
+// import { MarkdownTransform } from "./utils/markdown-pipe";
 
 const require = createRequire(import.meta.url);
 export default defineConfig(async () => {
@@ -45,6 +45,9 @@ export default defineConfig(async () => {
       postcss: {
         plugins: [require("postcss-nested")],
       },
+    },
+    build: {
+      chunkSizeWarningLimit: 5000,
     },
   };
 });

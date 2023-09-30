@@ -6,6 +6,7 @@ title: 簡易函式封裝
 ---
 
 <PageInfo/>
+
 # 簡易函式封裝
 
 ![編成範式圖](/assets/images/fn/fn1.png)
