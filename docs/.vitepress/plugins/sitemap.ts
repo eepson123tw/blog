@@ -7,7 +7,7 @@ export default async function generateSiteMap(outDir: string, links: Array<any>)
     hostname: "https://allenvitepress.zeabur.app/",
     lastmodDateOnly: true,
   });
-  const writeStream = createWriteStream(resolve(outDir, "sitemap.xml"));
+  const writeStream = createWriteStream(resolve(outDir, "Sitemap.xml"));
 
   sitemap.pipe(writeStream);
   links.forEach((link) => {
