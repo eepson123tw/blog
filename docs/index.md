@@ -4,15 +4,21 @@ layout: home
 
 hero:
   name: "Allen's Blog"
-  text: "Cogito, ergo sum"
-  tagline: Development notes, miscellaneous, small talk, and life.
+  text: "前端異聞錄"
+  tagline: Development Notes, Miscellaneous, Small Talk, and Life.
   image:
     src: /logo.png
     alt: Allen's logo
   actions:
     - theme: brand
-      text: What for?
-      link: /view/intro
+      text: Categories
+      link: /view/categories
+    - theme: alt
+      text: What is Dom?
+      link: /view/posts/dom
+    - theme: alt
+      text: React?
+      link: /view/posts/react/react-001
 
 features:
   - icon: 🖥

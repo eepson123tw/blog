@@ -49,5 +49,8 @@ export default defineConfig(async () => {
     build: {
       chunkSizeWarningLimit: 5000,
     },
+    optimizeDeps: {
+      exclude: ['js-big-decimal']
+    }
   };
 });

@@ -16,7 +16,7 @@ const links: {
 const hostname: string = "https://allenvitepress.zeabur.app";
 
 export default defineConfig({
-  title: "Allen's blog",
+  title: "前端異聞錄",
   description: keywords,
   lastUpdated: true,
   appearance: true,

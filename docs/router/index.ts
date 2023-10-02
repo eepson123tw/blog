@@ -11,6 +11,7 @@ export const nav = [
     items: [
       { text: "DOM", link: "/view/posts/dom" },
       { text: "FrameWork-History", link: "/view/posts/frameWork" },
+      { text: "React-Self-Learning", link: "/view/posts/react/react-001" },
     ],
   },
 ];
