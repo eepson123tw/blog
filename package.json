@@ -1,0 +1,65 @@
+{
+  "name": "allen_blog",
+  "version": "0.2.0",
+  "private": true,
+  "description": "A Blog to record life",
+  "license": "MIT",
+  "author": "Allen Shih <eepson123@gmail.com>",
+  "homepage": "https://allenvitepress.zeabur.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eepson123tw/blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eepson123tw/blog/issues"
+  },
+  "keywords": [
+    "react",
+    "vue",
+    "self learning"
+  ],
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "lint:fix": "eslint --ext .md .",
+    "lint": "lint-staged",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@iconify/json": "^2.2.122",
+    "busuanzi.pure.js": "^1.0.3",
+    "dayjs": "^1.11.10",
+    "element-plus": "^2.3.3",
+    "gitalk": "^1.8.0",
+    "gsap": "^3.11.4",
+    "postcss": "^8.4.31",
+    "postcss-nested": "^6.0.1",
+    "sitemap": "^7.1.1",
+    "three": "^0.148.0",
+    "unocss": "^0.56.4",
+    "unplugin-icons": "^0.17.0",
+    "unplugin-vue-components": "^0.25.2"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^17.7.0",
+    "@types/node": "^18.0.1",
+    "@types/three": "^0.148.0",
+    "commitlint": "^17.7.1",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-eslint-plugin": "^5.1.1",
+    "eslint-plugin-markdownlint": "^0.5.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-self": "^1.2.1",
+    "feed": "^4.2.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "markdown-it-task-lists": "^2.1.1",
+    "node": "^18.14.0",
+    "prettier": "^3.0.3",
+    "vitepress": "^1.0.0-alpha.65"
+  }
+}
