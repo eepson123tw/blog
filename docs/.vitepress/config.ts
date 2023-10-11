@@ -6,6 +6,7 @@ import generateFeed from "./plugins/feed";
 import generateMeta from "./plugins/head";
 import { nav, sidebar } from "../router/index";
 import { github, keywords } from "./meta";
+import taskLists from "markdown-it-task-lists";
 
 const links: {
   url: string;
@@ -29,7 +30,7 @@ export default defineConfig({
     lineNumbers: true,
     config: (md) => {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
-      md.use(require("markdown-it-task-lists"));
+      md.use(taskLists);
     },
   },
   head: generateMeta(),
