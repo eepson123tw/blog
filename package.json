@@ -35,7 +35,7 @@
     "element-plus": "^2.3.3",
     "gitalk": "^1.8.0",
     "gsap": "^3.11.4",
-    "node-fetch": "2.6.1",
+    "node-fetch": "2.6.7",
     "postcss": "^8.4.31",
     "postcss-nested": "^6.0.1",
     "sitemap": "^7.1.1",
