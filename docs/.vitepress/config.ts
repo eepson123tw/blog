@@ -14,7 +14,7 @@ const links: {
   changefreq: string;
   priority: number;
 }[] = [];
-const hostname: string = "https://allenvitepress.zeabur.app";
+const hostname: string = "https://allenblog.zeabur.app";
 
 export default defineConfig({
   title: "前端異聞錄",

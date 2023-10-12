@@ -8,6 +8,6 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
-Sitemap: https://allenvitepress.zeabur.app/sitemap.xml
+Sitemap: https://allenblog.zeabur.app/Sitemap.xml
 
 

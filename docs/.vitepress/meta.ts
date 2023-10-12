@@ -2,8 +2,8 @@ import { version } from "../../package.json";
 
 // base info
 export const name = "Allen";
-export const site = "https://allenvitepress.zeabur.app/";
-export const logo = "https://allenvitepress.zeabur.app/logo.png";
+export const site = "https://allenblog.zeabur.app/";
+export const logo = "https://allenblog.zeabur.app/logo.png";
 export const keywords = "前端開發、React、Vue、coding、自主學習";
 export const description = "前端開發、React、Vue、coding、自主學習、前端轉職、3D模組";
 // social link
