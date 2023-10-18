@@ -70,7 +70,7 @@ export default defineConfig({
     socialLinks: [
       {
         icon: "github",
-        link: "https://github.com/eepson123tw/eepson123tw.github.io",
+        link: "https://github.com/eepson123tw/blog",
       },
     ],
     algolia: {
