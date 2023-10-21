@@ -1,22 +1,34 @@
 <template>
   <div
-    class="flex b-blue b-1 mx-2 mb-2 justify-center items-start flex-col b-solid p-3 text-amber-5 bg-black font-900"
+    class="mb-3 text-amber-5 font-900"
     v-for="(page, key) of pageList"
+    v-show="pageList"
     :key="key"
   >
     {{ key }}
-    <ul
-      v-for="({ pageLink, pageTitle, data }, index) of page"
-      class="text-blue flex-1 font-500"
-      :key="index"
-    >
-      <li v-if="pageLink">
-        <a :href="pageLink">
-          {{ pageTitle
-          }}{{ data && data.date ? " - " + formatDate(new Date(data.date)) : "" }}
-        </a>
-      </li>
-    </ul>
+    <div class="grid grid-cols-1">
+      <ul
+        v-for="({ pageLink, pageTitle, data }, index) of page"
+        class="text-black flex-1 font-500 p-3 b-dashed border b-blue text-center hover:text-coolGray hover:bg-amber-100"
+        style="margin: 0; margin-bottom: 10px"
+        :key="index"
+      >
+        <li v-if="pageLink" style="list-style: none">
+          <a :href="pageLink">
+            {{ pageTitle
+            }}{{ data && data.date ? " " + formatDate(new Date(data.date)) : "" }}
+          </a>
+          <p class="text-blue" style="margin: 0">{{ data.description }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    v-show="!pageList.FrontEnd"
+    class="text-black text-xl flex justify-center items-center"
+  >
+    <p>Loading...</p>
+    <p class="i-twemoji-frog" style="margin-left: 20px"></p>
   </div>
 </template>
 
@@ -34,7 +46,7 @@ interface FormattedPages {
   pageLink: string;
   pageTitle: string;
   title: string;
-  data: { date: string };
+  data: { date: string; description: string };
 }
 
 const { site: siteData, page, theme, frontmatter } = useData();
@@ -51,7 +63,9 @@ onMounted(async () => {
   }
   frontmatters.value = allFrontmatters;
   pageList.value = pageFormate(siteData.value.themeConfig.sidebar);
+  console.log(pageList);
 });
+
 // date formate
 const formatDate = (date: Date) => {
   const year = date.getFullYear();
@@ -60,14 +74,13 @@ const formatDate = (date: Date) => {
   const hours = String(date.getHours()).padStart(2, "0");
   const minutes = String(date.getMinutes()).padStart(2, "0");
   const seconds = String(date.getSeconds()).padStart(2, "0");
-
-  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  return `${year}/${month}/${day}`;
 };
 // 組出map
 const pageFormate = (sidebar: SidebarItem[]): Record<string, FormattedPages[]> => {
   const mapRecursion = (
     childList: SidebarItem[],
-    title: string,
+    propsTitle: string,
     map: Record<string, FormattedPages[]>
   ) => {
     if (childList instanceof Array && childList.length) {
@@ -77,14 +90,20 @@ const pageFormate = (sidebar: SidebarItem[]): Record<string, FormattedPages[]> =
         }
       });
     }
-    map[title] = childList
+    map[propsTitle] = childList
       .filter((item) => item.link)
       .map((item) => ({
         pageLink: item.link as string,
         pageTitle: item.text,
-        title: title,
-        data: frontmatters.value.find(({ title }) => title === item.text),
-      }));
+        title: propsTitle,
+        data: frontmatters.value.find(
+          ({ title }) =>
+            title.replaceAll(/\s/gi, "") === item.text.replaceAll(/\s/gi, "")
+        ),
+      }))
+      .sort(
+        (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
+      );
   };
 
   return sidebar.reduce((acc, cur) => {

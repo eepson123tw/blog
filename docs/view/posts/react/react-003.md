@@ -2,7 +2,7 @@
 layout: doc
 date: 2023-05-06 19:00:20
 description: 學習React框架
-title: React框架第三天
+title: React-003 組件狀態與副作用更新
 ---
 
 # 學習 React 框架 - 003 組件狀態與副作用更新

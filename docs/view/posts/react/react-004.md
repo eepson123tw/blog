@@ -2,7 +2,7 @@
 layout: doc
 date: 2023-05-16 21:50:00
 description: 學習React框架
-title: React框架第四天
+title: React-004 渲染切片與底層纖維
 ---
 # 學習 React 框架 - 004 渲染切片與底層fiber
 

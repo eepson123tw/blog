@@ -2,7 +2,7 @@
 layout: doc
 date: 2023-04-18 23:31:13
 description: 學習React框架
-title: React框架第二天
+title: React-002 組件生成與傳參
 ---
 
 # 學習React框架 - 002 Day 組件生成與參數傳遞

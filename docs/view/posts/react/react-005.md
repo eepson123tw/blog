@@ -2,7 +2,7 @@
 layout: doc
 date: 2023-06-10 17:35:00
 description: 學習React框架
-title: React框架第五天
+title: React-005 函式鉤子與狀態驅動
 ---
 
 # 學習 React 框架 - 005 函式鉤子與狀態驅動

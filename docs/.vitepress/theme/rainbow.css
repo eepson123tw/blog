@@ -87,6 +87,7 @@
   animation: rainbow 40s linear infinite;
 }
 
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     animation: none !important;
