@@ -124,7 +124,8 @@ h2 是標籤，在 DOM 內部會生成兩個節點。
 
 描述 DOM 的一種稱呼，與 DOM 一樣，指 WebKit 記憶體內部的 Object，只不過講 DOM Tree 時，重點是**在樹形結構**，而若是講 DOM 時，則是在對比 JS 中的**Wrapper object**。
 
-![DOM Tree](/assets/images/dom/DOMTree.png)
+
+![DOM Tree](../../assets/images/dom/DOMTree.png)
 
 ---
 

@@ -11,6 +11,7 @@ import Components from "unplugin-vue-components/vite";
 const require = createRequire(import.meta.url);
 export default defineConfig(async () => {
   return <UserConfig>{
+    assetsInclude: ["**/*.png"],
     server: {
       hmr: {
         overlay: false,
@@ -50,7 +51,7 @@ export default defineConfig(async () => {
       chunkSizeWarningLimit: 5000,
     },
     optimizeDeps: {
-      exclude: ['js-big-decimal']
-    }
+      exclude: ["js-big-decimal"],
+    },
   };
 });
