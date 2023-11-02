@@ -3,6 +3,7 @@
 Welcome to Allen Shih’s development blog! Here, you will find a collection of thoughts, techniques, and best practices revolving around a wide array of technology topics such as frontend development, backend structures, and DevOps methodologies.
 
 ## Sections
+...
 
 ### Vitepress Reference
 
