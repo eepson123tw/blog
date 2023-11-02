@@ -72,6 +72,10 @@ export default defineConfig({
         icon: "github",
         link: "https://github.com/eepson123tw/blog",
       },
+      {
+        icon: "linkedin",
+        link: "https://www.linkedin.com/in/allen-shih/",
+      },
     ],
     algolia: {
       appId: "JQ4IJY9BK1",
