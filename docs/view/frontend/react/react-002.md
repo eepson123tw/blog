@@ -59,7 +59,7 @@ React組件經[編譯](https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%
 ### React.createElement
 
 JSX組件在編譯的過程中透過createElement methods，創建出了[**虛擬DOM**抽象](https://codepen.io/eepson123tw/pen/XWxjXGj?editors=1111)。
-簡單來說就是每個組件函式都是一層封裝，其實底層還是js的型態。我們會透過Render轉換成真正的Dom並注入[DOM樹](/view/posts/dom.md)中。
+簡單來說就是每個組件函式都是一層封裝，其實底層還是js的型態。我們會透過Render轉換成真正的Dom並注入[DOM樹](/view/frontend/dom.md)中。
 
 ### React.Render
 
