@@ -15,10 +15,10 @@ hero:
       link: /view/categories
     - theme: alt
       text: What is Dom?
-      link: /view/posts/dom
+      link: /view/frontend/dom
     - theme: alt
       text: React?
-      link: /view/posts/react/react-001
+      link: /view/frontend/react/react-001
 
 features:
   - icon: 🖥
