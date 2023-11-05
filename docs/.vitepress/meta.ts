@@ -4,8 +4,8 @@ import { version } from "../../package.json";
 export const name = "Allen";
 export const site = "https://allenblog.zeabur.app/";
 export const logo = "https://allenblog.zeabur.app/logo.png";
-export const keywords = "前端開發、React、Vue、coding、自主學習";
-export const description = "前端開發、React、Vue、coding、自主學習、前端轉職、3D模組";
+export const keywords = "前端開發、React、Vue、Coding、自主學習";
+export const description = "前端開發、React、Vue、Coding、自主學習、前端轉職、3D模組";
 // social link
 export const github = "https://github.com/eepson123tw/blog";
 
