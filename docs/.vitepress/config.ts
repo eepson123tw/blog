@@ -19,8 +19,8 @@ const hostname: string = "https://allenblog.zeabur.app";
 export default defineConfig({
   title: "前端異聞錄",
   description: keywords,
+  appearance: "dark",
   lastUpdated: true,
-  appearance: true,
   cleanUrls: true, //clear the Url Html
   markdown: {
     theme: {
