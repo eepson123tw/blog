@@ -18,6 +18,10 @@ const smallTalkRouter = {
       text: "ChatGPT 橫空出世，工程師該如何看待這現象?",
       link: "/view/smallTalk/chatgpt-smalltalk",
     },
+    {
+      text: "Prompt 指令魔術師",
+      link: "/view/smallTalk/gpt-prompt-learning",
+    },
   ],
   collapsed: true,
 };

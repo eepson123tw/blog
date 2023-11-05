@@ -14,7 +14,7 @@ export const nav = [
     ],
   },
   { text: "BackEnd", link: "/view/backend/jwt" },
-  { text: "前端異聞錄", link: "/view/smallTalk/frontend-job-smalltalk" },
+  { text: "前端異聞錄", link: "/view/smallTalk/gpt-prompt-learning" },
 ];
 
 export const sidebar = {
