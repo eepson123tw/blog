@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress";
-
+import { withMermaid } from "vitepress-plugin-mermaid";
 // static file
 import generateSiteMap from "./plugins/sitemap";
 import generateFeed from "./plugins/feed";
@@ -16,7 +16,7 @@ const links: {
 }[] = [];
 const hostname: string = "https://allenblog.zeabur.app";
 
-export default defineConfig({
+export default withMermaid({
   title: "前端異聞錄",
   description: keywords,
   appearance: "dark",
