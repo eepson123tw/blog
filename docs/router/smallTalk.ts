@@ -22,6 +22,10 @@ const smallTalkRouter = {
       text: "Prompt 指令魔術師",
       link: "/view/smallTalk/gpt-prompt-learning",
     },
+    {
+      text: "探索 ChatGPT：從理論到實踐的技術突破",
+      link: "/view/smallTalk/gpt-history",
+    },
   ],
   collapsed: true,
 };
