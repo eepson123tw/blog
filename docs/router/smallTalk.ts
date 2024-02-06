@@ -26,6 +26,10 @@ const smallTalkRouter = {
       text: "探索 ChatGPT：從理論到實踐的技術突破",
       link: "/view/smallTalk/gpt-history",
     },
+    {
+      text: "2024 面試紀錄",
+      link: "/view/smallTalk/interview-2024",
+    },
   ],
   collapsed: true,
 };
