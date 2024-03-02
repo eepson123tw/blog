@@ -1,6 +1,6 @@
-# Allen Shih’s Development Blog
+# Aaron Shih’s Development Blog
 
-Welcome to Allen Shih’s development blog! Here, you will find a collection of thoughts, techniques, and best practices revolving around a wide array of technology topics such as frontend development, backend structures, and DevOps methodologies.
+Welcome to Aaron Shih’s development blog! Here, you will find a collection of thoughts, techniques, and best practices revolving around a wide array of technology topics such as frontend development, backend structures, and DevOps methodologies.
 
 ## Sections
 
@@ -17,7 +17,3 @@ Welcome to Allen Shih’s development blog! Here, you will find a collection of 
 ## Contribution
 
 Feel free to engage in discussions, propose ideas, or report issues. Your input is always valued and appreciated.
-
-
-
-

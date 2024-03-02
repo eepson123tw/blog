@@ -99,14 +99,14 @@ function newWaller(x){
   }
 
 }
- const allenMoney = newWaller(100);
+ const aaronMoney = newWaller(100);
  const buyDrink = (x) => x - 10;
  const buylunch = (x) => x - 60;
-allenMoney.use(buyDrink);
-allenMoney.use(buylunch);
-allenMoney.checkMoney();
+aaronMoney.use(buyDrink);
+aaronMoney.use(buylunch);
+aaronMoney.checkMoney();
 >30
-allenMoney.printLog();
+aaronMoney.printLog();
 >{buyDrink: '2022/5/7 下午2:24:34', buylunch: '2022/5/7 下午2:24:34'}
 ```
 
@@ -167,7 +167,7 @@ function beSoldier(a, b) {
   return a.height > b.height ? conditionOne(a, b) : conditionTwo(a, b);
 }
 
-beSoldier({ name: "Allen", height: 180 }, { name: "Eric", height: 170 }); //allen 當兵去囉QQ
+beSoldier({ name: "Aaron", height: 180 }, { name: "Eric", height: 170 }); //aaron 當兵去囉QQ
 ```
 
 ---
@@ -180,7 +180,7 @@ beSoldier({ name: "Allen", height: 180 }, { name: "Eric", height: 170 }); //alle
 (function (root, undefined) {
   // 私有狀態
   const age = 20;
-  const name = "allen";
+  const name = "aaron";
   let money = 87;
 
   function show(x) {

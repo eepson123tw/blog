@@ -29,7 +29,7 @@ JS 的值有兩種類型，基礎值 primitive value 與 引用值 reference val
 ```javascript
 var a = 1;
 var b = 2;
-var c = "allen";
+var c = "aaron";
 var d = true;
 var e = [];
 var f = {};

@@ -21,7 +21,7 @@ title: 如何操作複雜的物件結構
 ```javascript
 ---條件篩選
 const ary = [1,2,3,4,5] ;
-const aryMap=[{name:'allen'},{name:'joy'}]
+const aryMap=[{name:'aaron'},{name:'joy'}]
 
 1.filter 遍歷目標陣列篩選出符合條件的物件，並回傳陣列。
 
@@ -29,7 +29,7 @@ ary.filter((num)=>num>3) => [4,5]
 
 2.find  遍歷目標陣列篩選出符合條件的物件，並回傳物件。
 
-aryMap.find((d)=>d.name==='allen') => {name: 'allen'}
+aryMap.find((d)=>d.name==='aaron') => {name: 'aaron'}
 
 3.findIndex 遍歷目標陣列篩選出符合條件的物件，並回傳目標索引。
 
@@ -80,7 +80,7 @@ Object.values(obj) =>['123', '234', '345']
 
 ```javascript
 
-const obj2 = {1:{name:'allen'},2:{name:'joke'},3:{name:'mindy'}}
+const obj2 = {1:{name:'aaron'},2:{name:'joke'},3:{name:'mindy'}}
 
 Object.values(obj2).filter((d)=>d.name==='mindy') => {name: 'mindy'}
 
@@ -110,7 +110,7 @@ const memberList = [
     order: ["C", "A", "D", "E", "B"]
   },
   {
-    member: "allen",
+    member: "aaron",
     id: 3,
     score: 80,
     order: ["A", "D", "E", "B", "C"]

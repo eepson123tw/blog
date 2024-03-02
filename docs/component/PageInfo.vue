@@ -7,7 +7,7 @@ defineProps<{
   readTime: string;
   words: string;
 }>();
-const defaultAuthor = "Allen Shih";
+const defaultAuthor = "Aaron Shih";
 const author = ref(defaultAuthor);
 const { frontmatter, page } = useData();
 

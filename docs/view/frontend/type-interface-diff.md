@@ -22,25 +22,25 @@ title: Type與Interface的差異
 //簡易地定義屬性
 type Apple = string
 //以物件類型定義屬性
-type Allen ={
+type Aaron ={
   year:number;
   kind:string;
   IQ?:number; =>?代表選填
   ():string => 可以被執行
   [key:string]:any =>可以接受任何 index
-  new (allen:string):string => 可以被實例化
+  new (aaron:string):string => 可以被實例化
   readonly weight:number =>只讀屬性
 }
 
-function test(s:allen){
+function test(s:aaron){
   console.log( s.IQ,s.year, s())
-  return new s('allen')
+  return new s('aaron')
 }
 
 
 //工具類型操作 getType
  type GetType<T,K extends keyof T> = {[S in K]:T[S]}
- type c = GetType<allen, 'year'>
+ type c = GetType<aaron, 'year'>
  //type c = {
  //   year: number;
  // }
@@ -114,8 +114,8 @@ const a:cake<number,string> ={
 而且語意上也有些需差異，需要多方評估後挑適合的使用。
 
 ```typescript
-type Allen = {year:number,height:number} <-顯式定義
-type Allen = {kind:string} <- Duplicate identifier 'Allen' 無法合併
+type Aaron = {year:number,height:number} <-顯式定義
+type Aaron = {kind:string} <- Duplicate identifier 'Aaron' 無法合併
 
 interface Hellen {year:number,height:number}
 interface Hellen {kind:string} <- Hellen屬性中有year,height,kind => merging 合併了

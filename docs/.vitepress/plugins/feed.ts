@@ -7,13 +7,13 @@ export default async function generateFeed(
   outDir: string
 ): Promise<any> {
   const feed = new Feed({
-    title: "Allen Shih",
+    title: "Aaron Shih",
     description: "My personal blog",
     id: hostname,
     link: hostname,
     language: "en",
     favicon: `${hostname}/favicon.ico`,
-    copyright: "Copyright (c) 2021-present, Allen Shih",
+    copyright: "Copyright (c) 2021-present, Aaron Shih",
   });
 
   const posts = await createContentLoader("/view/**/*.md", {
@@ -35,7 +35,7 @@ export default async function generateFeed(
       content: html,
       author: [
         {
-          name: "AllenShih",
+          name: "AaronShih",
           email: "eepson123@gmial.com",
           link: "",
         },

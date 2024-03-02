@@ -14,7 +14,7 @@ const links: {
   changefreq: string;
   priority: number;
 }[] = [];
-const hostname: string = "https://allenblog.zeabur.app";
+const hostname: string = "https://www.aaron-shih.com";
 
 export default withMermaid({
   title: "前端異聞錄",
@@ -57,7 +57,7 @@ export default withMermaid({
     logo: "/logo.png",
     nav,
     sidebar,
-    siteTitle: "Allen's Blog",
+    siteTitle: "Aaron's Blog",
     editLink: {
       pattern: `${github}/tree/feature/vitepress/docs/:path`,
       text: "在 GitHub 上編輯此頁",
@@ -65,7 +65,7 @@ export default withMermaid({
     lastUpdatedText: "最後一次更新",
     footer: {
       message: "Released under the MIT License.",
-      copyright: "Copyright © 2021-present Allen Shih",
+      copyright: "Copyright © 2021-present Aaron Shih",
     },
     socialLinks: [
       {
@@ -74,13 +74,13 @@ export default withMermaid({
       },
       {
         icon: "linkedin",
-        link: "https://www.linkedin.com/in/allen-shih/",
+        link: "https://www.linkedin.com/in/aaron-shih/",
       },
     ],
     algolia: {
       appId: "JQ4IJY9BK1",
       apiKey: "78d9ab43228a430dd43bed1ffd1965d6",
-      indexName: "AllenBlog",
+      indexName: "aaronBlog",
       placeholder: "關鍵字",
       translations: {
         button: {
