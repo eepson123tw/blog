@@ -4,7 +4,7 @@ import { createWriteStream } from "node:fs";
 
 export default async function generateSiteMap(outDir: string, links: Array<any>) {
   const sitemap = new SitemapStream({
-    hostname: "https://allenblog.zeabur.app/",
+    hostname: "https://www.aaron-shih.com/",
     lastmodDateOnly: true,
   });
   const writeStream = createWriteStream(resolve(outDir, "sitemap.xml"));

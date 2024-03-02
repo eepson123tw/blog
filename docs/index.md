@@ -3,12 +3,12 @@
 layout: home
 
 hero:
-  name: "Allen's Blog"
+  name: "Aaron's Blog"
   text: "前端異聞錄"
   tagline: Development Notes, Miscellaneous, Small Talk, and Life.
   image:
     src: /logo.png
-    alt: Allen's logo
+    alt: Aaron's logo
   actions:
     - theme: brand
       text: Categories

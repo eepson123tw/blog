@@ -1,12 +1,12 @@
 {
-  "name": "allen_blog",
+  "name": "aaron_blog",
   "version": "0.3.4",
   "private": true,
   "description": "A Blog to record life",
   "license": "MIT",
   "type": "module",
-  "author": "Allen Shih <eepson123@gmail.com>",
-  "homepage": "https://allenblog.zeabur.app",
+  "author": "Aaron Shih <eepson123@gmail.com>",
+  "homepage": "https://www.aaron-shih.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/eepson123tw/blog.git"

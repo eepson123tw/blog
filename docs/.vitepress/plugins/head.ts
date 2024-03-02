@@ -37,7 +37,7 @@ export default function generateMeta(): Array<any> {
     // meta
     ["meta", { name: "referrer", content: "no-referrer-when-downgrade" }],
     ["meta", { name: "keywords", content: keywords }],
-    ["meta", { name: "author", content: "Allen Shih" }],
+    ["meta", { name: "author", content: "Aaron Shih" }],
     ["meta", { property: "og:type", content: "article" }],
     ["meta", { name: "application-name", content: name }],
     ["meta", { name: "apple-mobile-web-app-title", content: name }],
