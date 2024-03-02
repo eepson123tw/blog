@@ -80,7 +80,7 @@ export default withMermaid({
     algolia: {
       appId: "JQ4IJY9BK1",
       apiKey: "78d9ab43228a430dd43bed1ffd1965d6",
-      indexName: "aaronBlog",
+      indexName: "AaronBlog",
       placeholder: "關鍵字",
       translations: {
         button: {
