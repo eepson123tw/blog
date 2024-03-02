@@ -78,8 +78,8 @@ export default withMermaid({
       },
     ],
     algolia: {
-      appId: "JQ4IJY9BK1",
-      apiKey: "78d9ab43228a430dd43bed1ffd1965d6",
+      appId: "OSS2AEY23N",
+      apiKey: "03ac82d53acedfdfe8bd7b0ac1c7300d",
       indexName: "AaronBlog",
       placeholder: "關鍵字",
       translations: {
