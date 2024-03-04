@@ -1,5 +1,5 @@
 {
-  "index_name": "AaronBlog",
+  "index_name": "aaron-shih",
   "start_urls": ["https://www.aaron-shih.com/"],
   "sitemap_urls": ["https://www.aaron-shih.com/sitemap.xml"],
   "sitemap_alternate_links": true,
