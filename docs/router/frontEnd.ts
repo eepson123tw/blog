@@ -42,6 +42,10 @@ const frontendRouter = {
           text: "React-007 自定義鉤子 useHooks",
           link: "/view/frontend/react/react-007",
         },
+        {
+          text: "React-Chart 畫一個台灣",
+          link: "/view/frontend/react/react-chart",
+        },
       ],
       collapsed: true,
     },
