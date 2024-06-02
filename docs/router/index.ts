@@ -27,7 +27,7 @@ export const sidebar = {
         { text: "前端文章 FrontEnd", link: "/view/frontend/dom" },
         { text: "後端文章 BackEnd", link: "/view/backend/jwt" },
         {
-          text: "前端異聞錄 smallTalk",
+          text: "前端異聞錄 SmallTalk",
           link: "/view/smallTalk/frontend-job-smalltalk",
         },
       ],
