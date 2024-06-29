@@ -2,7 +2,7 @@ const frontendRouter = {
   text: "FrontEnd",
   items: [
     { text: "ESM 模組原理", link: "/view/frontend/esm" },
-    { text: "DOM到底是什麼呢?", link: "/view/frontend/dom" },
+    { text: "DOM 到底是什麼呢?", link: "/view/frontend/dom" },
     { text: "瀏覽器是如何運作的?", link: "/view/frontend/how-browser-work" },
     { text: "前端與框架的關係", link: "/view/frontend/frameWork" },
     {
@@ -11,7 +11,11 @@ const frontendRouter = {
     },
     { text: "如何操作複雜的物件結構", link: "/view/frontend/obj-constructure" },
     { text: "網頁的效能指標及優化", link: "/view/frontend/web-performance" },
-    { text: "Type與Interface的差異", link: "/view/frontend/type-interface-diff" },
+    { text: "Type 與 Interface的差異", link: "/view/frontend/type-interface-diff" },
+    {
+      text: "Type Guard 與 Enum 的應用",
+      link: "/view/frontend/is-and-enum",
+    },
     { text: "簡易函式封裝", link: "/view/frontend/functional-programming" },
     { text: "記憶體布局", link: "/view/frontend/memory-layouts" },
     {
