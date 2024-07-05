@@ -4,12 +4,13 @@ import { useData } from "vitepress";
 import { getDate, getFromNow } from "../utils/date";
 
 defineProps<{
-  readTime: string;
-  words: string;
+  readTime?: string;
+  words?: string;
 }>();
 const defaultAuthor = "Aaron Shih";
 const author = ref(defaultAuthor);
 const { frontmatter, page } = useData();
+let script;
 
 const publishedTime = getDate(frontmatter.value?.date);
 
@@ -42,7 +43,7 @@ const timeFormNow = getFromNow(isoDatetime.value);
       <div class="flex gap-[4px] items-center">
         <circum:read />
         閱讀次數:<span id="busuanzi_container_page_pv"
-          ><span id="busuanzi_value_page_pv"
+          ><span id="busuanzi_page_pv"
         /></span>
       </div>
     </section>

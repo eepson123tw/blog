@@ -83,6 +83,13 @@ export default function generateMeta(): Array<any> {
     ],
     [
       "script",
+      {
+        async: "defer",
+        src: "https://busuanzi.9420.ltd/js",
+      },
+    ],
+    [
+      "script",
       {},
       "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-R6YQL587WJ');",
     ],
