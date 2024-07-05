@@ -2,12 +2,12 @@
 layout: doc
 date: 2024-06-29 21:28:30
 description: Type Guard and Enum
-title: 自定義類型守衛及枚舉的應用
+title: Type Guard 與 Enum 的應用
 ---
 
 <PageInfo/>
 
-# 自定義類型守衛及枚舉的應用
+# Type Guard 與 Enum 的應用
 
 ## Type Guard
 

@@ -2,12 +2,12 @@
 layout: doc
 date: 2022-12-15 21:18:08
 description: TypeScript
-title: Type與Interface的差異
+title: Type 與 Interface 的差異
 ---
 
 <PageInfo/>
 
-# Type與Interface的差異
+# Type 與 Interface 的差異
 
 最近在學習TypeScript時，覺得Type跟Interface這兩種定義型別的方式，有種若即若離的關係，
 定義型別何時要用type、何時要用Interface呢?自己也無法解釋的很清楚，於是想把在網路上找到的知識，

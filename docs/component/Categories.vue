@@ -116,12 +116,18 @@ const pageFormate = (sidebar: {
     };
   };
 
-  const res = Object.keys(sidebar).reduce((acc, cur) => {
-    if (cur) {
-      sidebar[cur][0] && mapRecursion(sidebar[cur][0].items, sidebar[cur][0].text, acc);
-    }
-    return acc;
-  }, {} as Record<string, SidebarItem[]>);
+  const res = Object.keys(sidebar).reduce(
+    (acc, cur) => {
+      if (cur) {
+        sidebar[cur][0] &&
+          mapRecursion(sidebar[cur][0].items, sidebar[cur][0].text, acc);
+      }
+      return acc;
+    },
+    {} as Record<string, SidebarItem[]>
+  );
+
+  console.log(res);
 
   Object.values(res).forEach((item) => {
     for (let child in item) {
@@ -138,4 +144,3 @@ const pageFormate = (sidebar: {
   return res as Record<string, FormattedPages[]>;
 };
 </script>
-
