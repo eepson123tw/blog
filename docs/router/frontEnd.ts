@@ -11,7 +11,7 @@ const frontendRouter = {
     },
     { text: "如何操作複雜的物件結構", link: "/view/frontend/obj-constructure" },
     { text: "網頁的效能指標及優化", link: "/view/frontend/web-performance" },
-    { text: "Type 與 Interface的差異", link: "/view/frontend/type-interface-diff" },
+    { text: "Type 與 Interface 的差異", link: "/view/frontend/type-interface-diff" },
     {
       text: "Type Guard 與 Enum 的應用",
       link: "/view/frontend/is-and-enum",
@@ -47,7 +47,7 @@ const frontendRouter = {
           link: "/view/frontend/react/react-007",
         },
         {
-          text: "React-Chart 畫一個台灣",
+          text: "用 React Chart 套件們畫台灣",
           link: "/view/frontend/react/react-chart",
         },
       ],

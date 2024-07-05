@@ -5,6 +5,8 @@ description: React、Chart、Geo Json
 title: 用 React Chart 套件們畫台灣
 ---
 
+<PageInfo/>
+
 # 用 React Chart 畫一個台灣 [GEO_TW](https://geo-tw.zeabur.app/) 🤪
 
 ::: warning
