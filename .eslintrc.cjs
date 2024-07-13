@@ -1,10 +1,6 @@
 module.exports = {
-  // "root": true,
-  ecmaFeatures: {
-    modules: true,
-    spread: true,
-    restParams: true,
-  },
+  root: true,
+  reportUnusedDisableDirectives: true,
   env: {
     browser: true,
     node: true,
