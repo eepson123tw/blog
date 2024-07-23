@@ -1,8 +1,6 @@
 // https://vitepress.dev/guide/custom-theme
 import { h } from "vue";
 import Theme from "vitepress/theme";
-import { inBrowser } from "vitepress";
-import busuanzi from "busuanzi.pure.js";
 import GitTalk from "../../component/GitTalk.vue";
 import Categories from "../../component/Categories.vue";
 import PageInfo from "../../component/PageInfo.vue";
@@ -27,10 +25,5 @@ export default {
     import("element-plus").then((module) => {
       app.use(module);
     });
-    if (inBrowser) {
-      router.onAfterRouteChanged = (to) => {
-        busuanzi.fetch();
-      };
-    }
   },
 };

@@ -42,9 +42,7 @@ const timeFormNow = getFromNow(isoDatetime.value);
       </div>
       <div class="flex gap-[4px] items-center">
         <circum:read />
-        閱讀次數:<span id="busuanzi_container_page_pv"
-          ><span id="busuanzi_page_pv"
-        /></span>
+        閱讀次數:<span id="busuanzi_page_pv"></span>
       </div>
     </section>
   </div>
