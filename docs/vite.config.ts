@@ -6,6 +6,7 @@ import UnoCSS from "unocss/vite";
 import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import Components from "unplugin-vue-components/vite";
+import dnsPrefetchPlugin from "./utils/dns-prefetch-plugin";
 // import { MarkdownTransform } from "./utils/markdown-pipe";
 
 const require = createRequire(import.meta.url);
@@ -41,6 +42,7 @@ export default defineConfig(async () => {
         defaultStyle: "display: inline-block",
       }),
       UnoCSS(),
+      dnsPrefetchPlugin(),
     ],
     css: {
       postcss: {
