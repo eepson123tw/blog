@@ -15,7 +15,7 @@
       >
         <li v-if="link" style="list-style: none">
           <a :href="link">
-            {{ title }}{{ date ? " " + formatDate(new Date(date)) : `${text || ""}` }}
+            {{ title }}{{ date ? " " + formatDate(date) : `${text || ""}` }}
           </a>
           <p class="text-blue" style="margin: 0">{{ description }}</p>
         </li>
@@ -86,14 +86,16 @@ onMounted(async () => {
 });
 
 // date formate
-const formatDate = (date: Date) => {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0 based
-  const day = String(date.getDate()).padStart(2, "0");
-  const hours = String(date.getHours()).padStart(2, "0");
-  const minutes = String(date.getMinutes()).padStart(2, "0");
-  const seconds = String(date.getSeconds()).padStart(2, "0");
-  return `${year}/${month}/${day}`;
+const formatDate = (dataDate: string) => {
+  const date = new Date(dataDate);
+  // 使用 toLocaleDateString  格式化日期
+  const formattedDate = date.toLocaleDateString("zh-TW", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    timeZone: "UTC",
+  });
+  return formattedDate;
 };
 // 組出map
 const pageFormate = (sidebar: {
@@ -126,8 +128,6 @@ const pageFormate = (sidebar: {
     },
     {} as Record<string, SidebarItem[]>
   );
-
-  console.log(res);
 
   Object.values(res).forEach((item) => {
     for (let child in item) {
