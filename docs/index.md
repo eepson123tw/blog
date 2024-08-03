@@ -10,15 +10,15 @@ hero:
     src: /logo.png
     alt: Aaron's logo
   actions:
+    - theme: alt
+      text: React
+      link: /view/frontend/react/react-001
+    - theme: alt
+      text: What is Dom
+      link: /view/frontend/dom
     - theme: brand
       text: Categories
       link: /view/categories
-    - theme: alt
-      text: What is Dom?
-      link: /view/frontend/dom
-    - theme: alt
-      text: React?
-      link: /view/frontend/react/react-001
 
 features:
   - icon: 🖥
