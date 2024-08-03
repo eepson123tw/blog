@@ -40,10 +40,6 @@ const timeFormNow = getFromNow(isoDatetime.value);
         <icon-park-solid:update-rotation />
         更新時間:<span>{{ timeFormNow }}</span>
       </div>
-      <div class="flex gap-[4px] items-center">
-        <circum:read />
-        閱讀次數:<span id="busuanzi_page_pv"></span>
-      </div>
     </section>
   </div>
 </template>

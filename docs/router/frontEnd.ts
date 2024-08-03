@@ -2,6 +2,7 @@ const frontendRouter = {
   text: "FrontEnd",
   items: [
     { text: "ESM 模組原理", link: "/view/frontend/esm" },
+    { text: "發布一個 npm 組件", link: "/view/frontend/npm-build-package" },
     { text: "DOM 到底是什麼呢?", link: "/view/frontend/dom" },
     { text: "瀏覽器是如何運作的?", link: "/view/frontend/how-browser-work" },
     { text: "前端與框架的關係", link: "/view/frontend/frameWork" },

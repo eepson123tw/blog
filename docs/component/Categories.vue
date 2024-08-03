@@ -40,7 +40,7 @@ import { useData } from "vitepress";
 import { useSidebar } from "vitepress/theme";
 import { ref, onMounted } from "vue";
 
-interface SidebarItem {
+interface SidebarItem extends Formatter {
   text: string;
   link?: string;
   items?: SidebarItem[];
@@ -134,8 +134,7 @@ const pageFormate = (sidebar: {
     {} as Record<string, SidebarItem[]>
   );
 
-  console.log({ res });
-
+  // 將頁面及資料合併
   Object.values(res).forEach((item) => {
     for (let child in item) {
       const cur: Fcontructor = (frontmatters.value.find(
@@ -146,6 +145,12 @@ const pageFormate = (sidebar: {
         ...cur,
       };
     }
+  });
+
+  Object.entries(res).forEach(([key, value]) => {
+    let dataAry = Object.values(value);
+    dataAry.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    res[key] = { ...dataAry };
   });
 
   return res as Record<string, FormattedPages[]>;
