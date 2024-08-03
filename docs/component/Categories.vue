@@ -1,25 +1,29 @@
 <template>
   <div
-    class="mb-3 text-amber-5 font-900"
+    class="mb-3 text-amber-5 font-900 group cursor-pointer h-10 hover:h-auto all:transition-400"
     v-for="(page, key) of pageList"
     v-show="pageList"
     :key="key"
   >
     {{ key }}
-    <div class="grid grid-cols-1">
-      <ul
-        v-for="({ title, link, description, date, text }, index) of page"
-        class="text-black flex-1 font-500 p-3 b-dashed border b-blue text-center hover:text-coolGray hover:bg-amber-100"
-        style="margin: 0; margin-bottom: 10px"
+    <div class="grid grid-cols-1 group-hover:h-auto h-0 overflow-hidden">
+      <template
+        v-for="({ title, link, description, date, text, collapsed }, index) of page"
         :key="index"
       >
-        <li v-if="link" style="list-style: none">
-          <a :href="link">
-            {{ title }}{{ date ? " " + formatDate(date) : `${text || ""}` }}
-          </a>
-          <p class="text-blue" style="margin: 0">{{ description }}</p>
-        </li>
-      </ul>
+        <ul
+          v-if="collapsed === undefined"
+          class="text-black flex-1 font-500 p-3 b-dashed border b-blue text-center hover:text-coolGray hover:bg-amber-100"
+          style="margin: 0; margin-bottom: 10px"
+        >
+          <li v-if="link" style="list-style: none">
+            <a :href="link">
+              {{ title }}{{ date ? " " + formatDate(date) : `${text || ""}` }}
+            </a>
+            <p class="text-blue" style="margin: 0">{{ description }}</p>
+          </li>
+        </ul>
+      </template>
     </div>
   </div>
   <div
@@ -36,7 +40,7 @@ import { useData } from "vitepress";
 import { useSidebar } from "vitepress/theme";
 import { ref, onMounted } from "vue";
 
-interface SidebarItem {
+interface SidebarItem extends Formatter {
   text: string;
   link?: string;
   items?: SidebarItem[];
@@ -54,6 +58,7 @@ interface FormattedPages {
   title: string;
   date: string;
   description: string;
+  collapsed?: boolean;
 }
 
 interface Formatter {
@@ -129,6 +134,7 @@ const pageFormate = (sidebar: {
     {} as Record<string, SidebarItem[]>
   );
 
+  // 將頁面及資料合併
   Object.values(res).forEach((item) => {
     for (let child in item) {
       const cur: Fcontructor = (frontmatters.value.find(
@@ -139,6 +145,12 @@ const pageFormate = (sidebar: {
         ...cur,
       };
     }
+  });
+
+  Object.entries(res).forEach(([key, value]) => {
+    let dataAry = Object.values(value);
+    dataAry.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    res[key] = { ...dataAry };
   });
 
   return res as Record<string, FormattedPages[]>;
