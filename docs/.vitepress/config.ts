@@ -8,7 +8,7 @@ import { github, keywords } from "./meta";
 import taskLists from "markdown-it-task-lists";
 
 import { withPwa } from "@vite-pwa/vitepress";
-import pwaConfig from "../pwa.config";
+import pwaConfig from "./pwa.config";
 
 const links: {
   url: string;
@@ -20,6 +20,7 @@ const hostname: string = "https://www.aaron-shih.com";
 
 export default withPwa(
   withMermaid({
+    assetsDir: "assets",
     vite: {
       logLevel: "info",
     },
@@ -55,7 +56,6 @@ export default withPwa(
         });
       }
     },
-
     buildEnd: async ({ outDir }) => {
       await generateSiteMap(outDir, links);
       await generateFeed(hostname, outDir);

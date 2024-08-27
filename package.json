@@ -77,6 +77,7 @@
     "vite-plugin-pwa": "^0.20.1",
     "vitepress": "1.1.4",
     "vitepress-plugin-mermaid": "^2.0.15",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "workbox-window": "^7.1.0"
   }
 }

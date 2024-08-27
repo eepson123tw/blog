@@ -15,9 +15,7 @@ onBeforeMount(async () => {
   registerSW({
     immediate: true,
     onOfflineReady,
-    onRegistered() {
-      console.info("Service Worker registered");
-    },
+    onRegistered: (r) => r && setInterval(async () => await r.update(), 3600000),
     onRegisterError(e) {
       console.error("Service Worker registration error!", e);
     },

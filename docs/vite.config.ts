@@ -1,12 +1,14 @@
 import { resolve } from "node:path";
 import { createRequire } from "node:module";
-import { defineConfig } from "vite";
+import { defineConfig, resolveConfig } from "vite";
 import type { UserConfig } from "vite";
 import UnoCSS from "unocss/vite";
 import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import Components from "unplugin-vue-components/vite";
 import dnsPrefetchPlugin from "./utils/dns-prefetch-plugin";
+import { type VitePluginPWAAPI, VitePWA } from "vite-plugin-pwa";
+import pwa from "../docs/.vitepress/pwa.config";
 // import { MarkdownTransform } from "./utils/markdown-pipe";
 
 const require = createRequire(import.meta.url);
