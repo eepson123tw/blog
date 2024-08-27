@@ -5,56 +5,34 @@ import { fileURLToPath } from "node:url";
 const _dirname = dirname(fileURLToPath(import.meta.url));
 
 const pwaConfig = {
-  mode: "development",
+  outDir: resolve(_dirname, "../dist"),
+  // mode: "development",
   registerType: "autoUpdate",
   injectRegister: "script-defer",
+  strategies: "generateSW",
   includeAssets: ["favicon.svg"],
   manifest: {
     name: "VitePress PWA",
     short_name: "VitePressPWA",
     theme_color: "#ffffff",
+    start_url: "/",
   },
   pwaAssets: {
     config: true,
   },
   workbox: {
-    globPatterns: ["**/*.{css,js,html,svg,png,ico,txt,woff2}"],
+    globDirectory: resolve(__dirname, "dist"),
+    globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
   },
   experimental: {
     includeAllowlist: true,
   },
   devOptions: {
-    enabled: false,
+    enabled: process.env.SW_DEV === "true",
+    navigateFallback: "/",
     suppressWarnings: true,
-    navigateFallback: [""],
+    cleanupOutdatedCaches: false,
+    sourcemap: true,
   },
-
-  // enabled: true,
-  // mode: "development",
-  // registerType: "autoUpdate",
-  // includeManifestIcons: false,
-  // injectRegister: "script-defer",
-  // includeAssets: ["favicon.svg"],
-  // manifest: {
-  //   id: "/",
-  //   name: "Aaron Shih",
-  //   short_name: "Aaron Blog",
-  //   description: "Aaron Shih's blog",
-  //   theme_color: "#ffffff",
-  // },
-  // pwaAssets: {
-  //   config: true,
-  // },
-  // workbox: {
-  //   globPatterns: ["**/*.{css,js,html,svg,png,ico,txt,woff2}"],
-  // },
-  // experimental: {
-  //   includeAllowlist: true,
-  // },
-  // devOptions: {
-  //   enabled: false,
-  //   suppressWarnings: true,
-  //   navigateFallback: "/",
-  // },
 };
 export default pwaConfig;
