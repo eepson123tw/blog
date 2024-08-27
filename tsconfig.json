@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["vite/client", "vitepress", "@vite-pwa/vitepress"],
+    "types": ["vite/client", "vitepress", "vite-plugin-pwa/vue", "@vite-pwa/vitepress"],
     "target": "esnext", // 將代碼編譯為最新版本的 JS
     "useDefineForClassFields": true, // 使用 Object.defineProperty 定義 class 中的屬性，而非使用 obj.key = value 的形式定義屬性
     "module": "ESNext", // 使用 ES Module 格式打包編譯後的文件
