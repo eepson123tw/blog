@@ -1,4 +1,3 @@
-import { defineConfig } from "vitepress";
 import { withMermaid } from "vitepress-plugin-mermaid";
 // static file
 import generateSiteMap from "./plugins/sitemap";
@@ -8,6 +7,9 @@ import { nav, sidebar } from "../router/index";
 import { github, keywords } from "./meta";
 import taskLists from "markdown-it-task-lists";
 
+import { withPwa } from "@vite-pwa/vitepress";
+import pwaConfig from "../pwa.config";
+
 const links: {
   url: string;
   lastmod?: number | RegExpMatchArray | null | undefined;
@@ -16,77 +18,84 @@ const links: {
 }[] = [];
 const hostname: string = "https://www.aaron-shih.com";
 
-export default withMermaid({
-  title: "前端異聞錄",
-  description: keywords,
-  appearance: "dark",
-  lastUpdated: true,
-  cleanUrls: true, //clear the Url Html
-  markdown: {
-    theme: {
-      light: "min-dark",
-      dark: "one-dark-pro",
+export default withPwa(
+  withMermaid({
+    vite: {
+      logLevel: "info",
     },
-    lineNumbers: true,
-    config: (md) => {
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
-      md.use(taskLists);
+    lang: "zh-TW",
+    title: "前端異聞錄",
+    description: keywords,
+    appearance: "dark",
+    lastUpdated: true,
+    cleanUrls: true, //clear the Url Html
+    markdown: {
+      theme: {
+        light: "min-dark",
+        dark: "one-dark-pro",
+      },
+      lineNumbers: true,
+      config: (md) => {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        md.use(taskLists);
+      },
     },
-  },
-  head: generateMeta(),
-  transformHtml: (_, id, { pageData }) => {
-    const regex = /[0-9]{0,4}-[0-9]{0,2}-[0-9]{0,2}/gm;
-    const condition = pageData.frontmatter.date
-      ? `${pageData.frontmatter.date}`.match(regex)
-      : pageData.lastUpdated;
-    if (!/[\\/]404\.html$/.test(id)) {
-      links.push({
-        url: pageData.relativePath.replace(/((^|\/)index)?\.md$/, "$2"),
-        lastmod: condition,
-        changefreq: "weekly",
-        priority: 0.7,
-      });
-    }
-  },
+    head: generateMeta(),
+    transformHtml: (_, id, { pageData }) => {
+      const regex = /[0-9]{0,4}-[0-9]{0,2}-[0-9]{0,2}/gm;
+      const condition = pageData.frontmatter.date
+        ? `${pageData.frontmatter.date}`.match(regex)
+        : pageData.lastUpdated;
+      if (!/[\\/]404\.html$/.test(id)) {
+        links.push({
+          url: pageData.relativePath.replace(/((^|\/)index)?\.md$/, "$2"),
+          lastmod: condition,
+          changefreq: "weekly",
+          priority: 0.7,
+        });
+      }
+    },
 
-  buildEnd: async ({ outDir }) => {
-    await generateSiteMap(outDir, links);
-    await generateFeed(hostname, outDir);
-  },
-  themeConfig: {
-    logo: "/logo.png",
-    nav,
-    sidebar,
-    siteTitle: "Aaron's Blog",
-    editLink: {
-      pattern: `${github}/tree/feature/vitepress/docs/:path`,
-      text: "在 GitHub 上編輯此頁",
+    buildEnd: async ({ outDir }) => {
+      await generateSiteMap(outDir, links);
+      await generateFeed(hostname, outDir);
     },
-    lastUpdatedText: "最後一次更新",
-    footer: {
-      message: "Released under the MIT License.",
-      copyright: "Copyright © 2021-present Aaron Shih",
-    },
-    socialLinks: [
-      {
-        icon: "github",
-        link: "https://github.com/eepson123tw/blog",
+    themeConfig: {
+      logo: "/logo.png",
+      nav,
+      sidebar,
+      siteTitle: "Aaron's Blog",
+      editLink: {
+        pattern: `${github}/tree/feature/vitepress/docs/:path`,
+        text: "在 GitHub 上編輯此頁",
       },
-      {
-        icon: "linkedin",
-        link: "https://www.linkedin.com/in/aaron-shih/",
+      lastUpdatedText: "最後一次更新",
+      footer: {
+        message: "Released under the MIT License.",
+        copyright: "Copyright © 2021-present Aaron Shih",
       },
-    ],
-    algolia: {
-      appId: "INTUTOQ9K2",
-      apiKey: "49bdcd9a0696af68521ffbde79f80e10",
-      indexName: "aaron-shih",
-      placeholder: "關鍵字",
-      translations: {
-        button: {
-          buttonText: "搜尋DOC",
+      socialLinks: [
+        {
+          icon: "github",
+          link: "https://github.com/eepson123tw/blog",
+        },
+        {
+          icon: "linkedin",
+          link: "https://www.linkedin.com/in/aaron-shih/",
+        },
+      ],
+      algolia: {
+        appId: "INTUTOQ9K2",
+        apiKey: "49bdcd9a0696af68521ffbde79f80e10",
+        indexName: "aaron-shih",
+        placeholder: "關鍵字",
+        translations: {
+          button: {
+            buttonText: "搜尋DOC",
+          },
         },
       },
+      pwa: pwaConfig,
     },
-  },
-});
+  })
+);
