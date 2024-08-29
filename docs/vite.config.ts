@@ -1,17 +1,20 @@
 import { resolve } from "node:path";
 import { createRequire } from "node:module";
-import { defineConfig, resolveConfig } from "vite";
+import { defineConfig } from "vite";
 import type { UserConfig } from "vite";
 import UnoCSS from "unocss/vite";
 import Icons from "unplugin-icons/vite";
 import IconsResolver from "unplugin-icons/resolver";
 import Components from "unplugin-vue-components/vite";
 import dnsPrefetchPlugin from "./utils/dns-prefetch-plugin";
-import { type VitePluginPWAAPI, VitePWA } from "vite-plugin-pwa";
-import pwa from "../docs/.vitepress/pwa.config";
-// import { MarkdownTransform } from "./utils/markdown-pipe";
+import compression from "vite-plugin-compression";
+import cssnano from "cssnano";
+import htmlMinifier from "vite-plugin-html-minifier";
+
+import { visualizer } from "rollup-plugin-visualizer";
 
 const require = createRequire(import.meta.url);
+
 export default defineConfig(async () => {
   return <UserConfig>{
     assetsInclude: ["**/*.png"],
@@ -25,7 +28,6 @@ export default defineConfig(async () => {
     },
     plugins: [
       // custom
-      // MarkdownTransform(),
       // plugins
       Components({
         dirs: resolve(__dirname, "./component"),
@@ -45,13 +47,27 @@ export default defineConfig(async () => {
       }),
       UnoCSS(),
       dnsPrefetchPlugin(),
+      compression({ algorithm: "brotliCompress" }),
+      htmlMinifier({
+        minify: true,
+      }),
+      visualizer({ open: false }), // only open when you need to analyze the bundle
     ],
     css: {
       postcss: {
-        plugins: [require("postcss-nested")],
+        plugins: [require("postcss-nested"), cssnano()],
       },
     },
     build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              return id.toString().split("node_modules/")[1].split("/")[0].toString();
+            }
+          },
+        },
+      },
       chunkSizeWarningLimit: 5000,
     },
     optimizeDeps: {

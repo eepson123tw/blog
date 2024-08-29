@@ -1,5 +1,5 @@
-import { Feed } from "feed";
 import path from "path";
+import { Feed } from "feed";
 import { createContentLoader } from "vitepress";
 import { writeFileSync } from "node:fs";
 export default async function generateFeed(

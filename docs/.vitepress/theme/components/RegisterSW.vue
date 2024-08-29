@@ -2,6 +2,7 @@
 import { onBeforeMount, ref } from "vue";
 
 const offlineReady = ref(false);
+
 function onOfflineReady() {
   offlineReady.value = true;
 }
@@ -26,7 +27,7 @@ onBeforeMount(async () => {
 <template>
   <template v-if="offlineReady">
     <div class="pwa-toast" role="alertdialog" aria-labelledby="pwa-message">
-      <div id="pwa-message" class="mb-3">App ready to work offline</div>
+      <div id="pwa-message" class="mb-3">This blog is ready for work offline</div>
       <button type="button" class="pwa-cancel" @click="close">Close</button>
     </div>
   </template>
@@ -39,12 +40,12 @@ onBeforeMount(async () => {
   bottom: 0;
   margin: 16px;
   padding: 12px;
-  border: 1px solid #8885;
-  border-radius: 4px;
+  border: 1px solid white;
+  border-radius: 15px;
   z-index: 100;
   text-align: left;
-  box-shadow: 3px 4px 5px 0 #8885;
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 .pwa-toast #pwa-message {
   margin-bottom: 8px;
