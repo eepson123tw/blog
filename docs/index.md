@@ -7,7 +7,7 @@ hero:
   text: "前端異聞錄"
   tagline: Development Notes, Miscellaneous, Small Talk, and Life.
   image:
-    src: /logo.png
+    src: /logo.webp
     alt: Aaron's logo
   actions:
     - theme: alt
