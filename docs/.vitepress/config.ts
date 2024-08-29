@@ -24,7 +24,7 @@ export default withPwa(
     vite: {
       logLevel: "info",
     },
-    lang: "zh-TW",
+    // lang: "zh-TW", // will infer to algolia
     title: "前端異聞錄",
     description: keywords,
     appearance: "dark",
