@@ -134,7 +134,6 @@ const pageFormate = (sidebar: {
     {} as Record<string, SidebarItem[]>
   );
 
-  // 將頁面及資料合併
   Object.values(res).forEach((item) => {
     for (let child in item) {
       const cur: Fcontructor = (frontmatters.value.find(

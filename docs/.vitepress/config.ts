@@ -1,14 +1,13 @@
 import { withMermaid } from "vitepress-plugin-mermaid";
-// static file
 import generateSiteMap from "./plugins/sitemap";
 import generateFeed from "./plugins/feed";
 import generateMeta from "./plugins/head";
 import { nav, sidebar } from "../router/index";
 import { github, keywords } from "./meta";
 import taskLists from "markdown-it-task-lists";
-
 import { withPwa } from "@vite-pwa/vitepress";
 import pwaConfig from "./pwa.config";
+import { minify } from "html-minifier";
 
 const links: {
   url: string;
@@ -16,6 +15,7 @@ const links: {
   changefreq: string;
   priority: number;
 }[] = [];
+
 const hostname: string = "https://www.aaron-shih.com";
 
 export default withPwa(
@@ -29,7 +29,7 @@ export default withPwa(
     description: keywords,
     appearance: "dark",
     lastUpdated: true,
-    cleanUrls: true, //clear the Url Html
+    cleanUrls: true, // 清理 URL 中的 .html 后缀
     markdown: {
       theme: {
         light: "min-dark",
@@ -37,7 +37,6 @@ export default withPwa(
       },
       lineNumbers: true,
       config: (md) => {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
         md.use(taskLists);
       },
     },
@@ -66,7 +65,7 @@ export default withPwa(
       sidebar,
       siteTitle: "Aaron's Blog",
       editLink: {
-        pattern: `${github}/tree/feature/vitepress/docs/:path`,
+        pattern: `${github}/tree/master/docs/:path`,
         text: "在 GitHub 上編輯此頁",
       },
       lastUpdatedText: "最後一次更新",
@@ -96,6 +95,20 @@ export default withPwa(
         },
       },
       pwa: pwaConfig,
+    },
+    // Minify the generated HTML to compress the markdown content
+    transformPageData: (pageData) => {
+      if (pageData.html) {
+        pageData.html = minify(pageData.html, {
+          collapseWhitespace: true,
+          removeComments: true,
+          removeRedundantAttributes: true,
+          removeEmptyAttributes: true,
+          minifyCSS: true,
+          minifyJS: true,
+        });
+      }
+      return pageData;
     },
   })
 );

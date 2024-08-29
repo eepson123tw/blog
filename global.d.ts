@@ -24,3 +24,17 @@ declare module "virtual:pwa-register/vue" {
     updateServiceWorker: (reloadPage?: boolean) => Promise<void>;
   };
 }
+
+declare module "html-minifier" {
+  import { MarkdownIt } from "markdown-it";
+
+  export interface MinifyOptions {
+    removeComments?: boolean;
+    collapseWhitespace?: boolean;
+    minifyCSS?: boolean;
+    minifyJS?: boolean;
+    keepClosingSlash?: boolean;
+  }
+
+  export function minify(input: string, options?: MinifyOptions): string;
+}

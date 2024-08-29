@@ -14,5 +14,6 @@
     "lib": ["ESNext", "DOM"], // 引入 ES 最新特性和 DOM 接口的類型定義
     "skipLibCheck": true // 跳過對 .d.ts 文件的類型檢查
   },
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules"],
+  "include": ["./global.d.ts"]
 }
