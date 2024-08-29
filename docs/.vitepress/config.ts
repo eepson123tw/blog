@@ -60,7 +60,7 @@ export default withPwa(
       await generateFeed(hostname, outDir);
     },
     themeConfig: {
-      logo: "/logo.png",
+      logo: "/logo.webp",
       nav,
       sidebar,
       siteTitle: "Aaron's Blog",

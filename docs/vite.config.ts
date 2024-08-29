@@ -60,6 +60,7 @@ export default defineConfig(async () => {
     },
     build: {
       rollupOptions: {
+        treeShaking: true,
         output: {
           manualChunks(id) {
             if (id.includes("node_modules")) {
@@ -69,7 +70,12 @@ export default defineConfig(async () => {
         },
       },
       chunkSizeWarningLimit: 5000,
+      esbuild: {
+        minify: true,
+        treeShaking: true,
+      },
     },
+
     optimizeDeps: {
       exclude: ["js-big-decimal"],
     },
