@@ -30,6 +30,10 @@ const smallTalkRouter = {
       text: "2024 面試紀錄",
       link: "/view/smallTalk/interview-2024",
     },
+    {
+      text: "我是如何學習的",
+      link: "/view/smallTalk/quick-learn",
+    },
   ],
   collapsed: true,
 };
