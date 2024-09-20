@@ -1,13 +1,15 @@
 import { withMermaid } from "vitepress-plugin-mermaid";
+import { minify } from "html-minifier";
+import mdItCustomAttrs from "markdown-it-custom-attrs";
+import taskLists from "markdown-it-task-lists";
+import { withPwa } from "@vite-pwa/vitepress";
+
 import generateSiteMap from "./plugins/sitemap";
 import generateFeed from "./plugins/feed";
 import generateMeta from "./plugins/head";
 import { nav, sidebar } from "../router/index";
 import { github, keywords } from "./meta";
-import taskLists from "markdown-it-task-lists";
-import { withPwa } from "@vite-pwa/vitepress";
 import pwaConfig from "./pwa.config";
-import { minify } from "html-minifier";
 
 const links: {
   url: string;
@@ -30,16 +32,6 @@ export default withPwa(
     appearance: "dark",
     lastUpdated: true,
     cleanUrls: true, // 清理 URL 中的 .html 后缀
-    markdown: {
-      theme: {
-        light: "min-dark",
-        dark: "one-dark-pro",
-      },
-      lineNumbers: true,
-      config: (md) => {
-        md.use(taskLists);
-      },
-    },
     head: generateMeta(),
     transformHtml: (_, id, { pageData }) => {
       const regex = /[0-9]{0,4}-[0-9]{0,2}-[0-9]{0,2}/gm;
@@ -109,6 +101,20 @@ export default withPwa(
         });
       }
       return pageData;
+    },
+    markdown: {
+      theme: {
+        light: "min-dark",
+        dark: "one-dark-pro",
+      },
+      math: true,
+      lineNumbers: true,
+      config: (md) => {
+        md.use(taskLists);
+        md.use(mdItCustomAttrs, "image", {
+          "data-fancybox": "gallery",
+        });
+      },
     },
   })
 );

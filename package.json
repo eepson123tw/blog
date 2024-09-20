@@ -41,6 +41,8 @@
     "gitalk": "^1.8.0",
     "glob": "^11.0.0",
     "gsap": "^3.11.4",
+    "markdown-it-custom-attrs": "^1.0.2",
+    "markdown-it-mathjax3": "^4.3.2",
     "node-fetch": "3.3.2",
     "node-html-parser": "^6.1.13",
     "postcss": "^8.4.31",
