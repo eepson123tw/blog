@@ -1,10 +1,8 @@
 <template>
-  <div class="canvas">
-    <canvas
-      ref="animationCanvas"
-      class="absolute top-0 left-0 w-full h-full pointer-events-none"
-      aria-hidden="true"
-    ></canvas>
+  <div class="canvasContainer">
+    <div class="canvas">
+      <canvas ref="animationCanvas" aria-hidden="true"></canvas>
+    </div>
   </div>
 </template>
 
@@ -31,21 +29,32 @@ interface Line {
 const nodes: Node[] = [];
 const lines: Line[] = [];
 
+const NUM = 40;
+
 // 初始化節點
+const colorPalette = [
+  "#FFC1CC", // 淡粉紅
+  "#A8E6CF", // 淡綠色
+  "#D4A5FF", // 淡紫色
+  "#FFD3B6", // 淡橙色
+  "#FFAAA5", // 淡珊瑚色
+  "#CDE7FE", // 淡藍色
+  "#B5EAD7", // 淡青色
+  "#FFB347", // 淡橘色
+];
+
 const initializeNodes = (width: number, height: number) => {
   nodes.length = 0; // 清空現有節點
 
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < NUM; i++) {
     const radius = 3 + Math.random() * 5;
     nodes.push({
       x: Math.random() * (width - 2 * radius) + radius,
       y: Math.random() * (height - 2 * radius) + radius,
       radius,
-      color: `rgba(${Math.floor(Math.random() * 255)},
-                ${Math.floor(Math.random() * 255)},
-                ${Math.floor(Math.random() * 255)}, 0.45)`,
       vx: (Math.random() - 0.5) * 1.5,
       vy: (Math.random() - 0.5) * 1.5,
+      color: colorPalette[Math.floor(Math.random() * colorPalette.length)],
     });
   }
 };
@@ -64,10 +73,12 @@ const animate = (ctx: CanvasRenderingContext2D, width: number, height: number) =
     if (node.x - node.radius < 0 || node.x + node.radius > width) {
       node.vx *= -1;
       node.x = Math.max(node.radius, Math.min(node.x, width - node.radius));
+      node.color = colorPalette[Math.floor(Math.random() * colorPalette.length)];
     }
     if (node.y - node.radius < 0 || node.y + node.radius > height) {
       node.vy *= -1;
       node.y = Math.max(node.radius, Math.min(node.y, height - node.radius));
+      node.color = colorPalette[Math.floor(Math.random() * colorPalette.length)];
     }
 
     // 繪製節點
@@ -83,7 +94,7 @@ const animate = (ctx: CanvasRenderingContext2D, width: number, height: number) =
     for (let i = index + 1; i < nodes.length; i++) {
       const otherNode = nodes[i];
       const distance = Math.hypot(node.x - otherNode.x, node.y - otherNode.y);
-      if (distance < 100) {
+      if (distance < 1200) {
         lines.push({
           start: node,
           end: otherNode,
@@ -103,7 +114,6 @@ const animate = (ctx: CanvasRenderingContext2D, width: number, height: number) =
     ctx.stroke();
   });
 
-  // 繼續動畫循環
   animationFrameId = requestAnimationFrame(() => animate(ctx, width, height));
 };
 
@@ -113,34 +123,27 @@ const setCanvasSize = () => {
   if (!canvas) return;
   const parent = canvas.parentElement;
   if (!parent) return;
+  const appContainer = document.querySelector(".VPContent");
+  if (!appContainer) return;
 
-  const rect = parent.getBoundingClientRect();
+  const rect = appContainer.getBoundingClientRect();
   const dpr = window.devicePixelRatio || 1;
 
   // 設置畫布的寬度和高度，考慮 DPR
   canvas.width = rect.width * dpr;
   canvas.height = rect.height * dpr;
 
-  // 設置 CSS 寬度和高度
   canvas.style.width = `${rect.width}px`;
   canvas.style.height = `${rect.height}px`;
 
+  parent.style.width = `${rect.width}px`;
+  parent.style.height = `${rect.height}px`;
+
   const ctx = canvas.getContext("2d");
+
   if (ctx) {
     // 重置變換，避免累積縮放
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-};
-
-// 定義 handleResize 作為獨立函數
-const handleResize = () => {
-  setCanvasSize();
-  if (animationCanvas.value) {
-    const dpr = window.devicePixelRatio || 1;
-    initializeNodes(
-      animationCanvas.value.width / dpr,
-      animationCanvas.value.height / dpr
-    );
   }
 };
 
@@ -152,22 +155,22 @@ onMounted(() => {
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
-
+  const appContainer = document.querySelector(".VPContent");
+  if (!appContainer) return;
+  const { width, height } = appContainer.getBoundingClientRect();
   currentCtx = ctx;
 
   // 初始設置畫布大小
   setCanvasSize();
 
   // 初始化節點，使用 CSS 像素值
-  const width = canvas.width / (window.devicePixelRatio || 1);
-  const height = canvas.height / (window.devicePixelRatio || 1);
-  initializeNodes(width, height);
+  const renderWidth = width;
+  const renderHeight = height;
 
-  // 開始動畫
-  animate(ctx, width, height);
+  initializeNodes(renderWidth, renderHeight);
 
-  // 監聽窗口縮放事件
-  window.addEventListener("resize", handleResize);
+  // 開始動畫且必須等待其他資源下載完成
+  requestAnimationFrame(() => animate(ctx, renderWidth, renderHeight));
 });
 
 onBeforeUnmount(() => {
@@ -175,12 +178,27 @@ onBeforeUnmount(() => {
   if (animationFrameId) {
     cancelAnimationFrame(animationFrameId);
   }
-  window.removeEventListener("resize", handleResize);
 });
 </script>
 
 <style scoped>
+.canvasContainer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
 .canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+.canvas canvas {
   position: absolute;
   top: 0;
   left: 0;

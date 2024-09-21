@@ -18,7 +18,7 @@ export default {
   Layout: () => {
     return h(Theme.Layout, null, {
       "layout-bottom": () => h(RegisterSW),
-      "layout-top": () => h(Canvas),
+      "home-hero-before": () => h(Canvas),
     });
   },
 
