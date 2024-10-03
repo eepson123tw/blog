@@ -20,6 +20,8 @@ const links: {
 
 const hostname: string = "https://www.aaron-shih.com";
 
+const year = new Date().getFullYear();
+
 export default withPwa(
   withMermaid({
     assetsDir: "assets",
@@ -63,7 +65,7 @@ export default withPwa(
       lastUpdatedText: "最後一次更新",
       footer: {
         message: "Released under the MIT License.",
-        copyright: "Copyright © 2021-present Aaron Shih",
+        copyright: `Copyright © 2021~${year} Aaron Shih`,
       },
       socialLinks: [
         {

@@ -10,15 +10,18 @@ hero:
     src: /logo.webp
     alt: Aaron's logo
   actions:
-    - theme: alt
-      text: React
-      link: /view/frontend/react/react-001
-    - theme: alt
-      text: What is Dom
-      link: /view/frontend/dom
     - theme: brand
       text: Categories
       link: /view/categories
+    - theme: alt
+      text: Frontend
+      link: /view/frontend/react/react-001
+    - theme: alt
+      text: Backend & AI
+      link: /view/backend/docker
+    - theme: alt
+      text: Miscellaneous
+      link: /view/smallTalk/gpt-prompt-learning
 
 features:
   - icon: 🖥
@@ -28,6 +31,6 @@ features:
     title: Back-end
     details: Docker、Nginx、HTTP、Jenkins、Shell、AWS
   - icon: 🍺
-    title: Weekend
+    title: Week-end
     details: Coding、Reading、Learning、Trying、sleeping
 ---
