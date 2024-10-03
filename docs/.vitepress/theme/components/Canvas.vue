@@ -29,7 +29,7 @@ interface Line {
 const nodes: Node[] = [];
 const lines: Line[] = [];
 
-const NUM = 40;
+const NUM = 60;
 
 // 初始化節點
 const colorPalette = [
@@ -112,6 +112,43 @@ const animate = (ctx: CanvasRenderingContext2D, width: number, height: number) =
     ctx.strokeStyle = line.color;
     ctx.lineWidth = 1;
     ctx.stroke();
+  });
+
+  window.addEventListener("mousemove", (event) => {
+    const rect = animationCanvas.value?.getBoundingClientRect();
+    if (!rect) return;
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
+
+    nodes.forEach((node) => {
+      const dx = mouseX - node.x;
+      const dy = mouseY - node.y;
+      const distance = Math.hypot(dx, dy);
+      if (distance < 100) {
+        node.vx = (dx / distance) * 2;
+        node.vy = (dy / distance) * 2;
+      }
+    });
+  });
+
+  window.addEventListener("mouseout", () => {
+    nodes.forEach((node) => {
+      node.vx = (Math.random() - 0.5) * 1.5;
+      node.vy = (Math.random() - 0.5) * 1.5;
+    });
+  });
+
+  window.addEventListener("mousedown", () => {
+    nodes.forEach((node) => {
+      node.vx = (Math.random() - 0.5) * 3;
+      node.vy = (Math.random() - 0.5) * 3;
+    });
+  });
+  window.addEventListener("mouseup", () => {
+    nodes.forEach((node) => {
+      node.vx = (Math.random() - 0.5) * 1.5;
+      node.vy = (Math.random() - 0.5) * 1.5;
+    });
   });
 
   animationFrameId = requestAnimationFrame(() => animate(ctx, width, height));
