@@ -2,10 +2,7 @@ import { dirname } from "node:path";
 import { resolve } from "path";
 import { fileURLToPath } from "node:url";
 
-// Correct the variable name to _dirname
-
 const pwaConfig = {
-  // outDir: resolve(_dirname, "../dist"),
   registerType: "autoUpdate",
   injectRegister: "script-defer",
   strategies: "generateSW",
@@ -57,30 +54,6 @@ const pwaConfig = {
     clientsClaim: true,
     maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
   },
-  // workbox: {
-  //   clientsClaim: true,
-  //   skipWaiting: true,
-  //   // globPatterns: ["**/*.{js,css}"],
-  //   navigateFallback: null,
-  // },
-
-  // pwaAssets: {
-  //   config: true,
-  // },
-  // workbox: {
-  //   // globDirectory: resolve(_dirname, "dist"), // Fixed _dirname reference
-  //   globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
-  // },
-  // experimental: {
-  //   includeAllowlist: true,
-  // },
-  // devOptions: {
-  //   enabled: process.env.SW_DEV === "true", // Ensure this environment variable is set properly
-  //   navigateFallback: "/",
-  //   suppressWarnings: true,
-  //   cleanupOutdatedCaches: false,
-  //   sourcemap: true,
-  // },
 };
 
 export default pwaConfig;

@@ -7,11 +7,7 @@ export const nav = [
   { text: "Categories", link: "/view/categories" },
   {
     text: "FrontEnd",
-    items: [
-      { text: "DOM", link: "/view/frontend/dom" },
-      { text: "FrameWork-History", link: "/view/frontend/frameWork" },
-      { text: "React-Self-Learning", link: "/view/frontend/react/react-001" },
-    ],
+    items: [{ text: "React-Self-Learning", link: "/view/frontend/react/react-001" }],
   },
   { text: "BackEnd", link: "/view/backend/jwt" },
   { text: "前端異聞錄", link: "/view/smallTalk/gpt-prompt-learning" },
