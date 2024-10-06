@@ -20,7 +20,7 @@ const frontendRouter = {
     { text: "簡易函式封裝", link: "/view/frontend/functional-programming" },
     { text: "記憶體布局", link: "/view/frontend/memory-layouts" },
     {
-      text: "React學習筆記",
+      text: "React 學習筆記",
       items: [
         { text: "React-001 啟程", link: "/view/frontend/react/react-001" },
         {
@@ -50,6 +50,16 @@ const frontendRouter = {
         {
           text: "用 React Chart 套件們畫台灣",
           link: "/view/frontend/react/react-chart",
+        },
+      ],
+      collapsed: true,
+    },
+    {
+      text: "Canvas 學習筆記",
+      items: [
+        {
+          text: "Canvas 粒子化練習-歌詞播放器",
+          link: "/view/frontend/canvas/canvas-001",
         },
       ],
       collapsed: true,
