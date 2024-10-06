@@ -90,20 +90,20 @@ export default withPwa(
       },
       pwa: pwaConfig,
     },
-    // Minify the generated HTML to compress the markdown content
-    transformPageData: (pageData) => {
-      if (pageData.html) {
-        pageData.html = minify(pageData.html, {
-          collapseWhitespace: true,
-          removeComments: true,
-          removeRedundantAttributes: true,
-          removeEmptyAttributes: true,
-          minifyCSS: true,
-          minifyJS: true,
-        });
-      }
-      return pageData;
-    },
+    // // Minify the generated HTML to compress the markdown content
+    // transformPageData: (pageData) => {
+    //   if (pageData.html) {
+    //     pageData.html = minify(pageData.html, {
+    //       collapseWhitespace: true,
+    //       removeComments: true,
+    //       removeRedundantAttributes: true,
+    //       removeEmptyAttributes: true,
+    //       minifyCSS: true,
+    //       minifyJS: true,
+    //     });
+    //   }
+    //   return pageData;
+    // },
     markdown: {
       theme: {
         light: "min-dark",

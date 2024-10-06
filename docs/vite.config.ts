@@ -27,6 +27,18 @@ export default defineConfig(async () => {
       },
     },
     plugins: [
+      // https://github.com/vuejs/vitepress/issues/3820
+      {
+        name: "patch-vitepress-symbol",
+        transform(code, id) {
+          if (id.includes("vitepress/dist/client/app/data.js")) {
+            return code.replace(
+              "const dataSymbol = Symbol();",
+              'const dataSymbol = "__vitepress_data__";'
+            );
+          }
+        },
+      },
       // custom
       // plugins
       Components({
