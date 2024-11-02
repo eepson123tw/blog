@@ -1,29 +1,30 @@
-import path from "path";
-import { Feed } from "feed";
-import { createContentLoader } from "vitepress";
-import { writeFileSync } from "node:fs";
+import { writeFileSync } from 'node:fs';
+
+import { Feed } from 'feed';
+import path from 'path';
+import { createContentLoader } from 'vitepress';
 export default async function generateFeed(
   hostname: string,
-  outDir: string
+  outDir: string,
 ): Promise<any> {
   const feed = new Feed({
-    title: "Aaron Shih",
-    description: "My personal blog",
+    title: 'Aaron Shih',
+    description: 'My personal blog',
     id: hostname,
     link: hostname,
-    language: "en",
+    language: 'en',
     favicon: `${hostname}/favicon.ico`,
-    copyright: "Copyright (c) 2021-present, Aaron Shih",
+    copyright: 'Copyright (c) 2021-present, Aaron Shih',
   });
 
-  const posts = await createContentLoader("/view/**/*.md", {
+  const posts = await createContentLoader('/view/**/*.md', {
     excerpt: true,
     render: true,
   }).load();
 
   posts.sort(
     (a, b) =>
-      +new Date(b.frontmatter.date as string) - +new Date(a.frontmatter.date as string)
+      +new Date(b.frontmatter.date as string) - +new Date(a.frontmatter.date as string),
   );
 
   for (const { url, excerpt, frontmatter, html } of posts) {
@@ -35,14 +36,14 @@ export default async function generateFeed(
       content: html,
       author: [
         {
-          name: "AaronShih",
-          email: "eepson123@gmial.com",
-          link: "",
+          name: 'AaronShih',
+          email: 'eepson123@gmial.com',
+          link: '',
         },
       ],
       date: frontmatter.date,
     });
   }
 
-  await new Promise((r) => writeFileSync(path.join(outDir, "rss.xml"), feed.rss2()));
+  await new Promise(() => writeFileSync(path.join(outDir, 'rss.xml'), feed.rss2()));
 }
