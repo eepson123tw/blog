@@ -1,6 +1,7 @@
 import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
 
+import commonjs from '@rollup/plugin-commonjs';
 import cssnano from 'cssnano';
 import { visualizer } from 'rollup-plugin-visualizer';
 import UnoCSS from 'unocss/vite';
@@ -11,8 +12,11 @@ import type { UserConfig } from 'vite';
 import { defineConfig } from 'vite';
 import compression from 'vite-plugin-compression';
 import htmlMinifier from 'vite-plugin-html-minifier';
+import requireTransform from 'vite-plugin-require-transform';
 
 import dnsPrefetchPlugin from './utils/dns-prefetch-plugin';
+
+
 
 const require = createRequire(import.meta.url);
 
@@ -28,6 +32,10 @@ export default defineConfig(async () => {
       },
     },
     plugins: [
+      commonjs(),
+      requireTransform({
+        fileRegex: /.js$|.ts$/,
+      }),
       // https://github.com/vuejs/vitepress/issues/3820
       {
         name: 'patch-vitepress-symbol',
@@ -73,7 +81,7 @@ export default defineConfig(async () => {
     },
     build: {
       commonjsOptions: {
-        include: [/@braintree\/sanitize-url/],
+        include: [ 'mermaid'],
       },
       rollupOptions: {
         treeShaking: true,
@@ -98,7 +106,7 @@ export default defineConfig(async () => {
     },
     optimizeDeps: {
       exclude: ['js-big-decimal'],
-      include: ['@braintree/sanitize-url'],
+      include: [ 'mermaid'],
     },
   };
 });

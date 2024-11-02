@@ -23,6 +23,7 @@
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "strictPropertyInitialization": false,
+    "allowSyntheticDefaultImports": true,
   },
   "exclude": ["dist", "node_modules"],
   "include": [
