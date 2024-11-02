@@ -10,7 +10,7 @@ import globals from 'globals';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// Global settings
+// Global settings https://stackblitz.com/edit/vitejs-vite-rv1ac6?file=eslint.config.js
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
