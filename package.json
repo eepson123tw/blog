@@ -25,7 +25,7 @@
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs ",
+    "docs:build": "vitepress build docs",
     "build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "docs:serve": "yarn run build && vitepress serve docs",
@@ -44,6 +44,7 @@
     "glob": "^11.0.0",
     "globals": "^15.11.0",
     "gsap": "^3.11.4",
+    "markdown-it": "^14.1.0",
     "markdown-it-custom-attrs": "^1.0.2",
     "markdown-it-mathjax3": "^4.3.2",
     "node-fetch": "3.3.2",
@@ -70,6 +71,7 @@
     "@types/three": "^0.164.0",
     "@typescript-eslint/eslint-plugin": "^8.12.2",
     "@typescript-eslint/parser": "^8.12.2",
+    "@vite-pwa/assets-generator": "^0.2.6",
     "@vite-pwa/vitepress": "^0.5.0",
     "commitlint": "^19.3.0",
     "cssnano": "^7.0.5",
@@ -98,5 +100,11 @@
     "vitepress-plugin-mermaid": "^2.0.15",
     "vue": "^3.3.4",
     "workbox-window": "^7.1.0"
+  },
+  "pnpm": {
+    "neverBuiltDependencies": [
+      "fsevents",
+      "level"
+    ]
   }
 }

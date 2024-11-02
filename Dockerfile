@@ -9,7 +9,7 @@ RUN npm install -g pnpm
 COPY . .
 
 # Use pnpm instead of yarn
-RUN pnpm install && pnpm run docs:build
+RUN pnpm install && pnpm run docs:build 
 
 # 第二階段：將靜態資源部署到 Nginx 上
 FROM nginx
