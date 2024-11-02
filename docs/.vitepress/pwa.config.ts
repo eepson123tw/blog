@@ -21,7 +21,6 @@ const pwaConfig = {
   workbox: {
     cleanupOutdatedCaches: true,
     navigationPreload: false,
-    dontCacheBustURLsMatching: /^assets\//,
     navigateFallback: null,
     skipWaiting: true,
     clientsClaim: true,

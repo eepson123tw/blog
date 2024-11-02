@@ -40,6 +40,7 @@ ignores: [
     "commitlint.config.cjs",
     "crawlerConfig.json",
     "eslint.config.mjs",
+    "pwa-assets.config.ts"
   ],
 },
 ...fixupConfigRules(
