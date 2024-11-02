@@ -1,15 +1,15 @@
 /// <reference types="vite-plugin-pwa/client" />
 /// <reference types="vite-plugin-pwa/vue" />
 
-declare module "*.vue" {
-  import Vue from "vue";
+declare module '*.vue' {
+  import Vue from 'vue';
   export default Vue;
 }
-declare module "virtual:pwa-register/vue" {
+declare module 'virtual:pwa-register/vue' {
   // eslint-disable-next-line ts/prefer-ts-expect-error
   // @ts-ignore ignore when vue is not installed
-  import type { Ref } from "vue";
-  import type { RegisterSWOptions } from "vite-plugin-pwa/types";
+  import type { RegisterSWOptions } from 'vite-plugin-pwa/types';
+  import type { Ref } from 'vue';
 
   export type { RegisterSWOptions };
 
@@ -25,8 +25,8 @@ declare module "virtual:pwa-register/vue" {
   };
 }
 
-declare module "html-minifier" {
-  import { MarkdownIt } from "markdown-it";
+declare module 'html-minifier' {
+  import { MarkdownIt } from 'markdown-it';
 
   export interface MinifyOptions {
     removeComments?: boolean;
