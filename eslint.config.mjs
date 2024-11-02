@@ -53,6 +53,7 @@ ignores: [
     globals: {
         ...globals.browser,
         ...globals.node,
+        "dayjs": true,
     },
     sourceType: 'module',
     parser: tsParser ,

@@ -36,8 +36,9 @@
   },
   "dependencies": {
     "@iconify/json": "^2.2.122",
+    "@rollup/plugin-commonjs": "^28.0.1",
     "busuanzi.pure.js": "^1.0.3",
-    "dayjs": "^1.11.10",
+    "dayjs": "1.11.8",
     "element-plus": "^2.3.3",
     "gitalk": "^1.8.0",
     "glob": "^11.0.0",
@@ -57,7 +58,8 @@
     "unplugin-icons": "^0.19.0",
     "unplugin-vue-components": "^0.27.0",
     "url-regex": "^5.0.0",
-    "vite-plugin-compression": "^0.5.1"
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-require-transform": "^1.0.21"
   },
   "devDependencies": {
     "@braintree/sanitize-url": "^7.1.0",
