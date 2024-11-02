@@ -118,9 +118,6 @@ const pwaConfig = {
         },
       },
     ],
-    experimental: {
-      includeAllowlist: true,
-    },
   },
 };
 
