@@ -16,13 +16,12 @@ import requireTransform from 'vite-plugin-require-transform';
 
 import dnsPrefetchPlugin from './utils/dns-prefetch-plugin';
 
-
-
 const require = createRequire(import.meta.url);
 
 export default defineConfig(async () => {
   return <UserConfig>{
     assetsInclude: ['**/*.png'],
+
     server: {
       hmr: {
         overlay: false,
@@ -32,24 +31,15 @@ export default defineConfig(async () => {
       },
     },
     plugins: [
-      commonjs(),
+      commonjs({
+        // Optimize commonjs transformation
+        transformMixedEsModules: true,
+        exclude: [/\/core-js\//],
+      }),
       requireTransform({
         fileRegex: /.js$|.ts$/,
       }),
-      // https://github.com/vuejs/vitepress/issues/3820
-      {
-        name: 'patch-vitepress-symbol',
-        transform(code, id) {
-          if (id.includes('vitepress/dist/client/app/data.js')) {
-            return code.replace(
-              'const dataSymbol = Symbol();',
-              'const dataSymbol = "__vitepress_data__";',
-            );
-          }
-        },
-      },
-      // custom
-      // plugins
+      // Previous plugins remain the same...
       Components({
         dirs: resolve(__dirname, './component'),
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
@@ -68,11 +58,23 @@ export default defineConfig(async () => {
       }),
       UnoCSS(),
       dnsPrefetchPlugin(),
-      compression({ algorithm: 'brotliCompress' }),
+      compression({
+        algorithm: 'brotliCompress',
+        // Enhanced compression options
+        threshold: 1024, // Only compress files bigger than 1KB
+        compressionOptions: {
+          level: 11,
+        },
+      }),
       htmlMinifier({
         minify: true,
       }),
-      visualizer({ open: false }), // only open when you need to analyze the bundle
+      visualizer({
+        open: false,
+        template: 'treemap', // Better visualization for large chunks
+        gzipSize: true,
+        brotliSize: true,
+      }),
     ],
     css: {
       postcss: {
@@ -81,22 +83,69 @@ export default defineConfig(async () => {
     },
     build: {
       commonjsOptions: {
-        include: [ 'mermaid'],
+        include: ['mermaid'],
+        // Optimize CommonJS dependencies
+        defaultIsModuleExports: true,
       },
       rollupOptions: {
-        treeShaking: true,
+        treeshake: {
+          moduleSideEffects: true,
+          propertyReadSideEffects: false,
+          tryCatchDeoptimization: false,
+        },
+        onwarn(warning, warn) {
+        // Ignore specific warnings
+          if (warning.code === 'INVALID_ANNOTATION' ||
+            warning.message.includes('maximumFileSizeToCacheInBytes')) {
+            return;
+          }
+          warn(warning);
+        },
         output: {
           manualChunks(id) {
+            // Enhanced chunk splitting logic
             if (id.includes('node_modules')) {
-              return id.toString().split('node_modules/')[1].split('/')[0].toString();
+              if (id.includes('flowchart-elk')) {
+                // Split elk into smaller functional chunks
+                const subPath = id.split('flowchart-elk/')[1];
+                if (subPath) {
+                  const feature = subPath.split('/')[0];
+                  return `elk-${feature}`;
+                }
+                return 'elk-core';
+              }
+              // Group common dependencies
+              const pkg = id.toString().split('node_modules/')[1].split('/')[0].toString();
+              if (['mermaid', '@antv', 'dagre', 'khroma'].includes(pkg)) {
+                return `vendor-${pkg}`;
+              }
+              return 'vendor';
             }
           },
+          // Optimize chunk output
+          chunkFileNames: (chunkInfo) => {
+            const name = chunkInfo.name;
+            if (name.includes('elk-')) {
+              return 'assets/elk/[name]-[hash].js';
+            }
+            return 'assets/chunks/[name]-[hash].js';
+          },
+          assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
         },
       },
       chunkSizeWarningLimit: 5000,
       esbuild: {
         minify: true,
         treeShaking: true,
+        target: ['es2020'],
+        drop: ['console', 'debugger'],
+        legalComments: 'none',
+      },
+      // Enable source map optimization
+      sourcemap: false,
+      // Minimize module IDs
+      modulePreload: {
+        polyfill: false,
       },
     },
     resolve: {
@@ -106,7 +155,14 @@ export default defineConfig(async () => {
     },
     optimizeDeps: {
       exclude: ['js-big-decimal'],
-      include: [ 'mermaid'],
+      // Pre-bundle heavy dependencies
+      include: ['mermaid'],
+      esbuildOptions: {
+        target: 'es2020',
+        supported: {
+          'top-level-await': true,
+        },
+      },
     },
   };
 });
