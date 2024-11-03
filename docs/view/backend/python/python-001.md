@@ -649,8 +649,8 @@ with open('file.txt') as f:
 
 ## Reference
 
-- [為你自己學py](!https://pythonbook.cc/chapters/basic/introduction)
-- [Fastapi Best Pratice](!https://github.com/zhanymkanov/fastapi-best-practices)
+- [為你自己學py](https://pythonbook.cc/chapters/basic/introduction)
+- [Fastapi Best Pratice](https://github.com/zhanymkanov/fastapi-best-practices)
 - [python notes](https://github.com/twtrubiks/python-notes)
 
 <GitTalk/>
