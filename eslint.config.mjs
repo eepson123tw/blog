@@ -63,6 +63,7 @@ ignores: [
     parserOptions: {
       projectService: true,
       allowDefaultProject: ['*.js','*.ts'],
+      extraFileExtensions: ['.md', '.mdx'],
       tsconfigRootDir: import.meta.dirname,
   }},
   linterOptions: {
@@ -128,7 +129,7 @@ ignores: [
     // Import sorting
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-  }
+  },
 },
     // TypeScript files
 {
@@ -156,7 +157,11 @@ ignores: [
     },
     // Markdown files
     {
-      files: ["**/*.md"],
+      files: ["./docs/**/*.md"],
+      parserOptions: {
+        project: "./tsconfig.json",
+        tsconfigRootDir: __dirname,
+      },
       plugins:{
         markdownlint: markdownlint,
       },
@@ -167,5 +172,4 @@ ignores: [
         "markdownlint/md013": "off",
       },
     },
-
 );
