@@ -88,6 +88,7 @@ onMounted(async () => {
   }
   frontmatters.value = allFrontmatters;
   pageList.value = pageFormate(siteData.value.themeConfig.sidebar);
+  console.log(pageList.value);
 });
 
 // date formate

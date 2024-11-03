@@ -31,6 +31,8 @@
     "docs",
     "docs/.vitepress/*.ts",
     "docs/**/*.ts",
+    "docs/**/*.vue",
+    "docs/**/*.md",
     "docs/**/*.d.ts",
     "docs/**/*.vue",
     "types/**/*.d.ts"
