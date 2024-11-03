@@ -112,7 +112,7 @@ export default withPwa(
           });
         },
       },
-      ignoreDeadLinks: true,
+      ignoreDeadLinks: 'localhostLinks',
     }),
   ),
 );
