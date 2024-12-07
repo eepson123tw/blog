@@ -5,6 +5,8 @@ description: quick learning,LLM GEN AI
 title: 我是如何學習的
 ---
 
+<PageInfo/>
+
 # 我是如何學習的
 
 最近在與一些業內朋友、前同事對話時感覺到他們對自己學習的能力有些懷疑，並說自己沒辦法任意的轉換不同公司、框架，挑戰不同的邏輯，
