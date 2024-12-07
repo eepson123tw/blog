@@ -34,6 +34,10 @@ const smallTalkRouter = {
       text: '我是如何學習的',
       link: '/view/smallTalk/quick-learn',
     },
+    {
+      text:'第一性原則思考',
+      link:'/view/smallTalk/first-principles',
+    },
   ],
   collapsed: true,
 };
