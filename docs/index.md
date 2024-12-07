@@ -29,8 +29,11 @@ features:
     details: Vue、Nuxt、React、Vite、Webpack、TypeScript、JavaScript、Three.js、StorkBook、React-three-fiber
   - icon: 📺
     title: Back-end
-    details: Docker、Nginx、HTTP、Jenkins、Shell、AWS
+    details: Docker、Nginx、HTTP、Jenkins、Shell、AWS、Python
+  - icon: 🤖
+    title: Ml-end
+    details: Influence、Evaluation、RAG、Vision、Voice
   - icon: 🍺
     title: Week-end
-    details: Coding、Reading、Learning、Trying、sleeping
+    details: Coding、Reading、Learning、Trying、Sleeping
 ---
