@@ -16,6 +16,10 @@ const backendRouter = {
           text: 'Python-002 函式',
           link: '/view/backend/python/python-002',
         },
+        {
+          text: 'Python-003 Class',
+          link: '/view/backend/python/python-003',
+        },
       ],
       collapsed: false,
     },
