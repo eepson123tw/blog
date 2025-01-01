@@ -5,9 +5,11 @@ description: review,life,smallTalk
 title: 自學的進程
 ---
 
+# 自學的進程
+
 <PageInfo/>
 
-# 自學的進程
+![self-learning](/assets/postimg/smalltalk/self-learning.webp)
 
 轉職後也快三年了，前端的進程不斷地推進，會的技術也慢慢堆疊，從本來的 js 到 ts， Vue 到 React，簡單的切版到現在的 3D 渲染，看了許多書、許多教學影片、許多場技術直播、現場的會議分享，深深體會到技術的脈絡是慢慢往前的，若不跟上或許就這樣落下腳步，停住不再前行了。或許人生也是這樣，有些人也就這樣停住了，不再前進，就在止步了。
 

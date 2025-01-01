@@ -5,9 +5,11 @@ description: first-principle、thinking
 title: 第一性原則思考
 ---
 
+# 第一性原則思考
+
 <PageInfo/>
 
-# 第一性原則思考
+![first-principle](/assets/postimg/smalltalk/first-principle.webp)
 
 最近經常聽到 Elon Musk 在演講中提及「First Principle（第一性原則）」這個關鍵字，讓我想進一步了解為何它被如此強調、其背後的定義究竟為何。這是否與八二法則（Pareto Principle）等思維模式有相似之處？
 

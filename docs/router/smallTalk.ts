@@ -31,7 +31,7 @@ const smallTalkRouter = {
       link: '/view/smallTalk/interview-2024',
     },
     {
-      text: '我是如何學習的',
+      text: '為何要學習',
       link: '/view/smallTalk/quick-learn',
     },
     {

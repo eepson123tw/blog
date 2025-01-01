@@ -5,7 +5,11 @@ description: 面對複雜的需求，如何解決?
 title: 面對複雜的需求時，應該...?
 ---
 
+# 面對複雜的需求時，應該...?
+
 <PageInfo/>
+
+![complexible-requirement-smalltalk](/assets/postimg/smalltalk/complexible-requirement-smalltalk.webp)
 
 最近，寫了快大半年的公司系統，終於進入了最後的階段，幾經波折，在開發過程中，也遇到了許多的難點，趁記憶猶新時紀錄下來，統合思考一下，希望下次能少走點彎路。
 
