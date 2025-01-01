@@ -9,6 +9,8 @@ title: 2024 面試紀錄
 
 <PageInfo/>
 
+![interview](/assets/postimg/smalltalk/interview.webp)
+
 跨域轉職至今滿三年，今年一月萌生了轉換公司的念頭，於是改寫履歷並透過獵頭及人脈投遞工作機會，想藉此確認自己的能力並跳脫舒適圈，以激進的方式驗證自己的實力並提升薪資。
 
 ## 履歷更新

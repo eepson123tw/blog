@@ -5,7 +5,11 @@ description: ChatGPT是甚麼?
 title: ChatGPT 橫空出世，工程師該如何看待這現象?
 ---
 
+# ChatGPT 橫空出世，工程師該如何看待這現象?
+
 <PageInfo/>
+
+![chatgpt-smalltalk](/assets/postimg/smalltalk/chatgpt-smalltalk.webp)
 
 最近幾周跟風，與同事一起玩ChatGPT並提問，越用越覺得強大，快速的回復速度加上極高的準確率，讓人不禁感嘆科技的躍進，也看到許多擔心自己會被AI取代的貼文，不禁思考起工程師這個職業真的這麼簡單會被AI取代嗎?
 

@@ -5,7 +5,11 @@ description: 轉職過程
 title: 前端轉職很簡單?
 ---
 
+# 前端轉職很簡單?
+
 <PageInfo/>
+
+![change-job-small-talk](/assets/postimg/smalltalk/change-job-small-talk.webp)
 
 最近與朋友聊天,被詢問到為什麼想要轉職,從外文轉換到工程師的過程,是不是很痛苦？
 要回應時竟一時語塞,只能微笑帶過,回說真的蠻困難的...

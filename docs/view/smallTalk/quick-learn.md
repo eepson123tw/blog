@@ -2,12 +2,14 @@
 layout: doc
 date: 2024-09-09 22:18:00
 description: quick learning,LLM GEN AI
-title: 我是如何學習的
+title: 為何要學習
 ---
+
+# 為何要學習
 
 <PageInfo/>
 
-# 我是如何學習的
+![quick-learn](/assets/postimg/smalltalk/quick-learn.webp)
 
 最近在與一些業內朋友、前同事對話時感覺到他們對自己學習的能力有些懷疑，並說自己沒辦法任意的轉換不同公司、框架，挑戰不同的邏輯，
 覺得我是個厲害的人，但誠實說，我並不是一個很聰明的人，很多概念我都要反覆的去看去想，才會有覺得記住的感覺，融會貫通就又要花更久的時間。
