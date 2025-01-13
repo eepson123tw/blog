@@ -5,8 +5,11 @@ description: 學習React框架
 title: React-006 進階鉤子與渲染控制
 ---
 
-
 # 學習 React 框架 - 006 進階鉤子與渲染控制
+
+<PageInfo/>
+
+![react-001](/assets/images/react/react-003.png)
 
 ## 本頁前言
 
@@ -29,7 +32,7 @@ const [state, dispatch] = useReducer(reducer, initialArg, init?)
 
 - optional init : 應返回初始狀態的初始化函數。如果未指定，則初始狀態設置為 initialArg 。否則，初始狀態將設置為調用 init(initialArg) 的結果。可避免重新創建初始狀態，即 lazy initialization 惰性初始化。
 
-- state : 目前的狀態 
+- state : 目前的狀態
 
 - dispatch : 函數可將狀態更新為不同的值**並觸發重新渲染**。
 
@@ -52,7 +55,7 @@ const actionTypes = {
 
 const usePokemonReducer = (state, action) => {
   switch (action.type) {
-    case actionTypes.init: { 
+    case actionTypes.init: {
       return {
         pokemonList: [],
         allPokemonNumber: action.allPokemonNumber,
@@ -60,7 +63,7 @@ const usePokemonReducer = (state, action) => {
         status: ''
       }
     }
-    case actionTypes.pending: { 
+    case actionTypes.pending: {
       return {
         ...state,
         status: action.status
@@ -141,8 +144,8 @@ function ChatRoom({ roomId }) {
 
 </details>
 
-
 ## useContext
+
 > 這個Hook十分有趣，透過函式封裝自己的上下文環境，更簡單的說，React提供了一個全域的狀態傳遞方式。在應用層級複雜且巢狀時，能有效的傳遞狀態。
 
 ```JavaScript
@@ -207,7 +210,6 @@ function MyApp() {
 
 </details>
 
-
 <details>
 
 <summary> useContext 可與 useReducer 搭配成一個註冊在巢狀組件中的狀態管理方式</summary>
@@ -230,7 +232,7 @@ const PokemonProvider = ({ children }) => {
 }
 
 const usePokemonContext = () => {
-  const context = React.useContext(PokemonContext) 
+  const context = React.useContext(PokemonContext)
   if (context === undefined) {
     throw new Error(` usePokemon must be used within a PokemonProvider`)
   }
@@ -254,7 +256,6 @@ export default App
 ```
 
 </details>
-
 
 ## useLayoutEffect
 

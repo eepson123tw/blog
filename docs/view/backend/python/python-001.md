@@ -5,9 +5,9 @@ description: Python、Base learning、Discover
 title: Python-001 探索
 ---
 
-<PageInfo/>
-
 # Python-001 探索
+
+<PageInfo/>
 
 基於專案的因素，開始學習 Python 的語法以及框架知識，
 此篇紀錄觀察有趣的學習點及差異點。

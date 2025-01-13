@@ -7,6 +7,10 @@ title: React-003 組件狀態與副作用更新
 
 # 學習 React 框架 - 003 組件狀態與副作用更新
 
+<PageInfo/>
+
+![react-003](/assets/images/react/react-003.png)
+
 ## 狀態的抽象
 
 在實際的開發場景中,前端會接收到很多的資料,不論是頁面初始的預設資料,還是由後端傳遞而來的 api 資料,需要一個能保存的方法,
@@ -44,7 +48,7 @@ function addOneMoreLike() {
 FancyNameBox(
   { firstName: "Sebastian", lastName: "Markbåge" },
   likes,
-  addOneMoreLike
+  addOneMoreLike,
 );
 ```
 
@@ -100,7 +104,7 @@ setAry(
     // with a new array
     ...ary,
     { id: nextId++, name: name },
-  ]
+  ],
 );
 ```
 

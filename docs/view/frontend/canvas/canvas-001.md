@@ -7,6 +7,10 @@ title: Canvas 粒子化練習-歌詞播放器
 
 # Canvas 粒子化練習 - 001 Day [歌詞播放器](https://fet-skills.zeabur.app/canvas-lyrics-player.html)
 
+<PageInfo/>
+
+![canvas-001](/assets/images/canvas/canvas-001.png)
+
 基於對 Canvas 的好奇，加上颱風天閒閒沒事，看到了 Canvas 粒子化的 YouTube 影片，所以展開了這次的研究。
 會接續下列幾點展開:
 
@@ -234,14 +238,19 @@ function createParticles(text) {
     tempCtx.fillText(
       lines[i],
       tempCanvas.width / 2, // x 座標設為 Canvas 的中心
-      tempCanvas.height / 2 - textHeight / 2 + i * lineHeight + lineHeight / 2 // y 座標計算，確保文字垂直置中
+      tempCanvas.height / 2 - textHeight / 2 + i * lineHeight + lineHeight / 2, // y 座標計算，確保文字垂直置中
     );
   }
 
   textWidth = maxWidth; // 文字寬度設為最大寬度
 
   // 獲取臨時 Canvas 上的圖像數據
-  const imageData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+  const imageData = tempCtx.getImageData(
+    0,
+    0,
+    tempCanvas.width,
+    tempCanvas.height,
+  );
 
   // 遍歷圖像數據的每個像素，每隔2個像素檢查一次
   for (let y = 0; y < tempCanvas.height; y += 2) {
@@ -257,7 +266,7 @@ function createParticles(text) {
         const particle = new Particle(
           x - canvas.width / 2 + textWidth / 2, // 調整 x 座標，使粒子置中
           y - canvas.height / 2 + textHeight / 2, // 調整 y 座標，使粒子置中
-          color // 粒子顏色
+          color, // 粒子顏色
         );
         particles.push(particle); // 將粒子加入粒子陣列
       }

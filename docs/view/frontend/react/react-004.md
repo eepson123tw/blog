@@ -4,7 +4,12 @@ date: 2023-05-16 21:50:00
 description: 學習React框架
 title: React-004 渲染切片與底層纖維
 ---
+
 # 學習 React 框架 - 004 渲染切片與底層fiber
+
+<PageInfo/>
+
+![react-001](/assets/images/react/react-003.png)
 
 ## React怎麼render組件?
 
@@ -64,7 +69,7 @@ function FiberNode(
   // 已從 React 元素中的新數據更新並需要應用於子組件或 DOM 元素的道具。
   this.memoizedProps = null;
   // 在上一次渲染期間用於創建輸出的fiber的道具。
-  this.updateQueue = null; 
+  this.updateQueue = null;
   // 狀態更新、回調和 DOM 更新隊列。
   this.memoizedState = null;
   // 用於創建輸出的fiber的狀態。在處理更新時，它會反映當前在頁面上呈現的狀態。
@@ -99,7 +104,7 @@ function ClickCounter (){
 //... 以上略
  return (
   <button key="1" onClick={this.onClick}>Update counter</button>
- <span key="2">{this.state.count}</span> 
+ <span key="2">{this.state.count}</span>
 )
 
 }
@@ -159,7 +164,7 @@ React在兩個階段中執行 Virtual Dom 轉換 Fiber tree，及比對節點差
 在這個while迴圈中，將會不斷的遞迴節點，尋找是否有未完成的工作。**直到子節點開始的所有工作都完成後，才會完成父節點和回溯的工作。**
 
 :::info
- completeUnitOfWork 和 completeUnitOfWork 主要用於迭代目的，而主要活動發生在 beginWork 和 completeWork 函數中。
+completeUnitOfWork 和 completeUnitOfWork 主要用於迭代目的，而主要活動發生在 beginWork 和 completeWork 函數中。
 :::
 
 實現：
@@ -169,7 +174,7 @@ function workLoop(isYieldy) {
   if (!isYieldy) {
     // Flush work without yielding
     while (nextUnitOfWork !== null) {
-      nextUnitOfWork = performUnitOfWork(nextUnitOfWork); 
+      nextUnitOfWork = performUnitOfWork(nextUnitOfWork);
     }
   } else {
     // Flush asynchronous work until the deadline runs out of time.
@@ -180,46 +185,45 @@ function workLoop(isYieldy) {
 }
 
 function performUnitOfWork(workInProgress) {
-    let next = beginWork(workInProgress);
-    if (next === null) {
-        next = completeUnitOfWork(workInProgress);
-    }
-    return next;
+  let next = beginWork(workInProgress);
+  if (next === null) {
+    next = completeUnitOfWork(workInProgress);
+  }
+  return next;
 }
 
 function beginWork(workInProgress) {
-    console.log('work performed for ' + workInProgress.name);
-    return workInProgress.child;
+  console.log("work performed for " + workInProgress.name);
+  return workInProgress.child;
 }
 
 function completeWork(workInProgress) {
-    console.log('work completed for ' + workInProgress.name);
-    return null;
+  console.log("work completed for " + workInProgress.name);
+  return null;
 }
 
 function completeUnitOfWork(workInProgress) {
-    while (true) {
-        let returnFiber = workInProgress.return;
-        let siblingFiber = workInProgress.sibling;
+  while (true) {
+    let returnFiber = workInProgress.return;
+    let siblingFiber = workInProgress.sibling;
 
-        nextUnitOfWork = completeWork(workInProgress);
+    nextUnitOfWork = completeWork(workInProgress);
 
-        if (siblingFiber !== null) {
-            // If there is a sibling, return it
-            // to perform work for this sibling
-            return siblingFiber;
-        } else if (returnFiber !== null) {
-            // If there's no more work in this returnFiber,
-            // continue the loop to complete the parent.
-            workInProgress = returnFiber;
-            continue;
-        } else {
-            // We've reached the root.
-            return null;
-        }
+    if (siblingFiber !== null) {
+      // If there is a sibling, return it
+      // to perform work for this sibling
+      return siblingFiber;
+    } else if (returnFiber !== null) {
+      // If there's no more work in this returnFiber,
+      // continue the loop to complete the parent.
+      workInProgress = returnFiber;
+      continue;
+    } else {
+      // We've reached the root.
+      return null;
     }
+  }
 }
-
 ```
 
 ## 參考資料

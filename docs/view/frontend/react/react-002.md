@@ -7,9 +7,14 @@ title: React-002 組件生成與傳參
 
 # 學習React框架 - 002 Day 組件生成與參數傳遞
 
+<PageInfo/>
+
+![react-002](/assets/images/react/react-003.png)
+
 ## 組件
 
 組件這個詞彙，在前端以往的開發歷程中，通常以頁面區分，但不同的頁面上有相同的功能或顯示區塊時，我們可能會重複的寫著相同的程式碼，或是直接copy & past.
+
 > 隨著框架思維的日益成熟，「組件」這個想法出現，在React Basic一文中，希望React具有可變性、抽象性、組合性、及狀態保持，以幫助開發者分攤日益複雜的需求及邏輯。
 
 希望有一個思維模型能包含這些概念，而在歷史中，Js的代碼遷移由傳統的OOP開發模型，轉換到了Fn的函式開發架構，React組件也經歷過這些過程，Version16以前由oop的模式為主，Version18後，受到了函式的洗禮，所以組件也的型態也簡化成了Fn的樣態。也就是前一天的範例，我們宣告了一個function，讓React透過編譯器babel生成我們想要的頁面區塊。
@@ -79,9 +84,8 @@ const element = {
     title: "foo",
     children: "Hello",
   },
-}
+};
 ReactDOM.render(element, document.getElementById("root"));
-
 ```
 
 當代碼執行到 ReactDOM.render() 方法時，React 會將虛擬 DOM 轉換為實際的 DOM，並將其插入到 root 元素中。
@@ -90,19 +94,18 @@ ReactDOM.render(element, document.getElementById("root"));
 > **render簡化版本如下**
 
 ```javascript
-
 function render(element, container) {
-
   // 我們將createElement 的 虛擬dom object結構傳下來,若為非文本結構就創造節點
-  const dom = element.type === "TEXT_ELEMENT"
-    ? document.createTextNode("")
-    : document.createElement(element.type);
+  const dom =
+    element.type === "TEXT_ELEMENT"
+      ? document.createTextNode("")
+      : document.createElement(element.type);
 
   // 將虛擬dom屬性重現
-  const isProperty = key => key !== "children";
+  const isProperty = (key) => key !== "children";
   Object.keys(element.props)
     .filter(isProperty)
-    .forEach(name => {
+    .forEach((name) => {
       dom[name] = element.props[name];
     });
 
@@ -111,7 +114,7 @@ function render(element, container) {
 
   //若還有虛擬DOM上還有下一層子結構，則遞迴的調用Render本身，達到層級渲染的DOM
   if (element.props.children) {
-    element.props.children.forEach(child => {
+    element.props.children.forEach((child) => {
       render(child, dom);
     });
   }
@@ -120,13 +123,12 @@ function render(element, container) {
 function ReactDOMRender(element, container) {
   const root = {
     dom: container,
-    children: []
+    children: [],
   };
   render(element, container);
 }
 
 ReactDOM.render = ReactDOMRender;
-
 ```
 
 ### 虛擬DOM
@@ -137,7 +139,6 @@ ReactDOM.render = ReactDOMRender;
 
 就如我們可以傳遞參數進入函式一般，組件也接受參數傳遞至內部，但必須透過嚴謹的方式傳遞，每個父組件都可以通過 props 將一些信息傳遞給它的子組件。 Props 可傳遞任何 JavaScript 值，包括物件、數組和函數。
 
-
 [範例](https://codepen.io/eepson123tw/pen/JjmNPvR)
 
 範例中我們可以透過解構將傳遞的props物件中的屬性給全部解構出來。但必須注意這種使用方式，這會傳遞所有的值。
@@ -146,13 +147,12 @@ ReactDOM.render = ReactDOMRender;
 
 - Props.children 是一個特殊的屬性，並非我們定義的由父層傳遞下來的屬性，可視為具有可由其父組件填充的佔位符.
 - 當組件需要更改其 props 時，必須傳遞新的值，因為必須維持不可變性!不要在組件中改變props，以免發生不可預期的錯誤!!
-:::
+  :::
 
 ## 結論
 
 我們理解了組件是如何生成，並且透過那些方法實現並渲染在頁面上，如何傳遞參數給下一層的組件，**我們必須維持參數的不可變性**，以免發生錯誤。
 發現還有children屬性，可以更方便的建構出頁面，並且能使用解構的方式，將複雜的物件結構傳遞至下方組件，但必須清楚的明白為何使用，而不是單方面的為了偷懶...
-
 
 ## 參考資料
 

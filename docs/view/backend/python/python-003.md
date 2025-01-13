@@ -5,9 +5,9 @@ description: Python、Function、OOP
 title: Python-003 Class
 ---
 
-<PageInfo/>
-
 # Python-003 Class
+
+<PageInfo/>
 
 Python 物件導向程式設計（OOP）的進階特性與語法。除了基本的類別、建構子外，我們將來試著使用 **slots** 限制屬性、並透過描述器（Descriptor）來攔截屬性的讀取與寫入，還有使用 **call**、**new**、**init** 以及其他常見的魔術方法（例如 **contains**, **str**, **iter**）來自訂物件行為。廢話不多說，範例開始，一步步看 Python OOP 的強大之處吧！
 

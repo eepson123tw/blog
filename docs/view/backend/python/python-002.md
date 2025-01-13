@@ -5,9 +5,9 @@ description: Python、Function、OOP
 title: Python-002 函式
 ---
 
-<PageInfo/>
-
 # Python-002 函式
+
+<PageInfo/>
 
 今天繼續探索 Python 中很重要的一環：函式。學習函式可以增強程式重用性與維護性。
 通過以下範例和解釋，將會學習如何寫出清晰又有效的函式。

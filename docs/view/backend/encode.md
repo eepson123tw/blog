@@ -5,9 +5,9 @@ description: 編碼、解碼、加密
 title: Encode、Decode、Hash 是幹甚麼東西?
 ---
 
-<PageInfo/> 
-
 # Encode、Decode、Hash
+
+<PageInfo/>
 
 最近同事為了一個需求而苦惱，想要把 URI 上的資料存入前端框架中並能反向讀入儲存字串在反導出 URI，卻發現轉入框架時，資料無法按照他的想法轉換，
 同事們討論的過程，聽到了幾個關鍵字，於是想記錄下來 ~
@@ -22,18 +22,16 @@ title: Encode、Decode、Hash 是幹甚麼東西?
 const originalString = "Hello, js!";
 const encodedString = encodeURIComponent(originalString);
 console.log(encodedString); // "Hello%2C%20js!"
-
 ```
 
 - Base64 編碼 (Base64 encoding) : Base64 編碼將二進制數據轉換為一種文本表示形式，以便在文本協議中(RFC 4648)傳輸二進制數據，如圖像或音頻文件。
 
 ```javascript
 const originalString = "Hello, js!";
-const encodedString = btoa(originalString); 
-const decodedString = atob(encodedString) 
+const encodedString = btoa(originalString);
+const decodedString = atob(encodedString);
 console.log(encodedString); // "SGVsbG8sIGpzIQ==
 console.log(decodedString); // "Hello, js!"
-
 ```
 
 - [btoa](https://developer.mozilla.org/zh-CN/docs/Web/API/btoa)
@@ -41,15 +39,20 @@ console.log(decodedString); // "Hello, js!"
 
 :::info
 SSH 密鑰本身以二進制格式存在，但在特定情況下，它們的`公鑰部分可以以 Base64 編碼的文本形式表示`。
-> cat XXXX_xxx | base64 | tr -d \\n 
-:::
+
+> cat XXXX_xxx | base64 | tr -d \\n
+> :::
 
 - HTML 編碼 (HTML encoding) :HTML 編碼用於將HTML文件中的特殊字符轉換為HTML實體，以避免它們被解釋為HTML標記。這有助於防止HTML注入攻擊。
 
 ```javascript
 //類似所謂的跳脫字元、除了自行實現，也可以使用第三方 library 達成 Lodash、DOMPurify、he。
 function encodeHTML(text) {
- return text.replace(/&/g, '&amp').replace(/\"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return text
+    .replace(/&/g, "&amp")
+    .replace(/\"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 }
 const originalString = "<script>alert('Hello, js!');</script>";
 const encodedString = encodeHTML(originalString); // 自定義HTML編碼函數
@@ -77,16 +80,15 @@ console.log(encodedString); // "&lt;script&gt;alert('Hello, js!');&lt;/script&gt
 
 :::
 
-
 ## Decode（解碼）
 
 是編碼的反向過程，它將已編碼的數據轉換回其原始形式。解碼的目的是還原編碼過的數據，以便能夠正確讀取或處理它們。
 
 ```javascript
 function decodeHTML(html) {
-    const txt = document.createElement("textarea");
-    txt.innerHTML = html;
-    return txt.value;
+  const txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
 }
 const encodedString = "&lt;script&gt;alert('Hello, js!');&lt;/script&gt;";
 const decodedString = decodeHTML(encodedString); // 自定義HTML解碼函數
@@ -100,17 +102,16 @@ console.log(decodedString); // "<script>alert('Hello, js!');</script>"
 實做一個 hash 函式:
 
 ```javascript
- const _hash = (key) => {
-    let hashInt = 0;
-    if (typeof key !== "string") {
-      throw new Error("oh! need string type to insert to memory");
-    }
-    for (let i = 0; i < key.length; i++) {
-      hashInt += key.charCodeAt(i) * i;
-    }
-    return hashInt % size;
-  };
-
+const _hash = (key) => {
+  let hashInt = 0;
+  if (typeof key !== "string") {
+    throw new Error("oh! need string type to insert to memory");
+  }
+  for (let i = 0; i < key.length; i++) {
+    hashInt += key.charCodeAt(i) * i;
+  }
+  return hashInt % size;
+};
 ```
 
 :::tip
@@ -121,7 +122,7 @@ console.log(decodedString); // "<script>alert('Hello, js!');</script>"
 
 - MD5（Message Digest Algorithm 5）:
 
- > MD5是一種128位哈希函數，通常用於生成數據的校驗和檢測數據完整性。然而，由於它容易受到碰撞攻擊，現在不再被推薦用於安全應用程序。
+> MD5是一種128位哈希函數，通常用於生成數據的校驗和檢測數據完整性。然而，由於它容易受到碰撞攻擊，現在不再被推薦用於安全應用程序。
 
 - SHA-1（Secure Hash Algorithm 1）:
 
@@ -151,7 +152,6 @@ console.log(decodedString); // "<script>alert('Hello, js!');</script>"
 
 > CRC32是一種循環冗餘檢查哈希函數，主要用於校驗數據完整性。它通常不用於安全性要求高的應用。
 
-
 ## VUE URI 的問題解法
 
 其實很簡單可以透過 `vue-router`，取得目前 query 或是 params，在透過 JS 原生方法進行編碼及解碼，得到資料後透過 Reference 中的 URLSearchParams 反導取回資料~
@@ -166,6 +166,5 @@ console.log(decodedString); // "<script>alert('Hello, js!');</script>"
 - [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 - [vue-js-using-urlsearchparams](https://stackoverflow.com/questions/74230976/vue-js-using-urlsearchparams-is-showing-me-error)
 - [雜湊函數](https://zh.wikipedia.org/zh-tw/%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B8)
-
 
 <GitTalk/>

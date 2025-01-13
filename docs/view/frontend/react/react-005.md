@@ -7,6 +7,10 @@ title: React-005 函式鉤子與狀態驅動
 
 # 學習 React 框架 - 005 函式鉤子與狀態驅動
 
+<PageInfo/>
+
+![react-001](/assets/images/react/react-003.png)
+
 ## React為何要實作[Hooks](https://react.dev/reference/react)?
 
 React Hooks 是在版本 16.8.0 中引入的。它們與類組件生命週期事件完全不同。
@@ -22,13 +26,12 @@ Hooks即是這些方式的實現。
 
 狀態 讓組件**記住**用戶輸入等信息。組件可以使用狀態來存儲輸入值，或任何你想保存且依照你設定邏輯更改的變量。
 
-
 ## [useEffect](https://react.dev/reference/react/useEffect)
 
 渲染及重新渲染時觸發的hook
 
-- 惰性初始化 *lazy state initial first frame evoked => computed extra expensive*
-- 只在必要時(觀測值變化時觸發) *shallow comparison attention with what you consent*
+- 惰性初始化 _lazy state initial first frame evoked => computed extra expensive_
+- 只在必要時(觀測值變化時觸發) _shallow comparison attention with what you consent_
 - 可抽出變成客製化function
 
 ### hooks [flow](https://github.com/donavon/hook-flow/blob/master/hook-flow.pdf)
@@ -41,11 +44,11 @@ Hooks即是這些方式的實現。
 
 ### 當組件被掛載時
 
-render start ⇒ lazy initiallizers ⇒ render end ⇒ LayoutEffects ⇒  dom update(Painting/User  see change) ⇒ some state change ⇒ render start⇒ render end⇒ layoutEffects run again ⇒ cleanLayout ⇒ dom update ⇒  cleanEffect⇒Run Effect
+render start ⇒ lazy initiallizers ⇒ render end ⇒ LayoutEffects ⇒ dom update(Painting/User see change) ⇒ some state change ⇒ render start⇒ render end⇒ layoutEffects run again ⇒ cleanLayout ⇒ dom update ⇒ cleanEffect⇒Run Effect
 
 ### 當組件被卸載時
 
-render start ⇒ render end ⇒ child component cleanup ⇒ parent component cleanup ⇒ parent component  run effect
+render start ⇒ render end ⇒ child component cleanup ⇒ parent component cleanup ⇒ parent component run effect
 
 - 子組件觸發更新時，只會觸發子組件的flow
 
@@ -59,15 +62,12 @@ render start ⇒ render end ⇒ child component cleanup ⇒ parent component cle
 
 react state 盡量將state封裝在真正需要他的地方 co locate the state to where it needs to be.
 
-
 ## [React實作 Pokemon](https://pokemon.zeabur.app/)
 
-嘗試使用react basic hooks實作一個可以無限滾動 且 RWD 的 神奇寶貝卡片列表(原來神奇寶北這麼多隻了 = = ) 
-
+嘗試使用react basic hooks實作一個可以無限滾動 且 RWD 的 神奇寶貝卡片列表(原來神奇寶北這麼多隻了 = = )
 
 ## 參考資料
 
 [useState lazy initialization and function updates](https://kentcdodds.com/blog/use-state-lazy-initialization-and-function-updates)
-
 
 <GitTalk/>
