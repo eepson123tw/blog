@@ -6,10 +6,22 @@ WORKDIR /app
 # Install pnpm
 RUN npm install -g pnpm
 
-COPY . .
+# 清理可能存在的 pnpm 缓存
+RUN pnpm store prune
+
+# 先複製 package.json 和 pnpm-lock.yaml
+COPY package.json pnpm-lock.yaml ./
 
 # Use pnpm instead of yarn
-RUN pnpm install && pnpm run docs:build 
+RUN pnpm install
+
+# 再複製其他文件
+COPY . .
+
+# 增加 Node.js 記憶體限制
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+
+RUN pnpm run docs:build
 
 # 第二階段：將靜態資源部署到 Nginx 上
 FROM nginx

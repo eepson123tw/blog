@@ -34,7 +34,7 @@ title: 發布一個 npm 組件
 
 ::: code-group
 
-```tsconfig.json
+```json
 {
   "references": [
     {
@@ -80,7 +80,7 @@ title: 發布一個 npm 組件
 }
 ```
 
-```tsconfig.app.json
+```json
 {
   "compilerOptions": {
     "composite": true,
@@ -108,10 +108,9 @@ title: 發布一個 npm 組件
   },
   "include": ["src/**/*", "src/**/*.vue"]
 }
-
 ```
 
-```tsconfig.node.json
+```json
 {
   "compilerOptions": {
     "composite": true,
@@ -126,7 +125,6 @@ title: 發布一個 npm 組件
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
-
 ```
 
 :::
@@ -142,12 +140,13 @@ title: 發布一個 npm 組件
 "author": "一定要是本人且正確", <== publish 快一小時懷疑人生的時候，發現改這個就過了👼
 :::
 
-```package.json
+```json
 {
   // 以上略
-  "main": "dist/canvas-image.umd.js",  // 主入口文件，使用 UMD 格式
+  "main": "dist/canvas-image.umd.js", // 主入口文件，使用 UMD 格式
   "module": "dist/canvas-image.es.js", // ES 模塊格式的入口文件
-  "exports": { // 當用不同引入方式時文件的指向，做了這個之後才真的知道 npm 真的幫忙做了很多
+  "exports": {
+    // 當用不同引入方式時文件的指向，做了這個之後才真的知道 npm 真的幫忙做了很多
     ".": {
       "import": "./dist/canvas-image.es.js", // 當使用 import 時的入口文件
       "require": "./dist/canvas-image.umd.js", // 當使用 require 時的入口文件
@@ -157,10 +156,9 @@ title: 發布一個 npm 組件
   },
   "types": "./vue3-canvas-image.d.ts" // 預設型別定義文件的入口
 }
-
 ```
 
-```vite.config.ts
+```ts
 export default defineConfig({
   plugins: [
     vue(), // Vue 插件，用於處理 Vue 文件
