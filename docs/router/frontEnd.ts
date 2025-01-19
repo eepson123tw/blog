@@ -64,6 +64,15 @@ const frontendRouter = {
       ],
       collapsed: true,
     },
+    {
+      text: 'Nuxt 學習筆記',
+      items: [
+        {
+          text: 'Nuxt 部署與 gitlab runner',
+          link: '/view/frontend/nuxt/nuxt-001',
+        },
+      ],
+    },
   ],
   collapsed: false,
 };
