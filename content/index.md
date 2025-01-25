@@ -3,29 +3,68 @@ title: Home
 navigation: false
 ---
 
-::hero
+::hero-alt
 ---
 announcement:
-  title: 'Release v0.8.11'
+  title: 'Nuxt.js Docs'
   icon: '🎉'
   to: https://github.com/ZTL-UwU/shadcn-docs-nuxt/releases/latest
-  target: _blank
 actions:
   - name: Get Started
-    to: /getting-started/introduction
-  - name: GitHub
-    variant: outline
-    to: https://github.com/ZTL-UwU/shadcn-docs-nuxt
-    leftIcon: 'lucide:github'
+    to: /intro
+mobileRight: 'top'
 ---
 
 #title
-Effortless and Beautiful :br Docs Template.
+前端異聞錄 :br Aaron's Blog
 
 #description
-Beautifully designed Nuxt Content template built with shadcn-vue. :br Customizable. Compatible. Open Source.
+Development Notes, Miscellaneous, Small Talk, and Life.
+
+#right
+![logo](/logo.webp)
+
 ::
 
-::div{class="border rounded-lg shadow-md"}
-  :iframe{src="/getting-started/introduction" height="700" width="100%" class="rounded-lg" scrolling="no" frameborder="0"}
+
+::card-group
+  ::card
+  ---
+  title: Front-end
+  icon: 🖥
+  to: https://nuxt.com/docs/api/components/client-only
+  target: _blank
+  ---
+  Vue、Nuxt、React、Vite、Webpack、TypeScript、JavaScript、Three.js、StorkBook、React-three-fiber
+  ::
+
+  ::card
+  ---
+  title: Back-end
+  icon: 📺
+  to: https://nuxt.com/docs/api/composables/use-app-config
+  target: _blank
+  ---
+  Docker、Nginx、HTTP、Jenkins、Shell、AWS、Python
+  ::
+
+  ::card
+  ---
+  title: Ml-end
+  icon: 🤖
+  to: https://nuxt.com/docs/api/utils/dollarfetch
+  target: _blank
+  ---
+  Influence、Evaluation、RAG、Vision、Voice
+  ::
+
+  ::card
+  ---
+  title: 
+  icon: 🍺
+  to: https://nuxt.com/docs/api/commands/add
+  target: _blank
+  ---
+  Coding、Reading、Learning、Trying、Sleeping
+  ::
 ::

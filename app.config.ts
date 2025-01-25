@@ -1,13 +1,13 @@
 export default defineAppConfig({
   shadcnDocs: {
     site: {
-      umami:{
-        enable: true,
-        src: 'https://umami.shadcn.com/umami.js',
-        dataWebsiteId: '2199c498-99bb-4248-adae-96f3e317e817',
-      },
-      name: 'shadcn-docs-nuxt',
-      description: 'Beautifully designed Nuxt Content template built with shadcn-vue. Customizable. Compatible. Open Source.',
+      // umami:{
+      //   enable: true,
+      //   src: 'https://umami.shadcn.com/umami.js',
+      //   dataWebsiteId: '2199c498-99bb-4248-adae-96f3e317e817',
+      // },
+      name: 'Aaron\'s blog',
+      description: '前端開發、React、Vue、自主學習，專注於 3D 模組、AI、資料視覺化與數據分析的探索，助力網頁設計與轉職之路。',
     },
     theme: {
       customizable: true,
@@ -15,17 +15,17 @@ export default defineAppConfig({
       radius: 0.5,
     },
     header: {
-      title: 'shadcn-docs-starter',
+      title: 'Aaron\'s Blog',
       showTitle: true,
       darkModeToggle: true,
       logo: {
-        light: '/logo.svg',
-        dark: '/logo-dark.svg',
+        light: '/logo.png',
+        dark: '/logo.png',
       },
       nav: [],
       links: [{
         icon: 'lucide:github',
-        to: 'https://github.com/ZTL-UwU/shadcn-docs-nuxt',
+        to: 'https://github.com/eepson123tw/blog',
         target: '_blank',
       }],
     },
@@ -38,10 +38,10 @@ export default defineAppConfig({
       showTitle: true,
     },
     footer: {
-      credits: 'Copyright © 2024',
+      credits: 'Copyright ©' + new Date().getFullYear(),
       links: [{
         icon: 'lucide:github',
-        to: 'https://github.com/ZTL-UwU/shadcn-docs-nuxt',
+        to: '',
         target: '_blank',
       }],
     },
@@ -51,12 +51,12 @@ export default defineAppConfig({
       links: [{
         title: 'Star on GitHub',
         icon: 'lucide:star',
-        to: 'https://github.com/ZTL-UwU/shadcn-docs-nuxt',
+        to: '',
         target: '_blank',
       }, {
         title: 'Create Issues',
         icon: 'lucide:circle-dot',
-        to: 'https://github.com/ZTL-UwU/shadcn-docs-nuxt/issues',
+        to: '',
         target: '_blank',
       }],
     },
@@ -64,6 +64,5 @@ export default defineAppConfig({
       enable: true,
       inAside: false,
     },
-    
   }
 });
