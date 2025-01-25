@@ -1,40 +1,4 @@
 {
-  "compilerOptions": {
-    "types": [
-      "@types/node",
-      "vite/client",
-      "vitepress",
-      "vite-plugin-pwa/client",
-      "vite-plugin-pwa/vue"
-    ],
-    "target": "esnext", // 將代碼編譯為最新版本的 JS
-    "useDefineForClassFields": true, // 使用 Object.defineProperty 定義 class 中的屬性，而非使用 obj.key = value 的形式定義屬性
-    "module": "ESNext", // 使用 ES Module 格式打包編譯後的文件
-    "moduleResolution": "Node", // 使用 Node 的模組解析策略
-    "strict": true, // 啟用所有嚴格的類型檢查
-    "jsx": "preserve", // 保留原始的 JSX 代碼，不進行編譯
-    "sourceMap": true, // 生成 sourceMap 文件
-    "resolveJsonModule": true, // 允許引入 JSON 文件
-    "isolatedModules": true, // 該屬性要求所有文件都是 ES Module 模組
-    "esModuleInterop": true, // 允許使用 import 引入使用 export = 導出的內容
-    "lib": ["ESNext", "DOM"], // 引入 ES 最新特性和 DOM 接口的類型定義
-    "skipLibCheck": true, // 跳過對 .d.ts 文件的類型檢查,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "incremental": true,
-    "strictPropertyInitialization": false,
-    "allowSyntheticDefaultImports": true,
-  },
-  "exclude": ["dist", "node_modules"],
-  "include": [
-    "./global.d.ts",
-    "docs",
-    "docs/.vitepress/*.ts",
-    "docs/**/*.ts",
-    "docs/**/*.vue",
-    "docs/**/*.md",
-    "docs/**/*.d.ts",
-    "docs/**/*.vue",
-    "types/**/*.d.ts"
-  ]
+  // https://v3.nuxtjs.org/concepts/typescript
+  "extends": "./.nuxt/tsconfig.json"
 }
