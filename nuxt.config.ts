@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     strategy: 'no_prefix',
     lazy: true,
   },
-  modules: ['@nuxtjs/i18n'],
+  modules: ['@nuxtjs/i18n', '@nuxtjs/robots','@nuxtjs/sitemap'],
   components: {
     dirs: [
       {
@@ -29,5 +29,9 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
     }
-  }
+  },
+  site: { 
+    url: 'https://www.aaron-shih.com/', 
+    name: 'My Awesome Website' 
+  }, 
 });

@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Allow: /view/
+
 
 Disallow: /vendors/
 Disallow: /js/
@@ -9,5 +9,3 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 Sitemap: https://www.aaron-shih.com/sitemap.xml
-
-
