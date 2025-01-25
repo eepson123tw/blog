@@ -1,7 +1,8 @@
 {
   "name": "shadcn-docs-nuxt-starter",
-  "private": true,
   "type": "module",
+  "private": true,
+  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -10,13 +11,14 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@antfu/eslint-config": "^4.1.0",
     "@nuxtjs/i18n": "9.1.3",
     "@nuxtjs/robots": "5.2.2",
     "@nuxtjs/sitemap": "^7.2.3",
+    "eslint-plugin-tailwindcss": "^3.18.0",
     "nuxt": "^3.15.2",
     "shadcn-docs-nuxt": "^0.8.11",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
-  },
-  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
+  }
 }
