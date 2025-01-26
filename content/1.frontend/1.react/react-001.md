@@ -1,5 +1,5 @@
 ---
-title: React Day 1 啟程
+title: Day 1 啟程
 description: 學習 React 框架
 icon: 'lucide:anchor'
 gitTalk: false
