@@ -1,5 +1,8 @@
 # 🚀 Aaron Shih's Tech Evolution Hub
 
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/eepson123tw/blog/blob/master/README.md)
+[![zh-TW](https://img.shields.io/badge/lang-zh--TW-green.svg)](https://github.com/eepson123tw/blog/blob/master/README.zh-TW.md)
+
 ## 🌐 Blog Vision
 
 A dynamic platform bridging cutting-edge technology, personal growth, and innovative development strategies. More than just a blog—a collaborative knowledge ecosystem dedicated to pushing technological boundaries.
