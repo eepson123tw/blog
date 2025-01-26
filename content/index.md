@@ -32,7 +32,7 @@ Development Notes, Miscellaneous, Small Talk, and Life.
   ---
   title: Front-end
   icon: 🖥
-  to: https://nuxt.com/docs/api/components/client-only
+  to: /frontend/esm
   target: _blank
   ---
   Vue、Nuxt、React、Vite、Webpack、TypeScript、JavaScript、Three.js、StorkBook、React-three-fiber
@@ -42,7 +42,7 @@ Development Notes, Miscellaneous, Small Talk, and Life.
   ---
   title: Back-end
   icon: 📺
-  to: https://nuxt.com/docs/api/composables/use-app-config
+  to: /backend/docker
   target: _blank
   ---
   Docker、Nginx、HTTP、Jenkins、Shell、AWS、Python
@@ -52,7 +52,7 @@ Development Notes, Miscellaneous, Small Talk, and Life.
   ---
   title: Ml-end
   icon: 🤖
-  to: https://nuxt.com/docs/api/utils/dollarfetch
+  to: /backend/docker
   target: _blank
   ---
   Influence、Evaluation、RAG、Vision、Voice
@@ -62,7 +62,7 @@ Development Notes, Miscellaneous, Small Talk, and Life.
   ---
   title:
   icon: 🍺
-  to: https://nuxt.com/docs/api/commands/add
+  to: /smalltalk/interview-2024
   target: _blank
   ---
   Coding、Reading、Learning、Trying、Sleeping
