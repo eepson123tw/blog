@@ -10,7 +10,6 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "commit": "git-cz"
-
   },
   "config": {
     "commitizen": {
@@ -31,6 +30,8 @@
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@commitlint/cz-commitlint": "^19.6.1"
+    "@commitlint/cz-commitlint": "^19.6.1",
+    "@commitlint/format": "^19.5.0",
+    "conventional-changelog-atom": "^5.0.0"
   }
 }
