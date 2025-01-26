@@ -1,6 +1,7 @@
 ---
 title: Home
 navigation: false
+description: Frontend development, React, Vue, self-learning, focusing on 3D modules, AI, data visualization, and data analysis exploration, supporting web design and career transition.
 ---
 
 ::hero-alt

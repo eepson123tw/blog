@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   extends: ['shadcn-docs-nuxt'],
   compatibilityDate: '2024-07-06',
   i18n: {
@@ -27,11 +27,36 @@ export default defineNuxtConfig({
   app: {
     head: {
       charset: 'utf-8',
+      htmlAttrs: {
+        lang: 'zh-TW',
+      },
+      title: 'Aaron\'s Blog',
       viewport: 'width=device-width, initial-scale=1',
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.ico' },
+        // { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        {
+          rel: 'prefetch',
+          // href: 'https://www.youtube.com/iframe_api',
+        },
+      ],
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'Frontend development, React, Vue, self-learning, focusing on 3D modules, AI, data visualization, and data analysis exploration, supporting web design and career transition.' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+        { name: 'theme-color', media: '(prefers-color-scheme: light)', content: 'white' },
+        { name: 'theme-color', media: '(prefers-color-scheme: dark)', content: 'black' },
+      ],
     },
   },
   site: {
     url: 'https://www.aaron-shih.com/',
     name: 'My Awesome Website',
+  },
+  runtimeConfig: {
+    public: {
+      posthogPublicKey: 'phc_fzR4XnxYjp4sB38xz1F8L1halakmuZtr1sIRkIaCpNG',
+      posthogHost: 'https://us.i.posthog.com',
+    },
   },
 });
