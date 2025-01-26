@@ -1,7 +1,7 @@
 ---
 title: Day 5 hook 與驅動
 description: 學習 React 框架
-icon: 'lucide:archive'
+icon: 'lucide:aperture'
 gitTalk: false
 date: 2023-06-10 17:35:00
 read: '5'
