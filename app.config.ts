@@ -35,7 +35,7 @@ export default defineAppConfig({
       ],
       links: [{
         icon: 'lucide:github',
-        to: 'https://github.com/eepson123tw/blog',
+        to: 'https://github.com/eepson123tw',
         target: '_blank',
       }],
     },
