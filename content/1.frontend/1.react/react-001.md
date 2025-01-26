@@ -13,6 +13,8 @@ authors:
     target: _blank
 ---
 
+> 學習React框架 - 001 Day 啟程
+
 ::alert{type="example" icon="lucide:lightbulb"}
 
 大部分資料擷取至網路及筆者參加的一些現下聚會的節錄,將透過 Vue 的一些共通框架理念去理解 React 框架,若有理解錯誤的點,請盡量指點我XD
