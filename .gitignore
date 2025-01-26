@@ -1,26 +1,26 @@
-.DS_Store
-docker
-node_modules
-.temp
-docs/.vitepress/cache
-docs/.vitepress/cache/**/*
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
 dist
-.vscode
-cache
-.eslintcache
-components.d.ts
+old
+old/blog/**
 
-# local env files
-.env.local
-.env.*.local
+# Node dependencies
+node_modules
 
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+# Logs
+logs
 *.log
 
-# json
-meta.json
-db.json
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+.env
+.env.*
+!.env.example
