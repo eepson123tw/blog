@@ -2,6 +2,12 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   extends: ['shadcn-docs-nuxt'],
+  content: {
+    highlight: {
+      theme: 'github-light',
+      preload: ['dockerfile'],
+    },
+  },
   i18n: {
     vueI18n: './locales/i18n.config.ts',
     locales: [

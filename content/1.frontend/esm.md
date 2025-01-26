@@ -1,10 +1,8 @@
 ---
 title: ESM 模組原理
 description: ESM 模組化開發
-icon: 'lucide:info'
+icon: 'lucide:code'
 ---
-
-# 模組是什麼
 
 ESM 模組是一種在 JavaScript 中進行模組化開發的標準。它允許開發者將程式碼分割成多個模組，並且可以在需要的地方引入這些模組。ESM 模組使用 `import` 和 `export` 關鍵字來定義和使用模組。
 
@@ -18,7 +16,7 @@ ESM 模組的重點：
 
 我們可以透過 Webpack 來理解 Commonjs 是如何封裝的，簡單的來說每個模組都是一個物件
 
-::: code-group
+::code-group
 
 ```js [index.js]
 console.log('start require');
@@ -127,7 +125,7 @@ setTimeout(() => {
 })();
 ```
 
-:::
+::
 
 ## ESM 原理
 
@@ -145,9 +143,9 @@ ESM（ECMAScript 模組）是一種在 JavaScript 中用於模組化程式碼的
 2. 獲取文件(URL、filesystem load)
 3. 將文件解析成紀錄
 
-::: info
+::alert{type="success" icon="lucide:lightbulb"}
 此部分會巢狀的解析相依的模組文件，一層一層的找下去。若文件相依的模組過多，那 main thread 勢必會被加載阻塞。
-:::
+::
 
 ES 模組規範將遞歸查找算法分為多個階段。並將構造過程單獨分離出來，使得瀏覽器在執行同步的初始化過程前可以自行下載文件並建立自己對於模組圖的路徑。
 
@@ -178,9 +176,9 @@ ES 模組規範將遞歸查找算法分為多個階段。並將構造過程單�
 
 ## 總結
 
-:::info
+::alert{type="success" icon="lucide:lightbulb"}
 require 會同步解析，而 import 會在執行程式碼之前就會有預解析，可以更方便的執行 tree-shacking 及 分析載入點 .etc
-:::
+::
 
 CommonJS 模組同步加載，這意味著它們會阻止程式碼的執行，直到模組完全加載並執行。
 而 ESM 加載分了好幾個步驟，加載模組，然後深度優先遍歷生成 export、import、加載模組 URL 等資訊形成的一個模組表，最後返回模組的值。而這些步驟之間是異步進行的，

@@ -19,7 +19,20 @@ export default defineAppConfig({
         light: '/logo.png',
         dark: '/logo.png',
       },
-      nav: [],
+      nav: [
+        {
+          title: 'FrontEnd',
+          links: [{
+            title: 'ESM',
+            to: '/frontend/esm',
+            description: 'ESM 模組化',
+            icon: 'lucide:rocket',
+          }],
+        },
+        { title: 'BackEnd', to: '/backend' },
+        { title: 'SmallTalk', to: '/smalltalk' },
+
+      ],
       links: [{
         icon: 'lucide:github',
         to: 'https://github.com/eepson123tw/blog',
@@ -37,16 +50,20 @@ export default defineAppConfig({
     banner: {
       enable: true,
       showClose: true,
-      content: 'Welcome to **Aaron Blog** Renewal! 🎉',
-      to: '',
-      target: '_blank',
+      content: 'Welcome to **Aaron Blog** Renewal! 🎉  currently moving old post QQ',
+      to: '/',
+      target: '_self',
       border: true,
     },
     footer: {
-      credits: `Copyright ©${new Date().getFullYear()}`,
+      credits: `All right reserved © ${new Date().getFullYear()} Aaron's Blog`,
       links: [{
-        icon: 'lucide:github',
-        to: '',
+        icon: 'lucide:file-user',
+        to: 'https://ph-portfolio.zeabur.app/',
+        target: '_blank',
+      }, {
+        icon: 'lucide:linkedin',
+        to: 'https://www.linkedin.com/in/aaron-shih',
         target: '_blank',
       }],
     },
@@ -56,12 +73,12 @@ export default defineAppConfig({
       links: [{
         title: 'Star on GitHub',
         icon: 'lucide:star',
-        to: '',
+        to: 'https://github.com/eepson123tw/blog',
         target: '_blank',
       }, {
         title: 'Create Issues',
         icon: 'lucide:circle-dot',
-        to: '',
+        to: 'https://github.com/eepson123tw/blog/issues',
         target: '_blank',
       }],
     },
