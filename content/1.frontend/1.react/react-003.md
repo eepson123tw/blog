@@ -12,7 +12,7 @@ authors:
     to: https://github.com/eepson123tw
     target: _blank
 ---
-學習 React 框架 - 003 組件狀態與副作用更新
+> 學習 React 框架 - 003 組件狀態與副作用更新
 
 ## 狀態的抽象
 
