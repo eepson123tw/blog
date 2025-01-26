@@ -6,7 +6,7 @@ navigation: false
 ::hero-alt
 ---
 announcement:
-  title: 'Nuxt.js Docs'
+  title: 'Build with Nuxt.js Docs'
   icon: '🎉'
   to: https://github.com/ZTL-UwU/shadcn-docs-nuxt/releases/latest
 actions:
@@ -25,7 +25,6 @@ Development Notes, Miscellaneous, Small Talk, and Life.
 ![logo](/logo.webp)
 
 ::
-
 
 ::card-group
   ::card
@@ -60,7 +59,7 @@ Development Notes, Miscellaneous, Small Talk, and Life.
 
   ::card
   ---
-  title: 
+  title:
   icon: 🍺
   to: https://nuxt.com/docs/api/commands/add
   target: _blank

@@ -1,17 +1,12 @@
 export default defineAppConfig({
   shadcnDocs: {
     site: {
-      // umami:{
-      //   enable: true,
-      //   src: 'https://umami.shadcn.com/umami.js',
-      //   dataWebsiteId: '2199c498-99bb-4248-adae-96f3e317e817',
-      // },
       name: 'Aaron\'s blog',
       description: '前端開發、React、Vue、自主學習，專注於 3D 模組、AI、資料視覺化與數據分析的探索，助力網頁設計與轉職之路。',
     },
     theme: {
       customizable: true,
-      color: 'zinc',
+      color: 'orange',
       radius: 0.5,
     },
     header: {
@@ -36,6 +31,14 @@ export default defineAppConfig({
     main: {
       breadCrumb: true,
       showTitle: true,
+    },
+    banner: {
+      enable: true,
+      showClose: true,
+      content: 'Welcome to **Aaron Blog** Renewal! 🎉',
+      to: '',
+      target: '_blank',
+      border: true,
     },
     footer: {
       credits: `Copyright ©${new Date().getFullYear()}`,

@@ -1,8 +1,15 @@
 ---
 title: Intro
-description: shadcn-docs-nuxt is a Nuxt documentation template built with Nuxt Content and shadcn-vue.
+description: 這是一個關於我和我的部落格的介紹
 icon: 'lucide:info'
 gitTalk: true
+authors:
+  - name: Aaron Shih
+    username: eepson123tw
+    avatar: https://www.github.com/eepson123tw.png
+    to: https://github.com/eepson123tw
+    target: _blank
+
 ---
 
 # 前言
