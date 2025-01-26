@@ -50,7 +50,7 @@ export default defineAppConfig({
     banner: {
       enable: true,
       showClose: true,
-      content: 'Welcome to **Aaron Blog** Renewal! 🎉  currently moving old post QQ',
+      content: 'Welcome to **Aaron Blog** Renew! 🎉  currently moving old post 🫠',
       to: '/',
       target: '_self',
       border: true,
