@@ -51,7 +51,7 @@ export default defineAppConfig({
     banner: {
       enable: true,
       showClose: true,
-      content: 'Welcome to **Aaron Blog** Renew! 🎉  currently moving old post 🫠',
+      content: 'Welcome to **Aaron Blog**! 🎉  currently Renew and moving old post 🫠',
       to: '/',
       target: '_self',
       border: true,
@@ -65,6 +65,10 @@ export default defineAppConfig({
       }, {
         icon: 'lucide:linkedin',
         to: 'https://www.linkedin.com/in/aaron-shih',
+        target: '_blank',
+      }, {
+        icon: 'lucide:rss',
+        to: '',
         target: '_blank',
       }],
     },

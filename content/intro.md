@@ -1,8 +1,11 @@
 ---
-title: Intro
-description: 這是一個關於我和我的部落格的介紹
-icon: 'lucide:info'
+title: Intro 前端異聞錄
+description: 與部落格一起成長
+icon: 'lucide:ambulance'
 gitTalk: true
+breadcrumb: false
+date: 2022-10-28 23:45:03
+read: '1'
 authors:
   - name: Aaron Shih
     username: eepson123tw
@@ -11,9 +14,11 @@ authors:
     target: _blank
 ---
 
-3年了...
+寫部落格3年了
 
-征途繼續
+從最初的 `Hexo -> Vuepress -> Vitepress -> Nuxt.js`
+
+征途還要繼續
 
 ## 動機
 
