@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   content: {
     highlight: {
       theme: 'github-light',
-      preload: ['dockerfile'],
+      preload: ['dockerfile', 'mermaid', 'yaml'],
     },
   },
   i18n: {
