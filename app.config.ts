@@ -3,8 +3,9 @@ export default defineAppConfig({
     site: {
       name: 'Aaron\'s blog',
       description: '前端開發、React、Vue、自主學習，專注於 3D 模組、AI、資料視覺化與數據分析的探索，助力網頁設計與轉職之路。',
-      ogImageComponent: 'NuxtSeo',
-      ogImageColor: 'light',
+      ogImageComponent: 'ShadcnDocs',
+      ogImageColor: 'ShadcnDocs',
+      ogImage: '/logo.png',
     },
     theme: {
       customizable: true,
