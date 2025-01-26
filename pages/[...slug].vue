@@ -25,6 +25,9 @@
         :badges="page?.badges"
         :authors="page?.authors"
       />
+      <ClientOnly fallback-tag="span" fallback="Loading comments...">
+        <Infos v-if="page.date && page.read" :date="page.date" :read="page.read" />
+      </ClientOnly>
 
       <Alert
         v-if="page?.body?.children?.length === 0"
@@ -56,6 +59,8 @@
 </template>
 
 <script setup lang="ts">
+import { Infos } from '#components';
+
 const { page } = useContent();
 const config = useConfig();
 
