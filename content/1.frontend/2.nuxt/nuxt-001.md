@@ -147,9 +147,9 @@ Dockerfile 中，使用了多階段建構來減少最終映像的大小，但是
 
 Alpine Linux 使用 musl-libc 作為 C 標準函式庫，而大多數 Linux 發行版使用 glibc。這兩者之間有一些差異，尤其是在編譯原生模組時可能會出現問題。
 
-:::tip 解方
+::alert{type="note" icon="lucide:pencil" title="解方"}
 在 Dockerfile 中使用 `node:lts` 或明確指定 Node.js 版本 (例如 `node:18`) 作為基礎映像，可以避免一些套件安裝問題。
-:::
+::
 
 ## 總結
 

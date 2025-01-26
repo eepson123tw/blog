@@ -50,9 +50,9 @@ icon: 'lucide:info'
 
 感謝在 2020 年下定決心轉職且一路不放棄的自己，及一路陪伴的轉職夥伴及好友們！
 
-:::info
+::alert{type="info" icon="lucide:lightbulb"}
 **Fake It Til You Make It!**
-:::
+::
 
 ## 人算不如天算
 
