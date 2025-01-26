@@ -2,6 +2,7 @@
 title: Intro
 description: shadcn-docs-nuxt is a Nuxt documentation template built with Nuxt Content and shadcn-vue.
 icon: 'lucide:info'
+gitTalk: true
 ---
 
 # 前言

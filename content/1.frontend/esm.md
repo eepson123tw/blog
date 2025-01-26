@@ -4,7 +4,6 @@ description: ESM 模組化開發
 icon: 'lucide:info'
 ---
 
-
 # 模組是什麼
 
 ESM 模組是一種在 JavaScript 中進行模組化開發的標準。它允許開發者將程式碼分割成多個模組，並且可以在需要的地方引入這些模組。ESM 模組使用 `import` 和 `export` 關鍵字來定義和使用模組。
@@ -22,30 +21,30 @@ ESM 模組的重點：
 ::: code-group
 
 ```js [index.js]
-console.log("start require");
-var module = require("./module");
-console.log("end require", module);
+console.log('start require');
+let module = require('./module');
+console.log('end require', module);
 // module.js 知識點1
 console.log(module.tencent);
 
 // module.js 知識點2
-module.additional = "test";
+module.additional = 'test';
 ```
 
 ```js [module.js]
-console.log("this is a module");
+console.log('this is a module');
 
-exports.app = { hello: "haha" };
+exports.app = { hello: 'haha' };
 
 exports.tencent = function () {
-  console.log("good");
+  console.log('good');
 };
 
 // 知識點1：對module.exports賦值，exports物件就不再是外部require所得到的結果了。
 // 我在視頻中採用的說法是「覆蓋exports」其實不算非常嚴謹。
 // 因為exports變數本身還是存在的
 module.exports = function () {
-  console.log("hello app");
+  console.log('hello app');
 };
 
 // 知識點2：外部取得require呼叫的結果和這裡的exports物件是同一個引用
@@ -59,43 +58,43 @@ setTimeout(() => {
 ```js [webpack.js]
 /******/ (() => {
   // webpackBootstrap
-  /******/ var __webpack_modules__ = {
-    /***/ "./module.js":
-      /*!****************!*\
+  /******/ let __webpack_modules__ = {
+    /***/ './module.js':
+    /*! ****************!*\
   !*** ./module.js ***!
   \****************/
-      /***/ (module, exports) => {
-        console.log("this is module");
-        exports.app = { hello: "haha" };
-        exports.tencent = function () {
-          console.log("good");
-        };
-        module.exports = function () {
-          console.log("hello app");
-        };
-        setTimeout(() => {
-          console.log(exports);
-        }, 2000);
+    /***/ (module, exports) => {
+      console.log('this is module');
+      exports.app = { hello: 'haha' };
+      exports.tencent = function () {
+        console.log('good');
+      };
+      module.exports = function () {
+        console.log('hello app');
+      };
+      setTimeout(() => {
+        console.log(exports);
+      }, 2000);
 
-        /***/
-      },
+      /***/
+    },
 
     /******/
   };
   /************************************************************************/
   /******/ // The module cache
-  /******/ var __webpack_module_cache__ = {};
+  /******/ let __webpack_module_cache__ = {};
   /******/
   /******/ // The require function
   /******/ function __webpack_require__(moduleId) {
     /******/ // Check if module is in cache
-    /******/ var cachedModule = __webpack_module_cache__[moduleId];
+    /******/ let cachedModule = __webpack_module_cache__[moduleId];
     /******/ if (cachedModule !== undefined) {
       /******/ return cachedModule.exports;
       /******/
     }
     /******/ // Create a new module (and put it into the cache)
-    /******/ var module = (__webpack_module_cache__[moduleId] = {
+    /******/ let module = (__webpack_module_cache__[moduleId] = {
       /******/ // no module.id needed
       /******/ // no module.loaded needed
       /******/ exports: {},
@@ -111,17 +110,17 @@ setTimeout(() => {
   }
   /******/
   /************************************************************************/
-  var __webpack_exports__ = {};
+  let __webpack_exports__ = {};
   // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
   (() => {
-    /*!******************!*\
+    /*! ******************!*\
   !*** ./index.js ***!
   \******************/
-    console.log("start require");
-    var module = __webpack_require__(/*! ./module */ "./module.js");
-    console.log("end require", module);
+    console.log('start require');
+    let module = __webpack_require__(/*! ./module */ './module.js');
+    console.log('end require', module);
     console.log(module.tencent);
-    module.additional = "test";
+    module.additional = 'test';
   })();
 
   /******/
@@ -185,8 +184,6 @@ require 會同步解析，而 import 會在執行程式碼之前就會有預解�
 
 CommonJS 模組同步加載，這意味著它們會阻止程式碼的執行，直到模組完全加載並執行。
 而 ESM 加載分了好幾個步驟，加載模組，然後深度優先遍歷生成 export、import、加載模組 URL 等資訊形成的一個模組表，最後返回模組的值。而這些步驟之間是異步進行的，
-
-<!-- <GitTalk/> -->
 
 ## 參考資料
 

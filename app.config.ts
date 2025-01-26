@@ -38,7 +38,7 @@ export default defineAppConfig({
       showTitle: true,
     },
     footer: {
-      credits: 'Copyright ©' + new Date().getFullYear(),
+      credits: `Copyright ©${new Date().getFullYear()}`,
       links: [{
         icon: 'lucide:github',
         to: '',
@@ -64,5 +64,8 @@ export default defineAppConfig({
       enable: true,
       inAside: false,
     },
-  }
+    gitTalk: {
+      enable: true,
+    },
+  },
 });
