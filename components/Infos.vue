@@ -1,7 +1,7 @@
 <template>
   <div class="mx-auto max-w-screen-md">
     <section
-      class="my-2 text-left"
+      class="my-4 text-left"
     >
       <div class="flex items-center gap-1 text-gray-700 dark:text-white">
         <span class="iconify  i-lucide:star self-center text-yellow-500" aria-hidden="true" style="font-size:16px;" />
