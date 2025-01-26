@@ -68,7 +68,7 @@ export default defineAppConfig({
         target: '_blank',
       }, {
         icon: 'lucide:rss',
-        to: '',
+        to: 'https://www.aaron-shih.com/rss.xml',
         target: '_blank',
       }],
     },

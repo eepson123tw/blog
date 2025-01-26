@@ -1,4 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import RSS from 'rss';
+import { parseStringPromise } from 'xml2js';
+
 export default defineNuxtConfig({
   devtools: { enabled: false },
   extends: ['shadcn-docs-nuxt'],
@@ -141,9 +146,62 @@ export default defineNuxtConfig({
         '**/.git/**',
       ],
     },
+    hooks: {
+      'prerender:generate': async (route, nitro) => {
+        try {
+          // 1. Fetch your sitemap
+          const response = await fetch('https://www.aaron-shih.com/sitemap.xml');
+          if (!response.ok) {
+            throw new Error(`Error fetching sitemap: ${response.status} ${response.statusText}`);
+          }
+
+          // 2. Parse the XML
+          const xmlText = await response.text();
+          const parsedSitemap = await parseStringPromise(xmlText);
+          const urlEntries = parsedSitemap?.urlset?.url || [];
+
+          // 3. Create a new RSS feed
+          const feed = new RSS({
+            title: 'My Website RSS',
+            description: 'Latest updates from my site',
+            feed_url: 'https://www.aaron-shih.com/rss.xml',
+            site_url: 'https://www.aaron-shih.com',
+            language: 'en',
+          });
+
+          // 4. Populate the RSS feed
+          for (const entry of urlEntries) {
+            const loc = entry.loc?.[0];
+            const lastmod = entry.lastmod?.[0] || new Date().toISOString();
+
+            if (loc) {
+              feed.item({
+                title: loc,
+                description: `Page URL: ${loc}`,
+                url: loc,
+                date: lastmod,
+              });
+            }
+          }
+
+          // 5. Generate the final XML string
+          const rssXml = feed.xml({ indent: true });
+
+          // // 6. Write the file to your final build’s public dir (.output/public by default)
+          const outputPath = join(nitro.options.output.publicDir, 'rss.xml');
+          writeFileSync(outputPath, rssXml, 'utf-8');
+          console.log(`RSS feed generated at: ${outputPath}`);
+        } catch (error) {
+          console.error('Failed to generate RSS feed', error);
+        }
+      },
+    },
   },
   compatibilityDate: '2024-10-29',
   robots: {
     sitemap: 'https://www.aaron-shih.com/sitemap.xml',
+  },
+  experimental: {
+    appManifest: false,
   },
 });
