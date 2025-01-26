@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   extends: ['shadcn-docs-nuxt'],
-  compatibilityDate: '2024-07-06',
   i18n: {
     vueI18n: './locales/i18n.config.ts',
     locales: [
@@ -47,6 +46,18 @@ export default defineNuxtConfig({
         { name: 'theme-color', media: '(prefers-color-scheme: light)', content: 'white' },
         { name: 'theme-color', media: '(prefers-color-scheme: dark)', content: 'black' },
       ],
+      script: [
+        {
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-R6YQL587WJ',
+          async: true,
+        },
+        {
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag(\'js\', new Date());\ngtag(\'config\', \'G-R6YQL587WJ\');
+          `,
+          type: 'text/javascript',
+        },
+      ],
     },
   },
   site: {
@@ -58,5 +69,28 @@ export default defineNuxtConfig({
       posthogPublicKey: 'phc_fzR4XnxYjp4sB38xz1F8L1halakmuZtr1sIRkIaCpNG',
       posthogHost: 'https://us.i.posthog.com',
     },
+    baseURL: 'https://www.aaron-shih.com',
+  },
+  nitro: {
+    // preset: 'node-server',
+    compressPublicAssets: {
+      gzip: true,
+      brotli: true,
+    },
+    prerender: {
+      crawlLinks: true,
+      failOnError: false,
+    },
+    watchOptions: {
+      ignored: [
+        '**/node_modules/**',
+        '**/dist/**',
+        '**/.git/**',
+      ],
+    },
+  },
+  compatibilityDate: '2024-10-29',
+  robots: {
+    sitemap: 'https://www.aaron-shih.com/sitemap.xml',
   },
 });
