@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import * as cheerio from 'cheerio';
 import RSS from 'rss';
 import { parseStringPromise } from 'xml2js';
 
@@ -174,14 +175,44 @@ export default defineNuxtConfig({
             const loc = entry.loc?.[0];
             const lastmod = entry.lastmod?.[0] || new Date().toISOString();
 
-            if (loc) {
-              feed.item({
-                title: loc,
-                description: `Page URL: ${loc}`,
-                url: loc,
-                date: lastmod,
-              });
+            if (!loc)
+              continue;
+
+            let pageTitle = loc;
+            let pageDescription = `Page URL: ${loc}`;
+
+            try {
+              // Fetch the actual HTML from the page
+              const pageResp = await fetch(loc);
+              if (pageResp.ok) {
+                const html = await pageResp.text();
+
+                // Parse the HTML with cheerio
+                const $ = cheerio.load(html);
+
+                // Get <title>
+                const rawTitle = $('title').text();
+                if (rawTitle) {
+                  pageTitle = rawTitle.trim();
+                }
+
+                // Get <meta name="description">
+                const metaDescription = $('meta[name="description"]').attr('content');
+                if (metaDescription) {
+                  pageDescription = metaDescription.trim();
+                }
+              }
+            } catch (e) {
+              console.error(`Failed to fetch or parse ${loc}`, e);
+              // fallback to default (loc)
             }
+
+            feed.item({
+              title: pageTitle,
+              description: pageDescription,
+              url: loc,
+              date: lastmod,
+            });
           }
 
           // 5. Generate the final XML string
