@@ -71,6 +71,7 @@ useSeoMeta({
   description: page.value?.description,
   ogDescription: page.value?.description,
   twitterCard: 'summary_large_image',
+  articleModifiedTime: page.value?.date,
 });
 
 useHead({
