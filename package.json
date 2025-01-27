@@ -24,7 +24,7 @@
     "Blog"
   ],
   "scripts": {
-    "build": "nuxt build",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=16384' nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
@@ -42,6 +42,7 @@
     "@nuxtjs/robots": "5.2.2",
     "@nuxtjs/sitemap": "^7.2.3",
     "cheerio": "^1.0.0",
+    "cross-env": "^7.0.3",
     "eslint-plugin-tailwindcss": "^3.18.0",
     "gitalk": "^1.8.0",
     "nuxt": "^3.15.2",

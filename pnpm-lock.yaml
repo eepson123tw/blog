@@ -23,6 +23,9 @@ importers:
       cheerio:
         specifier: ^1.0.0
         version: 1.0.0
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       eslint-plugin-tailwindcss:
         specifier: ^3.18.0
         version: 3.18.0(tailwindcss@3.4.17)
@@ -2337,6 +2340,11 @@ packages:
 
   cronstrue@2.53.0:
     resolution: {integrity: sha512-CkAcaI94xL8h6N7cGxgXfR5D7oV2yVtDzB9vMZP8tIgPyEv/oc/7nq9rlk7LMxvc3N+q6LKZmNLCVxJRpyEg8A==, tarball: https://registry.npmjs.org/cronstrue/-/cronstrue-2.53.0.tgz}
+    hasBin: true
+
+  cross-env@7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==, tarball: https://registry.npmjs.org/cross-env/-/cross-env-7.0.3.tgz}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
     hasBin: true
 
   cross-spawn@7.0.6:
@@ -9206,6 +9214,10 @@ snapshots:
   croner@9.0.0: {}
 
   cronstrue@2.53.0: {}
+
+  cross-env@7.0.3:
+    dependencies:
+      cross-spawn: 7.0.6
 
   cross-spawn@7.0.6:
     dependencies:

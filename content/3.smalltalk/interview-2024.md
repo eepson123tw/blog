@@ -2,6 +2,15 @@
 title: 2024 面試紀錄
 description: 面試紀錄及反思
 icon: 'lucide:info'
+
+date: 2024-07-24 22:11:10
+read: '5'
+authors:
+  - name: Aaron Shih
+    username: eepson123tw
+    avatar: https://www.github.com/eepson123tw.png
+    to: https://github.com/eepson123tw
+    target: _blank
 ---
 
 ![interview](/images/smalltalk/interview.webp)
