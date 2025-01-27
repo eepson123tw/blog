@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   content: {
     highlight: {
       theme: 'github-light',
-      preload: ['dockerfile', 'mermaid', 'yaml', 'toml'],
+      preload: ['dockerfile', 'mermaid', 'yaml', 'toml','python'],
     },
   },
   ogImage: {

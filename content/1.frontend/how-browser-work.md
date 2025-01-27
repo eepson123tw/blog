@@ -136,7 +136,9 @@ souceCode → Parsing[語法確立及分析] → 翻譯成機器代碼[0101] 也
 
 HTML 語法定義由 w3c 定義，不適合用傳統的上下文無關文法（context-free grammar）來定義，因為HTML具有寬容性，允許省略某些標籤或開始和結束標籤，這使得它難以使用正常的文法進行解析。HTML與XML相似，但其靈活寬容的語法與XML的嚴格語法有所不同，導致XML解析器無法直接解析HTML。
 
-### **HTML** 定義 **([DTD](https://www.notion.so/algorithm-338534fc0b084397b4d53ab2b614c656?pvs=21) )**
+### HTML 定義
+
+[DTD](https://www.notion.so/algorithm-338534fc0b084397b4d53ab2b614c656?pvs=21)
 
 HTML的定義採用DTD（Document Type Definition）格式，這種格式用於定義SGML（Standard Generalized Markup Language）家族的語言。
 
@@ -494,7 +496,9 @@ Firefox 遍歷渲染樹並為繪製的矩形構建顯示列表。它包含與矩
 
 這是一個無限循環，使進程保持活動狀態。它等待事件（如佈局和繪製事件）並處理它們。
 
-## 🀁 合成( **[Compositing](https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work#compositing) ）**
+## 🀁 合成(Compositing)
+
+[Compositing](https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work#compositing)
 
 當文檔的不同部分被繪製在不同的層中，並且彼此重疊時，必須使用合成（compositing）來確保它們以正確的順序顯示在屏幕上，並且內容正確地呈現出來。
 
@@ -520,7 +524,9 @@ Firefox 遍歷渲染樹並為繪製的矩形構建顯示列表。它包含與矩
 
 "canvas"一詞描述了"格式化結構被渲染的空間"。每個空間維度的canvas是無限的，但渲染通常發生在canvas的有限區域內，該區域由使用者代理(**註1**)根據目標媒體來設置。
 
-### [CSS Box Model](https://www.w3.org/TR/CSS2/box.html)
+### CSS Box Model
+
+[CSS Box Model](https://www.w3.org/TR/CSS2/box.html)
 
 描述為 Dom 樹中的元素生成並根據視覺格式化模型進行佈局的矩形框。
 
