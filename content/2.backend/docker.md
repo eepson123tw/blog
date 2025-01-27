@@ -106,7 +106,7 @@ Docker Daemon:（ dockerd ）是 Docker 的核心元件，在背景執行並管�
 
 Docker Client:（ docker ）是者與 Docker 互動的主要方式。執行docker run 之類的指令時，將這些指令傳送到 Docker Daemon 進程中執行～
 
-![Docker](/images/docker/docker.png)
+![Docker](/images/docker/docker.webp)
 
 ## 常用指令
 

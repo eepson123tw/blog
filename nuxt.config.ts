@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     strategy: 'no_prefix',
     lazy: true,
   },
-  modules: ['@nuxtjs/i18n', '@nuxtjs/robots', '@nuxtjs/sitemap'],
+  modules: ['@nuxtjs/i18n', '@nuxt/image', '@nuxtjs/robots', '@nuxtjs/sitemap'],
   components: {
     dirs: [
       {
@@ -239,6 +239,13 @@ export default defineNuxtConfig({
         },
       },
     },
+    ssr: {
+      noExternal: ['debug'],
+    },
+  },
+  image: {
+    formats: ['webp', 'jpeg'],
+    quality: 75,
   },
   robots: {
     sitemap: 'https://www.aaron-shih.com/sitemap.xml',
