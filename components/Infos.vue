@@ -6,7 +6,7 @@
       <div class="flex items-center gap-1 text-gray-700 dark:text-white">
         <span class="iconify  i-lucide:star self-center text-yellow-500" aria-hidden="true" style="font-size:16px;" />
         <span class="font-semibold">{{ t('createTime') }}:</span>
-        <span data-create-time="formattedDate">{{ formattedDate }}</span>
+        <span>{{ formattedDate }}</span>
       </div>
       <div class="flex gap-1 text-gray-700 dark:text-white">
         <span class="iconify  i-lucide:ambulance self-center text-red-500" aria-hidden="true" style="font-size:16px;" />
