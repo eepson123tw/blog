@@ -210,6 +210,7 @@ export default defineNuxtConfig({
     defaults: {
       changefreq: 'daily',
       priority: 0.8,
+      lastmod: new Date().toISOString(),
     },
   },
   experimental: {

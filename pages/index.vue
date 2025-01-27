@@ -23,7 +23,7 @@ useSeoMeta({
   ogDescription: page.value?.description,
   ogImage: config.value.site.ogImage,
   twitterCard: 'summary_large_image',
-
+  articleModifiedTime: page.value?.date,
 });
 
 useHead({
