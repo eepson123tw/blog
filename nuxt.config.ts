@@ -1,9 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import * as cheerio from 'cheerio';
-import RSS from 'rss';
 import { parseStringPromise } from 'xml2js';
+import { genFeed } from './utils/feed';
 
 export default defineNuxtConfig({
   devtools: { enabled: false },
@@ -32,7 +31,7 @@ export default defineNuxtConfig({
   content: {
     highlight: {
       theme: 'github-light',
-      preload: ['dockerfile', 'mermaid', 'yaml', 'toml','python'],
+      preload: ['dockerfile', 'mermaid', 'yaml', 'toml', 'python'],
     },
   },
   ogImage: {
@@ -154,74 +153,25 @@ export default defineNuxtConfig({
     },
 
     hooks: {
-      // only for local generation
       'prerender:generate': async (route, nitro) => {
         // eslint-disable-next-line node/prefer-global/process
         if (process.env.CI || process.env.SKIP_RSS === 'true') {
           console.log('Skipping RSS generation in build.');
           return;
         }
-
         try {
           const response = await fetch('https://www.aaron-shih.com/sitemap.xml', {
-            // 加一個 timeout 機制，避免卡太久
-            signal: AbortSignal.timeout(10_000), // 10 秒
+            signal: AbortSignal.timeout(10_000),
           });
-          if (!response.ok) {
+
+          if (!response.ok)
             throw new Error(`Error fetching sitemap: ${response.status} ${response.statusText}`);
-          }
 
           const xmlText = await response.text();
           const parsedSitemap = await parseStringPromise(xmlText);
           const urlEntries = parsedSitemap?.urlset?.url || [];
 
-          // 建立 RSS feed
-          const feed = new RSS({
-            title: 'My Website RSS',
-            description: 'Latest updates from my site',
-            feed_url: 'https://www.aaron-shih.com/rss.xml',
-            site_url: 'https://www.aaron-shih.com',
-            language: 'en',
-          });
-
-          for (const entry of urlEntries) {
-            const loc = entry.loc?.[0];
-            const lastmod = entry.lastmod?.[0] || new Date().toISOString();
-            if (!loc)
-              continue;
-
-            let pageTitle = loc;
-            let pageDescription = `Page URL: ${loc}`;
-            try {
-              // 去抓取網頁本身
-              const pageResp = await fetch(loc, { signal: AbortSignal.timeout(10_000) });
-              if (pageResp.ok) {
-                const html = await pageResp.text();
-                const $ = cheerio.load(html);
-
-                // 抓 <title>
-                const rawTitle = $('title').text();
-                if (rawTitle)
-                  pageTitle = rawTitle.trim();
-
-                // 抓 <meta name="description">
-                const metaDescription = $('meta[name="description"]').attr('content');
-                if (metaDescription)
-                  pageDescription = metaDescription.trim();
-              }
-            } catch (e) {
-              console.error(`Failed to fetch or parse ${loc}`, e);
-            }
-
-            feed.item({
-              title: pageTitle,
-              description: pageDescription,
-              url: loc,
-              date: lastmod,
-            });
-          }
-
-          const rssXml = feed.xml({ indent: true });
+          const rssXml = await genFeed(urlEntries);
           const outputPath = join(nitro.options.output.publicDir, 'rss.xml');
           writeFileSync(outputPath, rssXml, 'utf-8');
           console.log(`RSS feed generated at: ${outputPath}`);
