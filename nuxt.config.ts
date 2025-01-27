@@ -8,12 +8,6 @@ import { parseStringPromise } from 'xml2js';
 export default defineNuxtConfig({
   devtools: { enabled: false },
   extends: ['shadcn-docs-nuxt'],
-  content: {
-    highlight: {
-      theme: 'github-light',
-      preload: ['dockerfile', 'mermaid', 'yaml', 'toml'],
-    },
-  },
   i18n: {
     vueI18n: './locales/i18n.config.ts',
     locales: [
@@ -26,13 +20,24 @@ export default defineNuxtConfig({
     strategy: 'no_prefix',
     lazy: true,
   },
-  modules: ['@nuxtjs/i18n', '@nuxt/image', '@nuxtjs/robots', '@nuxtjs/sitemap'],
+  modules: ['nuxt-og-image', '@nuxtjs/i18n', '@nuxt/image', '@nuxtjs/robots', '@nuxtjs/sitemap'],
   components: {
     dirs: [
       {
         path: './components',
         ignore: ['**/*.ts'],
       },
+    ],
+  },
+  content: {
+    highlight: {
+      theme: 'github-light',
+      preload: ['dockerfile', 'mermaid', 'yaml', 'toml'],
+    },
+  },
+  ogImage: {
+    fonts: [
+      'Noto+Sans+SC:400',
     ],
   },
   app: {
