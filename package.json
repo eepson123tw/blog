@@ -24,7 +24,8 @@
     "Blog"
   ],
   "scripts": {
-    "build": "cross-env NODE_OPTIONS='--max-old-space-size=16384' nuxt build",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=16384' SKIP_RSS=true nuxt build",
+    "build:rss": "cross-env NODE_OPTIONS='--max-old-space-size=16384' nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
