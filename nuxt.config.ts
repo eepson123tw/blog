@@ -137,7 +137,7 @@ export default defineNuxtConfig({
       brotli: true,
     },
     prerender: {
-      crawlLinks: true,
+      crawlLinks: false,
       failOnError: false,
     },
     watchOptions: {
@@ -225,11 +225,26 @@ export default defineNuxtConfig({
       },
     },
   },
-  compatibilityDate: '2024-10-29',
+  vite: {
+    build: {
+      sourcemap: false,
+      chunkSizeWarningLimit: 4500,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              return 'vendor';
+            }
+          },
+        },
+      },
+    },
+  },
   robots: {
     sitemap: 'https://www.aaron-shih.com/sitemap.xml',
   },
   experimental: {
     appManifest: false,
   },
+  compatibilityDate: '2024-10-29',
 });
