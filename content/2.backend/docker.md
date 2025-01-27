@@ -1,7 +1,16 @@
 ---
-description: learn docker and apply it with AI
-title: 利用 AI 學習 Docker 並應證
-icon: 'lucide:info'
+title: 利用AI學習Docker並應證
+description: Docker、AI Learning、VM
+icon: 'lucide:dock'
+gitTalk: false
+date: 2024-08-24 16:25:30
+read: '5'
+authors:
+  - name: Aaron Shih
+    username: eepson123tw
+    avatar: https://www.github.com/eepson123tw.png
+    to: https://github.com/eepson123tw
+    target: _blank
 ---
 
 換到新公司後需要負責一些部署方面的工作，因為是用 local 端起模型的模式，而且客戶的運行環境需要斷網，所以產品的更新需要使用到 docker，透過隔層分離，我們可以快速地遞交更新版本。也不會有環境不符的問題，雖然之前也學過 docker 並部署過東西，但大量使用卻是這份工作開始，為了加深印象，開始探索之旅吧。

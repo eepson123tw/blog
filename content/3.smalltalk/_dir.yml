@@ -4,6 +4,3 @@ navigation.redirect: /smalltalk/gpt-prompt-learning
 collapse: false
 sidebar:
   style: tree
-navBadges:
-  - value: New
-    type: primary
