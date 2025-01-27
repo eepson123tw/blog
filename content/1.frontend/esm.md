@@ -2,6 +2,15 @@
 title: ESM 模組原理
 description: ESM 模組化開發
 icon: 'lucide:code'
+gitTalk: false
+date: 2024-03-14 12:25:00
+read: '10'
+authors:
+  - name: Aaron Shih
+    username: eepson123tw
+    avatar: https://www.github.com/eepson123tw.png
+    to: https://github.com/eepson123tw
+    target: _blank
 ---
 
 ESM 模組是一種在 JavaScript 中進行模組化開發的標準。它允許開發者將程式碼分割成多個模組，並且可以在需要的地方引入這些模組。ESM 模組使用 `import` 和 `export` 關鍵字來定義和使用模組。
