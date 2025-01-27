@@ -37,7 +37,7 @@ React16 前更新需透過 reconciler (判斷哪先元件需要更新，可中�
 :read-more{to="https://github.com/facebook/react/blob/769b1f270e1251d9dbdce0fcbd9e92e502d059b8/packages/react-reconciler/src/ReactFiber.js#L414" title="ReactFiber"}
 :read-more{to="https://www.youtube.com/watch?v=0ympFIwQFJw&t=5s&ab_channel=PhilipFabianek" title="PhilipFabianek"}
 
-![fiberInfo](/images/react/fiberInfo.png)
+![fiberInfo](/images/react/fiberInfo.webp)
 
 ::collapsible
 #title
@@ -115,7 +115,7 @@ function ClickCounter (){
 
 會轉換成
 
-![fiber](/images/react/fiber.png)
+![fiber](/images/react/fiber.webp)
 
 ::alert{type="warning" icon="lucide:eraser"}
 
@@ -135,7 +135,7 @@ function ClickCounter (){
 React 總是一次性更新 DOM——它不會顯示部分結果。
 ::
 
-![fiberTree](/images/react/fiberTree.png)
+![fiberTree](/images/react/fiberTree.webp)
 
 ## Side-effects
 

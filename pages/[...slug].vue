@@ -42,6 +42,7 @@
         :key="page._id"
         :value="page"
         class="docs-content"
+        :components="{ NuxtImg }"
       />
 
       <ClientOnly fallback-tag="span" fallback="Loading comments...">
@@ -59,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { Infos } from '#components';
+import { Infos, NuxtImg } from '#components';
 
 const { page } = useContent();
 const config = useConfig();

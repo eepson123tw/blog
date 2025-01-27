@@ -54,7 +54,7 @@ GPT（Generative Pre-trained Transformer）的應用：
 
 ---
 
-![singular-point 人類的奇點](/images/gpt/singular-point.png)
+![singular-point 人類的奇點](/images/gpt/singular-point.webp)
 
 ## Prompt 是什麼?
 
@@ -112,7 +112,7 @@ ex:
 
 讓我們來比較三句 Prompt 的差異，使用 `GPT 3.5 模型` 詢問，是否就有看出差異了呢?
 
-![prompt-apple 比較三個 Prompt](/images/gpt/prompt-apple.png)
+![prompt-apple 比較三個 Prompt](/images/gpt/prompt-apple.webp)
 
 ::alert{type="info" icon="lucide:ligature"}
 還能使用下列的指令再去加強，Prompt的結構，達到更好的效果。
@@ -181,7 +181,7 @@ Prompt: 如何在心理輔導中幫助患者管理壓力和焦慮？
 """
 ```
 
-![prompt-link-agent Link_Agent 分析機器人](/images/gpt/prompt-link-agent.png)
+![prompt-link-agent Link_Agent 分析機器人](/images/gpt/prompt-link-agent.webp)
 
 是不是很神奇呢~
 
