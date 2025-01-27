@@ -73,15 +73,8 @@ export async function genFeed(urlEntries: UrlEntry[]): Promise<string> {
       // Get description
       const pageDescription = $('meta[name="description"]').attr('content')?.trim() || `Page URL: ${loc}`;
 
-      // Get creation date using data attribute
-      const creationDate = $('span[data-create-time]').attr('data-create-time') as string;
-      let pubDate = parseAndFormatDate(creationDate);
-
-      // Fallback to lastmod or meta modified time if creation date not found
-      if (!pubDate) {
-        const lastmod = entry.lastmod?.[0] || $('meta[property="article:modified_time"]').attr('content') as string;
-        pubDate = parseAndFormatDate(lastmod);
-      }
+      const lastmod = entry.lastmod?.[0] || $('meta[property="article:modified_time"]').attr('content') as string;
+      const pubDate = parseAndFormatDate(lastmod);
 
       feedEntries.push({
         title: pageTitle,

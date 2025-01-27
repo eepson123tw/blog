@@ -23,6 +23,11 @@ useSeoMeta({
   ogDescription: page.value?.description,
   ogImage: config.value.site.ogImage,
   twitterCard: 'summary_large_image',
+
+});
+
+useHead({
+  meta: [{ property: 'article:modified_time', content: `${page.value?.date}` }],
 });
 
 defineOgImageComponent('BlogPost', {

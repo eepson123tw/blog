@@ -73,6 +73,10 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 });
 
+useHead({
+  meta: [{ property: 'article:modified_time', content: `${page.value?.date}` }],
+});
+
 defineOgImageComponent(config.value.site.ogImageComponent, {
   title: page.value?.title,
   description: page.value?.description,
