@@ -45,7 +45,6 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.ico' },
-        // { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
         {
           rel: 'prefetch',
           // href: 'https://www.youtube.com/iframe_api',
@@ -120,8 +119,8 @@ export default defineNuxtConfig({
     },
   },
   site: {
-    url: 'https://www.aaron-shih.com/',
-    name: 'My Awesome Website',
+    url: 'https://www.aaron-shih.com', // Canonical URL
+    name: 'Aaron\'s Blog',
   },
   runtimeConfig: {
     public: {
@@ -139,6 +138,7 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: false,
       failOnError: false,
+      routes: ['/sitemap.xml'],
     },
     watchOptions: {
       ignored: [
@@ -147,6 +147,7 @@ export default defineNuxtConfig({
         '**/.git/**',
       ],
     },
+
     hooks: {
       // only for local generation
       'prerender:generate': async (route, nitro) => {
@@ -249,6 +250,12 @@ export default defineNuxtConfig({
   },
   robots: {
     sitemap: 'https://www.aaron-shih.com/sitemap.xml',
+  },
+  sitemap: {
+    defaults: {
+      changefreq: 'daily',
+      priority: 0.8,
+    },
   },
   experimental: {
     appManifest: false,
