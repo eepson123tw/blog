@@ -148,20 +148,28 @@ export default defineNuxtConfig({
       ],
     },
     hooks: {
+      // only for local generation
       'prerender:generate': async (route, nitro) => {
+        // eslint-disable-next-line node/prefer-global/process
+        if (process.env.CI || process.env.SKIP_RSS === 'true') {
+          console.log('Skipping RSS generation in build.');
+          return;
+        }
+
         try {
-          // 1. Fetch your sitemap
-          const response = await fetch('https://www.aaron-shih.com/sitemap.xml');
+          const response = await fetch('https://www.aaron-shih.com/sitemap.xml', {
+            // 加一個 timeout 機制，避免卡太久
+            signal: AbortSignal.timeout(10_000), // 10 秒
+          });
           if (!response.ok) {
             throw new Error(`Error fetching sitemap: ${response.status} ${response.statusText}`);
           }
 
-          // 2. Parse the XML
           const xmlText = await response.text();
           const parsedSitemap = await parseStringPromise(xmlText);
           const urlEntries = parsedSitemap?.urlset?.url || [];
 
-          // 3. Create a new RSS feed
+          // 建立 RSS feed
           const feed = new RSS({
             title: 'My Website RSS',
             description: 'Latest updates from my site',
@@ -170,41 +178,33 @@ export default defineNuxtConfig({
             language: 'en',
           });
 
-          // 4. Populate the RSS feed
           for (const entry of urlEntries) {
             const loc = entry.loc?.[0];
             const lastmod = entry.lastmod?.[0] || new Date().toISOString();
-
             if (!loc)
               continue;
 
             let pageTitle = loc;
             let pageDescription = `Page URL: ${loc}`;
-
             try {
-              // Fetch the actual HTML from the page
-              const pageResp = await fetch(loc);
+              // 去抓取網頁本身
+              const pageResp = await fetch(loc, { signal: AbortSignal.timeout(10_000) });
               if (pageResp.ok) {
                 const html = await pageResp.text();
-
-                // Parse the HTML with cheerio
                 const $ = cheerio.load(html);
 
-                // Get <title>
+                // 抓 <title>
                 const rawTitle = $('title').text();
-                if (rawTitle) {
+                if (rawTitle)
                   pageTitle = rawTitle.trim();
-                }
 
-                // Get <meta name="description">
+                // 抓 <meta name="description">
                 const metaDescription = $('meta[name="description"]').attr('content');
-                if (metaDescription) {
+                if (metaDescription)
                   pageDescription = metaDescription.trim();
-                }
               }
             } catch (e) {
               console.error(`Failed to fetch or parse ${loc}`, e);
-              // fallback to default (loc)
             }
 
             feed.item({
@@ -215,10 +215,7 @@ export default defineNuxtConfig({
             });
           }
 
-          // 5. Generate the final XML string
           const rssXml = feed.xml({ indent: true });
-
-          // // 6. Write the file to your final build’s public dir (.output/public by default)
           const outputPath = join(nitro.options.output.publicDir, 'rss.xml');
           writeFileSync(outputPath, rssXml, 'utf-8');
           console.log(`RSS feed generated at: ${outputPath}`);
