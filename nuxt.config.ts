@@ -207,6 +207,7 @@ export default defineNuxtConfig({
     sitemap: 'https://www.aaron-shih.com/sitemap.xml',
   },
   sitemap: {
+    xsl: false,
     defaults: {
       changefreq: 'daily',
       priority: 0.8,
