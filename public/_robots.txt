@@ -3,9 +3,5 @@ Allow: /
 
 
 Disallow: /vendors/
-Disallow: /js/
-Disallow: /css/
-Disallow: /fonts/
-Disallow: /vendors/
 Disallow: /fancybox/
 Sitemap: https://www.aaron-shih.com/sitemap.xml
