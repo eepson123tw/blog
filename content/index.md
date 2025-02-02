@@ -51,9 +51,9 @@ Development Notes, Miscellaneous, Small Talk, and Life.
 
   ::card
   ---
-  title: Ml-end
+  title: AI-end
   icon: 🤖
-  to: /backend/docker
+  to: /aiend/ai-hurry-up
   target: _blank
   ---
   Influence、Evaluation、RAG、Vision、Voice

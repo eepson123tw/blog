@@ -11,9 +11,6 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
-navBadges:
-  - value: ⛑️
-    type: primary
 ---
 
 > Python-003 Class

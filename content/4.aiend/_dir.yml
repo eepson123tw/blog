@@ -1,0 +1,7 @@
+title: AIend 深度索求
+icon: lucide:bot
+navigation.redirect: /aiend/ai-hurry-up
+collapse: true
+navBadges:
+  - value: New
+    type: primary
