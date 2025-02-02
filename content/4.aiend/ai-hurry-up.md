@@ -37,11 +37,15 @@ badges:
 
 大語言模型 (Large Language Models, LLM) 是基於深度學習技術，特別是 Transformer 架構，訓練出來的模型，能夠理解、生成及處理自然語言文字。這些模型通常在大規模語料庫上進行預訓練，從而學習語言的統計特徵和語義結構。
 
-如 GPT Gemini LLama ...etc
+如 GPT、Gemini、LLama ...etc
 
 ## Embedding 嵌入向量
 
-不知道大家會不會好奇，為什麼模型可以理解各種 input(圖片、文字、影音)等等，其實是因為透過了 Embedding `嵌入`，將各式各樣的資料，轉換成向量，一種可以表示三重空間位置的數字。
+不知道大家會不會好奇，
+
+為什麼模型可以理解各種 input(圖片、文字、影音)等等，
+
+其實是因為透過了 Embedding `嵌入`，將各式各樣的資料，轉換成向量，一種可以表示三重空間位置的數字。
 
 ![embedding](/images/ai/embedding.png)
 
@@ -85,9 +89,9 @@ RAG 是一個很複雜的主題，應該說是一個應用模式，透過 Embedd
 
 仍是不斷的快速發展
 
-新穎一點也有人提出 CAG 等等概念
+如 `Gmail Gemini` `Notion AI` 已經導入 RAG
 
-如 `Gmail Gemini` `Notion AI`
+新穎一點也有人提出 CAG 等等概念
 
 ## Agent 代理
 
