@@ -5,7 +5,7 @@ import { parseStringPromise } from 'xml2js';
 import { genFeed } from './utils/feed';
 
 export default defineNuxtConfig({
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   extends: ['shadcn-docs-nuxt'],
   i18n: {
     vueI18n: './locales/i18n.config.ts',
