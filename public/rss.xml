@@ -4,9 +4,16 @@
         <description><![CDATA[Latest updates from my site]]></description>
         <link>https://www.aaron-shih.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 27 Jan 2025 18:08:11 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 02 Feb 2025 05:22:50 GMT</lastBuildDate>
         <atom:link href="https://www.aaron-shih.com/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[AI 幫幫忙 - Aaron's blog]]></title>
+            <description><![CDATA[RAG、Embedding、Agent]]></description>
+            <link>https://www.aaron-shih.com/aiend/ai-hurry-up</link>
+            <guid isPermaLink="true">https://www.aaron-shih.com/aiend/ai-hurry-up</guid>
+            <pubDate>Sun, 02 Feb 2025 04:07:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[粒子化練習 - Aaron's blog]]></title>
             <description><![CDATA[Canvas、Drawing art、Particles]]></description>

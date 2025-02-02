@@ -73,8 +73,9 @@ export async function genFeed(urlEntries: UrlEntry[]): Promise<string> {
       // Get description
       const pageDescription = $('meta[name="description"]').attr('content')?.trim() || `Page URL: ${loc}`;
 
-      const lastmod = entry.lastmod?.[0] || $('meta[property="article:modified_time"]').attr('content') as string;
+      const lastmod = $('meta[property="article:modified_time"]').attr('content') as string;
       const pubDate = parseAndFormatDate(lastmod);
+
 
       feedEntries.push({
         title: pageTitle,
