@@ -61,7 +61,7 @@ Development Notes, Miscellaneous, Small Talk, and Life.
 
   ::card
   ---
-  title:
+  title: Week-end
   icon: 🍺
   to: /smalltalk/interview-2024
   target: _blank
