@@ -22,14 +22,13 @@ export default defineAppConfig({
       nav: [
         {
           title: 'FrontEnd',
-          links: [{
-            title: 'ESM',
-            to: '/frontend/esm',
-            description: 'ESM 模組化',
-            icon: 'lucide:rocket',
-          }],
+          to: '/frontend',
         },
         { title: 'BackEnd', to: '/backend' },
+        {
+          title: 'AIEnd',
+          to: '/aiend',
+        },
         { title: 'SmallTalk', to: '/smalltalk' },
 
       ],
@@ -50,7 +49,7 @@ export default defineAppConfig({
     banner: {
       enable: true,
       showClose: true,
-      content: 'Welcome to **Aaron Blog**! 🎉  currently Renew and moving old post 🫠',
+      content: 'Welcome to **Aaron Blog**! 🎉',
       to: '/',
       target: '_self',
       border: true,
