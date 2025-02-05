@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="relative">
     <NuxtErrorBoundary @error="handleError">
       <!-- Main content -->
       <div
@@ -51,12 +51,18 @@
         </div>
       </template>
     </NuxtErrorBoundary>
+    <ClientOnly>
+      <FallingStarsBg
+        :color="isDark ? '#8e24aa' : '#f06292'"
+      />
+    </ClientOnly>
   </div>
 </template>
 
 <script setup lang="ts">
 const { page } = useContent();
 const config = useConfig();
+const isDark = computed(() => useColorMode().value === 'dark');
 
 function handleError(error: any) {
   console.error('Page Error:', error);

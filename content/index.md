@@ -69,3 +69,7 @@ Development Notes, Miscellaneous, Small Talk, and Life.
   Coding、Reading、Learning、Trying、Sleeping
   ::
 ::
+
+Some of the content is not professional, but it is a record of learning and growth.
+
+If you have any questions or suggestions, please feel free to contact me.
