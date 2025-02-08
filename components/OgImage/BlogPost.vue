@@ -35,7 +35,7 @@
     </div>
     <div class="relative">
       <h1
-        class="whitespace-pre-wrap break-words text-8xl font-bold"
+        class="whitespace-pre-wrap break-words text-center text-8xl font-bold"
         :class="[colorMode === 'light' ? 'text-zinc-900' : 'text-zinc-100']"
         v-html="sanitizeText(title)"
       />
