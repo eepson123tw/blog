@@ -33,7 +33,7 @@
         v-html="sanitizeText(siteTitle)"
       />
     </div>
-    <div class="relative">
+    <div class="relative text-center">
       <h1
         class="whitespace-pre-wrap break-words text-center text-8xl font-bold"
         :class="[colorMode === 'light' ? 'text-zinc-900' : 'text-zinc-100']"
