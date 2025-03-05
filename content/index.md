@@ -70,6 +70,12 @@ Development Notes, Miscellaneous, Small Talk, and Life.
   ::
 ::
 
-Some of the content is not professional, but it is a record of learning and growth.
+## Mentioned
 
-If you have any questions or suggestions, please feel free to contact me.
+此blog記錄我在React、Vue框架的學習歷程與自主學習成果。正探索3D模組、AI技術、資料視覺化與數據分析，以提升技能並持續探索的旅程。
+
+This blog focuses on documenting my learning journey with React and Vue frameworks through self-directed learning. I'm currently exploring 3D modeling, AI technologies, data visualization, and data analysis to enhance my web design skills and support my career transition.
+
+有些內容可能不夠專業，但這些都記錄了我的成長過程。如有任何問題或建議，歡迎與我交流！
+
+While some content may not be professional-grade, it represents my growth process. Questions and suggestions are always welcome!
