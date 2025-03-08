@@ -11,9 +11,6 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
-navBadges:
-  - value: 🔑
-    type: primary
 ---
 
 最近在幫客戶查 vLLM 的 log，發現自己對於 LLM (大型語言模型) 關鍵字的認識仍有點模糊，所以決定整理一下一些常看到的用詞，希望對大家也有幫助。
