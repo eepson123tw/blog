@@ -2,79 +2,62 @@
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/eepson123tw/blog/blob/master/README.md)
 [![zh-TW](https://img.shields.io/badge/lang-zh--TW-green.svg)](https://github.com/eepson123tw/blog/blob/master/README.zh-TW.md)
+[![Website](https://img.shields.io/badge/website-www.aaron--shih.com-blue.svg)](https://www.aaron-shih.com)
 
-## 🌐 Blog Vision
+## 🌐 A Personal Tech Journey & Knowledge Hub
 
-A dynamic platform bridging cutting-edge technology, personal growth, and innovative development strategies. More than just a blog—a collaborative knowledge ecosystem dedicated to pushing technological boundaries.
+This blog represents my ongoing tech journey through the world of frontend development, AI, and beyond. It serves as both a personal documentation space and a platform for sharing insights with the developer community.
 
-## 📡 Expanded Sections
+## 💻 Tech Stack
 
-### Nuxt Content Mastery
-- **Advanced Techniques**:
-  - Server-side rendering optimization
-  - Headless CMS integration
-  - Performance benchmarking
-- **Practical Workshops**: Step-by-step tutorials transforming theoretical knowledge into actionable skills
+This blog is built with modern technologies:
 
-### 🔍 Issue Tracking & Community Collaboration
-- **Strategic Transition Plan**:
-  1. Comprehensive tool evaluation matrix
-  2. Phased migration strategy
-  3. Community feedback integration
-- **Recommended Solutions**:
-  - Giscus: GitHub Discussions integration
-  - Vssue: Flexible Git-based commenting
-  - Custom microservice approach
+- **Framework**: [Nuxt 3](https://nuxt.com/) with [Nuxt Content](https://content.nuxt.com/)
+- **UI**: [Tailwind CSS](https://tailwindcss.com/) with [shadcn-docs-nuxt](https://github.com/barbapapazes/shadcn-docs-nuxt)
+- **Internationalization**: [@nuxtjs/i18n](https://i18n.nuxtjs.org/) (English, Traditional Chinese, Japanese)
+- **SEO**: Nuxt OG Image, robots.txt, sitemap.xml, RSS feed
+- **Analytics**: PostHog for privacy-friendly insights
+- **Deployment**: Continuous deployment through GitHub Actions
 
-### 💻 Frontend Development Arsenal
-- **Emerging Technologies**:
-  - WebAssembly performance optimization
-  - Micro-frontends architecture
-  - Progressive web app strategies
-- **Hands-on Learning Paths**:
-  - Interactive code challenges
-  - Real-world project reconstructions
-  - Performance profiling workshops
+## 📚 Content Categories
 
-### 🧠 Backend & AI Innovations
-- **Advanced Technology Stack**:
-  - Serverless computing
-  - Containerization with Kubernetes
-  - MLOps implementation
-- **AI Research Frontiers**:
-  - Ethical AI development
-  - Multimodal machine learning
-  - Emerging generative AI patterns
+### Frontend Development
+- React, Vue.js, and modern JavaScript
+- 3D rendering and visualization
+- Performance optimization and architecture
 
-### 🌈 Holistic Developer Ecosystem
-- **Skill Amplification**:
-  - Productivity hacking
-  - Mental models for complex problem-solving
-  - Career development strategies
-- **Interdisciplinary Insights**:
-  - Technology's societal impact
-  - Innovation psychology
-  - Sustainable tech practices
+### Backend & AI Exploration
+- Python fundamentals and applications
+- LLM concepts and implementations
+- Data visualization and analysis
 
-## 🤝 Community Engagement Reimagined
+### Career Growth & Personal Development
+- Software engineering career insights
+- Learning methodologies
+- Transitioning to tech from other fields
 
-### Contribution Levels
-1. **Novice Explorers**
-   - Comment and discuss
-   - Share learning experiences
-2. **Knowledge Contributors**
-   - Submit technical insights
-   - Propose blog topics
-3. **Advanced Collaborators**
-   - Detailed pull requests
-   - Technical review processes
-   - Open-source project mentorship
+## 🛠️ Features
 
-## 🎯 Unique Value Proposition
+- **Markdown-based Content**: Easy authoring in Markdown format
+- **Code Syntax Highlighting**: For multiple programming languages
+- **Responsive Design**: Mobile-friendly reading experience
+- **Dark/Light Mode**: Comfortable reading in any environment
+- **Comments System**: Community engagement via Gitalk
+- **Multi-language Support**: Content available in multiple languages
+- **RSS Feed**: Stay updated with the latest posts
 
-- **Holistic Learning**: Technology meets personal development
-- **Cutting-Edge Content**: Always ahead of the curve
-- **Community-Powered Growth**: Collaborative knowledge expansion
-- **Practical, Actionable Insights**: Transform understanding into implementation
+## 🤝 Contributions Welcome
+
+Feel free to:
+- Report issues or suggest improvements
+- Propose new topics
+- Correct technical inaccuracies
+- Share the content with others
+
+## 📫 Connect With Me
+
+- GitHub: [@eepson123tw](https://github.com/eepson123tw)
+- LinkedIn: [Aaron Shih](https://www.linkedin.com/in/aaron-shih)
+- Blog: [www.aaron-shih.com](https://www.aaron-shih.com)
 
 **Motto**: *Evolve. Create. Inspire.*

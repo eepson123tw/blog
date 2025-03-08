@@ -2,79 +2,62 @@
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/eepson123tw/blog/blob/master/README.md)
 [![zh-TW](https://img.shields.io/badge/lang-zh--TW-green.svg)](https://github.com/eepson123tw/blog/blob/master/README.zh-TW.md)
+[![網站](https://img.shields.io/badge/%E7%B6%B2%E7%AB%99-www.aaron--shih.com-blue.svg)](https://www.aaron-shih.com)
 
-## 🌐 Blog 目標與願景
+## 🌐 個人技術旅程與知識分享平台
 
-這裡不只是個部落格，而是一個融合前沿技術、個人成長和創新開發思維的「進化基地」。在這裡，你可以和一群熱衷技術、享受探索的夥伴們互相切磋、共同衝刺，讓知識在社群激盪出更多可能。
+這個部落格記錄了我在前端開發、AI 及其他技術領域的學習旅程。它不僅是我個人的知識紀錄，也是與開發者社群分享見解的平台。
 
-## 📡 擴充內容介紹
+## 💻 技術棧
 
-### Nuxt Content 實戰
-- **進階技巧**：
-  - 透過伺服器端渲染（SSR）來加強網站效能
-  - 結合 Headless CMS 打造更彈性的內容管理
-  - 效能監控與基準測試，一次搞懂
-- **實作工作坊**：從零開始一步步帶你體驗，讓理論不只停留在書本上，而能真正活用於專案
+本站使用現代技術構建：
 
-### 🔍 問題追蹤與社群協作
-- **策略性轉換規劃**：
-  1. 整理工具評估清單
-  2. 分階段遷移，穩紮穩打
-  3. 透過社群回饋持續調整
-- **常見解決方案**：
-  - Giscus：把 GitHub Discussions 直接整合進你的平台
-  - Vssue：輕鬆串接 Git 留言功能
-  - 客製化微服務：打造專屬需求的彈性環境
+- **框架**：[Nuxt 3](https://nuxt.com/) 搭配 [Nuxt Content](https://content.nuxt.com/)
+- **UI**：[Tailwind CSS](https://tailwindcss.com/) 結合 [shadcn-docs-nuxt](https://github.com/barbapapazes/shadcn-docs-nuxt)
+- **國際化**：[@nuxtjs/i18n](https://i18n.nuxtjs.org/)（支援英文、繁體中文、日文）
+- **SEO**：Nuxt OG Image、robots.txt、sitemap.xml、RSS 訂閱
+- **分析**：使用 PostHog 進行隱私友好的數據分析
+- **部署**：透過 GitHub Actions 實現持續部署
 
-### 💻 前端開發武器庫
-- **新興技術**：
-  - WebAssembly（Wasm）的超強效能優化
-  - 微前端（Micro-Frontends）架構，模組化開發大趨勢
-  - PWA（Progressive Web Apps）為使用者提供原生般體驗
-- **實作學習路線**：
-  - 互動式程式挑戰，動手做才是王道
-  - 重構真實專案，深度剖析前端架構
-  - 效能監測與剖析工作坊，帶你瞭解如何有效調優
+## 📚 內容分類
 
-### 🧠 後端與 AI 前瞻
-- **進階技術堆疊**：
-  - Serverless 架構，按需擴充資源毫不浪費
-  - Kubernetes 容器化與自動化部署
-  - MLOps，讓 AI 專案開發更高效穩定
-- **AI 研究前線**：
-  - 正規與合規的 AI 開發，兼顧技術與倫理
-  - 多模態機器學習，結合文本、影像、語音多重領域
-  - 新一代生成式 AI 技術，開創更多可能
+### 前端開發
+- React、Vue.js 與現代 JavaScript
+- 3D 渲染與視覺化
+- 效能優化與架構設計
 
-### 🌈 全方位開發者生態圈
-- **技能提升**：
-  - 生產力 Hacks，讓你在雜務中找到效率突破口
-  - 思維模型，幫助你拆解並解決複雜問題
-  - 職涯規劃與成長策略，走出自己的專業軌道
-- **跨領域思維**：
-  - 科技對社會與生活的影響，走出技術宅也能社會化
-  - 創新的心理學，點燃靈感火花
-  - 永續發展與科技結合，守護環境也能兼顧創新
+### 後端與 AI 探索
+- Python 基礎與應用
+- 大型語言模型（LLM）概念與實現
+- 數據視覺化與分析
 
-## 🤝 重新定義社群參與
+### 職涯成長與個人發展
+- 軟體工程師職涯見解
+- 學習方法論
+- 從其他領域轉職至科技業的經驗分享
 
-### 貢獻層級
-1. **新手探索者**
-   - 參與留言、討論
-   - 分享學習心得與成長故事
-2. **知識共享者**
-   - 提供技術觀點與實務心得
-   - 建議、投票、票選文章題材
-3. **進階協作者**
-   - 提交深入 Pull Request
-   - 技術審核、程式碼評估
-   - 帶領開源專案協作，與新人互相指導
+## 🛠️ 功能特色
 
-## 🎯 獨特價值主張
+- **Markdown 內容撰寫**：使用簡易的 Markdown 格式
+- **程式碼語法高亮**：支援多種程式語言
+- **響應式設計**：適合手機閱讀的友好體驗
+- **深色/淺色模式**：在任何環境下舒適閱讀
+- **評論系統**：通過 Gitalk 實現社群互動
+- **多語言支持**：內容提供多種語言版本
+- **RSS 訂閱**：輕鬆獲取最新文章更新
 
-- **整合式學習**：同時精進技術與自我成長
-- **前瞻性內容**：不斷探索未來新方向
-- **社群驅動**：大家一起 brainstorm，激盪更多火花
-- **落地化與可行**：讓理想真正變成你的程式碼
+## 🤝 歡迎貢獻
+
+歡迎您：
+- 報告問題或提出改進建議
+- 提議新的主題
+- 糾正技術上的不準確之處
+- 與他人分享內容
+
+## 📫 與我聯繫
+
+- GitHub：[@eepson123tw](https://github.com/eepson123tw)
+- LinkedIn：[Aaron Shih](https://www.linkedin.com/in/aaron-shih)
+- 部落格：[www.aaron-shih.com](https://www.aaron-shih.com)
 
 **座右銘**：*Evolve. Create. Inspire.* （進化、創造、啟發）
