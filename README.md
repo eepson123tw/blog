@@ -14,7 +14,7 @@ This blog is built with modern technologies:
 
 - **Framework**: [Nuxt 3](https://nuxt.com/) with [Nuxt Content](https://content.nuxt.com/)
 - **UI**: [Tailwind CSS](https://tailwindcss.com/) with [shadcn-docs-nuxt](https://github.com/barbapapazes/shadcn-docs-nuxt)
-- **Internationalization**: [@nuxtjs/i18n](https://i18n.nuxtjs.org/) (English, Traditional Chinese, Japanese)
+- **Internationalization**: [@nuxtjs/i18n](https://i18n.nuxtjs.org/) (English, Traditional Chinese, Japanese) <- working on this!
 - **SEO**: Nuxt OG Image, robots.txt, sitemap.xml, RSS feed
 - **Analytics**: PostHog for privacy-friendly insights
 - **Deployment**: Continuous deployment through GitHub Actions
