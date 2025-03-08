@@ -11,9 +11,6 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
-navBadges:
-  - value: ⛑️
-    type: primary
 badges:
   - value: 此分野跑的飛快，資訊也許會變動
 ---
