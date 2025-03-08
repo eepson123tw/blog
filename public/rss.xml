@@ -4,9 +4,16 @@
         <description><![CDATA[Latest updates from my site]]></description>
         <link>https://www.aaron-shih.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 08 Feb 2025 11:21:05 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 08 Mar 2025 08:48:23 GMT</lastBuildDate>
         <atom:link href="https://www.aaron-shih.com/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Tokenizer 分詞器 - Aaron's blog]]></title>
+            <description><![CDATA[Tokenizer 是一個將文本轉換成 token 的工具，這些 token 可以是單詞、子詞或字符等，是 NLP 模型的基本輸入單位。]]></description>
+            <link>https://www.aaron-shih.com/aiend/tokenizer</link>
+            <guid isPermaLink="true">https://www.aaron-shih.com/aiend/tokenizer</guid>
+            <pubDate>Sat, 08 Mar 2025 07:29:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[LLM 關鍵字 - Aaron's blog]]></title>
             <description><![CDATA[深入淺出解析 Key、Token、Query、Value、Inference、Hallucination、Overfitting 等 LLM 核心概念]]></description>
@@ -310,4 +317,3 @@
         </item>
     </channel>
 </rss>
-
