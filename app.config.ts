@@ -57,8 +57,8 @@ export default defineAppConfig({
     footer: {
       credits: `All right reserved © ${new Date().getFullYear()} Aaron's Blog`,
       links: [{
-        icon: 'lucide:file-user',
-        to: 'https://ph-portfolio.zeabur.app/',
+        icon: 'lucide:qr-code',
+        to: 'https://bento.me/routing-in-the-dev',
         target: '_blank',
       }, {
         icon: 'lucide:linkedin',
