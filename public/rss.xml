@@ -4,9 +4,16 @@
         <description><![CDATA[Latest updates from my site]]></description>
         <link>https://www.aaron-shih.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 08 Mar 2025 08:48:23 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 22 Mar 2025 11:40:48 GMT</lastBuildDate>
         <atom:link href="https://www.aaron-shih.com/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[模型上下文協議 (MCP) - Aaron's blog]]></title>
+            <description><![CDATA[模型上下文協議 (Model Context Protocol, MCP) 是由 Anthropic 推出的開放標準，旨在標準化 AI 與外部世界的互動方式，猶如為大型語言模型打造的通用翻譯官。]]></description>
+            <link>https://www.aaron-shih.com/aiend/mcp</link>
+            <guid isPermaLink="true">https://www.aaron-shih.com/aiend/mcp</guid>
+            <pubDate>Sat, 22 Mar 2025 02:30:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Tokenizer 分詞器 - Aaron's blog]]></title>
             <description><![CDATA[Tokenizer 是一個將文本轉換成 token 的工具，這些 token 可以是單詞、子詞或字符等，是 NLP 模型的基本輸入單位。]]></description>
