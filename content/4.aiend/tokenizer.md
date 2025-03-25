@@ -11,9 +11,6 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
-navBadges:
-  - value: 🌟
-    type: primary
 ---
 
 這篇針對 `Tokenizer` 來解析 LLM 是如何看 input 的，畢竟人類的理解與模型的理解是不同的，透過探討 `Tokenizer` 可以更深入了解模型的看待 input 的方式。
