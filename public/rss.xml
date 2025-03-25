@@ -4,7 +4,7 @@
         <description><![CDATA[Latest updates from my site]]></description>
         <link>https://www.aaron-shih.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 22 Mar 2025 11:40:48 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 25 Mar 2025 15:48:31 GMT</lastBuildDate>
         <atom:link href="https://www.aaron-shih.com/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
         <item>
@@ -223,6 +223,13 @@
             <link>https://www.aaron-shih.com/backend/nginx</link>
             <guid isPermaLink="true">https://www.aaron-shih.com/backend/nginx</guid>
             <pubDate>Sat, 15 Apr 2023 15:55:24 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[SSE 數據流 - Aaron's blog]]></title>
+            <description><![CDATA[SSE 單向數據流，伺服器推送訊息]]></description>
+            <link>https://www.aaron-shih.com/backend/sse</link>
+            <guid isPermaLink="true">https://www.aaron-shih.com/backend/sse</guid>
+            <pubDate>Sat, 25 Mar 2023 14:37:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[JWT機制 - Aaron's blog]]></title>
