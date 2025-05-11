@@ -4,9 +4,16 @@
         <description><![CDATA[Latest updates from my site]]></description>
         <link>https://www.aaron-shih.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 25 Mar 2025 15:48:31 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 11 May 2025 11:22:36 GMT</lastBuildDate>
         <atom:link href="https://www.aaron-shih.com/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Watch & Computed - Aaron's blog]]></title>
+            <description><![CDATA[探索 Watch 和 Computed 有何區別，並探索源碼]]></description>
+            <link>https://www.aaron-shih.com/frontend/vue/vue-001</link>
+            <guid isPermaLink="true">https://www.aaron-shih.com/frontend/vue/vue-001</guid>
+            <pubDate>Sun, 11 May 2025 09:23:13 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[模型上下文協議 (MCP) - Aaron's blog]]></title>
             <description><![CDATA[模型上下文協議 (Model Context Protocol, MCP) 是由 Anthropic 推出的開放標準，旨在標準化 AI 與外部世界的互動方式，猶如為大型語言模型打造的通用翻譯官。]]></description>
