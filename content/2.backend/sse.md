@@ -11,9 +11,6 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
-navBadges:
-  - value: 🚀
-    type: primary
 ---
 
 受到 GPT 等一眾 Chatbot，可以帥帥地在前端回覆字串且有種打字機的帥氣感影響，
