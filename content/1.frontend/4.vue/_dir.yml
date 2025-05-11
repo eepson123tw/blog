@@ -1,4 +1,4 @@
 title: Vue 學習筆記
 icon: lucide:book-key
 navigation.redirect: /frontend/vue/vue-001
-collapse: true
+collapse: false
