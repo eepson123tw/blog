@@ -49,7 +49,7 @@ export default defineAppConfig({
     banner: {
       enable: true,
       showClose: true,
-      content: 'Welcome to **Aaron Blog**! 🎉',
+      content: 'Welcome to **Aaron Blog**! en and jp version is now updating! 🎉',
       to: '/',
       target: '_self',
       border: true,
