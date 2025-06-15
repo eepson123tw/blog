@@ -70,6 +70,9 @@
     "neverBuiltDependencies": [
       "fsevents",
       "level"
-    ]
+    ],
+    "overrides": {
+      "ipx": "^3.0.0"
+    }
   }
 }
