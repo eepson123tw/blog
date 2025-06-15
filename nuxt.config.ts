@@ -8,16 +8,24 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   extends: ['shadcn-docs-nuxt'],
   i18n: {
-    vueI18n: './locales/i18n.config.ts',
-    locales: [
-      { code: 'zh-Hant', language: 'zh-Hant', name: '繁體中文', file: 'zh-Hant.json' },
-      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
-      { code: 'ja', language: 'ja', name: '日本語', file: 'ja.json' },
-    ],
     defaultLocale: 'zh-Hant',
-    langDir: '../locales',
-    strategy: 'no_prefix',
-    lazy: true,
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        language: 'en-US',
+      },
+      {
+        code: 'zh-Hant',
+        name: '繁體中文',
+        language: 'zh-Hant',
+      },
+      {
+        code: 'ja',
+        name: '日本語',
+        language: 'ja-JP',
+      },
+    ],
   },
   modules: ['nuxt-og-image', '@nuxtjs/i18n', '@nuxt/image', '@nuxtjs/robots', '@nuxtjs/sitemap'],
   components: {

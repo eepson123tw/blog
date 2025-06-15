@@ -1,0 +1,4 @@
+title: Nuxt 學習筆記
+icon: lucide:notebook-text
+navigation.redirect: /frontend/nuxt/nuxt-001
+collapse: true
