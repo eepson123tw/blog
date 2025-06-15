@@ -201,7 +201,7 @@ export default defineNuxtConfig({
     },
   },
   image: {
-    dir: 'public/images',
+    dir: 'public',
     screens: {
       'xs': 320,
       'sm': 640,
@@ -211,7 +211,8 @@ export default defineNuxtConfig({
       'xxl': 1536,
       '2xl': 1536,
     },
-    format: ['webp'],
+    quality: 75,
+    provider: 'ipx',
   },
   vite: {
     build: {
