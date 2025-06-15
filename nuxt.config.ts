@@ -5,6 +5,7 @@ import { parseStringPromise } from 'xml2js';
 import { genFeed } from './utils/feed';
 
 export default defineNuxtConfig({
+  srcDir: '.',
   devtools: { enabled: true },
   extends: ['shadcn-docs-nuxt'],
   i18n: {
@@ -146,6 +147,12 @@ export default defineNuxtConfig({
     baseURL: 'https://www.aaron-shih.com',
   },
   nitro: {
+    publicAssets: [
+      {
+        baseURL: '/',
+        dir: 'public',
+      },
+    ],
     // preset: 'node-server',
     compressPublicAssets: {
       gzip: true,
@@ -193,6 +200,19 @@ export default defineNuxtConfig({
       },
     },
   },
+  image: {
+    dir: 'public/images',
+    screens: {
+      'xs': 320,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536,
+    },
+    format: ['webp'],
+  },
   vite: {
     build: {
       sourcemap: false,
@@ -210,10 +230,6 @@ export default defineNuxtConfig({
     ssr: {
       noExternal: ['debug'],
     },
-  },
-  image: {
-    formats: ['webp', 'jpeg'],
-    quality: 75,
   },
   robots: {
     sitemap: 'https://www.aaron-shih.com/sitemap.xml',
