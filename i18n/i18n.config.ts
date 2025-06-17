@@ -8,7 +8,7 @@ export default defineI18nConfig(() => ({
       createTime: 'Create time',
       readTime: 'Read time',
     },
-    'zh-Hant': {
+    'zh-TW': {
       title: '選擇語言',
       subtitle: '選擇您的語言',
       createTime: '創建時間',

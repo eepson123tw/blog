@@ -9,7 +9,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   extends: ['shadcn-docs-nuxt'],
   i18n: {
-    defaultLocale: 'zh-Hant',
+    strategy: 'prefix_except_default',
+    defaultLocale: 'zh-TW',
     locales: [
       {
         code: 'en',
@@ -17,9 +18,9 @@ export default defineNuxtConfig({
         language: 'en-US',
       },
       {
-        code: 'zh-Hant',
+        code: 'zh-TW',
         name: '繁體中文',
-        language: 'zh-Hant',
+        language: 'zh-TW',
       },
       {
         code: 'ja',
