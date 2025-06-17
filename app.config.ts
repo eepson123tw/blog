@@ -41,6 +41,8 @@ export default defineAppConfig({
     aside: {
       useLevel: true,
       collapse: false,
+      collapseLevel: 1,
+      folderStyle: 'default',
     },
     main: {
       breadCrumb: true,
@@ -72,6 +74,8 @@ export default defineAppConfig({
     },
     toc: {
       enable: true,
+      enableInMobile: false,
+      enableInHomepage: false,
       title: 'On This Page',
       links: [{
         title: 'Star on GitHub',
@@ -88,6 +92,7 @@ export default defineAppConfig({
     search: {
       enable: true,
       inAside: false,
+      style: 'input',
     },
     gitTalk: {
       enable: true,

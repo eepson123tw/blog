@@ -26,13 +26,10 @@
 </template>
 
 <script setup lang="ts">
-import type { Locale, LocaleMessageObject } from 'vue-i18n';
-
+import type { Locale } from 'vue-i18n';
 // Type-safe i18n composables
-const { locale, locales, setLocale, t } = useI18n();
-const router = useRouter();
-const switchLocalePath = useSwitchLocalePath();
-
+const { locale, locales, switchLocalePath } = useI18nDocs();
+const { setLocale, t } = useI18n();
 // Type casting and filtering locales
 const availableLocales = computed(() =>
   (locales.value).filter(l => l.code),
@@ -44,7 +41,7 @@ function switchLocale(newLocale: Locale) {
   setLocale(newLocale);
 
   // Navigate to equivalent page in new locale
-  router.push({
+  navigateTo({
     path: switchLocalePath(newLocale),
   });
 }
