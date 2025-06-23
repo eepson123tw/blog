@@ -1,7 +1,7 @@
-title: Frontend 前端戰場
+title: フロントエンド戦場
 icon: lucide:rocket
 navigation.redirect: /frontend/esm
 collapse: true
 navBadges:
-  - value: New
+  - value: 新着
     type: primary
