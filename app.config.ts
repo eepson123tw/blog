@@ -1,3 +1,4 @@
+
 export default defineAppConfig({
   shadcnDocs: {
     site: {
@@ -57,7 +58,7 @@ export default defineAppConfig({
       border: true,
     },
     footer: {
-      credits: `All right reserved © ${new Date().getFullYear()} Aaron's Blog`,
+      credits:'footer.credits',
       links: [{
         icon: 'lucide:qr-code',
         to: 'https://bento.me/routing-in-the-dev',
