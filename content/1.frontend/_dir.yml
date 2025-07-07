@@ -1,6 +1,6 @@
 title: Frontend 前端戰場
 icon: lucide:rocket
-navigation.redirect: /frontend/esm
+navigation.redirect: /frontend/vue/vue-002
 collapse: true
 navBadges:
   - value: New

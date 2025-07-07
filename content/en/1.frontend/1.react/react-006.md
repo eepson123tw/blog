@@ -1,6 +1,6 @@
 ---
-title: Day 6 進階與渲染
-description: 學習 React 框架
+title: Day 6 Advanced and Rendering
+description: Learning the React Framework
 icon: 'lucide:alarm-clock-check'
 gitTalk: false
 date: 2023-07-01 21:00:00
@@ -13,37 +13,37 @@ authors:
     target: _blank
 ---
 
-> 學習 React 框架 - 006 進階鉤子與渲染控制
+> Learning the React Framework - 006 Advanced Hooks and Render Control
 
-單靠 useState 及 useEffect ，其實就能做出簡易的應用，但開發需求往往更為複雜且有條件性，不能只單單因依賴變動就馬上渲染組件，我們需有時間性、操作性、整體性的規劃，而 React 也提出了更進階的控制函式，讓開發者做出更豐富及細膩的操作。
+With just useState and useEffect, you can actually build simple applications. However, development requirements are often more complex and conditional - we can't just render components immediately whenever dependencies change. We need temporal, operational, and holistic planning. React has also introduced more advanced control functions to allow developers to create richer and more refined operations.
 
 ## Advanced Hooks
 
 ### useReducer
 
-相較於 useState 更易於操作複雜的物件結構，且可依照條件更新狀態。
+Compared to useState, it's easier to operate complex object structures and can update state based on conditions.
 
 ```js
 const [state, dispatch] = useReducer(reducer, initialArg, init?)
 ```
 
-- reducer ：reducer 函數，指定狀態如何更新。它必須是純粹的，應該以狀態和操作作為參數，並且應返回下一個狀態。狀態和動作可以是任何類型。
+- reducer: The reducer function that specifies how state should be updated. It must be pure, should take state and action as parameters, and should return the next state. State and action can be of any type.
 
-- initialArg ：計算初始狀態的值。它可以是任何類型的值。如何根據它計算初始狀態取決於下一個 init 參數。
+- initialArg: The value used to calculate the initial state. It can be a value of any type. How the initial state is calculated from it depends on the next init parameter.
 
-- optional init : 應返回初始狀態的初始化函數。如果未指定，則初始狀態設置為 initialArg 。否則，初始狀態將設置為調用 init(initialArg) 的結果。可避免重新創建初始狀態，即 lazy initialization 惰性初始化。
+- optional init: The initialization function that should return the initial state. If not specified, the initial state is set to initialArg. Otherwise, the initial state will be set to the result of calling init(initialArg). This can avoid recreating the initial state, i.e., lazy initialization.
 
-- state : 目前的狀態
+- state: The current state
 
-- dispatch : 函數可將狀態更新為不同的值**並觸發重新渲染**。
+- dispatch: Function that can update state to a different value **and trigger re-rendering**.
 
 ::alert{type="info" icon="lucide:lightbulb"}
-在嚴格模式下，React 將調用reducer和初始化兩次，以幫助您發現意外的雜質。這只是開發行為，不會影響生產。
+In strict mode, React will call the reducer and initializer twice to help you find accidental impurities. This is development-only behavior and does not affect production.
 ::
 
 ::collapsible
 #title
-在pokemon範例中使用的 `useReducer`
+`useReducer` used in pokemon example
 #content
 ```js
 const actionTypes = {
@@ -83,7 +83,7 @@ function usePokemonReducer(state, action) {
       return { pokemonList: [], allPokemonNumber: 0, maxPageNum: 0, status: '' };
     }
     default: {
-      throw new Error(`Unsupported type: ${action.type}`); // 如果您的狀態意外變為 undefined ，則您可能在其中一種情況下忘記了 return 狀態
+      throw new Error(`Unsupported type: ${action.type}`); // If your state unexpectedly becomes undefined, you might have forgotten to return state in one of the cases
     }
   }
 }
@@ -98,27 +98,27 @@ const [state, dispatch] = React.useReducer(usePokemonReducer, {
 
 ::
 
-將其分為 actionType 、 reducer 封裝，讓我們可以去執行更複雜的物件操作，且透過 IDE 的提示能夠快速地找到相對應的操作方法。
-須注意官網中多次提到需提供[純粹的操作](https://react.dev/learn/keeping-components-pure)，以避免副作用造成非預期的組件變更及渲染。
+By separating it into actionType and reducer encapsulation, we can perform more complex object operations, and through IDE hints, we can quickly find corresponding operation methods.
+Note that the official documentation repeatedly mentions the need to provide [pure operations](https://react.dev/learn/keeping-components-pure) to avoid side effects causing unexpected component changes and rendering.
 
 ### useCallback
 
-> 優化函式回調，但使用上是否有必要仍需自我判斷，可能會沒優化到反而變更慢QQ
+> Optimizes function callbacks, but whether it's necessary in usage still requires self-judgment, as it might not optimize and even become slower QQ
 
 ```js
 const cachedFn = useCallback(fn, dependencies);
 ```
 
-第一個參數是緩存的函數值，第二個參數為一個依賴數組，類似於`useEffect`。
-當一個依賴項在渲染之間發生變化時，在第一個參數中傳遞的回調將是從`useCallback`返回的回調。如果它們沒有改變，將獲得上一次返回的回調（因此回調在渲染之間保持相同）。
-透過 useCallback 可以記住 function 的記憶體位置，就可以避免 React.memo 在比較 props 值時因為**物件型別記憶體位置不同但值相同**而重新渲染的狀況。
+The first parameter is the cached function value, and the second parameter is a dependency array, similar to `useEffect`.
+When a dependency changes between renders, the callback passed in the first parameter will be the callback returned from `useCallback`. If they haven't changed, you'll get the previously returned callback (so the callback remains the same between renders).
+Through useCallback, you can remember the memory location of a function, which can avoid React.memo re-rendering when comparing props values due to **different memory locations but same values for object types**.
 
-但因此Hook使用了緩存的模式，若非有特定必要，否則會增加記憶體的負擔。
+However, since this Hook uses a caching pattern, unless specifically necessary, it will increase memory burden.
 
 ::collapsible
 #title
 
-在官網中提到的優化案例
+Optimization case mentioned on the official website
 
 #content
 
@@ -142,13 +142,13 @@ function ChatRoom({ roomId }) {
 
 ```
 
-透過這樣的組合調用，我們可以做出更細微的依賴操作，避免每次的re-render。
+Through this combination of calls, we can make more subtle dependency operations, avoiding every re-render.
 
 ::
 
 ### useContext
 
-> 這個Hook十分有趣，透過函式封裝自己的上下文環境，更簡單的說，React提供了一個全域的狀態傳遞方式。在應用層級複雜且巢狀時，能有效的傳遞狀態。
+> This Hook is very interesting. Through function encapsulation of your own context environment, more simply put, React provides a global state passing method. When application-level complexity and nesting occur, it can effectively pass state.
 
 ```js
 import { useContext } from 'react';
@@ -163,7 +163,7 @@ function MyPage() {
 }
 
 function Button() {
-  const theme = useContext(ThemeContext); // 可以取到dark
+  const theme = useContext(ThemeContext); // Can get dark
   const className = `button-${theme}`;
   return (
     <button className={className}>
@@ -173,18 +173,18 @@ function Button() {
 }
 ```
 
-- SomeContext：使用 createContext 創建的上下文。上下文本身不保存信息，它僅表示您可以提供或從組件中讀取的信息類型
-- value: useContext 返回調用組件的上下文值。它被確定為傳遞給樹中調用組件上方最近的 SomeContext.Provider 的值。
+- SomeContext: Context created using createContext. The context itself doesn't hold information, it just represents the type of information you can provide or read from components
+- value: useContext returns the context value for the calling component. It's determined as the value passed to the nearest SomeContext.Provider above the calling component in the tree.
 
 ::alert{type="warning" icon="lucide:lightbulb"}
-React 會自動重新渲染所有使用特定上下文的子級，從接收不同 value 的提供者開始。前一個值和後一個值通過 Object.is 進行比較。使用 memo 跳過重新渲染不會阻止子級接收新的上下文值。
+React will automatically re-render all children using a particular context, starting from the provider that receives a different value. Previous and next values are compared with Object.is. Skipping re-renders with memo doesn't prevent children from receiving fresh context values.
 ::
 
 ::collapsible
 
 #title
 
-在官網中提到的優化案例
+Optimization case mentioned on the official website
 
 #content
 
@@ -218,12 +218,12 @@ function MyApp() {
 
 #title
 
- useContext 可與 useReducer 搭配成一個註冊在巢狀組件中的狀態管理方式
+useContext can be combined with useReducer as a state management method registered in nested components
 
 #content
 ```js
 const PokemonContext = React.createContext(null);
-PokemonContext.displayName = 'PokemonContext'; // 在devtools上可以看到明確命名
+PokemonContext.displayName = 'PokemonContext'; // Can see clear naming in devtools
 // app inject the provider
 function PokemonProvider({ children }) {
   const [state, dispatch] = React.useReducer(usePokemonReducer, {
@@ -250,7 +250,7 @@ function App() {
   return (
     <PokemonProvider>
       {' '}
-      //在此之下的所有組件都可以方便的拿到 context 中的 reducer
+      //All components below this can conveniently access the reducer in context
       <div>
         <Pokemon></Pokemon>
         <ScrollDirection></ScrollDirection>
@@ -266,34 +266,34 @@ export default App;
 
 ### useLayoutEffect
 
-> useLayoutEffect 是 useEffect 的一個版本，**在瀏覽器重新繪製屏幕之前觸發**。當開發需求中有需要一開始時拿到某些資料或狀態，就可以使用。
+> useLayoutEffect is a version of useEffect that **fires before the browser repaints the screen**. When development requirements need to get certain data or state at the beginning, this can be used.
 
 - before any other effects are called.
 - if the side effect that you are performing makes an observable change to the dom, that will require the browser to paint the update that you made.
 
 ::alert{type="danger" icon="lucide:umbrella"}
-僅在客戶端上運行。它們在服務器渲染期間不會運行。useLayoutEffect中的代碼以及從中安排的所有狀態更新都會阻止瀏覽器重新繪製屏幕。當過度使用時，這會讓應用程序變慢QQ
+Only runs on the client. They don't run during server rendering. Code in useLayoutEffect and all state updates scheduled from it block the browser from repainting the screen. When overused, this makes your app slow QQ
 ::
 
-### usememo
+### useMemo
 
-> 可在重新渲染之間緩存計算結果。
+> Can cache calculation results between re-renders.
 
 ```js
 const cachedValue = useMemo(calculateValue, dependencies);
 
-// 範例=>
+// Example=>
 const allItems = React.useMemo(() => getItems(inputValue), [inputValue]);
 ```
 
-- calculateValue ：計算要緩存的值的函數。應該是純粹的，**不應有任何入參，並且應有返回值(任意類型)**。 React 將在初始渲染期間調用此函數。在下一次渲染時，如果 dependencies 自上次渲染以來沒有更改，React 將再次返回相同的值。否則，它將調用 calculateValue ，返回其結果並存儲它以便以後可以重用。
-- dependencies ： calculateValue 代碼內部引用的所有反應值的列表。反應性值包括 props、state 以及直接在組件體內聲明的所有變量和函數。
+- calculateValue: Function to calculate the value to cache. Should be pure, **should have no arguments, and should return a value (of any type)**. React will call this function during initial render. On next renders, if dependencies haven't changed since the last render, React will return the same value again. Otherwise, it will call calculateValue, return its result, and store it so it can be reused later.
+- dependencies: List of all reactive values referenced inside calculateValue code. Reactive values include props, state, and all variables and functions declared directly inside your component body.
 
 ::alert{type="warning" icon="lucide:lightbulb"}
-僅依賴 useMemo 作為性能優化。不要廣泛地使用他。<br>雖然與 useCallback 很像，但使用上仍有些[情境上的差別](https://react.dev/reference/react/useMemo#memoizing-a-function)。
+Only rely on useMemo as a performance optimization. Don't use it extensively.<br>Although it's similar to useCallback, there are still some [contextual differences](https://react.dev/reference/react/useMemo#memoizing-a-function) in usage.
 ::
 
-## 參考資料
+## References
 
 - [useReducer](https://react.dev/reference/react/useReducer)
 - [useCallback](https://react.dev/reference/react/useCallback)

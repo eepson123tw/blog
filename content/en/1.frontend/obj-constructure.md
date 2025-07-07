@@ -1,6 +1,6 @@
 ---
-title: 如何操作複雜的物件結構
-description: ArrayMethods、iterable Obj
+title: How to Handle Complex Object Structures
+description: ArrayMethods, iterable Obj
 icon: 'lucide:orbit'
 gitTalk: false
 date: 2022-11-26 00:45:20
@@ -13,48 +13,49 @@ authors:
     target: _blank
 ---
 
-> 如何操作複雜的物件結構
+> How to Handle Complex Object Structures
 
-在開發過程中，前端工程師們常常會遇到許多複雜的資料結構，結構與頁面的抽象及邏輯成正比，簡單來說，越複雜的結構就反應越複雜的頁面邏輯，當我們看到這些結構可以做哪些方法，去優化、簡化這些結構，來增加我們的開發效率並降低心智負擔呢?畢竟看到層層疊疊的物件及陣列，相信正常人的頭都會隱隱作痛XD
-下面我們就來依序介紹:
+During development, frontend engineers often encounter many complex data structures. The complexity of structures is proportional to the abstraction and logic of pages. Simply put, more complex structures reflect more complex page logic. When we see these structures, what methods can we use to optimize and simplify them to increase our development efficiency and reduce mental burden? After all, seeing layers upon layers of objects and arrays would make any normal person's head ache XD
 
-> 1.處理方法(Api工具) 2.邏輯拆解(思考資料結構拆分) 3.組合及優化(解題)
+Let's introduce them in order:
 
-## 處理方法
+> 1. Processing Methods (API Tools) 2. Logic Decomposition (Thinking about Data Structure Breakdown) 3. Combination and Optimization (Problem Solving)
 
-通常複雜的資料結構不免俗的就是物件及陣列的巢狀嵌套，要先來了解有哪些方法可以幫助我們處理，並用方法把目標解構出來吧!!
+## Processing Methods
+
+Complex data structures inevitably involve nested objects and arrays. Let's first understand what methods can help us process them and use these methods to destructure our targets!
 
 ```javascript
-// 條件篩選
+// Conditional filtering
 const ary = [1,2,3,4,5] ;
 const aryMap=[{name:'aaron'},{name:'joy'}]
 
-//1.filter 遍歷目標陣列篩選出符合條件的物件，並回傳陣列。
+//1.filter Traverses the target array to filter objects that meet conditions, returns an array.
 
 ary.filter((num)=>num>3) // => [4,5]
 
-// 2.find  遍歷目標陣列篩選出符合條件的物件，並回傳物件。
+// 2.find Traverses the target array to filter objects that meet conditions, returns an object.
 
 aryMap.find((d)=>d.name==='aaron') // => {name: 'aaron'}
 
-// 3.findIndex 遍歷目標陣列篩選出符合條件的物件，並回傳目標索引。
+// 3.findIndex Traverses the target array to filter objects that meet conditions, returns the target index.
 
-ary.findIndex((num)=>num>3) => 3 (找到目標後,就停止遍歷。)
+ary.findIndex((num)=>num>3) => 3 (After finding the target, stops traversing.)
 
-// 4.includes 遍歷目標陣列篩選出符合條件的物件，並回傳布林值。
+// 4.includes Traverses the target array to filter objects that meet conditions, returns a boolean value.
 
 aryMap.includes((d)=> d.name === 'jack') => false
 
-// 5.indexOf  回傳目標陣列中第一個被找到的索引值，若不存在則會回傳-1。
+// 5.indexOf Returns the index of the first found element in the target array, returns -1 if not found.
 
 ary.indexOf(3)  => 2
 
-// 資料重組
-// 1.map 遍歷陣列依照設定格式，回傳陣列。
+// Data restructuring
+// 1.map Traverses array according to set format, returns an array.
 
 ary.map((x)=>({num:x})) =>[{num:1},{num:2}...]
 
-// 2.reduce 遍歷陣列依照閉包設定格式，回傳陣列、或物件。(非常重要,可以組出任意元素)
+// 2.reduce Traverses array according to closure-set format, returns array or object. (Very important, can construct any element)
 ary.reduce((acc,cur)=>{
   acc[cur] = 'id'+cur+'!'
   return acc
@@ -64,24 +65,24 @@ ary.reduce((acc,cur)=>{
 
 ```
 
-以上的方法，有些是以閉包模式傳遞，並在內部遞迴後回傳出來，相當地有趣，筆者會在最後附上相關的實現內容，有興趣的話可以自己實做看看!會對這些方法的操作更加的熟悉!
+Some of the above methods use closure mode for passing and return after internal recursion, which is quite interesting. I'll attach related implementation content at the end. If you're interested, you can try implementing them yourself! This will make you more familiar with these method operations!
 
-不知道有沒有一個疑問，那就是上方都是陣列的方法，那物件呢?陣列的原型方法沒法使用阿!?
-物件原型方法上的篩選methods的確很少XD，但我們可以把物件轉成陣列模式操作啊!
+Don't you have a question - the above are all array methods, what about objects? Array prototype methods can't be used on objects!?
+Object prototype methods indeed have very few filtering methods XD, but we can convert objects to array mode for operations!
 
 ```javascript
 const obj = { a: '123', b: '234', c: '345' };
 
-Object.keys; // 回傳物件key值陣列
+Object.keys; // Returns an array of object keys
 
 Object.keys(obj); // => ['a', 'b', 'c']
 
-Object.values; // 回傳物件value值陣列
+Object.values; // Returns an array of object values
 
 Object.values(obj); // =>['123', '234', '345']
 ```
 
-看到這個模式是否燃燒起你的小宇宙了呢!!我們來合體操作看看吧!
+Seeing this pattern, does it ignite your small universe!! Let's try combining operations!
 
 ```javascript
 const obj2 = { 1: { name: 'aaron' }, 2: { name: 'joke' }, 3: { name: 'mindy' } };
@@ -89,14 +90,13 @@ const obj2 = { 1: { name: 'aaron' }, 2: { name: 'joke' }, 3: { name: 'mindy' } }
 Object.values(obj2).filter(d => d.name === 'mindy'); // {name: 'mindy'}
 ```
 
-## 邏輯拆解
+## Logic Decomposition
 
-找出我們所需的關鍵資料的一個想法或概念,我們可以透過畫出flow，去嘗試構思哪些資料是我們所需的，且在解題時為必要，
-透過這些拆分，我們可以把複雜的資料給拆解出細小原子，在不斷的組合起來。
+An idea or concept for finding the key data we need - we can draw flows to try to conceptualize which data we need and is necessary when solving problems. Through this breakdown, we can decompose complex data into small atoms and continuously combine them.
 
-## 解題
+## Problem Solving
 
-在熟悉這些組合操作後，我們來挑戰一題較為困難的題目吧!
+After familiarizing ourselves with these combination operations, let's challenge a more difficult problem!
 
 ```javascript
 const memberList = [
@@ -132,34 +132,34 @@ const memberList = [
   }
 ];
 
-// Ｑ：按照分數高低，最後導出使用者的希望組別，組別不可以重複
+// Q: Sort by score from high to low, finally export users' desired groups, groups cannot be duplicated
 
 // eslint-disable-next-line array-callback-return
-memberList.sort((a, b) => { a.score - b.score; }); // 先照高分順序排序
+memberList.sort((a, b) => { a.score - b.score; }); // First sort by high score order
 
-// 按照 組別分組
+// Group by groups
 let groupBox = memberList.reduce((acc, cur, i) => {
-  i === 0 && cur.order.forEach(d => (acc[d] = [])); // 先將組別放入物件中，並將值設為陣列
+  i === 0 && cur.order.forEach(d => (acc[d] = [])); // First put groups into object and set values as arrays
   cur.order.forEach((d, x) => {
-    acc[d].push({ d, n: cur.member, s: cur.score, hopeIndex: x }); // 依照順序送入陣列中
+    acc[d].push({ d, n: cur.member, s: cur.score, hopeIndex: x }); // Push into arrays according to order
   });
   return acc;
 }, {});
 
 const map = [];
 let pointer = 0;
-// 指針移動推入希望組別
+// Move pointer to push desired groups
 while (pointer < memberList.length) {
   for (key in groupBox) {
-    map.push(groupBox[key][pointer]); // 此時的map陣列中就是按照分數高低及使用者意願的順序
+    map.push(groupBox[key][pointer]); // At this point, the map array contains the order by score and user preference
     pointer++;
   }
 }
 
-// 但這解法有一個問題，就是for in 並保證key順序，若為重要資料陣列，建議還是另外保存索引值，較為理想喔!
+// But this solution has a problem - for in doesn't guarantee key order. For important data arrays, it's recommended to separately save index values, which is more ideal!
 ```
 
-若有更有趣的實現方式，歡迎在下方留言~
+If there are more interesting implementation methods, feel free to comment below~
 
-[陣列實現](https://github.com/eepson123tw/DeepLearnJs/blob/master/10%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E6%93%8D%E4%BD%9C%E5%8F%8A%E5%AF%A6%E7%8F%BE/arrayApi.js)
+[Array Implementation](https://github.com/eepson123tw/DeepLearnJs/blob/master/10%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E6%93%8D%E4%BD%9C%E5%8F%8A%E5%AF%A6%E7%8F%BE/arrayApi.js)
 [for in](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/for...in)

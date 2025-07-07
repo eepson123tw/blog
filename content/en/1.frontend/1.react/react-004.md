@@ -1,6 +1,6 @@
 ---
-title: Day 4 渲染與 fiber
-description: 學習 React 框架
+title: Day 4 Rendering and Fiber
+description: Learning the React Framework
 icon: 'lucide:archive'
 gitTalk: false
 date: 2023-05-16 21:50:00
@@ -13,24 +13,24 @@ authors:
     target: _blank
 ---
 
-> 學習 React 框架 - 004 渲染切片與底層fiber
+> Learning the React Framework - 004 Rendering Slicing and Underlying Fiber
 
-## React怎麼render組件?
+## How Does React Render Components?
 
-只要更改組件中的狀態，React 都能立刻將變動顯示在 UI 上，在這幾天的學習下，我們理解 React 透過 Render 將組件渲染至頁面上，並透過觀測狀態更新重新渲染頁面。
-但並不清楚React在渲染上為開發者做了那些優化，接下來，讓我們來淺嚐 React 在 Render 上付出的心力，以及 Render 被觸發後，React 又透過哪些方法比對狀態間的差異以及其依據的底層實作為何?
+Whenever you change the state in a component, React can immediately display the changes in the UI. Through our learning these past few days, we understand that React renders components to the page through Render and re-renders the page by observing state updates.
+But we don't clearly understand what optimizations React does for developers in rendering. Next, let's take a shallow dive into React's efforts in Render, and after Render is triggered, what methods does React use to compare differences between states and what is its underlying implementation based on?
 
-### 狀態快照
+### State Snapshots
 
-React 會創建組件的快照，捕獲 React 在特定時刻更新視圖所需的一切。狀態、事件處理程序和 UI 的描述。
+React creates snapshots of components, capturing everything React needs to update the view at a specific moment: state, event handlers, and UI descriptions.
 
-### React16 以前的渲染模式
+### Rendering Mode Before React 16
 
-React16 前更新需透過 reconciler (判斷哪先元件需要更新，可中斷)調度後送到 renderer，執行後會進行**同步的渲染**，當頁面複雜時，巢狀的組件結構下，若改一個值，需要等待較為長久的時間更新。**而且更動父組件狀態，將會一起使得在其之下的子元件重新的渲染。**
+Before React 16, updates needed to go through the reconciler (determining which components need updates, interruptible) then be scheduled to the renderer. After execution, **synchronous rendering** would occur. When pages were complex with nested component structures, changing one value required waiting a relatively long time for updates. **Moreover, changing parent component state would cause all child components underneath to re-render together.**
 
-### React16 之後的渲染模式
+### Rendering Mode After React 16
 
-透過 fiber 的結構，將同步渲染的方式更改為**非同步渲染**與任務片段技術，將各組件依 virtual dom tree => fiber tree，實做出一個可以非同步更新的結構。使得渲染過程可以被中斷、暫停和恢復，從而更好地控制渲染的優先級，提高應用程式的響應性能，並避免等待渲染的時間以及 JavaScript 線程占用等待的問題。
+Through the fiber structure, the synchronous rendering approach was changed to **asynchronous rendering** and task slicing technology, converting each component from virtual dom tree => fiber tree, implementing a structure that can be updated asynchronously. This allows the rendering process to be interrupted, paused, and resumed, thereby better controlling rendering priority, improving application responsiveness, and avoiding waiting time for rendering and JavaScript thread occupation issues.
 
 ## Fiber
 
@@ -41,8 +41,8 @@ React16 前更新需透過 reconciler (判斷哪先元件需要更新，可中�
 
 ::collapsible
 #title
-FiberNode包含的屬性
-[取自](https://xiaochen1024.com/article_item/600aca0cecf02e002e6db56c)
+Properties contained in FiberNode
+[Source](https://xiaochen1024.com/article_item/600aca0cecf02e002e6db56c)
 #content
 ```typescript
 function FiberNode(
@@ -51,59 +51,59 @@ function FiberNode(
   key: null | string,
   mode: TypeOfMode,
 ) {
-  // 保存节点的信息---
-  this.tag = tag;// 对应组件的类型
-  this.key = key;// key属性
-  // (帶有一組孩子的唯一標識符，以幫助 React 確定哪些項目已更改，已添加或從列表中刪除。它與此處描述的 React 的“列表和鍵”功能有關。)
-  this.elementType = null;// 元素类型
-  this.type = null;// func或者class
-  this.stateNode = null;// 真实dom节点
+  // Save node information---
+  this.tag = tag;// Corresponding component type
+  this.key = key;// key attribute
+  // (A unique identifier with a set of children to help React determine which items have changed, been added, or removed from the list. It relates to React's "lists and keys" functionality described here.)
+  this.elementType = null;// Element type
+  this.type = null;// func or class
+  this.stateNode = null;// Real dom node
 
-  // 连接成fiber树---
-  this.return = null;// 指向父节点
-  this.child = null;// 指向child
-  this.sibling = null;// 指向兄弟节点
+  // Connect to form fiber tree---
+  this.return = null;// Points to parent node
+  this.child = null;// Points to child
+  this.sibling = null;// Points to sibling node
   this.index = 0;
 
   this.ref = null;
 
-  // 用来计算state---
+  // Used to calculate state---
   this.pendingProps = pendingProps;
-  // 已從 React 元素中的新數據更新並需要應用於子組件或 DOM 元素的道具。
+  // Props that have been updated from new data in React elements and need to be applied to child components or DOM elements.
   this.memoizedProps = null;
-  // 在上一次渲染期間用於創建輸出的fiber的道具。
+  // Props of the fiber used to create output during the previous render.
   this.updateQueue = null;
-  // 狀態更新、回調和 DOM 更新隊列。
+  // Queue of state updates, callbacks, and DOM updates.
   this.memoizedState = null;
-  // 用於創建輸出的fiber的狀態。在處理更新時，它會反映當前在頁面上呈現的狀態。
+  // State of the fiber used to create output. When processing updates, it reflects the state currently rendered on the page.
   this.dependencies = null;
   this.mode = mode;
-  // effect相关---
+  // effect related---
   this.effectTag = NoEffect;
   this.nextEffect = null;
   this.firstEffect = null;
   this.lastEffect = null;
 
-  // 优先级相关的属性---
+  // Priority related properties---
   this.lanes = NoLanes;
   this.childLanes = NoLanes;
 
-  // current和workInProgress的指针---
+  // Pointers for current and workInProgress---
   this.alternate = null;
 }
 ```
 
 ::
 
-可以視為一種數據結構，保存了組件節點的屬性、類型、dom，並透過指向 child、sibling、return来形成並連接Fiber樹，此數據結構將渲染過程劃分為可中斷的單元，以支持增量渲染和更好的使用者互動，區分元件樹的不同層級和渲染優先級。
+It can be viewed as a data structure that saves component node attributes, types, and DOM, and forms and connects the Fiber tree through pointers to child, sibling, and return. This data structure divides the rendering process into interruptible units to support incremental rendering and better user interaction, distinguishing different levels and rendering priorities of component trees.
 
 ::alert{type="warning" icon="lucide:eraser"}
-在瀏覽器閒置時配合 [requestIdleCallback API](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestIdleCallback)的調用, 以實現任務拆分、中斷與恢復。
+Works with the [requestIdleCallback API](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestIdleCallback) call during browser idle time to implement task splitting, interruption, and resumption.
 ::
 
 ```jsx
 function ClickCounter (){
-//... 以上略
+//... above omitted
  return (
   <button key="1" onClick={this.onClick}>Update counter</button>
 <span key="2">{this.state.count}</span>
@@ -113,63 +113,63 @@ function ClickCounter (){
 
 ```
 
-會轉換成
+Will be converted to
 
 ![fiber](/images/react/fiber.webp)
 
 ::alert{type="warning" icon="lucide:eraser"}
 
-每個 React 元素都有一個對應的 fiber 節點。與 React 元素不同， fiber不會在每次渲染時重新創建。這些是可變數據結構，用於保存組件狀態和 DOM。
+Each React element has a corresponding fiber node. Unlike React elements, fibers are not recreated on every render. These are mutable data structures that hold component state and DOM.
 
 ::
 
-第一次渲染後，React 得到一個 fiber 樹，它反映了用於渲染 UI 的應用程序的狀態。這棵樹通常被稱為當前樹(Current Fiber tree)。
+After the first render, React gets a fiber tree that reflects the application's state used to render the UI. This tree is often called the current tree (Current Fiber tree).
 
-當 React 開始處理更新時，它會構建一個所謂的 workInProgress 樹，它反映了要刷新到頁面的未來狀態。
+When React starts processing updates, it builds a so-called workInProgress tree that reflects the future state to be flushed to the page.
 
-一旦處理完更新並完成所有相關工作，React 將準備好的 workInProgress樹以刷新到頁面上。一旦這棵 workInProgress 樹被渲染到頁面上，它就變成了 current 樹。
+Once updates are processed and all related work is completed, React will have the workInProgress tree ready to flush to the page. Once this workInProgress tree is rendered to the page, it becomes the current tree.
 
-我們可以理解成 React 存放了二顆樹形的對照表，互相對照，已分析出那些結點及狀態需要變動，觸發重新渲染。也被稱為雙緩衝技術 (double buffering)。
+We can understand that React stores two tree-like reference tables that compare with each other to analyze which nodes and states need to change, triggering re-rendering. This is also called double buffering technique.
 
 ::alert{type="danger" icon="lucide:ambulance"}
-React 總是一次性更新 DOM——它不會顯示部分結果。
+React always updates the DOM all at once—it doesn't show partial results.
 ::
 
 ![fiberTree](/images/react/fiberTree.webp)
 
 ## Side-effects
 
-將 React 中的組件視為使用狀態和 props 來計算 UI 表示的函數。任何會觸發計算的函數，如改變 DOM 或調用生命週期方法，都應被視為副作用，或者簡稱為效果。
+Think of components in React as functions that use state and props to compute UI representation. Any function that triggers computation, such as changing the DOM or calling lifecycle methods, should be considered a side effect, or simply an effect.
 
-因此 fiber 節點是一種除了更新之外還可以跟踪 side-effects 的便捷機制。每個 fiber 節點都可以有與之關聯的 effect。它們在 effectTag 屬性中被表明。
+Therefore, fiber nodes are a convenient mechanism for tracking side-effects in addition to updates. Each fiber node can have effects associated with it. They are indicated in the effectTag property.
 
 ## Effect List
 
-在頁面組件的狀態發生更新時，需要紀錄那些組件在生命週期或函式中發生變動，觸發了副作用，而 Effect List 則是使用一個可追溯的線性列表紀錄這些流程，
-順序由子到父層(深層到淺層紀錄)去執行，由fiberNode中不同的標籤(firstEffect、lastEffect、nextEffect)標記Effect順序，最後傳遞到Root，建構出列表。
+When component state on the page updates, we need to record which components have changed in their lifecycle or functions, triggering side effects. The Effect List uses a traceable linear list to record these processes,
+executed in order from child to parent (deep to shallow recording), marked with different tags (firstEffect, lastEffect, nextEffect) in fiberNode to mark Effect order, and finally passed to Root to construct the list.
 
 ## Render and Commit Phases
 
-React在兩個階段中執行 Virtual Dom 轉換 Fiber tree，及比對節點差異，執行副作用，最後顯示加載到頁面上等動作，分別為
+React executes Virtual Dom conversion to Fiber tree, compares node differences, executes side effects, and finally displays and loads onto the page in two phases:
 
-- Render(可以異步執行，可中斷) => 主要是創建Fiber Tree和生成EffectList。
+- Render (can execute asynchronously, interruptible) => Mainly creates Fiber Tree and generates EffectList.
 
-> React 元素的中 fiber 絕大多數都會被重新使用和更新，而不是重新生成，已降低記憶體消耗。
+> Most fibers in React elements will be reused and updated rather than regenerated, to reduce memory consumption.
 
-- Commit(同步執行，無法中斷) => 將Render生成的effectList遍歷，觀測effectList上的Fiber節點中保存着對應的props變化及狀態。最後**進行Dom操作和生命周期的執行**、執行hooks中的操作或銷毀未使用的函数。
+- Commit (executes synchronously, cannot be interrupted) => Traverses the effectList generated by Render, observes props changes and state saved in Fiber nodes on the effectList. Finally **performs Dom operations and lifecycle execution**, executes operations in hooks, or destroys unused functions.
 
-> 此階段將單線程的執行，而使用者會看到畫面的變動，所以無法暫停。
+> This phase will execute single-threaded, and users will see screen changes, so it cannot be paused.
 
 ## Work loop
 
-所有fiber節點工作的查找都在工作循環(Work loop)中處理，nextUnitOfWork 擁有來自 workInProgress 樹的 fiber 節點的引用。
-在這個while迴圈中，將會不斷的遞迴節點，尋找是否有未完成的工作。**直到子節點開始的所有工作都完成後，才會完成父節點和回溯的工作。**
+All fiber node work searching is handled in the work loop. nextUnitOfWork holds a reference to the fiber node from the workInProgress tree.
+In this while loop, nodes will be continuously recursed to find if there's unfinished work. **Only after all work starting from child nodes is completed will parent node and backtracking work be completed.**
 
 ::alert{type="example" icon="lucide:eraser"}
- completeUnitOfWork 和 completeUnitOfWork 主要用於迭代目的，而主要活動發生在 beginWork 和 completeWork 函數中。
+ completeUnitOfWork and completeUnitOfWork are mainly used for iteration purposes, while the main activity occurs in beginWork and completeWork functions.
 ::
 
-實現：
+Implementation:
 
 ```javascript
 function workLoop(isYieldy) {
@@ -228,7 +228,7 @@ function completeUnitOfWork(workInProgress) {
 }
 ```
 
-## 參考資料
+## References
 
 - [State as a Snapshot](https://react.dev/learn/state-as-a-snapshot)
 - [async rendering and synchronous rendering](https://twitter.com/acdlite/status/977291318324948992)

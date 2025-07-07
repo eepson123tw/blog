@@ -1,5 +1,5 @@
 ---
-title: Type 與 Interface 的差異
+title: Differences Between Type and Interface
 description: TypeScript
 icon: 'lucide:orbit'
 gitTalk: false
@@ -13,30 +13,27 @@ authors:
     target: _blank
 ---
 
-> Type 與 Interface 的差異
+> Differences Between Type and Interface
 
-最近在學習TypeScript時，覺得Type跟Interface這兩種定義型別的方式，有種若即若離的關係，
-定義型別何時要用type、何時要用Interface呢?自己也無法解釋的很清楚，於是想把在網路上找到的知識，
-以及自己的實作做些統整，加深自己的記憶點。
+Recently, while learning TypeScript, I felt that Type and Interface, these two ways of defining types, have an ambiguous relationship. When should we use type and when should we use Interface for defining types? I couldn't explain it clearly myself, so I wanted to consolidate the knowledge I found online and my own implementation to deepen my memory.
 
 ## Type
 
-定義型別的一種方法，可採用顯式的定義，也可使用隱式的類型推斷，常用來定義較為簡易的型別類型(較為推薦)，
-對定義之型別，有較多的操作空間，TypeScript提供了許多工具類型的type供我們使用。可以表示原始類型、聯合類型、元組類型和物件類型。
+A method for defining types that can use explicit definition or implicit type inference. Commonly used to define simpler type categories (more recommended). It provides more operational space for defined types, and TypeScript offers many utility types for our use. It can represent primitive types, union types, tuple types, and object types.
 
 ```typescript
-// 簡易地定義屬性
+// Simple property definition
 type Apple = string;
-// 以物件類型定義屬性
+// Define properties as object type
 
-interface Aaron { // eslint 覺得我應該用 interface 🤣
+interface Aaron { // eslint thinks I should use interface 🤣
   year: number;
   kind: string;
-  IQ?: number; // =>?代表選填
-  (): string; // => 可以被執行
-  [key: string]: any; // =>可以接受任何 index
-  new (aaron: string): string; // => 可以被實例化
-  readonly weight: number; // =>只讀屬性
+  IQ?: number; // =>? represents optional
+  (): string; // => can be executed
+  [key: string]: any; // =>can accept any index
+  new (aaron: string): string; // => can be instantiated
+  readonly weight: number; // =>readonly property
 }
 
 function test(Fn: aaron) {
@@ -44,19 +41,19 @@ function test(Fn: aaron) {
   return new Fn('aaron');
 }
 
-// 工具類型操作 getType
+// Utility type operations getType
  type GetType<T, K extends keyof T> = { [S in K]: T[S] };
  type c = GetType<aaron, 'year'>;
  // type c = {
  //   year: number;
  // }
 
-// 工具類型操作 exclude
-// 利用簡單型別的分配律，去除限制型別，可以把 extends視為限制的關鍵，T 必須符合 K 的條件。
+// Utility type operations exclude
+// Using distributive law of simple types to remove restricted types, you can view extends as a restriction keyword, T must meet K's conditions.
 type ExcludeType<T, K extends T> = T extends K ? never : T;
 type a = ExcludeType<'year' | 'age' | 'now', 'year'>; // age,now
 
-// 去除readOnly屬性 -號可以去除modified修飾詞，預設是+readonly，不用+是因為ts編譯時幫我們加上去了。
+// Remove readOnly property - the minus sign can remove modified modifiers, default is +readonly, we don't need + because ts compiler adds it for us during compilation.
 interface Book {
   readonly buyYear: number;
   readonly kind: string;
@@ -69,7 +66,7 @@ type x = ReadonlyRemove<Book>;
 
 ## Interface
 
-用來形容或描述物件的結構或屬性的型別，也因為Js有許多物件結構的描述，較能用來描述這些預設的js行為~
+Used to describe or define the structure or properties of objects. Since JavaScript has many object structure descriptions, it's more suitable for describing these default JavaScript behaviors~
 
 ```typescript
 interface myInterFace {
@@ -88,19 +85,19 @@ const obj: myInterFace = {
   age: 12,
   gender: '12312313123'
 };
-// 定義class時 可以使用 interface規範 所需的屬性
+// When defining class, you can use interface to specify required properties
 // eslint-disable-next-line ts/no-unsafe-declaration-merging
 class Myclass implements myInterFace {
 
 }
 
-// 繼承(擴充)
+// Inheritance (extension)
 // eslint-disable-next-line ts/no-unsafe-declaration-merging
 interface Myclass extends myInterFace {
 
 }
 
-// 當然也可以這樣使用
+// Of course you can also use it like this
 interface cake<T, K> {
   cost: T;
   size: K;
@@ -112,19 +109,19 @@ const a: cake<number, string> = {
 };
 ```
 
-**補充 [key:string|number|symbol] 若建立key必須符合以下型別，不然會ERROR。**
+**Note: [key:string|number|symbol] If creating keys, they must conform to the following types, otherwise there will be an ERROR.**
 
 ## Type vs Interface
 
-**與interface的差異在於無法重複覆值，沒有overload特性及merging特性，並且不能繼承實作物件與其屬性。**
-而且語意上也有些需差異，需要多方評估後挑適合的使用。
+**The difference from interface is that it cannot be repeatedly assigned, has no overload characteristics and merging features, and cannot inherit and implement objects and their properties.**
+There are also some semantic differences that need to be evaluated from multiple perspectives before choosing the appropriate one to use.
 
 ```typescript
-interface Aaron { year: number;height: number } // <-顯式定義
-interface Aaron { kind: string } // <- Duplicate identifier 'Aaron' 無法合併
+interface Aaron { year: number;height: number } // <-explicit definition
+interface Aaron { kind: string } // <- Duplicate identifier 'Aaron' cannot merge
 
 interface Hellen { year: number;height: number }
-interface Hellen { kind: string }// <- Hellen屬性中有year,height,kind => merging 合併了
+interface Hellen { kind: string }// <- Hellen properties include year,height,kind => merging combined
 
 interface cake {
   cost: string;
@@ -137,7 +134,7 @@ function testOne(a: cake): number {
   return a.match(18); // number
 }
 
-// 例如 哪一個更符合座標物件的型別描述呢?
+// For example, which one better describes the type of a coordinate object?
 type Point = [number, number];
 
 interface Point {
@@ -146,10 +143,9 @@ interface Point {
 }
 ```
 
-簡單下個結論，就是使用前先思考要定義的是原始的型別，亦或是物件型別，若是物件型別是否需要操作其中的屬性，
-還是單純的表示構造屬性，若需要操作就可以考慮type，反之則可以使用interface做為表示~
+To draw a simple conclusion, before using, first think about whether you're defining primitive types or object types. If it's an object type, do you need to manipulate its properties, or are you simply representing structural properties? If you need manipulation, consider using type; otherwise, you can use interface for representation~
 
-若有不同的看法，歡迎在下方留言~
+If you have different views, feel free to comment below~
 
-[TypeScript官網描述](https://www.typescriptlang.org/cheatsheets)
+[TypeScript Official Documentation](https://www.typescriptlang.org/cheatsheets)
 [TypeScript DeepDive](https://basarat.gitbook.io/typescript)
