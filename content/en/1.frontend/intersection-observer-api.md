@@ -1,5 +1,5 @@
 ---
-title: 實作一個可視區域導讀提醒
+title: Implementing Visual Reading Progress Indicators
 description: Intersection Observer API
 icon: 'lucide:dessert'
 gitTalk: false
@@ -13,26 +13,25 @@ authors:
     target: _blank
 ---
 
-> 實作一個可視區域導讀提醒
+> Building a visual reading progress indicator for viewport awareness
 
-在前端的開發過程中，常需要在某個視覺區塊進入頁面的可視範圍時，讓頁面進行某些變化，我們會使用一些第三方的套件庫，但第三方的套件庫可能相當龐大，或是使用上來說並沒有那麼直覺，那有沒有其他更便利方法呢？
+During frontend development, we often need to trigger specific page changes when visual elements enter the viewport. While third-party libraries are commonly used for this purpose, they can be quite large or unintuitive to implement. Is there a more convenient native approach?
 
 ## Intersection Observer
 
-原生的 Api，可以用來觀測頁面元素與可見區域相交部分的比例，然後可以在達到比例時觸發 callback。
-常被用來在圖片的 lazyLoading，內容的無限滾動，及自動播放影片或音檔等功能。
+The Intersection Observer is a native browser API that observes the intersection ratio between page elements and the visible area, triggering callbacks when specified thresholds are met. It's commonly used for image lazy loading, infinite scroll content, and automatic video/audio playback features.
 
-## 參數
+## Parameters
 
-`IntersectionObserver(callback， options)` 接受兩個參數：
+`IntersectionObserver(callback, options)` accepts two parameters:
 
-- `callback`： 當指定重疊條件發生時要執行的 callback 函式。
-- `options`：
-  - `root`：欲觀察的 root 元素，不特別指定或是 `null` 時等於瀏覽器的可視範圍 (browser viewport)。
-  - `rootMargin`：用來改變 root 元素觀察的範圍。
-  - `threshold`：Target(目標元素) 的可見程度。可帶入浮點數或浮點數的 array，ex `[0， 0.25， 0.5， 0.75， 1]`，每當 target 的可見程度高於 threshold 時，`callback` 就會被頻繁地觸發， 也就是每 25% 或者减少 25% 的时候都通知一次。可看需求變動。
+- **`callback`**: The callback function to execute when the specified intersection conditions are met.
+- **`options`**: Configuration object with the following properties:
+  - **`root`**: The root element to observe against. When not specified or set to `null`, it defaults to the browser's viewport.
+  - **`rootMargin`**: Used to modify the root element's observation area.
+  - **`threshold`**: The visibility percentage of the target element. Can be a float or an array of floats, e.g., `[0, 0.25, 0.5, 0.75, 1]`. The callback is triggered whenever the target's visibility crosses any threshold value, meaning it will notify every 25% increase or decrease in visibility.
 
-## 使用方法
+## Usage Method
 
 ```javascript
 const options = {
@@ -47,11 +46,11 @@ const target = document.querySelector('#listItem');
 observer.observe(target);
 ```
 
-## 實際使用案例
+## Practical Implementation Example
 
-筆者希望能夠模擬出閱讀網站的功能，即在當前閱讀區域時，可以在 menu list 標記閱讀區塊及變動 URL。
+The author wanted to simulate reading website functionality, where the current reading section is highlighted in the menu list and the URL is updated accordingly.
 
-> `實現程式碼使用 vue3，可貼上下方程式碼，觀看變化`
+> The implementation code uses Vue 3. You can copy the code below to observe the behavior.
 
 ```html
 <!DOCTYPE html>
@@ -194,8 +193,8 @@ observer.observe(target);
   </script>
 </body>
 </html>
-
 ```
 
-參考資料
-[MDN Intersection Observer](https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API)
+## Reference Materials
+
+- [MDN Intersection Observer API Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)

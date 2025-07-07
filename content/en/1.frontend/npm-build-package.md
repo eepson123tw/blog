@@ -1,6 +1,6 @@
 ---
-title: 發布一個 npm 組件
-description: NPM、Vue、Package publish
+title: Publishing an NPM Component
+description: NPM, Vue, Package publish
 icon: 'lucide:package'
 gitTalk: false
 date: 2024-08-03 13:09:00
@@ -13,32 +13,32 @@ authors:
     target: _blank
 ---
 
-> 發布一個 npm [組件](https://www.npmjs.com/package/@eepson123tw/canvas-meme)
+> Publishing an npm [component](https://www.npmjs.com/package/@eepson123tw/canvas-meme)
 
-一直希望能做公有組件並考慮上傳 npm ，
+I've always wanted to create public components and consider uploading them to npm.
 
-想了一個一直想做而且頗鬧的題目來實作😂
+I thought of a topic I've always wanted to implement that's quite amusing 😂
 
-上傳圖片後可以轉化成文字顯示畫上 Canvas。
+After uploading an image, it can be converted into text and displayed on Canvas.
 
 ![npm](/images/npm/image.webp)
 
-## 設立目標
+## Setting Goals
 
-想實作的方式，列下幾種必須達到的 Goal
+The implementation approach I wanted, listing several goals that must be achieved:
 
-- 必須透過 Vue3 Typescript 實作
-- 必需使用自動化流程版號
-- package.json 的各項值設定
-- 簡單好玩的程式實作
+- Must be implemented using Vue3 TypeScript
+- Must use automated version numbering process
+- Configure various values in package.json
+- Simple and fun program implementation
 
-## 遇到挑戰
+## Challenges Encountered
 
-實際上實作時卻發現...
+During actual implementation, I discovered...
 
-### Typescript 環境設定
+### TypeScript Environment Configuration
 
-- 起初不熟悉 Typescript 各種 .json 的後綴檔案代表的意義，熟悉了一陣子，後來才理解 tsconfig.app.json 「app」 為代表管理的環境，app 為應用、node 為後端建構等等。並統一在 tsconfig.json 中參考，以便 Ts 編譯器可以知道使用的環境。
+- Initially, I wasn't familiar with what the various .json suffix files in TypeScript meant. After familiarizing myself for a while, I later understood that tsconfig.app.json where "app" represents the managed environment - app for application, node for backend build, etc. They are all referenced in tsconfig.json so the TypeScript compiler knows which environment to use.
 
 ::code-group
 
@@ -46,44 +46,44 @@ authors:
 {
   "references": [
     {
-      "path": "./tsconfig.app.json" // [!code focus] 應用程式的 TypeScript 配置
+      "path": "./tsconfig.app.json" // [!code focus] TypeScript configuration for application
     },
     {
-      "path": "./tsconfig.node.json" // Node.js 環境的 TypeScript 配置
+      "path": "./tsconfig.node.json" // TypeScript configuration for Node.js environment
     },
     {
-      "path": "./tsconfig.config.json" // 特定配置的 TypeScript 配置
+      "path": "./tsconfig.config.json" // TypeScript configuration for specific configs
     }
   ],
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true, // 允許合成默認導入
-    "baseUrl": "./", // 基本路徑設置
-    "declaration": true, // 生成宣告文件
-    "declarationDir": "./dist/types", // 宣告文件的輸出目錄
-    "esModuleInterop": true, // 允許 ES 模組互操作性
-    "experimentalDecorators": true, // 啟用實驗性的裝飾器功能
-    "importHelpers": true, // 引入幫助函數
-    "isolatedModules": true, // 每個文件作為一個單獨的模組處理
-    "jsx": "preserve", // 保留 JSX 語法
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"], // 使用的 TypeScript 標準庫
-    "module": "esnext", // 模組格式
-    "target": "esnext", // 編譯目標
-    "moduleResolution": "node", // 模組解析策略
-    "noUnusedLocals": true, // 不允許未使用的本地變量
-    "noUnusedParameters": true, // 不允許未使用的參數
-    "outDir": "dist", // 輸出目錄
+    "allowSyntheticDefaultImports": true, // Allow synthetic default imports
+    "baseUrl": "./", // Base path setting
+    "declaration": true, // Generate declaration files
+    "declarationDir": "./dist/types", // Output directory for declaration files
+    "esModuleInterop": true, // Allow ES module interoperability
+    "experimentalDecorators": true, // Enable experimental decorator features
+    "importHelpers": true, // Import helper functions
+    "isolatedModules": true, // Treat each file as a separate module
+    "jsx": "preserve", // Preserve JSX syntax
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"], // TypeScript standard libraries to use
+    "module": "esnext", // Module format
+    "target": "esnext", // Compilation target
+    "moduleResolution": "node", // Module resolution strategy
+    "noUnusedLocals": true, // Disallow unused local variables
+    "noUnusedParameters": true, // Disallow unused parameters
+    "outDir": "dist", // Output directory
     "paths": {
-      "@/*": ["src/*"] // 路徑別名設置
+      "@/*": ["src/*"] // Path alias setting
     },
-    "resolveJsonModule": true, // 允許導入 JSON 模組
-    "sourceMap": true, // 生成 source map
-    "strict": true, // 啟用所有嚴格的類型檢查選項
-    "types": ["node", "vue"], // 包含的類型定義
-    "useDefineForClassFields": true // 使用 `define` 關鍵字定義類字段
+    "resolveJsonModule": true, // Allow importing JSON modules
+    "sourceMap": true, // Generate source maps
+    "strict": true, // Enable all strict type checking options
+    "types": ["node", "vue"], // Type definitions to include
+    "useDefineForClassFields": true // Use `define` keyword for class fields
   },
   "exclude": [
-    "node_modules", // 排除 node_modules 目錄
-    "dist" // 排除 dist 目錄
+    "node_modules", // Exclude node_modules directory
+    "dist" // Exclude dist directory
   ]
 }
 ```
@@ -137,67 +137,67 @@ authors:
 
 ::
 
-有些雷真的是踩過才知道😭
+Some pitfalls you really only know after stepping on them 😭
 
-### bundler 的設定及輸出
+### Bundler Configuration and Output
 
-本來以為打包只需要設定好輸出就好了吧，照著網路上的教學及文件，應該能簡單的上線😊，結果自己還是太年輕了。
-要設定 package.json vite.config，有一個很重要的提醒
+I originally thought packaging only required setting up the output properly. Following online tutorials and documentation, it should be simple to go live 😊, but I was still too naive.
+To configure package.json and vite.config, there's a very important reminder:
 
 ::alert{type="info"}
-"author": "一定要是本人且正確", <== publish 快一小時懷疑人生的時候，發現改這個就過了👼
+"author": "Must be the actual person and correct", <== After nearly an hour of publishing and questioning life, I discovered changing this fixed it 👼
 ::
 
 ::code-group
 
 ```json [package.json]
 {
-  // 以上略
-  "main": "dist/canvas-image.umd.js", // 主入口文件，使用 UMD 格式
-  "module": "dist/canvas-image.es.js", // ES 模塊格式的入口文件
-  "exports": { // 當用不同引入方式時文件的指向，做了這個之後才真的知道 npm 真的幫忙做了很多
+  // Above omitted
+  "main": "dist/canvas-image.umd.js", // Main entry file, using UMD format
+  "module": "dist/canvas-image.es.js", // ES module format entry file
+  "exports": { // File destinations when using different import methods, after doing this I truly realized how much npm helps
     ".": {
-      "import": "./dist/canvas-image.es.js", // 當使用 import 時的入口文件
-      "require": "./dist/canvas-image.umd.js", // 當使用 require 時的入口文件
-      "types": "./dist/types/index.d.ts" // 型別定義文件
+      "import": "./dist/canvas-image.es.js", // Entry file when using import
+      "require": "./dist/canvas-image.umd.js", // Entry file when using require
+      "types": "./dist/types/index.d.ts" // Type definition file
     },
-    "./dist/style.css": "./dist/style.css" // 對應 CSS 文件的路徑
+    "./dist/style.css": "./dist/style.css" // Path for corresponding CSS file
   },
-  "types": "./vue3-canvas-image.d.ts" // 預設型別定義文件的入口
+  "types": "./vue3-canvas-image.d.ts" // Default type definition file entry
 }
 ```
 
 ```typescript [vite.config.ts]
 export default defineConfig({
   plugins: [
-    vue(), // Vue 插件，用於處理 Vue 文件
+    vue(), // Vue plugin for handling Vue files
     dts({
-      clearPureImport: true, // 清除純導入
+      clearPureImport: true, // Clear pure imports
     }),
   ],
   resolve: {
     alias: {
-      '@/': new URL('./src/', import.meta.url).pathname, // 設置路徑別名，指向 src 目錄
+      '@/': new URL('./src/', import.meta.url).pathname, // Set path alias pointing to src directory
     },
   },
   build: {
-    cssCodeSplit: true, // 啟用 CSS 代碼分割
-    sourcemap: true, // 生成 source map 文件
-    emptyOutDir: true, // 構建時清空輸出目錄
-    target: 'esnext', // 目標環境設置為 ESNext
-    outDir: './dist', // 輸出目錄
+    cssCodeSplit: true, // Enable CSS code splitting
+    sourcemap: true, // Generate source map files
+    emptyOutDir: true, // Clear output directory during build
+    target: 'esnext', // Target environment set to ESNext
+    outDir: './dist', // Output directory
     lib: {
-      // 入口文件，可以是多個入口點的字典或數組
+      // Entry file, can be a dictionary or array of multiple entry points
       entry: resolve(dirname(fileURLToPath(import.meta.url)), 'src/index.ts'),
-      name: 'canvas-image', // 庫的全局名稱
-      // 生成的文件名，根據格式附加相應的擴展名
+      name: 'canvas-image', // Global name of the library
+      // Generated file name, append corresponding extension based on format
       fileName: fileName => `${'canvas-image'}.${fileName}.js`,
     },
     rollupOptions: {
-      // 確保將不應該打包進庫的依賴設置為外部化
+      // Ensure dependencies that shouldn't be bundled into the library are externalized
       external: ['vue'],
       output: {
-        // 為外部化的依賴提供全局變量，在 UMD 構建中使用
+        // Provide global variables for externalized dependencies, used in UMD builds
         globals: {
           vue: 'Vue',
         },
@@ -209,22 +209,23 @@ export default defineConfig({
 
 ::
 
-### npm 上版失敗
+### NPM Publishing Failure
 
-這真的是這次實作最痛最哭的部分，因為網路上的資源都寫 npm publish 就好，但實際是若啟用 auth 認證，就必須實作 git action 的 secrets token，然後要複製 .npmrc 指向路徑，並且要把 org 設置好，不然就會上板上到歪頭。
+This was really the most painful and tearful part of this implementation. Online resources all say just run `npm publish`, but in reality, if auth authentication is enabled, you must implement git action secrets token, then copy .npmrc to point to the path, and set up the org properly, otherwise the publishing will go sideways.
 
-### release 版號問題
+### Release Version Number Issues
 
-release 自動化也是，我猜考了 vue/core 的上版流程，使用 .husky pre-commit pre-push 作用如名，在 commit push 之前先去做我寫好的指令。
+Release automation was also tricky. I studied vue/core's publishing process, using .husky pre-commit and pre-push hooks that work as their names suggest - executing my written commands before commit and push.
 
-- pre-commit 檢查 commit 是否有按照規則
-- pre-push 執行 auto update release version
+- pre-commit checks if commits follow the rules
+- pre-push executes auto update release version
 
-### github actions yml 的撰寫
+### Writing GitHub Actions YML
 
-因為之前就有在寫類似的 pipeline 倒是簡單的參考一下別下的 CI/CD，
+Since I had written similar pipelines before, it was simple to reference other CI/CD setups.
 
-## 學習結論
+## Learning Conclusions
 
-實際走過一次流程後發現，做自己的第三方插件好像也沒那麼難，而且看到下載量真的有點嚇到的感覺，想說只是跑個流程的專案居然有 500 下載量，但星星倒是沒人按哈哈哈哈哈，
-之後會真的想想實際的需求後再繼續我的插件之旅～寫個後端相關的好像也可以👍
+After actually going through the entire process, I discovered that creating your own third-party plugins isn't that difficult. I was quite shocked to see the download numbers - I thought it was just a project for going through the process, but it actually had 500 downloads! Though no one starred it hahaha.
+
+In the future, I'll think about actual needs before continuing my plugin journey~ Writing something backend-related seems good too 👍

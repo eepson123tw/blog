@@ -1,6 +1,6 @@
 ---
-title: 記憶體布局
-description: JavaScript、G/O、prototype chain
+title: Memory Layout
+description: JavaScript, G/O, prototype chain
 icon: 'lucide:lamp-desk'
 gitTalk: false
 date: 2022-05-06 23:23:00
@@ -13,24 +13,24 @@ authors:
     target: _blank
 ---
 
-在許多的面試裡，js 的基礎問題是常常會被面試官詢問，像是 Hoisting，var/let/const 差異，閉包...，而今天想跟各位分享的也是眾多基礎題的其中之一，原型鍊(prototype chain)，要分享原型鍊則需提到 js 記憶體中的布局。
-在我們尚未執行代碼之前，我們所寫的 JS 以及宿主環境預設的 API 會被存放在「靜態區」，執行時 V8 會按照執行順序將代碼移動到相應的其他區域，而甚麼是宿主的環境呢?常被提到的像是 client 端(browser)、sever 端(node)
+In many interviews, fundamental JavaScript questions are frequently asked by interviewers, such as Hoisting, differences between var/let/const, closures, and so on. Today, I want to share another one of these fundamental topics with you - the prototype chain. To explain the prototype chain, we need to discuss the memory layout in JavaScript.
 
-> 而在 ECMAScript 的規範中沒有對「宿主環境」給出明確的定義。它沒有明確地指出標準輸入和輸出需要確切地在哪個對象中實現，這導致 JS 的內置實現有一定的混亂性。但我們可以客觀地認為： 瀏覽器為 V8 提供基礎的消息循環系統、Global Object、Web API，而 V8 的核心是實現了 ECMAScript 標準定義的一些 Native Object 和一些核心函數 此外 V8 還提供了垃圾回收器、協程功能。
+Before we execute any code, the JavaScript we write and the host environment's default APIs are stored in the "static area." During execution, V8 moves the code to corresponding other areas according to the execution order. But what is the host environment? Commonly mentioned examples include the client-side (browser) and server-side (node).
 
---引用自業界前輩的分析
+> In the ECMAScript specification, there is no clear definition of "host environment." It doesn't explicitly specify where standard input and output need to be implemented exactly, which leads to some confusion in JavaScript's built-in implementation. However, we can objectively consider that: the browser provides V8 with a basic message loop system, Global Object, and Web APIs, while V8's core implements some Native Objects and core functions defined by the ECMAScript standard. Additionally, V8 provides garbage collection and coroutine functionality.
 
-## 記憶體的布局
+--Quote from industry expert analysis
 
-JS 的值有兩種類型，基礎值 primitive value 與 引用值 reference value
+## Memory Layout
 
-- 基礎值 Number，String，Boolean，Null，Undefined,Symbol
-- 引用值 Object，function，Array，RegExp，Data，Date
+JavaScript values have two types: primitive values and reference values.
 
-常常會在網路上搜尋到 js 是傳值、傳址、傳參考?當我再找資料時，也常常被這些術語搞得十分頭痛。
-其實我們可以透過簡易圖繪圖畫出記憶體的指向，而不是強記這些術語，反而會十分地清晰。
+- Primitive values: Number, String, Boolean, Null, Undefined, Symbol
+- Reference values: Object, function, Array, RegExp, Data, Date
 
-在畫圖之前，讓我們來想想，以下的程式碼是怎麼被存放在記憶體中的吧。
+We often search online for whether JavaScript passes by value, by address, or by reference. When I was researching this, I was often confused by these terms. Actually, we can draw simple diagrams to illustrate memory references, rather than memorizing these terms, which makes things much clearer.
+
+Before drawing diagrams, let's think about how the following code is stored in memory:
 
 ```javascript
 const a = 1;
@@ -42,32 +42,32 @@ const f = {};
 function fn() {}
 ```
 
-### 記憶體繪圖
+### Memory Diagram
 
-![範例1](/images/memory_layout/ex1.webp)
+![Example 1](/images/memory_layout/ex1.webp)
 
-在簡易的繪圖中，發現若我們聲明的變量被覆值為基礎值時，記憶體所存的就會是那個值(**其實仍然會是一個地址，因為記憶方便我們先簡化為基礎值本身**)，而引用值則會是以一個地址被記憶體記住。
+In the simple diagram, we can see that when we declare variables assigned to primitive values, memory stores that value (**actually it's still an address, but for convenience we'll simplify it as the primitive value itself**), while reference values are remembered by memory as an address.
 
 ---
 
-## 原型鍊
+## Prototype Chain
 
-其實在我們執行程式碼後，會生出一個全域 Global Object，而全域 Global Object 會與宿主環境相關，若我們在 Web 環境中執行，瀏覽器會為我們提供 DOM、BOM、setTimeout、setInterval 巴拉巴拉一大堆的 web api...，而它們都會被掛在 Global Object 中，然後掛到 window 中給我們使用。
+Actually, after we execute code, a global Global Object is created, and this Global Object is related to the host environment. If we execute in a web environment, the browser provides us with DOM, BOM, setTimeout, setInterval, and a bunch of other web APIs, and they are all attached to the Global Object, then attached to the window for our use.
 
 ```javascript
 Object.keys(window).length
-＞＞326 有點肥
+>> 326 // That's quite a lot
 ```
 
 ---
 
-基於上方的簡易的繪圖我們理解到記憶體的引用值中存放的就是一個地址，那這個地址裡還有甚麼呢?
+Based on the simple diagram above, we understand that reference values in memory store an address. So what's inside this address?
 
-### 原型鍊中有兩個重要的屬性
+### Two Important Properties in the Prototype Chain
 
 ```javascript
- __proto__ 是一個 屬性，值是一個地址
- prototype 是一個 object，裡面放公用函數
+ __proto__ is a property, its value is an address
+ prototype is an object that contains shared functions
 ```
 
 ```javascript
@@ -76,7 +76,7 @@ const f = {};
 function fn() {}
 ```
 
-![範例2](/images/memory_layout/ex2.webp)
+![Example 2](/images/memory_layout/ex2.webp)
 
 ```javascript
 const e = [];
@@ -90,7 +90,7 @@ fn.__proto__ === Function.prototype;
 true;
 ```
 
-而各自原型物件中也有**proto**存在，陣列原型的 proto 地址會指向物件原型，而物件原型的 proto 地址則指向 null，這大概只能硬記了。
+Each prototype object also has **__proto__**. The array prototype's __proto__ address points to the object prototype, while the object prototype's __proto__ address points to null. This probably just needs to be memorized.
 
 ```javascript
 Array.prototype.__proto__ === Object.prototype;
@@ -99,17 +99,16 @@ dir(Object.prototype__proto__);
 undefined;
 ```
 
-大致上分享完了，原型鍊簡單來說就引用值的 proto 地址像一條鍊子把原型方法分享給串連起來的樣子。
-這樣就能理解，為什麼我們聲明變量為引用值時，可以調用那些方法了~
+That's roughly the complete explanation. The prototype chain is simply how reference values' __proto__ addresses link together like a chain, sharing prototype methods with connected objects. This helps us understand why we can call those methods when we declare variables as reference values!
 
-補充:
-若在瀏覽器中測試下方程式碼，會發生一個很有趣的事件。
+Additional note:
+If you test the following code in a browser, something interesting happens:
 
 ```javascript
 function person() {}
 ```
 
-person.**proto** 指向 funciton.prototype (如上方解釋)
-若呼叫，person.prototype 瀏覽器會回傳一個空物件{constructor: ƒ}，
-會讓人誤以為 person.prototype 會在一開始開出這個物件的記憶體位置，其實不然。
-需要等到呼叫時才會建立。例如 特地寫 person.prototype 或是 new obj 時產生。
+person.**__proto__** points to Function.prototype (as explained above).
+If you call person.prototype, the browser returns an empty object {constructor: ƒ}.
+This might make you think that person.prototype creates this object's memory location from the beginning, but that's not the case.
+It's only created when called, for example, when you specifically write person.prototype or when you use new obj.

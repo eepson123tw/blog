@@ -1,6 +1,6 @@
 ---
-title: ESM 模組原理
-description: ESM 模組化開發
+title: ESM Module Principles
+description: ESM modular development
 icon: 'lucide:code'
 gitTalk: false
 date: 2024-03-14 12:25:00
@@ -13,17 +13,17 @@ authors:
     target: _blank
 ---
 
-ESM 模組是一種在 JavaScript 中進行模組化開發的標準。它允許開發者將程式碼分割成多個模組，並且可以在需要的地方引入這些模組。ESM 模組使用 `import` 和 `export` 關鍵字來定義和使用模組。
+ESM modules are a standard for modular development in JavaScript. They allow developers to split code into multiple modules and import these modules where needed. ESM modules use the `import` and `export` keywords to define and use modules.
 
-ESM 模組的重點：
+Key features of ESM modules:
 
-- 可组合性與隔離性:提供了更好的程式碼組織和管理方式
-- 重用性:支援模組的重複使用和共享
-- 支援模組的動態加載和異步載入
+- Composability and isolation: Provides better code organization and management
+- Reusability: Supports module reuse and sharing
+- Supports dynamic loading and asynchronous loading of modules
 
-## Commonjs 原理
+## CommonJS Principles
 
-我們可以透過 Webpack 來理解 Commonjs 是如何封裝的，簡單的來說每個模組都是一個物件
+We can understand how CommonJS is encapsulated through Webpack. Simply put, each module is an object.
 
 ::code-group
 
@@ -31,10 +31,10 @@ ESM 模組的重點：
 console.log('start require');
 let module = require('./module');
 console.log('end require', module);
-// module.js 知識點1
+// module.js knowledge point 1
 console.log(module.tencent);
 
-// module.js 知識點2
+// module.js knowledge point 2
 module.additional = 'test';
 ```
 
@@ -47,17 +47,17 @@ exports.tencent = function () {
   console.log('good');
 };
 
-// 知識點1：對module.exports賦值，exports物件就不再是外部require所得到的結果了。
-// 我在視頻中採用的說法是「覆蓋exports」其實不算非常嚴謹。
-// 因為exports變數本身還是存在的
+// Knowledge point 1: When assigning to module.exports, the exports object is no longer the result obtained by external require.
+// The explanation I used in the video as "overriding exports" is not entirely precise.
+// Because the exports variable itself still exists
 module.exports = function () {
   console.log('hello app');
 };
 
-// 知識點2：外部取得require呼叫的結果和這裡的exports物件是同一個引用
+// Knowledge point 2: The external require call result and the exports object here are the same reference
 setTimeout(() => {
-  // 驗證index.js裡加的additional屬性是否生效
-  // 用於確定外部require到的物件和此處的exports是否是同一個屬性
+  // Verify whether the additional property added in index.js takes effect
+  // Used to determine whether the object required externally and the exports here are the same property
   console.log(exports);
 }, 2000);
 ```
@@ -136,64 +136,64 @@ setTimeout(() => {
 
 ::
 
-## ESM 原理
+## ESM Principles
 
-ESM（ECMAScript 模組）是一種在 JavaScript 中用於模組化程式碼的標準。
+ESM (ECMAScript Modules) is a standard for modularizing code in JavaScript.
 
-主要有以下步驟：
+There are three main steps:
 
-1. 構造 - 查找、下載並解析所有文件，並將它們記錄在一個模塊記錄表(module map)中。
-2. 實例化 - 在內存中找到一塊區域來存儲所有導出的變量，並建立導出屬性的依賴關係。然後將 export 和 import 都指向這些內存塊。這個過程稱為鏈接(linking)。
-3. 賦值 - 執行代碼，將真實的值添加到內存塊中。
+1. Construction - Find, download, and parse all files, recording them in a module map.
+2. Instantiation - Find memory areas to store all exported variables and establish dependency relationships for exported properties. Then point both exports and imports to these memory blocks. This process is called linking.
+3. Evaluation - Execute code and add actual values to the memory blocks.
 
-### 構造
+### Construction
 
-1. 模塊解析
-2. 獲取文件(URL、filesystem load)
-3. 將文件解析成紀錄
+1. Module resolution
+2. File fetching (URL, filesystem load)
+3. Parsing files into records
 
 ::alert{type="success" icon="lucide:lightbulb"}
-此部分會巢狀的解析相依的模組文件，一層一層的找下去。若文件相依的模組過多，那 main thread 勢必會被加載阻塞。
+This part will recursively parse dependent module files, searching layer by layer. If a file depends on too many modules, the main thread will inevitably be blocked by loading.
 ::
 
-ES 模組規範將遞歸查找算法分為多個階段。並將構造過程單獨分離出來，使得瀏覽器在執行同步的初始化過程前可以自行下載文件並建立自己對於模組圖的路徑。
+The ES module specification separates the recursive search algorithm into multiple phases. It separates the construction process so that browsers can download files and build their own paths to the module graph before executing the synchronous initialization process.
 
-不過，需要注意一件事——這兩個圖中的任何模組都將共用一個模組實例。這是因為載入器快取了模組實例。對於特定全域範圍內的每個模組，只有一個模組實例。
+However, one thing to note is that any modules in both graphs will share the same module instance. This is because the loader caches module instances. For each module within a specific global scope, there is only one module instance.
 
 [dynamic_import_graph](https://hacks.mozilla.org/files/2018/03/14dynamic_import_graph.png)
 
-透過 module map 緩存路徑，若有重複的模組需要被載入時，瀏覽器就可以知道並跳過此載入流程><!
+Through module map caching paths, when duplicate modules need to be loaded, the browser can know and skip this loading process!
 
-#### 解析
+#### Parsing
 
-在瀏覽器環境中，可以透過添加 'type=module' 來告知瀏覽器此引入為 module，而在 node 環境中可以透過加入 .mjs 拓展，或是在 package.json 中加入 type 告知並通知加載器。
+In browser environments, you can tell the browser that this import is a module by adding 'type=module'. In Node environments, you can add .mjs extension or add type in package.json to notify the loader.
 
 [module_record](https://hacks.mozilla.org/files/2018/03/05_module_record.png)
 
-### 實例化
+### Instantiation
 
-使用深度優先後序遍歷（depth first post-order traversal）將模組連接到記憶體中，建構模組環境記錄(實例化)。
-模組環境記錄管理著模組記錄對應的變數。同時，它為所有的導出變數分配內存空間。模組環境記錄會追蹤不同內存區域與不同導出變數之間的關聯關係。
-這些內存區域在此階段還沒有被賦值。`只有在求值之後，它們才會獲得真正的值`。需要注意的是，任何導出的函數聲明都在此階段初始化，這使得求值過程更加容易。
+Uses depth-first post-order traversal to link modules to memory and construct module environment records (instantiation).
+The module environment record manages variables corresponding to module records. At the same time, it allocates memory space for all exported variables. The module environment record tracks the association between different memory areas and different exported variables.
+These memory areas are not yet assigned values at this stage. `They only get actual values after evaluation`. Note that any exported function declarations are initialized at this stage, making the evaluation process easier.
 
-### 賦值
+### Evaluation
 
-1. 模塊初始化：JavaScript 引擎首先將代碼中的變量和函數分配記憶體空間。
-2. 代碼評估：評估代碼可能引起副作用，例如發送網絡請求。模塊只被評估一次，以避免重複引起副作用。
-3. 模塊映射：通過模塊的標準URL進行緩存，保證每個模塊只執行一次。
-4. 處理循環依賴：ES 模塊設計支持循環依賴。即使在循環依賴中，模塊也能正確地讀取到最終的變量值，使用 `live binding`。
+1. Module initialization: The JavaScript engine first allocates memory space for variables and functions in the code.
+2. Code evaluation: Evaluating code may cause side effects, such as sending network requests. Modules are only evaluated once to avoid repeated side effects.
+3. Module mapping: Cached through the module's canonical URL, ensuring each module executes only once.
+4. Handling circular dependencies: ES modules are designed to support circular dependencies. Even in circular dependencies, modules can correctly read the final variable values using `live binding`.
 
-## 總結
+## Summary
 
 ::alert{type="success" icon="lucide:lightbulb"}
-require 會同步解析，而 import 會在執行程式碼之前就會有預解析，可以更方便的執行 tree-shacking 及 分析載入點 .etc
+require synchronously resolves, while import has pre-parsing before executing code, making it easier to perform tree-shaking and analyze loading points, etc.
 ::
 
-CommonJS 模組同步加載，這意味著它們會阻止程式碼的執行，直到模組完全加載並執行。
-而 ESM 加載分了好幾個步驟，加載模組，然後深度優先遍歷生成 export、import、加載模組 URL 等資訊形成的一個模組表，最後返回模組的值。而這些步驟之間是異步進行的，
+CommonJS modules load synchronously, meaning they block code execution until the module is fully loaded and executed.
+ESM loading is divided into several steps: loading modules, then depth-first traversal to generate export, import, module URL and other information forming a module table, and finally returning module values. These steps are performed asynchronously.
 
-## 參考資料
+## References
 
-- [Node.js - 高级篇](https://www.yuque.com/haixueyewupingtaibuqianduanchengchangjihua/tk9sk4/myx1nzzfwhd8nb6w#wuSdV)
-- [es-modules-a-cartoon-deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
-- [module-map](https://html.spec.whatwg.org/multipage/webappapis.html#module-map)
+- [Node.js - Advanced](https://www.yuque.com/haixueyewupingtaibuqianduanchengchangjihua/tk9sk4/myx1nzzfwhd8nb6w#wuSdV)
+- [ES modules: A cartoon deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
+- [Module Map](https://html.spec.whatwg.org/multipage/webappapis.html#module-map)

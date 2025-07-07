@@ -1,6 +1,6 @@
 ---
-title: Tokenizer 分詞器
-description: Tokenizer 是一個將文本轉換成 token 的工具，這些 token 可以是單詞、子詞或字符等，是 NLP 模型的基本輸入單位。
+title: Tokenizer
+description: A tokenizer is a tool that converts text into tokens, which can be words, subwords, or characters, serving as the basic input units for NLP models.
 icon: 'lucide:brackets'
 gitTalk: false
 date: 2025-03-08 15:29:00
@@ -13,114 +13,106 @@ authors:
     target: _blank
 ---
 
-這篇針對 `Tokenizer` 來解析 LLM 是如何看 input 的，畢竟人類的理解與模型的理解是不同的，透過探討 `Tokenizer` 可以更深入了解模型的看待 input 的方式。
+This article analyzes `Tokenizer` to understand how LLMs perceive input, as human understanding differs from model understanding. By exploring `Tokenizer`, we can gain deeper insights into how models view input data.
 
-## Token 詞元
+## Token
 
-在上一篇中我們有簡略的提到 Token 這個概念，詞元是一個基本單位，是一種單詞的抽象，可以是單詞、子詞或字符等。在 NLP 中，我們將文本轉換成 token 的過程稱為分詞。
+In the previous article, we briefly mentioned the concept of tokens. A token is a basic unit, an abstraction of words that can be words, subwords, or characters. In NLP, the process of converting text into tokens is called tokenization.
 
-## Tokenizer 是什麼?
+## What is a Tokenizer?
 
-想像一下自動販賣機。你按下標示「汽水」的按鈕，但機器並不知道「汽水」是什麼意思。在內部，它已將你的按鈕按下翻譯成一個數字，例如 001，從而觸發釋放你的飲料。同樣地，分詞器將我們的文字轉換成數值(ID)，以便電腦可以「理解」和處理人類語言 。
+Imagine a vending machine. You press the button labeled "Soda," but the machine doesn't know what "Soda" means. Internally, it has translated your button press into a number, such as 001, which triggers the release of your drink. Similarly, a tokenizer converts our text into numerical values (IDs) so that computers can "understand" and process human language.
 
 ::alert{to="https://tiktokenizer.vercel.app/ " target="_blank" icon="lucide:link"}
-  可以去這個網站玩看看不同的分詞器，會有不同的結果
+  You can visit this website to experiment with different tokenizers and see varying results
 ::
 
-### 切割詞元
+### Token Segmentation
 
 ```python
-# 分詞例子
+# Tokenization example
 '我喜歡吃蘋果' -> ['我', '喜歡', '吃', '蘋果']
 or
 '我喜歡吃蘋果' -> ['我', '喜', '歡', '吃', '蘋', '果']
 ```
-例子中的各個字元就是 token，而將這些 token 組合起來就是一個句子。
-差異就是受到了分詞器算法的影響，分詞器的種類有很多，不同的分詞器會有不同的分詞結果。
+Each character in the example represents a token, and combining these tokens forms a sentence. The difference is influenced by the tokenizer algorithm. There are many types of tokenizers, and different tokenizers produce different tokenization results.
 
 ![Tiktokenizer](images/ai/Tiktokenizer.png)
 
-### 詞元轉化數值ID
-在上方的圖中，我們可以看到 Tokenizer 將文本轉換成 token 後，再將 token 轉換成數字，這是因為模型只能處理數字，無法處理文字。
+### Token to Numerical ID Conversion
+In the image above, we can see that the tokenizer converts text into tokens and then converts tokens into numbers. This is because models can only process numbers, not text.
 
 ```python
-# 編碼例子
+# Encoding example
 ['我', '喜歡', '吃', '蘋果'] -> [1, 2, 3, 4]
 or
 ['我', '喜', '歡', '吃', '蘋', '果'] -> [1, 2, 3, 4, 5, 6]
 ```
-當字元被轉換成數字後，我們就可以將這些數字作為模型的輸入，進行訓練或預測。
-也就是進行推論，透過數字索引去推論下一個會出現的數字，再將數字轉換成字元，這樣就可以生成文本。
+After characters are converted to numbers, we can use these numbers as model inputs for training or prediction. This involves inference, where we predict the next number that will appear through numerical indices, then convert the numbers back to characters to generate text.
 
 ```python
-# 生成文本例子
+# Text generation example
 [1, 2, 3, 4] -> ['我', '喜歡', '吃', '蘋果']
 -> [1, 2, 3, 4, 5] -> ['我', '喜歡', '吃', '蘋果', '嗎']
 ```
 
 ::alert{ type="success" target="_blank" icon="lucide:badge-alert"}
-  分詞器特定於構建他們的語言模型，因此在訓練模型時，分詞器的選擇是非常重要的。
-  並沒有所謂的通用分詞器！
-  而且標記器的選擇會影響詞彙量和計算效率。
+  Tokenizers are specific to the language models they are built for, so the choice of tokenizer is crucial when training models.
+  There is no such thing as a universal tokenizer!
+  Moreover, the choice of tokenizer affects vocabulary size and computational efficiency.
 ::
 
+## Types of Tokenizers
 
-## 分詞器的種類
+- Word Tokenizer: Splits text into words. -> 我喜歡吃蘋果 -> ['我', '喜歡', '吃', '蘋果']
+- Character Tokenizer: Splits text into characters. -> 我喜歡吃蘋果 -> ['我', '喜', '歡', '吃', '蘋', '果']
+- Subword Tokenizer: Splits text into subwords. -> 我喜歡吃蘋果和芒果 -> ['我', '喜', '歡', '吃', '蘋', '果', '和', '芒', '果']
 
-- 單詞分詞器 (Word Tokenizer): 將文本分割成單詞。 -> 我喜歡吃蘋果 -> ['我', '喜歡', '吃', '蘋果']
-- 字元分詞器 (Character Tokenizer): 將文本分割成字元。 -> 我喜歡吃蘋果 -> ['我', '喜', '歡', '吃', '蘋', '果']
-- 子詞分詞器 (Subword Tokenizer): 將文本分割成子詞。 -> 我喜歡吃蘋果和芒果 -> ['我', '喜', '歡', '吃', '蘋', '果', '和', '芒', '果']
+Text is decomposed based on its granularity, and tokenizers for different languages also vary. For example, Chinese tokenizers may split a character into multiple subwords, while English tokenizers split a word into multiple subwords. In some cases, a Chinese token might be a single character, while in others it might be a word, depending on the tokenizer's design. `This is one of the main challenges faced in Chinese model development`.
 
-會根據文字的細粒度來分解，不同語言的分詞器也會有所不同，例如中文的分詞器會將一個字分成多個子詞，而英文的分詞器則會將一個單詞分成多個子詞。
-有些情況中文的 token 會是一個字，有些情況則是一個詞，這取決於分詞器的設計。`這也是中文模型開發面臨的主要挑戰之一`。
+## Can Everything be Tokenized?
 
-## 什麼都可以分詞嗎?
-
-- 語言的歧義性:基於人類語言中的歧義性，分詞器可能會產生不同的分詞結果。
+- Language Ambiguity: Due to the inherent ambiguity in human language, tokenizers may produce different tokenization results.
   ```markdown
-  # 歧義性例子
+  # Ambiguity example
   飛機飛行很危險 -> ["飛機", "飛行", "很", "危險"]
   飛機飛行很危險 -> ["飛", "機", "飛行", "很", "危險"]
   ```
-  - 到底是開飛機很危險呢?還是飛行中的飛機很危險呢?
+  - Is it dangerous to pilot an aircraft, or are aircraft in flight dangerous?
 
-- 缺乏明確界線的語言 (如中文，日文): 這些語言中，單詞之間沒有明確的分隔符號，這就使得分詞變得困難。如何去判斷哪裡結束與哪裡開始呢?
+- Languages without clear boundaries (such as Chinese and Japanese): In these languages, there are no clear separators between words, making tokenization difficult. How do we determine where one word ends and another begins?
   ```markdown
-  # 中文分詞困難例子 - 更複雜的案例
+  # Complex Chinese tokenization examples
   "我在機場附近的餐廳吃飯" -> ["我", "在", "機場", "附近", "的", "餐廳", "吃飯"]
   "我在機場附近的餐廳吃飯" -> ["我", "在", "機場附近", "的", "餐廳", "吃", "飯"]
 
-  # 同音字造成的歧義
-  "以後會來" -> ["以後", "會", "來"]  # 未來會來
-  "已後會來" -> ["已", "後", "會", "來"] # 在之後會來
+  # Ambiguity caused by homophones
+  "以後會來" -> ["以後", "會", "來"]  # Will come in the future
+  "已後會來" -> ["已", "後", "會", "來"] # Will come afterward
 
-  # 地名專有名詞的歧義
+  # Ambiguity in proper nouns and place names
   "我住在台北市信義區" -> ["我", "住", "在", "台北市", "信義區"]
   "我住在台北市信義區" -> ["我", "住", "在", "台北", "市", "信義", "區"]
 
-  # 複雜的名詞片語
+  # Complex noun phrases
   "人工智慧深度學習技術" -> ["人工智慧", "深度學習", "技術"]
   "人工智慧深度學習技術" -> ["人工", "智慧", "深度", "學習", "技術"]
   ```
 
-## 分詞後可以做什麼?
+## What Can We Do After Tokenization?
 
-- 搜尋引擎: 當你在 Google 等搜尋引擎中輸入查詢時，它會使用分詞來剖析你的輸入。這種分解有助於搜尋引擎篩選數十億份文件，向你呈現最相關的結果 
-- 語音辨識: Siri 或 Alexa 等聲控助理，高度依賴分詞。當你提出問題或命令時，你所說的單詞會先轉換成文字。然後，這個文字會被分詞，允許系統處理並根據你的請求採取行動。
-- 機器翻譯: Google 翻譯等工具利用分詞來分割來源語言中的句子。分詞後，這些片段可以被翻譯，然後以目標語言重建，確保翻譯保留原始上下文 
-- 情緒分析: 分詞在從使用者生成的內容（例如產品評論或社群媒體貼文）中提取見解方面發揮著至關重要的作用。例如，電子商務平台的情緒分析系統可能會將使用者評論分詞，以確定客戶表達的是正面、中立還是負面情緒 。
+- Search Engines: When you input a query into search engines like Google, they use tokenization to parse your input. This breakdown helps search engines filter through billions of documents to present you with the most relevant results.
+- Speech Recognition: Voice assistants like Siri or Alexa heavily rely on tokenization. When you ask a question or give a command, your spoken words are first converted to text. This text is then tokenized, allowing the system to process and act upon your request.
+- Machine Translation: Tools like Google Translate utilize tokenization to segment sentences in the source language. After tokenization, these segments can be translated and then reconstructed in the target language, ensuring the translation preserves the original context.
+- Sentiment Analysis: Tokenization plays a crucial role in extracting insights from user-generated content, such as product reviews or social media posts. For example, a sentiment analysis system for an e-commerce platform might tokenize user reviews to determine whether customers are expressing positive, neutral, or negative sentiments.
 
+## Conclusion
 
-## 結語
+Tokenization is the fundamental infrastructure for processing textual data in artificial intelligence. By breaking down text into tokens that computers can understand through tokenization, AI models can perform various NLP tasks such as translation, summarization, and conversation. As AI technology advances, tokenization methods have become increasingly sophisticated, evolving from early word tokenization to current subword tokenization to better handle rare words, abbreviations, and multilingual text.
 
-分詞是人工智慧中處理文字數據的基本設施。透過分詞將文字分解成電腦可以理解的詞元，
+The efficiency and accuracy of tokenization are also crucial for AI model performance, affecting training speed, inference speed, and result quality. If you're interested, feel free to check out the reference materials below!
 
-讓 AI 模型能夠執行各種 NLP 任務，例如翻譯、摘要和對話。隨著 AI 技術的進步，分詞方法也越來越複雜，從早期的單詞分詞到現在的子詞分詞，以更好地處理罕見單詞、縮寫和多語言文字。
-
-分詞的效率和準確性對於 AI 模型的效能也至關重要，影響著模型的訓練速度、推論速度和結果的品質。
-若有興趣也可以去看看下方的參考資料喔～
-
-## 參考資料
+## References
 
 - [AI Tokenization: Understanding Its Importance and Applications](https://www.protecto.ai/blog/ai-tokenization-understanding-importance-and-applications)
 - [Breaking down tokenizers in llms](https://medium.com/squeezebits-team-blog/breaking-down-tokenizers-in-llms-5699a8122574)

@@ -1,6 +1,6 @@
 ---
-title: Day 7 自定義鉤子
-description: 學習 React 框架
+title: Day 7 Custom Hooks
+description: Learning the React Framework
 icon: 'lucide:octagon-minus'
 gitTalk: false
 date: 2023-08-03 21:40:00
@@ -13,40 +13,40 @@ authors:
     target: _blank
 ---
 
-> 學習 React 框架 - 007 自定義鉤子 useHooks
+> Learning the React Framework - 007 Custom Hooks useHooks
 
-React 實作了許多可以以依賴驅動的 Hooks 函式，在不同的需求及邊界處理上，我們能搭配之前所學的 Hooks 做一些妥善的處理，
-接下來就是最有趣的自己動手封裝了，React 所提供的 Hooks 就像工具箱，現在就由我們來動手封裝並日常開發好用的 useHooks 吧~
+React has implemented many dependency-driven Hooks functions. For different requirements and edge case handling, we can combine the previously learned Hooks to handle them properly.
+Next comes the most interesting part - creating our own encapsulations. The Hooks provided by React are like a toolbox, and now we'll create and encapsulate useful useHooks for daily development~
 
-## 封裝自己的 Hooks 有何好處?
+## What Are the Benefits of Encapsulating Your Own Hooks?
 
-1. **重用性 ( Reusability )** ： 封裝 Hooks 讓邏輯和狀態切割開，在不同的組件中重用。可以大幅減少重複的程式碼，提高維護性。
-2. **組織性 ( Organization)**： Hooks 可以更好地組織程式碼，將相關邏輯放在一起，使代碼更清晰、更易理解。
-3. **邏輯解耦 ( Decoupling Logic)**： Hooks 可以將邏輯與組件的實現解耦。可以專注在開發邏輯的細節上與 UI 解藕。
-4. **測試性 ( Testability )** ： 透過封裝 Hooks，更容易地進行單元測試，只需針對抽出的邏輯做測試，而不用擔心觸發頁面的 sideEffect。
-5. **避免命名衝突 ( Avoiding Naming Conflicts )** ： Hooks 可避免在組件之間出現命名衝突，因為程式碼本身只存在各自的區塊之中。
-6. **代碼重構 ( Code Refactoring)**: 有了 Hooks 針對某一部分的程式碼重構，相較之前容易許多，也不用擔層層相疊的邏輯本身。
-7. **共享( Sharing )**: 當我們封裝出一個好用的自定義函式後，我們可以分享到社群，分享供其他人使用，相對地我們也能坐享齊人之福~
+1. **Reusability**: Encapsulating Hooks separates logic and state, allowing reuse across different components. This can significantly reduce duplicate code and improve maintainability.
+2. **Organization**: Hooks can better organize code by grouping related logic together, making code clearer and easier to understand.
+3. **Decoupling Logic**: Hooks can decouple logic from component implementation. You can focus on developing logic details while decoupling from UI.
+4. **Testability**: By encapsulating Hooks, it's easier to perform unit testing - you only need to test the extracted logic without worrying about triggering page side effects.
+5. **Avoiding Naming Conflicts**: Hooks can avoid naming conflicts between components since the code only exists within their respective blocks.
+6. **Code Refactoring**: With Hooks, refactoring specific parts of code is much easier than before, without worrying about layered logic.
+7. **Sharing**: After encapsulating a useful custom function, we can share it with the community for others to use, and we can also benefit from others' work~
 
-## 要注意甚麼?
+## What Should You Pay Attention To?
 
-1. 自定義 Hook 允許您共享狀態邏輯，但不能共享狀態本身。對 Hook 的每次調用完全獨立於對同一 Hook 的所有其他調用。
-    - 也就是說要小心共用記憶體位址的問題，不要把原先的資料給改壞了。
-2. 邏輯以及輸出的一致性，在 React Hooks 中，我們可以輕易地發現，絕大多數的 Hooks 的使用方式是相同的，有關測的依賴及固定的返回值，我們的自定義 Hooks 也應該是如此的，擁有一致性及清晰的命名，不會對使用者本身造成過多的記憶及使用負擔。
-3. 不要甚麼邏輯都進行封裝，要知道封裝是有代價的，要知道必須做才做，而不是`手上拿著鐵鎚就看甚麼都是釘子`。
-   - 任何操作都是有其代價的
-4. 每次組件重新渲染時，所有 Hooks 都將重新執行。
-5. 自定義 Hooks 的代碼應該是純粹的，一個封裝只專注在一個邏輯上，不要將 sideEffect 給搞混了。
+1. Custom Hooks allow you to share stateful logic, but not state itself. Each call to a Hook is completely independent from all other calls to the same Hook.
+    - Be careful about shared memory address issues - don't corrupt the original data.
+2. Consistency in logic and output. In React Hooks, we can easily see that most Hooks are used in the same way, with measured dependencies and fixed return values. Our custom Hooks should be the same - having consistency and clear naming that doesn't burden users with excessive memory and usage overhead.
+3. Don't encapsulate every piece of logic. Know that encapsulation has costs - only do it when necessary, not because `when you have a hammer, everything looks like a nail`.
+   - Every operation has its cost
+4. All Hooks will re-execute every time a component re-renders.
+5. Custom Hook code should be pure, with one encapsulation focusing on one logic, without mixing up side effects.
 
 ::alert{type="danger" icon="lucide:lightbulb"}
-永遠都要用 use 當開頭，這是一個約定俗成的方式，讓我們看到函式名稱就能馬上知道這個是封裝的 Hooks。
+Always start with "use" - this is a conventional way that lets us immediately know a function is an encapsulated Hook just by seeing its name.
 ::
 
-## 實際場景
+## Real-world Scenarios
 
 ::collapsible
 #title
-useDebounce 封裝節流閥
+useDebounce - Encapsulating Throttle
 
 #content
 ```js
@@ -70,7 +70,7 @@ export function useDebounce(value, delay) {
 
 ::collapsible
 #title
-useFetch 封裝 get Api
+useFetch - Encapsulating GET API
 #content
 
 ```js
@@ -94,7 +94,7 @@ export function useFetch(method = 'POST', url, propsData) {
 ```
 ::
 
-## 參考資料
+## References
 
 - [useHooks](https://usehooks.com/)
 - [React-use](https://github.com/streamich/react-use)
