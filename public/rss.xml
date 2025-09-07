@@ -4,9 +4,16 @@
         <description><![CDATA[Latest updates from my site]]></description>
         <link>https://www.aaron-shih.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 22 May 2025 15:55:32 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 07 Sep 2025 00:34:19 GMT</lastBuildDate>
         <atom:link href="https://www.aaron-shih.com/rss.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[2025 上半年雜談 - 跌跌撞撞但還是在前進 - Aaron's blog]]></title>
+            <description><![CDATA[面試失敗、意外收穫，還有一些小小的成就]]></description>
+            <link>https://www.aaron-shih.com/smalltalk/2025-mid-year-recap</link>
+            <guid isPermaLink="true">https://www.aaron-shih.com/smalltalk/2025-mid-year-recap</guid>
+            <pubDate>Sun, 07 Sep 2025 07:30:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[為什麼要有 Template? - Aaron's blog]]></title>
             <description><![CDATA[解鎖 Vue Template 成因，並探索源碼]]></description>
