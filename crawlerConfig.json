@@ -12,12 +12,12 @@
       "global": true,
       "default_value": "Blog"
     },
-    "lvl1": "main h1",
-    "lvl2": "main h2",
-    "lvl3": "main h3",
-    "lvl4": "main h4",
-    "lvl5": "main h5",
-    "content": "main p, main li, main blockquote",
+    "lvl1": "h1",
+    "lvl2": "h2",
+    "lvl3": "h3",
+    "lvl4": "h4",
+    "lvl5": "h5",
+    "content": ".docs-content p, .docs-content li, .docs-content blockquote, main p, main li, main blockquote",
     "lang": {
       "selector": "/html/@lang",
       "type": "xpath",
