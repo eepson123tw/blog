@@ -1,7 +1,7 @@
 {
   "index_name": "aaron-shih",
   "start_urls": ["https://www.aaron-shih.com/"],
-  "sitemap_urls": ["https://www.aaron-shih.com/sitemap.xml"],
+  "sitemap_urls": ["https://www.aaron-shih.com/__sitemap-content"],
   "sitemap_alternate_links": true,
   "rateLimit": 8,
   "maxDepth": 10,
