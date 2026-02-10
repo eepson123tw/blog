@@ -1,6 +1,9 @@
 title: SmallTalk 開發迷霧
 icon: lucide:smile
-navigation.redirect: /smalltalk/gpt-prompt-learning
+navigation.redirect: /smalltalk/2026-02-blog-refactor
 collapse: false
+navBadges:
+  - value: 新着
+    type: primary
 sidebar:
   style: tree
