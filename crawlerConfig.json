@@ -7,17 +7,17 @@
   "maxDepth": 10,
   "selectors": {
     "lvl0": {
-      "selector": "(//ul[contains(@class,'menu__list')]//a[contains(@class, 'menu__link menu__link--sublist menu__link--active')]/text() | //nav[contains(@class, 'navbar')]//a[contains(@class, 'navbar__link--active')]/text())[last()]",
+      "selector": "//nav[@aria-label='breadcrumb']//li[2]//text()",
       "type": "xpath",
       "global": true,
-      "default_value": "Documentation"
+      "default_value": "Blog"
     },
-    "lvl1": ".content h1",
-    "lvl2": ".content h2",
-    "lvl3": ".content h3",
-    "lvl4": ".content h4",
-    "lvl5": ".content h5",
-    "content": ".content p, .content li",
+    "lvl1": "main h1",
+    "lvl2": "main h2",
+    "lvl3": "main h3",
+    "lvl4": "main h4",
+    "lvl5": "main h5",
+    "content": "main p, main li, main blockquote",
     "lang": {
       "selector": "/html/@lang",
       "type": "xpath",
@@ -26,16 +26,17 @@
   },
   "selectors_exclude": [
     "aside",
-    ".page-footer",
-    ".next-and-prev-link",
-    ".table-of-contents"
+    "nav",
+    "footer",
+    "[aria-label='breadcrumb']",
+    "[data-radix-scroll-area-viewport]"
   ],
   "strip_chars": " .,;:#",
   "js_render": true,
   "custom_settings": {
-    "attributesForFaceting": ["lang", "tags"]
+    "attributesForFaceting": ["lang"]
   },
-  "attributesForFaceting": ["language", "version", "type", "docusaurus_tag"],
+  "attributesForFaceting": ["lang"],
   "attributesToRetrieve": [
     "hierarchy",
     "content",
