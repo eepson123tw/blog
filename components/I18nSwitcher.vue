@@ -27,6 +27,7 @@
 
 <script setup lang="ts">
 import type { Locale } from 'vue-i18n';
+
 // Type-safe i18n composables
 const { locale, locales, switchLocalePath } = useI18nDocs();
 const { setLocale, t } = useI18n();

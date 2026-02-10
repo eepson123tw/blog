@@ -138,7 +138,7 @@ const memberList = [
 memberList.sort((a, b) => { a.score - b.score; }); // 先照高分順序排序
 
 // 按照 組別分組
-let groupBox = memberList.reduce((acc, cur, i) => {
+const groupBox = memberList.reduce((acc, cur, i) => {
   i === 0 && cur.order.forEach(d => (acc[d] = [])); // 先將組別放入物件中，並將值設為陣列
   cur.order.forEach((d, x) => {
     acc[d].push({ d, n: cur.member, s: cur.score, hopeIndex: x }); // 依照順序送入陣列中

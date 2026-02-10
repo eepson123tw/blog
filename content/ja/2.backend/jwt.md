@@ -13,7 +13,6 @@ authors:
     target: _blank
 ---
 
-
 > 什麼是JWT?
 
 是一種開放標準Requests for comments(RFC)[7519](https://www.rfc-editor.org/rfc/rfc7519)，為了在各種端口安全傳輸JSON。JWT可以被驗證和信任，因為經過數位簽章及金鑰加密的過程(非對稱加密RSA、金鑰雜湊訊息鑑別碼 HMAC、橢圓曲線數位簽章算法 ECDSA)。旨在描述一組token(令牌)，可用於識別當前使用者身分。
@@ -82,7 +81,6 @@ HMACSHA256(
   secret)
 
 => eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9(hearder).eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFsbGVuIiwiaWQiOjI3ODUwNjN9(payload).NVSX8vVwjcw3oXbOsZv7hp9AzdAAU3gQR8htriPD9sQ(secret)
-
 
 ```
 

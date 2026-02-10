@@ -117,10 +117,10 @@ const a: cake<number, string> = {
 There are also some semantic differences that need to be evaluated from multiple perspectives before choosing the appropriate one to use.
 
 ```typescript
-interface Aaron { year: number;height: number } // <-explicit definition
+interface Aaron { year: number; height: number } // <-explicit definition
 interface Aaron { kind: string } // <- Duplicate identifier 'Aaron' cannot merge
 
-interface Hellen { year: number;height: number }
+interface Hellen { year: number; height: number }
 interface Hellen { kind: string }// <- Hellen properties include year,height,kind => merging combined
 
 interface cake {

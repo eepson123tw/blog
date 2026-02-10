@@ -1,9 +1,9 @@
 ---
 title: Applications of Type Guards and Enums
-Description: Type Guard and Enum  
-icon: 'lucide:radar'  
-date: 2024-06-29 21:28:30  
-read: '10' 
+Description: Type Guard and Enum
+icon: 'lucide:radar'
+date: 2024-06-29 21:28:30
+read: '10'
 authors:
   - name: Aaron Shih
     username: eepson123tw

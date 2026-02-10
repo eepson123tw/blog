@@ -37,14 +37,12 @@ authors:
 - 支持自定義的傳送格式
 - 能讓伺服器在任何時間更新頁面資料
 
-
 ::alert{type="info" icon="lucide:bulb"}
 除了影片直播，SSE 還很適合用在這些地方：
 - **即時通知：** 像是股票價格的更新、系統的告警通知等等。
 - **進度條：** 顯示檔案上傳的進度，讓使用者更清楚目前的狀態。
 - **串流日誌：** 伺服器即時將日誌推送到前端顯示。
 ::
-
 
   來看看前端怎麼簡單的接收 SSE 的資料吧：
   ```javascript
@@ -64,14 +62,12 @@ authors:
 ```
 [examples](https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_sse)
 
-
 SSE 預設傳送的是純文字格式的資料，但其實也可以傳送 JSON ！
 
 只要在後端設定 `Content-Type: text/event-stream`，然後在 `data` 欄位放 JSON 字串就可以了。
 前端在 `event.data` 裡面收到的就會是字串，再用 `JSON.parse()` 轉一下就好啦！
 
 因瀏覽器本身就有內建重連機制！如果連線斷掉了，會自動嘗試重新連線。可以在後端透過 `retry` 這個欄位來告訴瀏覽器下次重連的間隔時間 (時間單位是毫秒)。
-
 
 ## Nginx SSE 踩個坑
 
@@ -104,4 +100,3 @@ SSE 預設傳送的是純文字格式的資料，但其實也可以傳送 JSON �
 
 - [Using_server-sent_events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
 - [阮一峰](https://www.ruanyifeng.com/blog/2017/05/server-sent_events.html)
-

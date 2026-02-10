@@ -120,10 +120,10 @@ const a: cake<number, string> = {
 而且語意上也有些需差異，需要多方評估後挑適合的使用。
 
 ```typescript
-interface Aaron { year: number;height: number } // <-顯式定義
+interface Aaron { year: number; height: number } // <-顯式定義
 interface Aaron { kind: string } // <- Duplicate identifier 'Aaron' 無法合併
 
-interface Hellen { year: number;height: number }
+interface Hellen { year: number; height: number }
 interface Hellen { kind: string }// <- Hellen屬性中有year,height,kind => merging 合併了
 
 interface cake {

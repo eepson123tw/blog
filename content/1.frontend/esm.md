@@ -29,7 +29,7 @@ ESM 模組的重點：
 
 ```js [index.js]
 console.log('start require');
-let module = require('./module');
+const module = require('./module');
 console.log('end require', module);
 // module.js 知識點1
 console.log(module.tencent);
@@ -65,7 +65,7 @@ setTimeout(() => {
 ```js [webpack.js]
 /******/ (() => {
   // webpackBootstrap
-  /******/ let __webpack_modules__ = {
+  /******/ const __webpack_modules__ = {
     /***/ './module.js':
     /*! ****************!*\
   !*** ./module.js ***!
@@ -90,18 +90,18 @@ setTimeout(() => {
   };
   /************************************************************************/
   /******/ // The module cache
-  /******/ let __webpack_module_cache__ = {};
+  /******/ const __webpack_module_cache__ = {};
   /******/
   /******/ // The require function
   /******/ function __webpack_require__(moduleId) {
     /******/ // Check if module is in cache
-    /******/ let cachedModule = __webpack_module_cache__[moduleId];
+    /******/ const cachedModule = __webpack_module_cache__[moduleId];
     /******/ if (cachedModule !== undefined) {
       /******/ return cachedModule.exports;
       /******/
     }
     /******/ // Create a new module (and put it into the cache)
-    /******/ let module = (__webpack_module_cache__[moduleId] = {
+    /******/ const module = (__webpack_module_cache__[moduleId] = {
       /******/ // no module.id needed
       /******/ // no module.loaded needed
       /******/ exports: {},
@@ -117,14 +117,14 @@ setTimeout(() => {
   }
   /******/
   /************************************************************************/
-  let __webpack_exports__ = {};
+  const __webpack_exports__ = {};
   // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
   (() => {
     /*! ******************!*\
   !*** ./index.js ***!
   \******************/
     console.log('start require');
-    let module = __webpack_require__(/*! ./module */ './module.js');
+    const module = __webpack_require__(/*! ./module */ './module.js');
     console.log('end require', module);
     console.log(module.tencent);
     module.additional = 'test';

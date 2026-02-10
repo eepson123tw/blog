@@ -13,7 +13,6 @@ authors:
     target: _blank
 ---
 
-
 > Python-001 探索
 
 基於專案的因素，開始學習 Python 的語法以及框架知識，
@@ -609,7 +608,6 @@ print(id(str2))  # 相同的數字：4379444496
 str1 = "world"   # 創建新字串
 print(id(str1))  # 不同的數字：4379445072
 print(id(str2))  # 原始數字：4379444496
-
 
 ```
 
