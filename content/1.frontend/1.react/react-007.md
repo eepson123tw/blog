@@ -75,9 +75,9 @@ useFetch 封裝 get Api
 
 ```js
 export function useFetch(method = 'POST', url, propsData) {
-  let [data, setData] = useState(null);
+  const [data, setData] = useState(null);
   useEffect(async () => {
-    let res = await fetch(url, {
+    const res = await fetch(url, {
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       headers: {
         'user-agent': 'Mozilla/4.0 MDN Example',
@@ -85,7 +85,7 @@ export function useFetch(method = 'POST', url, propsData) {
       },
       method // *GET, POST, PUT, DELETE, etc.
     });
-    let resData = await res.json();
+    const resData = await res.json();
     setData(resData);
     return setData(null);
   }, [method, url]);

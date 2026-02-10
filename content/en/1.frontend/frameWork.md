@@ -45,7 +45,7 @@ checkedValue = elements[n].value;
 jQuery
 
 ```javascript
-var checkValue = $('[name="radioGroup"]:checked').val();
+const checkValue = $('[name="radioGroup"]:checked').val();
 ```
 
 ## jQuery's Decline and Exit

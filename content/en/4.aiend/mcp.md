@@ -220,4 +220,3 @@ MCP opens the door to a world where AI truly understands and engages—like a wo
 * [WorkOS Blog on MCP](https://workos.com/blog/model-context-protocol)
 * [Explainer: MCP vs. API](https://norahsakal.com/blog/mcp-vs-api-model-context-protocol-explained/)
 * [Full Protocol Draft](https://docs.google.com/document/d/1VdFB2jKe5YhYCDfU7SBnj2GZ81kz1adNzNlzdLayw0s/edit?usp=drive_link)
-

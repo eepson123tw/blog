@@ -206,8 +206,8 @@ function completeWork(workInProgress) {
 
 function completeUnitOfWork(workInProgress) {
   while (true) {
-    let returnFiber = workInProgress.return;
-    let siblingFiber = workInProgress.sibling;
+    const returnFiber = workInProgress.return;
+    const siblingFiber = workInProgress.sibling;
 
     nextUnitOfWork = completeWork(workInProgress);
 

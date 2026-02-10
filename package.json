@@ -30,7 +30,10 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "nuxt typecheck"
   },
   "config": {
     "commitizen": {
@@ -38,33 +41,33 @@
     }
   },
   "dependencies": {
-    "@nuxt/image": "^1.10.0",
-    "@nuxtjs/i18n": "^9.5.5",
-    "@nuxtjs/robots": "^5.2.2",
-    "@nuxtjs/sitemap": "^7.2.3",
-    "cheerio": "^1.0.0",
+    "@nuxt/image": "^2.0.0",
+    "@nuxtjs/i18n": "^9.5.6",
+    "@nuxtjs/robots": "^5.7.0",
+    "@nuxtjs/sitemap": "^7.6.0",
+    "cheerio": "^1.2.0",
     "cross-env": "^7.0.3",
     "gitalk": "^1.8.0",
     "nuxt": "^3.17.5",
-    "nuxt-og-image": "^5.1.6",
-    "posthog-js": "^1.210.2",
+    "nuxt-og-image": "^5.1.13",
+    "posthog-js": "^1.345.2",
     "rss": "^1.2.2",
     "shadcn-docs-nuxt": "1.0.2",
-    "sitemap": "^8.0.0",
-    "vue": "^3.5.16",
+    "sitemap": "^9.0.0",
+    "vue": "^3.5.28",
     "vue-router": "^4.5.1",
     "xml2js": "^0.6.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.14.1",
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
-    "@commitlint/cz-commitlint": "^19.6.1",
-    "@commitlint/format": "^19.5.0",
-    "@nuxt/devtools": "^2.5.0",
+    "@antfu/eslint-config": "^7.4.2",
+    "@commitlint/cli": "^20.4.1",
+    "@commitlint/config-conventional": "^20.4.1",
+    "@commitlint/cz-commitlint": "^20.4.1",
+    "@commitlint/format": "^20.4.0",
+    "@nuxt/devtools": "^3.1.1",
     "@types/rss": "^0.0.32",
     "conventional-changelog-atom": "^5.0.0",
-    "eslint": "^9.28.0"
+    "eslint": "^9.39.2"
   },
   "pnpm": {
     "neverBuiltDependencies": [

@@ -56,7 +56,7 @@ Actually, after we execute code, a global Global Object is created, and this Glo
 
 ```javascript
 Object.keys(window).length
->> 326 // That's quite a lot
+>> 326; // That's quite a lot
 ```
 
 ---

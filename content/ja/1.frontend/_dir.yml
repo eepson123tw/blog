@@ -2,6 +2,3 @@ title: フロントエンド戦場
 icon: lucide:rocket
 navigation.redirect: /frontend/vue/vue-002
 collapse: true
-navBadges:
-  - value: 新着
-    type: primary

@@ -7,15 +7,19 @@ import * as Gitalk from 'gitalk';
 import { onMounted } from 'vue';
 import 'gitalk/dist/gitalk.css';
 
+const config = useRuntimeConfig();
+
 onMounted(() => {
+  const owner = config.public.gitalkOwner as string || 'eepson123tw';
+
   const commentConfig = {
     enable: true,
-    clientID: 'deceb2d7071942b4ff48',
-    clientSecret: 'b928a71e4e41bc0991623142505926522a68d8d8',
-    repo: 'blog',
-    owner: 'eepson123tw',
-    admin: ['eepson123tw'],
-    githubID: 'eepson123tw',
+    clientID: config.public.gitalkClientId as string,
+    clientSecret: config.public.gitalkClientSecret as string,
+    repo: config.public.gitalkRepo as string || 'blog',
+    owner,
+    admin: [owner],
+    githubID: owner,
     id: decodeURI(window.location.pathname),
     language: 'zh-TW',
     proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',

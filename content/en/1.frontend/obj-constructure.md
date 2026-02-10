@@ -138,7 +138,7 @@ const memberList = [
 memberList.sort((a, b) => { a.score - b.score; }); // First sort by high score order
 
 // Group by groups
-let groupBox = memberList.reduce((acc, cur, i) => {
+const groupBox = memberList.reduce((acc, cur, i) => {
   i === 0 && cur.order.forEach(d => (acc[d] = [])); // First put groups into object and set values as arrays
   cur.order.forEach((d, x) => {
     acc[d].push({ d, n: cur.member, s: cur.score, hopeIndex: x }); // Push into arrays according to order
