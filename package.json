@@ -27,6 +27,7 @@
     "build": "cross-env NODE_OPTIONS='--max-old-space-size=16384' nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "deploy:vm": "bash scripts/deploy-vm.sh",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "commit": "git-cz",

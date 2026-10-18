@@ -10,7 +10,8 @@ export const nitroConfig = {
     brotli: true,
   },
   prerender: {
-    crawlLinks: false,
+    crawlLinks: true,
+    concurrency: 4,
     failOnError: false,
     routes: ['/sitemap.xml', '/rss.xml'],
   },
