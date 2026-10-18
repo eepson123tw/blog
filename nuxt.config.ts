@@ -120,11 +120,6 @@ export default defineNuxtConfig({
   // Vite Build
   vite: viteConfig,
 
-  // SEO - Robots
-  robots: {
-    sitemap: `${siteUrl}/sitemap.xml`,
-  },
-
   // SEO - Sitemap
   sitemap: {
     xsl: false,

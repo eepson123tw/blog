@@ -4,4 +4,3 @@ Allow: /
 
 Disallow: /vendors/
 Disallow: /fancybox/
-Sitemap: https://www.aaron-shih.com/sitemap.xml
