@@ -13,7 +13,7 @@ export const nitroConfig = {
     crawlLinks: true,
     concurrency: 4,
     failOnError: false,
-    routes: ['/sitemap.xml', '/rss.xml'],
+    routes: ['/sitemap_index.xml', '/rss.xml'],
   },
   watchOptions: {
     ignored: [
