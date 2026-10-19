@@ -41,30 +41,30 @@
     }
   },
   "dependencies": {
-    "@nuxt/image": "^2.0.0",
+    "@nuxt/image": "~2.0.0",
     "@nuxtjs/i18n": "^9.5.6",
-    "@nuxtjs/robots": "^5.7.0",
-    "@nuxtjs/sitemap": "^7.6.0",
+    "@nuxtjs/robots": "^5.7.1",
+    "@nuxtjs/sitemap": "^7.6.2",
     "cross-env": "^7.0.3",
     "gitalk": "^1.8.0",
-    "nuxt": "^3.17.5",
+    "nuxt": "^3.21.11",
     "nuxt-og-image": "^5.1.13",
-    "posthog-js": "^1.345.2",
+    "posthog-js": "^1.438.12",
     "rss": "^1.2.2",
     "shadcn-docs-nuxt": "1.0.2",
-    "vue": "^3.5.28",
-    "vue-router": "^4.5.1"
+    "vue": "^3.5.44",
+    "vue-router": "^4.6.4"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^7.4.2",
-    "@commitlint/cli": "^20.4.1",
-    "@commitlint/config-conventional": "^20.4.1",
-    "@commitlint/cz-commitlint": "^20.4.1",
-    "@commitlint/format": "^20.4.0",
-    "@nuxt/devtools": "^3.1.1",
+    "@antfu/eslint-config": "^7.7.3",
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^20.5.3",
+    "@commitlint/cz-commitlint": "^20.5.3",
+    "@commitlint/format": "^20.5.0",
+    "@nuxt/devtools": "^3.4.4",
     "@types/rss": "^0.0.32",
-    "conventional-changelog-atom": "^5.0.0",
-    "eslint": "^9.39.2"
+    "conventional-changelog-atom": "^5.1.0",
+    "eslint": "^9.39.5"
   },
   "pnpm": {
     "neverBuiltDependencies": [
@@ -72,7 +72,14 @@
       "level"
     ],
     "overrides": {
-      "ipx": "^3.0.0"
+      "ipx": "^3.0.0",
+      "gitalk>axios": "^0.34.0",
+      "follow-redirects": "^1.16.0",
+      "isomorphic-fetch>node-fetch": "^2.6.7",
+      "tmp": "^0.2.6",
+      "lodash": "^4.18.1",
+      "sharp": "^0.35.5",
+      "@nuxtjs/mdc": "^0.22.2"
     }
   }
 }
