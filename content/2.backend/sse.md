@@ -37,7 +37,7 @@ authors:
 - 支持自定義的傳送格式
 - 能讓伺服器在任何時間更新頁面資料
 
-::alert{type="info" icon="lucide:bulb"}
+::alert{type="info" icon="lucide:lightbulb"}
 除了影片直播，SSE 還很適合用在這些地方：
 - **即時通知：** 像是股票價格的更新、系統的告警通知等等。
 - **進度條：** 顯示檔案上傳的進度，讓使用者更清楚目前的狀態。

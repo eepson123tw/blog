@@ -8,9 +8,10 @@ description: Frontend development, React, Vue, self-learning, focusing on 3D mod
 ::hero-alt
 ---
 announcement:
-  title: 'Built with Nuxt.js Docs'
-  icon: '🎉'
-  to: https://github.com/ZTL-UwU/shadcn-docs-nuxt/releases/latest
+  title: 'Subscribe via RSS'
+  icon: 'lucide:rss'
+  to: https://www.aaron-shih.com/rss.xml
+  target: _blank
 actions:
   - name: Get Started
     to: /intro
@@ -26,6 +27,9 @@ Development Notes, Miscellaneous, Small Talk, and Life.
 #right
 ![logo](/logo.webp)
 
+::
+
+::latest-posts
 ::
 
 ::card-group

@@ -28,6 +28,7 @@
       <ClientOnly fallback-tag="span" fallback="Loading comments...">
         <Infos v-if="page.date && page.read" :date="page.date" :read="page.read" />
       </ClientOnly>
+      <SeriesNav :path="page._path" />
 
       <Alert
         v-if="page?.body?.children?.length === 0"
@@ -78,7 +79,7 @@ useHead({
   meta: [{ property: 'article:modified_time', content: `${page.value?.date}` }],
 });
 
-defineOgImageComponent(config.value.site.ogImageComponent, {
+defineOgImage(config.value.site.ogImageComponent, {
   title: page.value?.title,
   description: page.value?.description,
 });
