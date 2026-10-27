@@ -1,7 +1,7 @@
 ---
 title: Day 3 Class
 description: Python、Function、OOP
-icon: 'lucide:expand'
+icon: i-lucide-expand
 gitTalk: false
 date: 2024-12-30 23:30:00
 read: '15'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-expand
 ---
 
 > Python-003 Class

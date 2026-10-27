@@ -1,7 +1,7 @@
 ---
 title: 深淵 DOM 的底層
 description: DOM 到底是什麼呢?
-icon: 'lucide:dice-6'
+icon: i-lucide-dice-6
 gitTalk: false
 date: 2022-10-28 23:45:03
 read: '20'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-dice-6
 ---
 
 > DOM 到底是什麼呢?

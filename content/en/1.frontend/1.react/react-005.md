@@ -1,7 +1,7 @@
 ---
 title: Day 5 Hooks and State Driving
 description: Learning the React Framework
-icon: 'lucide:aperture'
+icon: i-lucide-aperture
 gitTalk: false
 date: 2023-06-10 17:35:00
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-aperture
 ---
 
 > Learning the React Framework - 005 Function Hooks and State Driving
@@ -31,7 +33,7 @@ Next, I'll share and discuss basic and advanced Hooks~
 
 ### useState
 
-::button-link{right-icon="lucide:arrow-up-right" to="https://react.dev/reference/react/useState" variant="ghost" target="_blank"}
+::u-button{to="https://react.dev/reference/react/useState" trailing-icon="lucide:arrow-up-right" variant="ghost" target="_blank"}
   useState
 ::
 
@@ -39,7 +41,7 @@ State allows components to **remember** information like user input. Components 
 
 ### useEffect
 
-::button-link{right-icon="lucide:arrow-up-right" to="https://react.dev/reference/react/useEffect" variant="ghost" target="_blank"}
+::u-button{to="https://react.dev/reference/react/useEffect" trailing-icon="lucide:arrow-up-right" variant="ghost" target="_blank"}
   useEffect
 ::
 
@@ -85,10 +87,14 @@ React state should be encapsulated where it's truly needed - co-locate the state
 
 Attempting to use React basic hooks to implement an infinitely scrollable and responsive Pokémon card list (turns out there are so many Pokémon 🫠)
 
-::button-link{right-icon="lucide:arrow-up-right" to="https://pokemon.zeabur.app/" variant="ghost" target="_blank"}
+::u-button{to="https://pokemon.zeabur.app/" trailing-icon="lucide:arrow-up-right" variant="ghost" target="_blank"}
   Pokemon
 ::
 
 ## References
 
-::read-more{to="https://kentcdodds.com/blog/use-state-lazy-initialization-and-function-updates" title="useState lazy initialization and function updates"}
+::callout{icon="lucide:bookmark" to="https://kentcdodds.com/blog/use-state-lazy-initialization-and-function-updates"}
+
+useState lazy initialization and function updates
+
+::

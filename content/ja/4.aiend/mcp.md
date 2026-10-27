@@ -1,7 +1,7 @@
 ---
 title: 模型上下文協議 (MCP)
 description: 模型上下文協議 (Model Context Protocol, MCP) 是由 Anthropic 推出的開放標準，旨在標準化 AI 與外部世界的互動方式，猶如為大型語言模型打造的通用翻譯官。
-icon: 'lucide:git-fork'
+icon: i-lucide-git-fork
 gitTalk: false
 date: 2025-03-22 10:30:00
 read: '13'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-git-fork
 ---
 
 想像一下，我們有了能說自然語言的 AI 應用，卻發現它無法與現實世界中的系統和資料直接對話，且有資料訓練的滯後性，用起來總是`卡卡的咚滋咚滋`。
@@ -23,7 +25,7 @@ authors:
 
 模型上下文協議（Model Context Protocol, MCP）就是這樣的存在，只不過它幫助的不是旅客，而是 AI 模型。它像是 AI 世界的「聯合國翻譯系統」，讓 AI 助手能夠與各種外部系統和資料來源流暢對話。
 
-::alert{type="info" icon="lucide:info"}
+::callout{color="info" icon="lucide:info"}
   MCP 可以被視為 AI 應用程式的「USB-C 連接埠」，提供一個通用介面，使 AI 模型能夠連接到各種不同的資料來源和工具，就像一個裝置能透過 USB-C 連接到各種不同的設備。
 ::
 
@@ -98,7 +100,7 @@ MCP 採用客戶端-伺服器架構，這種架構可以類比為一家精品咖
    - 預先準備好的指令或模板，用於指導模型生成特定回應
    - 提供標準化的互動方式，確保一致性和高品質的結果
 
-::alert{type="success" icon="lucide:chef-hat"}
+::callout{color="success" icon="lucide:chef-hat"}
   想像 MCP 伺服器就像一位專業廚師，擁有各種烹飪工具（Tool）、新鮮食材（Resource）和獨家食譜（Prompt），能夠根據客人需求製作出精緻料理。
 ::
 
@@ -143,7 +145,7 @@ MCP 不只是理論上的通訊協議，它已經在各種實際應用中展現�
 
 - **程式碼助手**：就像一位經驗豐富的軟體架構師可以閱讀、理解和改進現有代碼，AI 驅動的程式碼助手可以透過 MCP 與開發工具互動，分析、重構、優化和保護程式碼
 
-::alert{to="https://modelcontextprotocol.io/examples" target="_blank" icon="lucide:github"}
+::callout{color="info" icon="lucide:github"}
   想體驗 MCP 的如何建構？可以查看 Anthropic 的官方網站，就像是參觀一間開放式廚房，可以看到各種料理的製作過程！
 ::
 
@@ -195,7 +197,7 @@ MCP 支援兩種主要的傳輸方法，就像餐廳可以有不同的點餐系�
 - **Stdio**：像是廚房內部的直接口頭溝通，適合本地密切合作
 - **HTTP 與 SSE**：像是使用數位點餐系統，可以跨區域溝通，適合遠端操作
 
-::alert{type="warning" icon="lucide:alert-triangle"}
+::callout{color="warning" icon="lucide:alert-triangle"}
   開發 MCP 伺服器時，請記得加強資料安全性，就像餐廳需要確保食品安全和顧客資訊保密一樣重要。尤其是當伺服器與敏感資料或外部系統互動時。
 ::
 
@@ -209,7 +211,7 @@ MCP 支援兩種主要的傳輸方法，就像餐廳可以有不同的點餐系�
 - **Kotlin**：像是義大利料理的現代演繹，保留了優點並增加了便利性
 - **其他語言**：只要能夠「烹飪」（處理輸入輸出），任何語言都可以加入 MCP 的廚藝世界
 
-::alert{to="https://modelcontextprotocol.io/quickstart/server#core-mcp-concepts" target="_blank" icon="lucide:pointer"}
+::callout{color="info" icon="lucide:pointer"}
   多種語言如何建構 MCP
 ::
 

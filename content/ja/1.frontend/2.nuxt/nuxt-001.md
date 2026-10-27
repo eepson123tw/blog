@@ -1,7 +1,7 @@
 ---
 title: Nuxt デプロイとGitLab Runner
 description: Nuxt、Gitlab Runner、Docker、Kaniko、Dockerfile、Node.js、musl-libc、glibc
-icon: 'lucide:alarm-clock-check'
+icon: i-lucide-alarm-clock-check
 gitTalk: false
 date: 2025-01-19 15:32:20
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-alarm-clock-check
 ---
 
 > Nuxt デプロイとGitLab Runner
@@ -25,7 +27,7 @@ JavaScriptを使ってそのウェブ要素を見つける（例：`document.get
 
 そして、手動でその内容を変更する（例：`element.innerHTML = '新しいテキスト'`）。
 
-::alert{type="warning" icon="lucide:siren"}
+::callout{color="warning" icon="lucide:siren"}
 ウェブページが複雑で、データに基づいて多くの場所を更新する必要がある場合、このような手動操作は非常に苦痛で、間違いを犯しやすくなります。データが更新されるたびに、開発者は各関連するDOM要素をどのように更新するかを正確にブラウザに指示するコードを書かなければなりません。このような命令型のプログラミング方法は面倒なだけでなく、アプリケーションの規模が拡大するにつれて、コードの保守性が著しく低下します。
 ::
 
@@ -33,7 +35,7 @@ JavaScriptを使ってそのウェブ要素を見つける（例：`document.get
 
 上記の問題を解決するため、VueやReactのような現代のフロントエンドフレームワークは、より高度なUI構築方法を導入しました。Vue Template（およびReactのJSX）の核心的な目標は、より\*\*「宣言的」\*\*な方法で開発できるようにすることです。
 
-::alert{type="success" icon="lucide:siren"}
+::callout{color="success" icon="lucide:siren"}
 「結果」に集中し、「過程」には集中しない：あなたはフレームワークに「この場所にこのデータをこのように表示したい」と伝えるだけでよく、フレームワークが内部でどのように要素を見つけて更新するかを気にする必要はありません。フレームワークがこれらの面倒なDOM操作を自動的に処理してくれます。
 ::
 
@@ -67,7 +69,7 @@ Nuxt.jsは、開発プロセスを簡素化するために多くの機能を提�
       - パフォーマンス最適化: プリレンダリングとキャッシュ戦略を通じてアプリケーションのパフォーマンスを向上させます。
       - デバッグツール: パフォーマンス分析およびデバッグツールを提供し、開発者がパフォーマンスのボトルネックを見つけるのに便利です。
 
-::alert{type="danger" icon="lucide:lightbulb" title="辛い教訓"}
+::callout{color="error" icon="lucide:lightbulb"}
 今回は、NuxtのSSRモードアプリケーションをGitLab Runnerにデプロイし、GitLab Runnerを介して自動デプロイを行うことを目標とします。
 まさか、これがトラブルの始まりになるとは🥲。
 ::
@@ -137,7 +139,7 @@ KanikoはGoogleがオープンソースで公開しているDockerイメージ�
 
 CI環境がDocker Daemonに依存しないようにしたかったため、同僚はKanikoを使用することを選択しました。その結果、私はローカルで`docker build`を使ってイメージを構築しようとしましたが、gitlab-ci.ymlではKanikoが使われていたため、ずっと失敗し続けていました。しかし、何が問題なのか半日考えても分かりませんでした。
 
-::alert{type="danger" icon="lucide:lightbulb" title="辛い教訓"}
+::callout{color="error" icon="lucide:lightbulb"}
 実際、KanikoはDocker Daemonに依存しないため、`docker build`コマンドを使用することはできません。
 しかし、Dockerfileを使ってイメージを定義し構築することは依然として可能です。ただし、コマンドをKanikoの`executor`に変更する必要があります。例えば、元の`docker build -t my-image .`は`/kaniko/executor --dockerfile Dockerfile --context . --destination my-image:latest`に変更する必要があります。
 私は最初、`docker build`を使ってNuxtイメージを構築しようとし、その結果、半日も立ち往生してしまいました🥲。
@@ -155,7 +157,7 @@ Kanikoの問題を解決した後、無事にデプロイできると思った�
 
 Dockerfileでは、最終イメージのサイズを減らすためにマルチステージビルドを使用しましたが、GitLab Runner上での構築がずっと失敗していました。
 
-::alert{type="note" icon="lucide:pencil" title="解決策"}
+::callout{color="neutral" icon="lucide:pencil"}
 マルチステージビルドでは、まず最初のステージですべての開発依存関係（devDependencies）をインストールしてビルドを実行し、次に2番目のステージで本番環境の依存関係（dependencies）のみをインストールし、最初のステージのビルド成果物をコピーします。これにより、最終イメージのサイズを大幅に削減し、潜在的な依存関係の競合問題を減らすことができます。
 具体的な方法は、「ビルドフェーズですべてのdevDepsをインストールしてビルドし、その後devDepsを削除し、prodDepsをインストールする」ことです。
 ::
@@ -170,7 +172,7 @@ Dockerfileでは、最終イメージのサイズを減らすためにマルチ�
 
 Alpine LinuxはC標準ライブラリとしてmusl-libcを使用しますが、ほとんどのLinuxディストリビューションはglibcを使用しています。これら2つにはいくつかの違いがあり、特にネイティブモジュールのコンパイル時に問題が発生する可能性があります。
 
-::alert{type="note" icon="lucide:pencil" title="解決策"}
+::callout{color="neutral" icon="lucide:pencil"}
 Dockerfileで`node:lts`を使用するか、または明示的にNode.jsのバージョン（例：`node:18`）をベースイメージとして指定することで、一部のパッケージインストール問題を回避できます。
 ::
 

@@ -1,19 +1,19 @@
 ---
 title: ブログ大掃除 - やっと技術的負債を返済した
 description: ずっと後回しにしてた整理作業、ある週末にやっと片付けた
-icon: 'lucide:wrench'
+icon: i-lucide-wrench
 gitTalk: true
 date: 2026-02-10 20:00:00
 read: '5'
-navBadges:
-  - value: 新着
-    type: primary
 authors:
   - name: Aaron Shih
     username: eepson123tw
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-wrench
+  badge: 新着
 ---
 
 ![refactor](/images/smalltalk/blog-refactor.jpg)
@@ -33,7 +33,7 @@ authors:
 - **nuxt.config.ts が肥大化** - なんと235行！何か探すたびにスクロールが大変
 - **ファイル名のタイポ** - `error-handler.ts.ts`、そう、`.ts` が2つ。当時何考えてたんだろう 🤦
 
-::alert{type="warning" icon="lucide:alert-triangle"}
+::callout{color="warning" icon="lucide:alert-triangle"}
 技術的負債はクレジットカードの借金と同じ、放置すればするほど利息が増える...
 ::
 
@@ -86,7 +86,7 @@ config/
 
 半日くらいかかったけど、本当にやってよかった：
 
-::alert{type="success" icon="lucide:check-circle"}
+::callout{color="success" icon="lucide:check-circle"}
 **成果：**
 - セキュリティ脆弱性が19%減少
 - コード構造がずっとクリアに
@@ -108,7 +108,7 @@ config/
 3. **Config が150行超えたら分割** - じゃないとメンテが地獄
 4. **`--fix` を活用** - 多くの問題は一発で解決できる
 
-::alert{type="info" icon="lucide:lightbulb"}
+::callout{color="info" icon="lucide:lightbulb"}
 技術的負債は怖くない。見て見ぬふりをするのが怖い。
 ::
 

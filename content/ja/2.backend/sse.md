@@ -1,7 +1,7 @@
 ---
 title: SSE 數據流
 description: SSE 單向數據流，伺服器推送訊息
-icon: 'lucide:tangent'
+icon: i-lucide-tangent
 gitTalk: false
 date: 2023-3-25 22:37:00
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-tangent
 ---
 
 受到 GPT 等一眾 Chatbot，可以帥帥地在前端回覆字串且有種打字機的帥氣感影響，
@@ -24,7 +26,7 @@ authors:
 簡單來說是透過伺服器建立單向的數據連線，像是 `WebSocket` 那樣，建立長久的連線，但不同於 socket，SSE 是單向的數據傳送，客戶端無法交互，
 只能被動的接收數據，像是影片直播等也是 steam 流的一種。
 
-::alert{type="danger" icon="lucide:info"}
+::callout{color="error" icon="lucide:info"}
   需注意若使用非 HTTP/2 建立 SSE 連線的話，是有連接上限的，每個瀏覽器不管開多少個 Tab 分頁，每個域名只能連接六個連線。
 	但若使用 HTTP/2 的話則可建立 100 個連線。
 ::
@@ -37,7 +39,7 @@ authors:
 - 支持自定義的傳送格式
 - 能讓伺服器在任何時間更新頁面資料
 
-::alert{type="info" icon="lucide:lightbulb"}
+::callout{color="info" icon="lucide:lightbulb"}
 除了影片直播，SSE 還很適合用在這些地方：
 - **即時通知：** 像是股票價格的更新、系統的告警通知等等。
 - **進度條：** 顯示檔案上傳的進度，讓使用者更清楚目前的狀態。

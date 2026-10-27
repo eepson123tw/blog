@@ -1,7 +1,7 @@
 ---
 title: 面對複雜的需求時，應該...?
 description: 面對複雜的需求，如何解決?
-icon: 'lucide:heart-pulse'
+icon: i-lucide-heart-pulse
 gitTalk: false
 date: 2023-02-11 23:08:24
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-heart-pulse
 ---
 
 ![complexible-requirement-smalltalk](/images/smalltalk/complexible-requirement-smalltalk.webp)

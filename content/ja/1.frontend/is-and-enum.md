@@ -1,7 +1,7 @@
 ---
 title: Type Guard 與 Enum 的應用
 description: Type Guard and Enum
-icon: 'lucide:radar'
+icon: i-lucide-radar
 gitTalk: false
 date: 2024-06-29 21:28:30
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-radar
 ---
 
 > Type Guard 與 Enum 的應用
@@ -19,7 +21,7 @@ authors:
 
 文字上翻譯的 Type Guard 就是類型守衛。我們經常需要根據後端的 API 響應或是程式碼邏輯操作來建立複雜的類型。有時候 VS Code 會報錯，提示我們需要排除一些不確定的類型定義。我們可以透過官方定義的 [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html) 來做一些操作，但更多時候我們需要自行設計這些複雜的類型定義，以將型別限縮在我們希望的範圍中，這時類型守衛就派上了用場。
 
-::alert{type='info' icon='lucide:info'}
+::callout{color="info"}
 Type Guard 是一種 Run time 檢查，用來細化變量的類型範圍。
 ::
 

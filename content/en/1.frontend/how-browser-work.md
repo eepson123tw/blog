@@ -1,7 +1,7 @@
 ---
 title: How Do Browsers Work?
 description: How browser work?
-icon: 'lucide:dice-2'
+icon: i-lucide-dice-2
 gitTalk: false
 date: 2023-08-27 19:13:47
 read: '20'
@@ -11,11 +11,13 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-dice-2
 ---
 
 > How browser work?
 
-::alert{type="success"}
+::callout{color="success"}
 💡 Main Goal: Understanding the underlying operations of modern browsers through this article
 ::
 
@@ -563,7 +565,7 @@ Browser is complex software system responsible for converting HTML, CSS, and Jav
 5. Compositing: When different parts of document are painted in different layers, compositing must be used to ensure they display on screen in correct order. Compositing is very complex process in browsers, involving calculations of multiple layer merging, displacement, transparency, etc., to ensure web presentation meets expectations.
 6. Visual display: Browser parses HTML, creates DOM Tree, determines media type, retrieves and assigns styles, finally transfers formatting structure to target media, presenting page content. In this process, browser considers many factors like screen size, resolution, display mode, font size, etc., to ensure web content and layout meet user expectations.
 
-:::info
+:::note
 🔑 Additionally, this article introduces related terms including user agent, stacking context, and context-free grammar. These terms are very important for understanding browser working principles and optimizing web performance.
 
 In summary, browser is very complex system that parses and paints HTML, CSS, and JavaScript code on web pages from different angles, finally presenting users with web pages with good appearance and performance.

@@ -1,7 +1,7 @@
 ---
 title: Day 1 啟程
 description: 學習 React 框架
-icon: 'lucide:anchor'
+icon: i-lucide-anchor
 gitTalk: false
 date: 2023-04-17 22:54:13
 read: '5'
@@ -11,12 +11,13 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-anchor
 ---
 
 > 學習React框架 - 001 Day 啟程
 
-::alert{type="example" icon="lucide:lightbulb"}
-
+::callout{color="primary" icon="lucide:lightbulb"}
 大部分資料擷取至網路及筆者參加的一些現下聚會的節錄,將透過 Vue 的一些共通框架理念去理解 React 框架,若有理解錯誤的點,請盡量指點我XD
 
 ::
@@ -65,7 +66,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 範例中可以簡單了解到,我們在 HTML 中只提供了進入點,而 React 卻能透過函式長出我們需要的其餘部分。
 
-::alert{type="success" icon="lucide:lightbulb"}
+::callout{color="success" icon="lucide:lightbulb"}
 JSX 是 JavaScript 的語法擴展,可在 JavaScript 文件中編寫類似 HTML 的標記。儘管還有其他方式來編寫組件,但大多數 React 開發人員更喜歡 JSX 的簡潔性,並且大多數代碼庫都使用它。
 --- 擷取至官網
 

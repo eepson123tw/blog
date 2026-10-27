@@ -1,7 +1,7 @@
 ---
 title: React Chart Drawing Taiwan
 description: React, Chart, Geo Json
-icon: 'lucide:ham'
+icon: i-lucide-ham
 gitTalk: false
 date: 2024-05-10 22:02:00
 read: '5'
@@ -11,12 +11,13 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-ham
 ---
 
 > Drawing Taiwan with React Charts [GEO_TW](https://geo-tw.zeabur.app/) 🤪
 
-::alert{type="waring" icon="lucide:lightbulb"}
-
+::callout{color="warning" icon="lucide:lightbulb"}
 This page is continuously being updated ⛑️
 
 ::

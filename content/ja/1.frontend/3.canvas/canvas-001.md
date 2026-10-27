@@ -1,7 +1,7 @@
 ---
 title: 粒子化練習
 description: Canvas、Drawing art、Particles
-icon: 'lucide:alarm-clock-check'
+icon: i-lucide-alarm-clock-check
 gitTalk: false
 date: 2025-01-19 15:32:20
 read: '20'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-alarm-clock-check
 ---
 
 > Canvas 粒子化練習 - 001 Day [歌詞播放器](https://fet-skills.zeabur.app/canvas-lyrics-player.html)

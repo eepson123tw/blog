@@ -1,7 +1,7 @@
 ---
 title: 記憶體布局
 description: JavaScript、G/O、prototype chain
-icon: 'lucide:lamp-desk'
+icon: i-lucide-lamp-desk
 gitTalk: false
 date: 2022-05-06 23:23:00
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-lamp-desk
 ---
 
 在許多的面試裡，js 的基礎問題是常常會被面試官詢問，像是 Hoisting，var/let/const 差異，閉包...，而今天想跟各位分享的也是眾多基礎題的其中之一，原型鍊(prototype chain)，要分享原型鍊則需提到 js 記憶體中的布局。

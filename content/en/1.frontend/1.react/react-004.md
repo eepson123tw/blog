@@ -1,7 +1,7 @@
 ---
 title: Day 4 Rendering and Fiber
 description: Learning the React Framework
-icon: 'lucide:archive'
+icon: i-lucide-archive
 gitTalk: false
 date: 2023-05-16 21:50:00
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-archive
 ---
 
 > Learning the React Framework - 004 Rendering Slicing and Underlying Fiber
@@ -97,7 +99,7 @@ function FiberNode(
 
 It can be viewed as a data structure that saves component node attributes, types, and DOM, and forms and connects the Fiber tree through pointers to child, sibling, and return. This data structure divides the rendering process into interruptible units to support incremental rendering and better user interaction, distinguishing different levels and rendering priorities of component trees.
 
-::alert{type="warning" icon="lucide:eraser"}
+::callout{color="warning" icon="lucide:eraser"}
 Works with the [requestIdleCallback API](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestIdleCallback) call during browser idle time to implement task splitting, interruption, and resumption.
 ::
 
@@ -117,8 +119,7 @@ Will be converted to
 
 ![fiber](/images/react/fiber.webp)
 
-::alert{type="warning" icon="lucide:eraser"}
-
+::callout{color="warning" icon="lucide:eraser"}
 Each React element has a corresponding fiber node. Unlike React elements, fibers are not recreated on every render. These are mutable data structures that hold component state and DOM.
 
 ::
@@ -131,7 +132,7 @@ Once updates are processed and all related work is completed, React will have th
 
 We can understand that React stores two tree-like reference tables that compare with each other to analyze which nodes and states need to change, triggering re-rendering. This is also called double buffering technique.
 
-::alert{type="danger" icon="lucide:ambulance"}
+::callout{color="error" icon="lucide:ambulance"}
 React always updates the DOM all at once—it doesn't show partial results.
 ::
 
@@ -165,7 +166,7 @@ React executes Virtual Dom conversion to Fiber tree, compares node differences, 
 All fiber node work searching is handled in the work loop. nextUnitOfWork holds a reference to the fiber node from the workInProgress tree.
 In this while loop, nodes will be continuously recursed to find if there's unfinished work. **Only after all work starting from child nodes is completed will parent node and backtracking work be completed.**
 
-::alert{type="example" icon="lucide:eraser"}
+::callout{color="primary" icon="lucide:eraser"}
  completeUnitOfWork and completeUnitOfWork are mainly used for iteration purposes, while the main activity occurs in beginWork and completeWork functions.
 ::
 

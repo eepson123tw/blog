@@ -1,7 +1,7 @@
 ---
 title: Tokenizer 分詞器
 description: Tokenizer 是一個將文本轉換成 token 的工具，這些 token 可以是單詞、子詞或字符等，是 NLP 模型的基本輸入單位。
-icon: 'lucide:brackets'
+icon: i-lucide-brackets
 gitTalk: false
 date: 2025-03-08 15:29:00
 read: '8'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-brackets
 ---
 
 這篇針對 `Tokenizer` 來解析 LLM 是如何看 input 的，畢竟人類的理解與模型的理解是不同的，透過探討 `Tokenizer` 可以更深入了解模型的看待 input 的方式。
@@ -23,7 +25,7 @@ authors:
 
 想像一下自動販賣機。你按下標示「汽水」的按鈕，但機器並不知道「汽水」是什麼意思。在內部，它已將你的按鈕按下翻譯成一個數字，例如 001，從而觸發釋放你的飲料。同樣地，分詞器將我們的文字轉換成數值(ID)，以便電腦可以「理解」和處理人類語言 。
 
-::alert{to="https://tiktokenizer.vercel.app/ " target="_blank" icon="lucide:link"}
+::callout{color="info" icon="lucide:link"}
   可以去這個網站玩看看不同的分詞器，會有不同的結果
 ::
 
@@ -58,7 +60,7 @@ or
 -> [1, 2, 3, 4, 5] -> ['我', '喜歡', '吃', '蘋果', '嗎']
 ```
 
-::alert{ type="success" target="_blank" icon="lucide:badge-alert"}
+::callout{color="success" icon="lucide:badge-alert"}
   分詞器特定於構建他們的語言模型，因此在訓練模型時，分詞器的選擇是非常重要的。
   並沒有所謂的通用分詞器！
   而且標記器的選擇會影響詞彙量和計算效率。

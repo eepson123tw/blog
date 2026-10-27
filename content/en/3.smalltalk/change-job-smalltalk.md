@@ -1,7 +1,7 @@
 ---
 title: 轉職前，你可能會想知道?
 description: 前端轉職、前端學習
-icon: 'lucide:leafy-green'
+icon: i-lucide-leafy-green
 gitTalk: true
 date: 2022-10-12 21:23:15
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-leafy-green
 ---
 
 ![frontend-job-smalltalk](/images/smalltalk/frontend-job-smalltalk.webp)

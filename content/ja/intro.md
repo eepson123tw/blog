@@ -1,9 +1,8 @@
 ---
 title: Intro 前端異聞錄（はじめに フロントエンド異聞録）
 description: ブログと共に成長する
-icon: 'lucide:ambulance'
+icon: i-lucide-ambulance
 gitTalk: true
-breadcrumb: false
 date: 2022-10-28 23:45:03
 read: '1'
 authors:
@@ -12,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-ambulance
 ---
 
 ブログを書き始めて3年になりました。

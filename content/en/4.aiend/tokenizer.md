@@ -1,7 +1,7 @@
 ---
 title: Tokenizer
 description: A tokenizer is a tool that converts text into tokens, which can be words, subwords, or characters, serving as the basic input units for NLP models.
-icon: 'lucide:brackets'
+icon: i-lucide-brackets
 gitTalk: false
 date: 2025-03-08 15:29:00
 read: '8'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-brackets
 ---
 
 This article analyzes `Tokenizer` to understand how LLMs perceive input, as human understanding differs from model understanding. By exploring `Tokenizer`, we can gain deeper insights into how models view input data.
@@ -23,7 +25,7 @@ In the previous article, we briefly mentioned the concept of tokens. A token is 
 
 Imagine a vending machine. You press the button labeled "Soda," but the machine doesn't know what "Soda" means. Internally, it has translated your button press into a number, such as 001, which triggers the release of your drink. Similarly, a tokenizer converts our text into numerical values (IDs) so that computers can "understand" and process human language.
 
-::alert{to="https://tiktokenizer.vercel.app/ " target="_blank" icon="lucide:link"}
+::callout{color="info" icon="lucide:link"}
   You can visit this website to experiment with different tokenizers and see varying results
 ::
 
@@ -56,7 +58,7 @@ After characters are converted to numbers, we can use these numbers as model inp
 -> [1, 2, 3, 4, 5] -> ['我', '喜歡', '吃', '蘋果', '嗎']
 ```
 
-::alert{ type="success" target="_blank" icon="lucide:badge-alert"}
+::callout{color="success" icon="lucide:badge-alert"}
   Tokenizers are specific to the language models they are built for, so the choice of tokenizer is crucial when training models.
   There is no such thing as a universal tokenizer!
   Moreover, the choice of tokenizer affects vocabulary size and computational efficiency.

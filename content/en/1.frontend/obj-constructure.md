@@ -1,7 +1,7 @@
 ---
 title: How to Handle Complex Object Structures
 description: ArrayMethods, iterable Obj
-icon: 'lucide:orbit'
+icon: i-lucide-orbit
 gitTalk: false
 date: 2022-11-26 00:45:20
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-orbit
 ---
 
 > How to Handle Complex Object Structures

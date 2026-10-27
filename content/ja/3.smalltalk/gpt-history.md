@@ -1,7 +1,7 @@
 ---
 title: 探索 ChatGPT：從理論到實踐的技術突破
 description: 深入了解 ChatGPT 的技術核心與應用前景
-icon: 'lucide:focus'
+icon: i-lucide-focus
 gitTalk: false
 date: 2023-11-19 20:58:00
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-focus
 ---
 
 ![gpt-history](/images/smalltalk/gpt-history.webp)

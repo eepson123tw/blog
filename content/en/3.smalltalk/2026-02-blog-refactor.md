@@ -1,19 +1,19 @@
 ---
 title: Blog Cleanup - Finally Paying Off This Tech Debt
 description: That project cleanup I've been putting off forever finally happened one weekend
-icon: 'lucide:wrench'
+icon: i-lucide-wrench
 gitTalk: true
 date: 2026-02-10 20:00:00
 read: '5'
-navBadges:
-  - value: New
-    type: primary
 authors:
   - name: Aaron Shih
     username: eepson123tw
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-wrench
+  badge: New
 ---
 
 ![refactor](/images/smalltalk/blog-refactor.jpg)
@@ -33,7 +33,7 @@ There were also some things I should've fixed ages ago:
 - **nuxt.config.ts was massive** - 235 lines! Finding anything was a pain
 - **Typo in filename** - `error-handler.ts.ts`, yes two `.ts`, don't ask me what I was thinking 🤦
 
-::alert{type="warning" icon="lucide:alert-triangle"}
+::callout{color="warning" icon="lucide:alert-triangle"}
 Tech debt is like credit card debt - the longer you wait, the more interest you pay...
 ::
 
@@ -86,7 +86,7 @@ Since I was already cleaning up, might as well handle the small stuff too:
 
 Spent about half a day, but totally worth it:
 
-::alert{type="success" icon="lucide:check-circle"}
+::callout{color="success" icon="lucide:check-circle"}
 **Results:**
 - Security vulnerabilities down 19%
 - Code structure much cleaner
@@ -108,7 +108,7 @@ Quick reminders for myself (and you):
 3. **Split configs when they hit 150+ lines** - Otherwise maintenance is painful
 4. **Use `--fix` liberally** - Many issues are one command away
 
-::alert{type="info" icon="lucide:lightbulb"}
+::callout{color="info" icon="lucide:lightbulb"}
 Tech debt isn't scary. Pretending it doesn't exist is.
 ::
 

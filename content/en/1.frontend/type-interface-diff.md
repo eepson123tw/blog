@@ -1,7 +1,7 @@
 ---
 title: Differences Between Type and Interface
 description: TypeScript
-icon: 'lucide:orbit'
+icon: i-lucide-orbit
 gitTalk: false
 date: 2022-12-15 21:18:08
 read: '12'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-orbit
 ---
 
 > Differences Between Type and Interface

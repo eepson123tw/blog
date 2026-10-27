@@ -1,7 +1,7 @@
 ---
 title: Day 1 探索
 description: Python、Base learning、Discover
-icon: 'lucide:cable-car'
+icon: i-lucide-cable-car
 gitTalk: false
 date: 2024-11-03 15:04:30
 read: '15'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-cable-car
 ---
 
 > Python-001 探索
@@ -18,7 +20,7 @@ authors:
 基於專案的因素，開始學習 Python 的語法以及框架知識，
 此篇紀錄觀察有趣的學習點及差異點。
 
-::alert{type="info"}
+::callout{color="info"}
 保持滾動式的更新😵‍💫
 ::
 
@@ -51,7 +53,7 @@ authors:
 
 ## 基礎語法
 
-::alert{type="warning"}
+::callout{color="warning"}
 Python 和 JavaScript 都是直譯語言（interpreted languages），但它們的執行方式略有不同：
 
 - Python: 通過 Python 直譯器（如 CPython）直接執行
@@ -106,7 +108,7 @@ print(text.split())  # 分割字串
 - `replace()`: 替換字串
 - `startswith()/endswith()`: 檢查字串開頭/結尾
 
-::alert{type="info"}
+::callout{color="info"}
 需要注意的是，Python 中的字串是不可變的（immutable），這點與 JavaScript 相同。
 ::
 
@@ -203,8 +205,7 @@ data = b"hello"
 print(list(data))
 ```
 
-::alert{type="info"}
-
+::callout{color="info"}
 1. Python 的數值運算非常直觀，但要注意整數除法（//）和一般除法（/）的區別
 2. 銀行家捨入法（Banker's Rounding）是為了減少累積誤差
 3. 使用 f-string 進行格式化時，可以使用多種對齊和格式化選項
@@ -295,8 +296,7 @@ match nums:
 		print('奇數')
 ```
 
-::alert{type="info"}
-
+::callout{color="info"}
 1. Python 的 Bool 是 `True` 和 `False`（首字母大寫）
 2. 支持短路求值（short-circuit evaluation）
 3. match 陳述句（Python 3.10+）提供強大的模式匹配功能
@@ -304,8 +304,7 @@ match nums:
 
 ::
 
-::alert{type="warning"}
-
+::callout{color="warning"}
 - Python 中 `0`、`空字串`、`空列表`、`None` 都會被視為 `False`
 - match 陳述句需要 Python 3.10 或更新版本
 
@@ -368,8 +367,7 @@ if not num != 3:
 
 ```
 
-::alert{type="tip"}
-
+::callout{color="success"}
 1. `enumerate()` 函數可以同時獲取索引和值
 2. Python 迴圈的 `else` 子句在迴圈正常完成時執行
 3. `break` 會跳過 `else` 子句
@@ -377,8 +375,7 @@ if not num != 3:
 
 ::
 
-::alert{type="warning"}
-
+::callout{color="warning"}
 - 注意變數作用域，Python 不像 JavaScript 有 block scope
 - `else` 子句在迴圈中的行為可能不直觀
 
@@ -428,8 +425,7 @@ import copy
 copy_list = copy.deepcopy(sorted_hershey)
 ```
 
-::alert{type="tip"}
-
+::callout{color="success"}
 1. 列表是可變的（mutable）
 2. 支援多種操作方法：`append`、`extend`、`remove`、`pop`等
 3. 列表解析提供簡潔的創建方式
@@ -437,8 +433,7 @@ copy_list = copy.deepcopy(sorted_hershey)
 
 ::
 
-::alert{type="warning"}
-
+::callout{color="warning"}
 - 深拷貝和淺拷貝的區別要注意
 - 列表修改會影響所有引用
 - 大型列表操作要考慮性能影響
@@ -489,8 +484,7 @@ s = {9, 5, 2, 7}
 a, *b, c = s          # 解構集合
 ```
 
-::alert{type="tip"}
-
+::callout{color="success"}
 1. Tuple 適合存儲不變的數據序列
 2. Set 適合需要去重和集合運算的場景
 3. Tuple 比 List 佔用更少記憶體且創建更快
@@ -498,8 +492,7 @@ a, *b, c = s          # 解構集合
 
 ::
 
-::alert{type="warning"}
-
+::callout{color="warning"}
 - Set 是無序的，不支持索引訪問
 - Tuple 一旦創建就不能修改
 - Set 不能包含可變物件（如列表）
@@ -544,8 +537,7 @@ print(getsizeof(keys1))    # 40 bytes
 print(getsizeof(keys2))    # ~8MB
 ```
 
-::alert{type="tip"}
-
+::callout{color="success"}
 1. 字典的鍵必須是不可變（hashable）的
 2. 字典視圖比列表更節省記憶體
 3. 使用 `.get()` 可以避免鍵不存在時的錯誤
@@ -553,8 +545,7 @@ print(getsizeof(keys2))    # ~8MB
 
 ::
 
-::alert{type="warning"}
-
+::callout{color="warning"}
 - 字典是無序的（Python 3.7+ 保留插入順序）
 - 大型字典操作要注意記憶體使用
 - 避免直接訪問不存在的鍵

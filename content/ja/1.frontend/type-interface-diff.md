@@ -1,7 +1,7 @@
 ---
 title: Type 與 Interface 的差異
 description: TypeScript
-icon: 'lucide:orbit'
+icon: i-lucide-orbit
 gitTalk: false
 date: 2022-12-15 21:18:08
 read: '12'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-orbit
 ---
 
 > Type 與 Interface 的差異

@@ -1,7 +1,7 @@
 ---
 title: LLM 關鍵字
 description: 深入淺出解析 Key、Token、Query、Value、Inference、Hallucination、Overfitting 等 LLM 核心概念
-icon: 'lucide:key'
+icon: i-lucide-key
 gitTalk: false
 date: 2025-02-08 18:27:00
 read: '20'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-key
 ---
 
 最近在幫客戶查 vLLM 的 log，發現自己對於 LLM (大型語言模型) 關鍵字的認識仍有點模糊，所以決定整理一下一些常看到的用詞，希望對大家也有幫助。
@@ -28,7 +30,7 @@ LLM 通常基於 Transformer 架構。我們可以將 Transformer 想像成一�
 * **Decoder (解碼器):** 負責生成輸出文本 (例如給讀者的回答)。就像圖書館裡根據讀者需求，撰寫摘要或報告的館員。
 * **Attention Mechanism (注意力機制):** 這是 Encoder 和 Decoder 之間的橋樑。它讓 Decoder 知道在生成每個詞時，應該重點關注輸入文本的哪些部分。
 
-:::alert{type="info" icon="lucide:brain-circuit"}
+:::callout{color="info" icon="lucide:brain-circuit"}
 Transformer 架構是 LLM 的基石，理解其組成部分和運作方式，有助於深入了解 LLM 的工作原理。
 :::
 
@@ -61,7 +63,7 @@ Attention (注意力) 機制是 LLM 的核心。想像一下，你是一位圖�
 2. **用 Query 比對 Key:** 你會拿讀者的 Query 去和每本書的 Key (目錄、索引) 比較，找出相關性最高的幾本書。
 3. **你根據相關性加權 Value:** 你會更仔細地閱讀那些相關性最高的書 (Value)，並從中提取出與讀者 Query 最相關的資訊。
 
-:::alert{type="success" icon="lucide:check-circle"}
+:::callout{color="success" icon="lucide:check-circle"}
 Query、Key 和 Value 的巧妙配合，讓 LLM 能夠像圖書館員一樣，從海量資訊中快速找到關鍵內容。
 :::
 
@@ -76,7 +78,7 @@ Query、Key 和 Value 的巧妙配合，讓 LLM 能夠像圖書館員一樣，�
   * **輸入文本:** "The quick brown fox jumps over the lazy dog."
   * **Tokenization (可能結果):** \["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog", "."]
 
-:::alert{type="warning" icon="lucide:split"}
+:::callout{color="warning" icon="lucide:split"}
 不同的 Tokenization 方法會產生不同的 Token 序列，進而影響模型的表現。
 :::
 
@@ -90,7 +92,7 @@ Query、Key 和 Value 的巧妙配合，讓 LLM 能夠像圖書館員一樣，�
   * **Sampling (採樣):** 從模型預測的概率分佈中選擇下一個 Token 的方法 (例如 Top-k, Top-p)。
   * **Beam Search:** 一種更高級的 Decoding 策略，同時維護多個候選序列。
 
-:::alert{type="info" icon="lucide:wand"}
+:::callout{color="info" icon="lucide:wand"}
 Inference 是 LLM 的「魔力」所在，它讓模型能夠舉一反三，回答各種問題。
 :::
 
@@ -131,7 +133,7 @@ Inference 是 LLM 的「魔力」所在，它讓模型能夠舉一反三，回�
     * `stop`: 指定停止生成的詞或序列。
         * **比喻:** 就像你告訴圖書管理員看到。！？ 就停下來
 
-:::alert{type="warning" icon="lucide:settings-2"}
+:::callout{color="warning" icon="lucide:settings-2"}
 調整 Parameters 就像調整圖書館員的「工作模式」，可以影響生成文本的風格、長度和多樣性。
 :::
 
@@ -158,7 +160,7 @@ Inference 是 LLM 的「魔力」所在，它讓模型能夠舉一反三，回�
     * 引入外部知識庫 (例如檢索增強生成 RAG)。
     * 對生成內容進行人工驗證。
 
-:::alert{type="danger" icon="lucide:siren"}
+:::callout{color="error" icon="lucide:siren"}
 Hallucination 是 LLM 的一個嚴重問題，需要特別注意和防範。
 :::
 
@@ -175,7 +177,7 @@ Hallucination 是 LLM 的一個嚴重問題，需要特別注意和防範。
     * 正則化 (Regularization) (例如 L1, L2 正則化，Dropout)。
     * 早停 (Early Stopping)。
 
-:::alert{type="warning" icon="lucide:bug"}
+:::callout{color="warning" icon="lucide:bug"}
 Overfitting 就像「書呆子」，只會死記硬背，缺乏靈活應變的能力。
 :::
 
@@ -196,7 +198,7 @@ Overfitting 就像「書呆子」，只會死記硬背，缺乏靈活應變的�
     Hello, how are you? [/INST]
     ```
 
-:::alert{type="success" icon="lucide:message-square-plus"}
+:::callout{color="success" icon="lucide:message-square-plus"}
 Prompt Engineering 是一門藝術，也是一門科學。不斷嘗試和優化 Prompt，可以讓 LLM 更好地為你服務。
 :::
 

@@ -1,7 +1,7 @@
 ---
 title: 前端與框架的關係
 description: 前端框架的演進
-icon: 'lucide:dice-1'
+icon: i-lucide-dice-1
 gitTalk: false
 date: 2022-10-28 00:06:03
 read: '20'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-dice-1
 ---
 
 > 前端與框架的秘密

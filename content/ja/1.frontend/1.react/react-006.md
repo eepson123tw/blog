@@ -1,7 +1,7 @@
 ---
 title: Day 6 進階與渲染
 description: 學習 React 框架
-icon: 'lucide:alarm-clock-check'
+icon: i-lucide-alarm-clock-check
 gitTalk: false
 date: 2023-07-01 21:00:00
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-alarm-clock-check
 ---
 
 > 學習 React 框架 - 006 進階鉤子與渲染控制
@@ -37,7 +39,7 @@ const [state, dispatch] = useReducer(reducer, initialArg, init?)
 
 - dispatch : 函數可將狀態更新為不同的值**並觸發重新渲染**。
 
-::alert{type="info" icon="lucide:lightbulb"}
+::callout{color="info" icon="lucide:lightbulb"}
 在嚴格模式下，React 將調用reducer和初始化兩次，以幫助您發現意外的雜質。這只是開發行為，不會影響生產。
 ::
 
@@ -176,7 +178,7 @@ function Button() {
 - SomeContext：使用 createContext 創建的上下文。上下文本身不保存信息，它僅表示您可以提供或從組件中讀取的信息類型
 - value: useContext 返回調用組件的上下文值。它被確定為傳遞給樹中調用組件上方最近的 SomeContext.Provider 的值。
 
-::alert{type="warning" icon="lucide:lightbulb"}
+::callout{color="warning" icon="lucide:lightbulb"}
 React 會自動重新渲染所有使用特定上下文的子級，從接收不同 value 的提供者開始。前一個值和後一個值通過 Object.is 進行比較。使用 memo 跳過重新渲染不會阻止子級接收新的上下文值。
 ::
 
@@ -271,7 +273,7 @@ export default App;
 - before any other effects are called.
 - if the side effect that you are performing makes an observable change to the dom, that will require the browser to paint the update that you made.
 
-::alert{type="danger" icon="lucide:umbrella"}
+::callout{color="error" icon="lucide:umbrella"}
 僅在客戶端上運行。它們在服務器渲染期間不會運行。useLayoutEffect中的代碼以及從中安排的所有狀態更新都會阻止瀏覽器重新繪製屏幕。當過度使用時，這會讓應用程序變慢QQ
 ::
 
@@ -289,7 +291,7 @@ const allItems = React.useMemo(() => getItems(inputValue), [inputValue]);
 - calculateValue ：計算要緩存的值的函數。應該是純粹的，**不應有任何入參，並且應有返回值(任意類型)**。 React 將在初始渲染期間調用此函數。在下一次渲染時，如果 dependencies 自上次渲染以來沒有更改，React 將再次返回相同的值。否則，它將調用 calculateValue ，返回其結果並存儲它以便以後可以重用。
 - dependencies ： calculateValue 代碼內部引用的所有反應值的列表。反應性值包括 props、state 以及直接在組件體內聲明的所有變量和函數。
 
-::alert{type="warning" icon="lucide:lightbulb"}
+::callout{color="warning" icon="lucide:lightbulb"}
 僅依賴 useMemo 作為性能優化。不要廣泛地使用他。<br>雖然與 useCallback 很像，但使用上仍有些[情境上的差別](https://react.dev/reference/react/useMemo#memoizing-a-function)。
 ::
 

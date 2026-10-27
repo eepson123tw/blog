@@ -1,7 +1,7 @@
 ---
 title: Memory Layout
 description: JavaScript, G/O, prototype chain
-icon: 'lucide:lamp-desk'
+icon: i-lucide-lamp-desk
 gitTalk: false
 date: 2022-05-06 23:23:00
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-lamp-desk
 ---
 
 In many interviews, fundamental JavaScript questions are frequently asked by interviewers, such as Hoisting, differences between var/let/const, closures, and so on. Today, I want to share another one of these fundamental topics with you - the prototype chain. To explain the prototype chain, we need to discuss the memory layout in JavaScript.

@@ -1,7 +1,7 @@
 ---
 title: 網頁的效能指標及優化
 description: Performance、Metrics
-icon: 'lucide:power-off'
+icon: i-lucide-power-off
 gitTalk: false
 date: 2022-12-15 21:18:08
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-power-off
 ---
 
 > 知道網頁有哪些效能指標嗎?

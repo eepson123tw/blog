@@ -1,7 +1,7 @@
 ---
 title: 瀏覽器是如何運作的?
 description: How browser work?
-icon: 'lucide:dice-2'
+icon: i-lucide-dice-2
 gitTalk: false
 date: 2023-08-27 19:13:47
 read: '20'
@@ -11,11 +11,13 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-dice-2
 ---
 
 > How browser work?
 
-::alert{type="success"}
+::callout{color="success"}
 💡 Main Goal ：藉由理解此文章理解 morden browser 的底層運作
 ::
 
@@ -563,7 +565,7 @@ Firefox 遍歷渲染樹並為繪製的矩形構建顯示列表。它包含與矩
 5. 合成：當文檔的不同部分被繪製在不同的層中，必須使用合成來確保它們以正確的順序顯示在屏幕上。合成是瀏覽器中一個非常複雜的過程，它涉及到多個層的合併、位移和透明度等計算，以確保網頁的呈現效果符合預期。
 6. 視覺顯示：瀏覽器會解析 HTML，創建 DOM Tree，確定媒體類型，取回並分配樣式，最終將格式化結構轉移到目標媒體，呈現頁面內容。在這個過程中，瀏覽器會考慮到許多因素，例如屏幕大小、解析度、顯示模式、字體大小等等，以確保網頁的內容和佈局符合使用者的期望。
 
-:::info
+:::note
 🔑 除此之外，本文還介紹了一些相關的名詞，包括使用者代理、堆疊上下文和上下文無關語法等。這些名詞對理解瀏覽器的工作原理和優化網頁性能都非常重要。
 
 總而言之，瀏覽器是一個非常複雜的系統，它從不同的角度解析和繪製網頁上的HTML、CSS和JavaScript代碼，最終呈現給使用者的是一個具有良好外觀和性能的網頁。
