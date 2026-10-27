@@ -1,7 +1,7 @@
 ---
 title: Model Context Protocol (MCP)
 description: The Model Context Protocol (MCP) is an open standard introduced by Anthropic to standardize how AI interacts with external systems—like a universal translator for large language models.
-icon: 'lucide:git-fork'
+icon: i-lucide-git-fork
 gitTalk: false
 date: 2025-03-22T10:30:00+08:00
 read: '13'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-git-fork
 ---
 
 Imagine you have an AI application that understands natural language—but it struggles to interact directly with real-world systems and data. There's always a delay, and it feels kind of "laggy and clunky."
@@ -23,7 +25,7 @@ Think of a busy international airport where each gate leads to a different count
 
 That’s what MCP does—but for AI models. It functions like the "United Nations translation system" of the AI world, allowing assistants to communicate smoothly with external systems and data sources.
 
-:::alert{type="info" icon="lucide:info"}
+:::callout{color="info" icon="lucide:info"}
 MCP is like a “USB-C port” for AI applications, providing a universal interface to connect models with various tools and data sources.
 :::
 
@@ -102,7 +104,7 @@ Like a kitchen full of tools and ingredients for making gourmet meals, MCP has k
    - Prewritten instructions or templates that guide model responses
    - Ensures consistent, high-quality outputs
 
-:::alert{type="success" icon="lucide:chef-hat"}
+:::callout{color="success" icon="lucide:chef-hat"}
 Imagine the MCP server as a master chef with tools (Tool), fresh ingredients (Resource), and signature recipes (Prompt) ready to prepare custom dishes for every guest.
 :::
 
@@ -148,7 +150,7 @@ MCP is already proving useful in real applications. Think of it as opening new d
 - **AI Financial Advisors**: Aggregate transactions, track spending, and provide insights across accounts and investment tools
 - **Code Assistants**: Interact with IDEs to read, refactor, and optimize code like a seasoned architect
 
-:::alert{to="https://modelcontextprotocol.io/examples" target="_blank" icon="lucide:github"}
+:::callout{color="info" icon="lucide:github"}
   Curious to see MCP in action? Check out Anthropic’s official examples—like watching an open kitchen prepare your favorite dish.
 :::
 

@@ -1,7 +1,7 @@
 ---
 title: Web Performance Metrics and Optimization
 description: Performance, Metrics
-icon: 'lucide:power-off'
+icon: i-lucide-power-off
 gitTalk: false
 date: 2022-12-15 21:18:08
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-power-off
 ---
 
 > Do you know what performance metrics exist for web pages?

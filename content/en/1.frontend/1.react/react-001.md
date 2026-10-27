@@ -1,7 +1,7 @@
 ---
 title: Day 1 Setting Sail
 description: Learning the React Framework
-icon: 'lucide:anchor'
+icon: i-lucide-anchor
 gitTalk: false
 date: 2023-04-17 22:54:13
 read: '5'
@@ -11,12 +11,13 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-anchor
 ---
 
 > Learning the React Framework - Day 001 Setting Sail
 
-::alert{type="example" icon="lucide:lightbulb"}
-
+::callout{color="primary" icon="lucide:lightbulb"}
 Most of the information is extracted from the internet and notes from some current meetups I've attended. I'll understand the React framework through some common framework concepts from Vue. If there are any misunderstandings, please feel free to point them out XD
 
 ::
@@ -65,7 +66,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 From the example, we can simply understand that we only provide an entry point in HTML, yet React can generate all the other parts we need through functions.
 
-::alert{type="success" icon="lucide:lightbulb"}
+::callout{color="success" icon="lucide:lightbulb"}
 JSX is a syntax extension for JavaScript that allows you to write HTML-like markup inside a JavaScript file. Although there are other ways to write components, most React developers prefer JSX's conciseness, and most codebases use it.
 --- Excerpted from the official website
 

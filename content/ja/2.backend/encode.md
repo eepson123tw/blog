@@ -1,7 +1,7 @@
 ---
 title: 利Encode、Decode、Hash 是幹甚麼東西?
 description:  編碼、解碼、加密
-icon: 'lucide:lock-keyhole'
+icon: i-lucide-lock-keyhole
 gitTalk: false
 date: 2023-10-11 23:50:24
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-lock-keyhole
 ---
 
 > Encode、Decode、Hash
@@ -43,7 +45,7 @@ console.log(decodedString); // "Hello, js!"
 - [btoa](https://developer.mozilla.org/zh-CN/docs/Web/API/btoa)
 - [atob](https://developer.mozilla.org/zh-CN/docs/Web/API/atob)
 
-::alert{type='info'}
+::callout{color="info"}
 SSH 密鑰本身以二進制格式存在，但在特定情況下，它們的`公鑰部分可以以 Base64 編碼的文本形式表示`。
 > cat XXXX_xxx | base64 | tr -d \\n
 ::
@@ -64,8 +66,7 @@ console.log(encodedString); // "&lt;script&gt;alert('Hello, js!');&lt;/script&gt
 
 用於將文本字符映射到二進制數據以便在計算機中儲存和傳輸。
 
-::alert{type='info'}
-
+::callout{color="info"}
 **ASCII** (American Standard Code for Information Interchange):
 
 1. ASCII 是一個字符編碼標準，最早於1963年發布，僅定義了128個字符（7位二進制數據），包括26個大寫字母、26個小寫字母、數字、標點符號和控制字符。

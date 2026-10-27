@@ -5,88 +5,54 @@ import { imageConfig, nitroConfig, viteConfig } from './config';
 const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://www.aaron-shih.com';
 
 export default defineNuxtConfig({
-  srcDir: '.',
-  devtools: { enabled: true },
-  extends: ['shadcn-docs-nuxt'],
+  extends: ['docus'],
 
-  // Internationalization
+  // Internationalization（Docus 會把 code 轉小寫、strategy 強制為 prefix → /zh-tw、/en、/ja）
   i18n: {
-    strategy: 'prefix_except_default',
     defaultLocale: 'zh-TW',
     locales: [
-      { code: 'en', name: 'English', language: 'en-US' },
       { code: 'zh-TW', name: '繁體中文', language: 'zh-TW' },
+      { code: 'en', name: 'English', language: 'en-US' },
       { code: 'ja', name: '日本語', language: 'ja-JP' },
     ],
   },
 
-  // Modules
-  modules: [
-    'nuxt-og-image',
-    '@nuxtjs/i18n',
-    '@nuxt/image',
-    '@nuxtjs/robots',
-    '@nuxtjs/sitemap',
-  ],
-
-  // Components
-  components: {
-    dirs: [
-      {
-        path: './components',
-        ignore: ['**/*.ts'],
-      },
-    ],
-  },
+  modules: ['@nuxtjs/i18n'],
 
   // Content
   content: {
-    highlight: {
-      theme: {
-        default: 'github-light',
-        dark: 'github-dark',
-        sepia: 'monokai',
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            default: 'github-light',
+            dark: 'github-dark',
+          },
+          langs: ['bash', 'diff', 'json', 'js', 'ts', 'jsx', 'tsx', 'html', 'css', 'vue', 'shell', 'mdc', 'md', 'yaml', 'dockerfile', 'mermaid', 'toml', 'python', 'java', 'sql', 'go'],
+        },
       },
-      preload: ['dockerfile', 'mermaid', 'yaml', 'toml', 'python'],
     },
-  },
-
-  // OG Image
-  ogImage: {
-    fonts: ['Noto+Sans+SC:400'],
   },
 
   // App Head
   app: {
     head: {
-      charset: 'utf-8',
       htmlAttrs: { lang: 'zh-TW' },
-      title: 'Aaron\'s Blog',
-      viewport: 'width=device-width, initial-scale=1',
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.ico' },
-        { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com' },
-        { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' },
+        { rel: 'icon', href: '/favicon.ico' },
         { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
-        { rel: 'preconnect', crossorigin: 'anonymous', href: 'https://fonts.gstatic.com' },
-        { rel: 'preconnect', crossorigin: 'anonymous', href: 'https://fonts.googleapis.com' },
       ],
       meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Frontend development, React, Vue, self-learning, focusing on 3D modules, AI, data visualization, and data analysis exploration, supporting web design and career transition.' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
-        { name: 'theme-color', media: '(prefers-color-scheme: light)', content: 'white' },
-        { name: 'theme-color', media: '(prefers-color-scheme: dark)', content: 'black' },
         { name: 'referrer', content: 'no-referrer-when-downgrade' },
         { name: 'author', content: 'Aaron Shih' },
         { name: 'keywords', content: '前端開發、React、Vue、Coding、自主學習' },
         { name: 'application-name', content: 'Aaron' },
         { name: 'apple-mobile-web-app-title', content: 'Aaron' },
       ],
-      script: [],
     },
   },
 
@@ -126,7 +92,6 @@ export default defineNuxtConfig({
     defaults: {
       changefreq: 'daily',
       priority: 0.8,
-      lastmod: new Date().toISOString(),
     },
   },
 
@@ -135,5 +100,5 @@ export default defineNuxtConfig({
     appManifest: false,
   },
 
-  compatibilityDate: '2024-10-29',
+  compatibilityDate: '2025-07-22',
 });

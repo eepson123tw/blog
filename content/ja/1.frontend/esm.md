@@ -1,7 +1,7 @@
 ---
 title: ESM 模組原理
 description: ESM 模組化開發
-icon: 'lucide:code'
+icon: i-lucide-code
 gitTalk: false
 date: 2024-03-14 12:25:00
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-code
 ---
 
 ESM 模組是一種在 JavaScript 中進行模組化開發的標準。它允許開發者將程式碼分割成多個模組，並且可以在需要的地方引入這些模組。ESM 模組使用 `import` 和 `export` 關鍵字來定義和使用模組。
@@ -152,7 +154,7 @@ ESM（ECMAScript 模組）是一種在 JavaScript 中用於模組化程式碼的
 2. 獲取文件(URL、filesystem load)
 3. 將文件解析成紀錄
 
-::alert{type="success" icon="lucide:lightbulb"}
+::callout{color="success" icon="lucide:lightbulb"}
 此部分會巢狀的解析相依的模組文件，一層一層的找下去。若文件相依的模組過多，那 main thread 勢必會被加載阻塞。
 ::
 
@@ -185,7 +187,7 @@ ES 模組規範將遞歸查找算法分為多個階段。並將構造過程單�
 
 ## 總結
 
-::alert{type="success" icon="lucide:lightbulb"}
+::callout{color="success" icon="lucide:lightbulb"}
 require 會同步解析，而 import 會在執行程式碼之前就會有預解析，可以更方便的執行 tree-shacking 及 分析載入點 .etc
 ::
 

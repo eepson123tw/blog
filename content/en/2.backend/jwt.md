@@ -1,7 +1,7 @@
 ---
 title: JWT機制
 description: JSON Web Tokens、Cryptography
-icon: 'lucide:table-of-contents'
+icon: i-lucide-table-of-contents
 gitTalk: false
 date: 2023-03-25 11:14:47
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-table-of-contents
 ---
 
 > 什麼是JWT?

@@ -1,7 +1,7 @@
 ---
 title: Day 2 組件傳參
 description: 學習 React 框架
-icon: 'lucide:angry'
+icon: i-lucide-angry
 gitTalk: false
 date: 2023-04-18 23:31:13
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-angry
 ---
 
 > 學習React框架 - 002 Day 組件生成與參數傳遞
@@ -48,7 +50,7 @@ export default function Gallery() {
 }
 ```
 
-::alert{type="warning" icon="lucide:eraser"}
+::callout{color="warning" icon="lucide:eraser"}
 組件的名稱必須以大寫字母開頭
 ::
 
@@ -67,7 +69,7 @@ React組件經[編譯](https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%
 ### React.createElement
 
 JSX 組件在編譯的過程中透過 createElement methods，創建出了[**虛擬DOM**抽象](https://codepen.io/eepson123tw/pen/XWxjXGj?editors=1111)。
-簡單來說就是每個組件函式都是一層封裝，其實底層還是 js 的型態。我們會透過 Render 轉換成真正的 Dom 並注入[DOM樹](/view/frontend/dom.md)中。
+簡單來說就是每個組件函式都是一層封裝，其實底層還是 js 的型態。我們會透過 Render 轉換成真正的 Dom 並注入[DOM樹](/ja/frontend/dom)中。
 
 ### React.Render
 
@@ -145,8 +147,7 @@ ReactDOM.render = ReactDOMRender;
 
 範例中我們可以透過解構將傳遞的props物件中的屬性給全部解構出來。但必須注意這種使用方式，這會傳遞所有的值。
 
-::alert{type="warning" icon="lucide:accessibility"}
-
+::callout{color="warning" icon="lucide:accessibility"}
 - Props.children 是一個特殊的屬性，並非我們定義的由父層傳遞下來的屬性，可視為具有可由其父組件填充的佔位符.
 - 當組件需要更改其 props 時，必須傳遞新的值，因為必須維持不可變性!不要在組件中改變props，以免發生不可預期的錯誤!!
 ::

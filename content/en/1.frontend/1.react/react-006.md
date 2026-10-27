@@ -1,7 +1,7 @@
 ---
 title: Day 6 Advanced and Rendering
 description: Learning the React Framework
-icon: 'lucide:alarm-clock-check'
+icon: i-lucide-alarm-clock-check
 gitTalk: false
 date: 2023-07-01 21:00:00
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-alarm-clock-check
 ---
 
 > Learning the React Framework - 006 Advanced Hooks and Render Control
@@ -37,7 +39,7 @@ const [state, dispatch] = useReducer(reducer, initialArg, init?)
 
 - dispatch: Function that can update state to a different value **and trigger re-rendering**.
 
-::alert{type="info" icon="lucide:lightbulb"}
+::callout{color="info" icon="lucide:lightbulb"}
 In strict mode, React will call the reducer and initializer twice to help you find accidental impurities. This is development-only behavior and does not affect production.
 ::
 
@@ -176,7 +178,7 @@ function Button() {
 - SomeContext: Context created using createContext. The context itself doesn't hold information, it just represents the type of information you can provide or read from components
 - value: useContext returns the context value for the calling component. It's determined as the value passed to the nearest SomeContext.Provider above the calling component in the tree.
 
-::alert{type="warning" icon="lucide:lightbulb"}
+::callout{color="warning" icon="lucide:lightbulb"}
 React will automatically re-render all children using a particular context, starting from the provider that receives a different value. Previous and next values are compared with Object.is. Skipping re-renders with memo doesn't prevent children from receiving fresh context values.
 ::
 
@@ -271,7 +273,7 @@ export default App;
 - before any other effects are called.
 - if the side effect that you are performing makes an observable change to the dom, that will require the browser to paint the update that you made.
 
-::alert{type="danger" icon="lucide:umbrella"}
+::callout{color="error" icon="lucide:umbrella"}
 Only runs on the client. They don't run during server rendering. Code in useLayoutEffect and all state updates scheduled from it block the browser from repainting the screen. When overused, this makes your app slow QQ
 ::
 
@@ -289,7 +291,7 @@ const allItems = React.useMemo(() => getItems(inputValue), [inputValue]);
 - calculateValue: Function to calculate the value to cache. Should be pure, **should have no arguments, and should return a value (of any type)**. React will call this function during initial render. On next renders, if dependencies haven't changed since the last render, React will return the same value again. Otherwise, it will call calculateValue, return its result, and store it so it can be reused later.
 - dependencies: List of all reactive values referenced inside calculateValue code. Reactive values include props, state, and all variables and functions declared directly inside your component body.
 
-::alert{type="warning" icon="lucide:lightbulb"}
+::callout{color="warning" icon="lucide:lightbulb"}
 Only rely on useMemo as a performance optimization. Don't use it extensively.<br>Although it's similar to useCallback, there are still some [contextual differences](https://react.dev/reference/react/useMemo#memoizing-a-function) in usage.
 ::
 

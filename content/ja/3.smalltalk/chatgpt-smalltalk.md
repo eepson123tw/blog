@@ -1,7 +1,7 @@
 ---
 title: ChatGPT 橫空出世，工程師該如何看待這現象?
 description: ChatGPT是甚麼?
-icon: 'lucide:bot'
+icon: i-lucide-bot
 
 date: 2023-03-08 22:14:47
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-bot
 ---
 
 ![chatgpt-smalltalk](/images/smalltalk/chatgpt-smalltalk.webp)

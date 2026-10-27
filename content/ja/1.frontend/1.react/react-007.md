@@ -1,7 +1,7 @@
 ---
 title: Day 7 自定義鉤子
 description: 學習 React 框架
-icon: 'lucide:octagon-minus'
+icon: i-lucide-octagon-minus
 gitTalk: false
 date: 2023-08-03 21:40:00
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-octagon-minus
 ---
 
 > 學習 React 框架 - 007 自定義鉤子 useHooks
@@ -38,7 +40,7 @@ React 實作了許多可以以依賴驅動的 Hooks 函式，在不同的需求�
 4. 每次組件重新渲染時，所有 Hooks 都將重新執行。
 5. 自定義 Hooks 的代碼應該是純粹的，一個封裝只專注在一個邏輯上，不要將 sideEffect 給搞混了。
 
-::alert{type="danger" icon="lucide:lightbulb"}
+::callout{color="error" icon="lucide:lightbulb"}
 永遠都要用 use 當開頭，這是一個約定俗成的方式，讓我們看到函式名稱就能馬上知道這個是封裝的 Hooks。
 ::
 

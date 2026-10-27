@@ -1,7 +1,7 @@
 ---
 title: Nginx是甚麼?
 description:  Nginx是甚麼?如何設定?
-icon: 'lucide:origami'
+icon: i-lucide-origami
 gitTalk: false
 date: 2023-04-15 23:55:24
 read: '10'
@@ -11,13 +11,15 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-origami
 ---
 
 > Nginx是甚麼?
 
 Nginx是一款高性能的Web服務器和反向代理服務器.最初由Igor Sysoev編寫,可以作為HTTP SERVER使用,也可以作為負載均衡器、HTTP緩存和反向代理服務器使用.Nginx採事件驅動的異步架構,可以支持高併發和大規模的Web流量.
 
-::alert{type="info"}
+::callout{color="info"}
 底層為 linux 異步非阻塞網路I/O模型.(高併發),支持gzip壓縮.
 =>Web服務器,WWW服務器,HTTP服務器,web信息展示,被動式的接收到請求後,才會回應當前請求內容.
 
@@ -76,8 +78,7 @@ rpm -ql nginx
 - 使用 $ 符號使用變量；
 - 部分指令的參數支援正則表達式；
 
-::alert{type="warning"}
-
+::callout{color="warning"}
 - 大多數指令都有預設值，如果沒有明確設定，將使用預設值。
 - Nginx 的配置文件是順序讀取的，即後面的指令會覆蓋前面的指令。
 - 指令可以使用變量，這些變量可以是預定義的變量，也可以是自定義的變量。

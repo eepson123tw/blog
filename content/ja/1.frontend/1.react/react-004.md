@@ -1,7 +1,7 @@
 ---
 title: Day 4 渲染與 fiber
 description: 學習 React 框架
-icon: 'lucide:archive'
+icon: i-lucide-archive
 gitTalk: false
 date: 2023-05-16 21:50:00
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-archive
 ---
 
 > 學習 React 框架 - 004 渲染切片與底層fiber
@@ -97,7 +99,7 @@ function FiberNode(
 
 可以視為一種數據結構，保存了組件節點的屬性、類型、dom，並透過指向 child、sibling、return来形成並連接Fiber樹，此數據結構將渲染過程劃分為可中斷的單元，以支持增量渲染和更好的使用者互動，區分元件樹的不同層級和渲染優先級。
 
-::alert{type="warning" icon="lucide:eraser"}
+::callout{color="warning" icon="lucide:eraser"}
 在瀏覽器閒置時配合 [requestIdleCallback API](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestIdleCallback)的調用, 以實現任務拆分、中斷與恢復。
 ::
 
@@ -117,8 +119,7 @@ function ClickCounter (){
 
 ![fiber](/images/react/fiber.webp)
 
-::alert{type="warning" icon="lucide:eraser"}
-
+::callout{color="warning" icon="lucide:eraser"}
 每個 React 元素都有一個對應的 fiber 節點。與 React 元素不同， fiber不會在每次渲染時重新創建。這些是可變數據結構，用於保存組件狀態和 DOM。
 
 ::
@@ -131,7 +132,7 @@ function ClickCounter (){
 
 我們可以理解成 React 存放了二顆樹形的對照表，互相對照，已分析出那些結點及狀態需要變動，觸發重新渲染。也被稱為雙緩衝技術 (double buffering)。
 
-::alert{type="danger" icon="lucide:ambulance"}
+::callout{color="error" icon="lucide:ambulance"}
 React 總是一次性更新 DOM——它不會顯示部分結果。
 ::
 
@@ -165,7 +166,7 @@ React在兩個階段中執行 Virtual Dom 轉換 Fiber tree，及比對節點差
 所有fiber節點工作的查找都在工作循環(Work loop)中處理，nextUnitOfWork 擁有來自 workInProgress 樹的 fiber 節點的引用。
 在這個while迴圈中，將會不斷的遞迴節點，尋找是否有未完成的工作。**直到子節點開始的所有工作都完成後，才會完成父節點和回溯的工作。**
 
-::alert{type="example" icon="lucide:eraser"}
+::callout{color="primary" icon="lucide:eraser"}
  completeUnitOfWork 和 completeUnitOfWork 主要用於迭代目的，而主要活動發生在 beginWork 和 completeWork 函數中。
 ::
 

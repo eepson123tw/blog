@@ -1,7 +1,7 @@
 ---
 title: Simple Function Encapsulation
 description: JavaScript, function, program, Encapsulation
-icon: 'lucide:dice-4'
+icon: i-lucide-dice-4
 gitTalk: false
 date: 2022-05-07 13:15:06
 read: '20'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-dice-4
 ---
 
 > Simple Function Encapsulation

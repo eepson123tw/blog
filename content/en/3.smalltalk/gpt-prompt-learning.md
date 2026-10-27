@@ -1,7 +1,7 @@
 ---
 title: Prompt 指令魔術師
 description: Prompt、Prompt-engineering、指令魔術師
-icon: 'lucide:lamp-ceiling'
+icon: i-lucide-lamp-ceiling
 gitTalk: true
 date: 2023-11-05 15:50:37
 read: '7'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-lamp-ceiling
 ---
 
 ![prompt-engineering](/images/smalltalk/prompt-engineering.webp)
@@ -31,7 +33,7 @@ authors:
 
 > 簡單來說，GPT 是一種語言處理技術，而 ChatGPT 是用於建立更自然對話的一種應用。這些技術都屬於 NLP 領域。
 
-::alert{type="example" icon="lucide:lightbulb"}
+::callout{color="primary" icon="lucide:lightbulb"}
 GPT（Generative Pre-trained Transformer）的應用：
 
 - 文本生成：例如，生成文章、故事、詩歌等文本。
@@ -82,7 +84,7 @@ ex:
 
 一個好的 Prompt 需要明確的**引導**、具體的問題或任務、上下文信息、使用關鍵詞以及不斷的測試和調整。這些要點有助於確保模型能夠生成更好的文本內容。
 
-::alert{type="info" icon="lucide:ligature"}
+::callout{color="info" icon="lucide:ligature"}
 最重要部分可能是「清晰的引導面向」。需要確保 prompt 提供明確的指示，告訴模型應該生成什麼類型的文本，以及期望的動作或回應。如果引導面向不清晰或模糊，模型可能會產生不符合預期的結果。
 ::
 
@@ -114,7 +116,7 @@ ex:
 
 ![prompt-apple 比較三個 Prompt](/images/gpt/prompt-apple.webp)
 
-::alert{type="info" icon="lucide:ligature"}
+::callout{color="info" icon="lucide:ligature"}
 還能使用下列的指令再去加強，Prompt的結構，達到更好的效果。
 
 - 將指令放在提示的開頭，並使用特殊符號(如###或""")來分隔指令和上下文。

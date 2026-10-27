@@ -1,7 +1,7 @@
 ---
 title: 第一性原則思考
 description: first-principle、thinking
-icon: 'lucide:gallery-thumbnails'
+icon: i-lucide-gallery-thumbnails
 gitTalk: false
 date: 2024-12-07 13:04:30
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-gallery-thumbnails
 ---
 
 ![first-principle](/images/smalltalk/first-principle.webp)
@@ -21,7 +23,7 @@ authors:
 
 在深入探討前，先看一下維基百科上的簡介：
 
-::alert{type="info" icon="lucide:info"}
+::callout{color="info" icon="lucide:info"}
 **第一原理（First Principle）**，又稱第一性原理，是哲學與邏輯領域中的名詞，指一個最基本的命題或假設，無法被省略或刪除，也不可違反。此概念相當於數學中的公理，最早由亞里斯多德提出。
 ::
 

@@ -1,7 +1,7 @@
 ---
 title: Deployment with GitLab Runner
 description: Nuxt, GitLab Runner, Docker, Kaniko, Dockerfile, Node.js, musl-libc, glibc
-icon: 'lucide:alarm-clock-check'
+icon: i-lucide-alarm-clock-check
 gitTalk: false
 date: 2025-01-19 15:32:20
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-alarm-clock-check
 ---
 
 > Nuxt Deployment with GitLab Runner
@@ -43,7 +45,7 @@ Nuxt.js provides many features to simplify the development process, such as:
   - Performance optimization: Improves application performance through pre-rendering and caching strategies.
   - Debugging tools: Provides performance analysis and debugging tools to help developers identify performance bottlenecks.
 
-::alert{type="danger" icon="lucide:lightbulb" title="What a Painful Realization"}
+::callout{color="error" icon="lucide:lightbulb"}
 Our goal this time was to deploy a Nuxt SSR mode application to GitLab Runner and achieve automated deployment through GitLab Runner.
 Little did I know, this was the beginning of stepping on landmines 🥲.
 ::
@@ -113,7 +115,7 @@ Kaniko is Google's open-source Docker image building tool that can build Docker 
 
 Since we wanted the CI environment to not depend on Docker Daemon, my colleague chose to use Kaniko. As a result, I tried to build images locally with `docker build`, but the gitlab-ci.yml used Kaniko, so it kept failing. I was stuck for half the day not knowing what the problem was.
 
-::alert{type="danger" icon="lucide:lightbulb" title="What a Painful Realization"}
+::callout{color="error" icon="lucide:lightbulb"}
 What a painful realization!
 In fact, Kaniko doesn't rely on Docker Daemon, so it cannot use the `docker build` command.
 However, it still defines and builds images through Dockerfiles, but the command needs to be changed to Kaniko's `executor`. For example, the original `docker build -t my-image .` needs to be changed to `/kaniko/executor --dockerfile Dockerfile --context . --destination my-image:latest`.
@@ -132,7 +134,7 @@ After solving the Kaniko issue, I thought deployment would go smoothly, but unex
 
 In the Dockerfile, multi-stage builds were used to reduce the final image size, but building on GitLab Runner kept failing.
 
-::alert{type="note" icon="lucide:pencil" title="Solution"}
+::callout{color="neutral" icon="lucide:pencil"}
 In multi-stage builds, first install all development dependencies (devDependencies) and execute the build in the first stage, then install only production dependencies in the second stage and copy the build artifacts from the first stage. This can significantly reduce the final image size and reduce potential dependency conflicts.
 The specific approach is: "Install all devDeps + build in the build stage, then remove devDeps and install prodDeps."
 ::
@@ -147,7 +149,7 @@ Different Node.js versions may contain different versions of base packages like 
 
 Alpine Linux uses musl-libc as its C standard library, while most Linux distributions use glibc. There are some differences between these two, especially when compiling native modules, which can cause problems.
 
-::alert{type="note" icon="lucide:pencil" title="Solution"}
+::callout{color="neutral" icon="lucide:pencil"}
 Using `node:lts` or explicitly specifying a Node.js version (e.g., `node:18`) as the base image in the Dockerfile can avoid some package installation issues.
 ::
 

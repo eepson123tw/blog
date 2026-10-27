@@ -1,7 +1,7 @@
 ---
 title: 發布一個 npm 組件
 description: NPM、Vue、Package publish
-icon: 'lucide:package'
+icon: i-lucide-package
 gitTalk: false
 date: 2024-08-03 13:09:00
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-package
 ---
 
 > 發布一個 npm [組件](https://www.npmjs.com/package/@eepson123tw/canvas-meme)
@@ -144,7 +146,7 @@ authors:
 本來以為打包只需要設定好輸出就好了吧，照著網路上的教學及文件，應該能簡單的上線😊，結果自己還是太年輕了。
 要設定 package.json vite.config，有一個很重要的提醒
 
-::alert{type="info"}
+::callout{color="info"}
 "author": "一定要是本人且正確", <== publish 快一小時懷疑人生的時候，發現改這個就過了👼
 ::
 

@@ -41,17 +41,14 @@
     }
   },
   "dependencies": {
-    "@nuxt/image": "~2.0.0",
     "@nuxtjs/i18n": "^10.3.0",
-    "@nuxtjs/robots": "^5.7.1",
-    "@nuxtjs/sitemap": "^7.6.2",
+    "better-sqlite3": "^12.4.1",
     "cross-env": "^7.0.3",
+    "docus": "5.15.0",
     "gitalk": "^1.8.0",
     "nuxt": "^4.6.2",
-    "nuxt-og-image": "^6.10.4",
     "posthog-js": "^1.438.12",
     "rss": "^1.2.2",
-    "shadcn-docs-nuxt": "1.2.2",
     "vue": "^3.5.44",
     "vue-router": "^4.6.4"
   },
@@ -72,14 +69,13 @@
       "level"
     ],
     "overrides": {
-      "ipx": "^3.0.0",
+      "ipx": "^4.0.0",
       "gitalk>axios": "^0.34.0",
       "follow-redirects": "^1.16.0",
       "isomorphic-fetch>node-fetch": "^2.6.7",
       "tmp": "^0.2.6",
       "lodash": "^4.18.1",
-      "sharp": "^0.35.5",
-      "@nuxtjs/mdc": "^0.22.2"
+      "sharp": "^0.35.5"
     }
   }
 }

@@ -1,7 +1,7 @@
 ---
 title: AI 幫幫忙
 description: RAG、Embedding、Agent
-icon: 'lucide:rotate-3d'
+icon: i-lucide-rotate-3d
 gitTalk: true
 date: 2025-02-02 12:07:00
 read: '10'
@@ -13,12 +13,14 @@ authors:
     target: _blank
 badges:
   - value: 此分野跑的飛快，資訊也許會變動
+navigation:
+  icon: i-lucide-rotate-3d
 ---
 
 與前同事們聽完 2024 的 [webconf](https://webconf.tw/)，雖然在 Topic 中，有提到一些關鍵字，但大家對 AI 本身可以做的應用仍有點不清晰，
 問我要不要也做一點講解的 Post，讓他們了解一下，所以有了這個 slide 的誕生。
 
-::alert{to="https://ai-hurry-up.zeabur.app" type="info" target="_blank" icon="lucide:link"}
+::callout{color="info" icon="lucide:link"}
   AI 幫幫忙 ai-hurry-up
 ::
 
@@ -103,7 +105,7 @@ RAG 是一個很複雜的主題，應該說是一個應用模式，透過 Embedd
 
 當然這只是一個簡單的 Demo，現實場景可以更複雜，
 
-::alert{ type="success" target="_blank" icon="lucide:badge-alert"}
+::callout{color="success" icon="lucide:badge-alert"}
   說不定之後還會有工程師 Agent 😈
 ::
 

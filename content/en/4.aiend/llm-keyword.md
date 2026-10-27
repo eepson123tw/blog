@@ -1,7 +1,7 @@
 ---
 title: LLM Keywords
 description: A beginner-friendly explanation of core LLM concepts like Key, Token, Query, Value, Inference, Hallucination, Overfitting, and more
-icon: 'lucide:key'
+icon: i-lucide-key
 gitTalk: false
 date: 2025-02-08 18:27:00
 read: '20'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-key
 ---
 
 While helping a client review vLLM logs recently, I realized that my understanding of some key LLM (Large Language Model) terms was still a bit fuzzy. So I decided to organize and explain some commonly seen terms—hopefully, it’ll be helpful for others too.
@@ -28,7 +30,7 @@ LLMs are usually based on the Transformer architecture. You can imagine a Transf
 - **Decoder:** Generates the output text (like answering the reader). Think of it as the librarian who writes summaries or reports based on the reader’s request.
 - **Attention Mechanism:** Acts as the bridge between encoders and decoders. It helps the decoder focus on the most relevant parts of the input while generating each word.
 
-:::alert{type="info" icon="lucide:brain-circuit"}
+:::callout{color="info" icon="lucide:brain-circuit"}
 The Transformer is the backbone of LLMs. Understanding its components and workflow helps us better grasp how LLMs work.
 :::
 
@@ -63,7 +65,7 @@ Here’s how it works:
 2. **The librarian matches the query with keys** (indexes) to find the most relevant books.
 3. **Then reads the values** (book contents) of those books to find and deliver the most relevant info.
 
-:::alert{type="success" icon="lucide:check-circle"}
+:::callout{color="success" icon="lucide:check-circle"}
 The synergy between Query, Key, and Value allows the LLM to act like a smart librarian—quickly finding and extracting relevant information.
 :::
 
@@ -77,7 +79,7 @@ The synergy between Query, Key, and Value allows the LLM to act like a smart lib
   - Input text: "The quick brown fox jumps over the lazy dog."
   - Tokens: \["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog", "."\]
 
-:::alert{type="warning" icon="lucide:split"}
+:::callout{color="warning" icon="lucide:split"}
 Different tokenization methods may produce different token sequences, which can impact model performance.
 :::
 
@@ -92,7 +94,7 @@ Different tokenization methods may produce different token sequences, which can 
 - **Sampling:** Picks the next token from a probability distribution (e.g., Top-k, Top-p).
 - **Beam Search:** Keeps multiple candidate sequences for better quality generation.
 
-:::alert{type="info" icon="lucide:wand"}
+:::callout{color="info" icon="lucide:wand"}
 Inference is the “magic” of LLMs—what allows them to answer diverse questions creatively and accurately.
 :::
 
@@ -128,7 +130,7 @@ Inference is the “magic” of LLMs—what allows them to answer diverse questi
 - `stop`: Defines stopping words or sequences.
   - **Analogy:** “Stop writing when you see '.', '!' or '?'.”
 
-:::alert{type="warning" icon="lucide:settings-2"}
+:::callout{color="warning" icon="lucide:settings-2"}
 Tuning parameters is like setting the librarian’s behavior—controlling output style, creativity, and coherence.
 :::
 
@@ -155,7 +157,7 @@ Tuning parameters is like setting the librarian’s behavior—controlling outpu
   - Integrate RAG (retrieval)
   - Human review
 
-:::alert{type="danger" icon="lucide:siren"}
+:::callout{color="error" icon="lucide:siren"}
 Hallucination is a serious LLM issue. Always verify AI-generated content.
 :::
 
@@ -172,7 +174,7 @@ Hallucination is a serious LLM issue. Always verify AI-generated content.
   - Regularization (Dropout, L1/L2)
   - Early stopping
 
-:::alert{type="warning" icon="lucide:bug"}
+:::callout{color="warning" icon="lucide:bug"}
 Overfitting is like a “bookworm” librarian—smart, but rigid and not adaptive.
 :::
 

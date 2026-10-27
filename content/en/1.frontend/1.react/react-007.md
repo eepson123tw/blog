@@ -1,7 +1,7 @@
 ---
 title: Day 7 Custom Hooks
 description: Learning the React Framework
-icon: 'lucide:octagon-minus'
+icon: i-lucide-octagon-minus
 gitTalk: false
 date: 2023-08-03 21:40:00
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-octagon-minus
 ---
 
 > Learning the React Framework - 007 Custom Hooks useHooks
@@ -38,7 +40,7 @@ Next comes the most interesting part - creating our own encapsulations. The Hook
 4. All Hooks will re-execute every time a component re-renders.
 5. Custom Hook code should be pure, with one encapsulation focusing on one logic, without mixing up side effects.
 
-::alert{type="danger" icon="lucide:lightbulb"}
+::callout{color="error" icon="lucide:lightbulb"}
 Always start with "use" - this is a conventional way that lets us immediately know a function is an encapsulated Hook just by seeing its name.
 ::
 

@@ -1,7 +1,7 @@
 ---
 title: 為何要學習?
 description: Quick Learning、LLM GEN AI
-icon: 'lucide:layers'
+icon: i-lucide-layers
 
 date: 2024-09-09 22:18:00
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-layers
 ---
 
 ![quick-learn](/images/smalltalk/quick-learn.webp)
@@ -36,7 +38,7 @@ authors:
 
 ![Notion](/assets/images/small_talk/notion_todo.png)
 
-::alert{type="info" icon="lucide:wallet"}
+::callout{color="info" icon="lucide:wallet"}
 維持成一個習慣後，自然而然就會繼續下去了，很簡單但也很難。
 ::
 
@@ -50,7 +52,7 @@ authors:
 內容中的關鍵字就會與其他好資源關聯，
 資源的好壞，往往直接影響我們是否能接觸到這次學習的本質、核心。
 
-::alert{type="danger" icon="lucide:ambulance"}
+::callout{color="error" icon="lucide:ambulance"}
 我們要學習本質及核心，而不是封裝後，似是而非的概念～
 ::
 
@@ -71,7 +73,7 @@ bundler babel axios lodash vue react html tag tailwind http request 網路協定
 
 在進入這間公司前，我沒寫過 python，但報到後的一個月，我已經發了幾次修正後端 issue 的 mr，還幫忙研究新的 llm metrics 工具，看程式碼架構我覺得沒有很懂，有些資料結構跟語法上的差異跟 js 不一樣，但我要做的事情是一樣的，是明確的，我就用 js 的關鍵字與 python 關聯。
 
-::alert{type="info" icon="lucide:info"}
+::callout{color="info" icon="lucide:info"}
 遇到新的概念時，不要先否定、排斥，要先觀察，想想是不是有相似的概念我學過了，先用舊概念驗證看看
 ::
 

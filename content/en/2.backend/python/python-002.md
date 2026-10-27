@@ -1,7 +1,7 @@
 ---
 title: Day 2 函式
 description: Python、Function、OOP
-icon: 'lucide:coffee'
+icon: i-lucide-coffee
 gitTalk: false
 date: 2024-12-30 22:05:00
 read: '15'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-coffee
 ---
 
 > Python-002 函式
@@ -160,7 +162,7 @@ outer()
 print(x)  # 會輸出 'global'
 ```
 
-::alert{type="info"}
+::callout{color="info"}
 當 Python 尋找一個變數時，會依序從最內層開始查找：
 
 1. 先在當前函式的區域空間尋找
@@ -216,7 +218,7 @@ print(hi_func.__code__.co_freevars)         # 輸出: ('msg',)
 
 裝飾器是一種設計模式，允許我們在不修改原始函式的情況下，擴充其功能。
 
-::alert{type="info"}
+::callout{color="info"}
 這樣可以在不改變原始函式的情況下，加入額外的功能，如記錄日誌、性能測量等
 ::
 

@@ -1,7 +1,7 @@
 ---
 title: Day 5 hook 與驅動
 description: 學習 React 框架
-icon: 'lucide:aperture'
+icon: i-lucide-aperture
 gitTalk: false
 date: 2023-06-10 17:35:00
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-aperture
 ---
 
 > 學習 React 框架 - 005 函式鉤子與狀態驅動
@@ -31,7 +33,7 @@ Hooks即是這些方式的實現。
 
 ### useState
 
-::button-link{right-icon="lucide:arrow-up-right" to="https://react.dev/reference/react/useState" variant="ghost" target="_blank"}
+::u-button{to="https://react.dev/reference/react/useState" trailing-icon="lucide:arrow-up-right" variant="ghost" target="_blank"}
   useState
 ::
 
@@ -39,7 +41,7 @@ Hooks即是這些方式的實現。
 
 ### useEffect
 
-::button-link{right-icon="lucide:arrow-up-right" to="https://react.dev/reference/react/useEffect" variant="ghost" target="_blank"}
+::u-button{to="https://react.dev/reference/react/useEffect" trailing-icon="lucide:arrow-up-right" variant="ghost" target="_blank"}
   useEffect
 ::
 
@@ -85,10 +87,14 @@ react state 盡量將state封裝在真正需要他的地方 co locate the state 
 
 嘗試使用react basic hooks實作一個可以無限滾動 且 RWD 的 神奇寶貝卡片列表(原來神奇寶北這麼多隻了🫠)
 
-::button-link{right-icon="lucide:arrow-up-right" to="https://pokemon.zeabur.app/" variant="ghost" target="_blank"}
+::u-button{to="https://pokemon.zeabur.app/" trailing-icon="lucide:arrow-up-right" variant="ghost" target="_blank"}
   Pokemon
 ::
 
 ## 參考資料
 
-::read-more{to="https://kentcdodds.com/blog/use-state-lazy-initialization-and-function-updates" title="useState lazy initialization and function updates"}
+::callout{icon="lucide:bookmark" to="https://kentcdodds.com/blog/use-state-lazy-initialization-and-function-updates"}
+
+useState lazy initialization and function updates
+
+::

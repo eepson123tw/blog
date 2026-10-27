@@ -1,7 +1,7 @@
 ---
 title: Day 3 State and Side Effects
 description: Learning the React Framework
-icon: 'lucide:air-vent'
+icon: i-lucide-air-vent
 gitTalk: false
 date: 2023-05-06 19:00:20
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-air-vent
 ---
 > Learning the React Framework - 003 Component State and Side Effect Updates
 
@@ -63,7 +65,7 @@ Components in React are just function encapsulations. When a function is execute
 
 [Example](https://codepen.io/eepson123tw/pen/NWOyNYP?editors=1010)
 
-::alert{type="warning" icon="lucide:eraser"}
+::callout{color="warning" icon="lucide:eraser"}
 From the example, we can observe that we call useState in the component and set an initial value, change state according to our defined method, and after state changes, the page rerenders and we find the state has been updated.
 ::
 
@@ -74,7 +76,7 @@ Simply put, useState does two things for us:
 1. Allows state values that would otherwise not persist after rerender to continue existing.
 2. Triggers rerender again after state updates.
 
-::alert{type="warning" icon="lucide:eraser"}
+::callout{color="warning" icon="lucide:eraser"}
 useState is an encapsulated closure space, which is the implementation of state abstraction.
 ::
 
@@ -94,7 +96,7 @@ This abstraction is just a very simple description. The actual implementation is
 
 ## State Management for Arrays and Objects
 
-::alert{type="danger" icon="lucide:ambulance"}
+::callout{color="error" icon="lucide:ambulance"}
 In React state management, any type of data must be treated as immutable. You should not directly change objects under React state. Instead, when you want to update an object (or array), you need to **create a new object (or copy an existing object)**, then set state to use that copy.
 ::
 

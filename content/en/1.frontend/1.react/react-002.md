@@ -1,7 +1,7 @@
 ---
 title: Day 2 Component Parameter Passing
 description: Learning the React Framework
-icon: 'lucide:angry'
+icon: i-lucide-angry
 gitTalk: false
 date: 2023-04-18 23:31:13
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-angry
 ---
 
 > Learning the React Framework - Day 002 Component Generation and Parameter Passing
@@ -48,7 +50,7 @@ export default function Gallery() {
 }
 ```
 
-::alert{type="warning" icon="lucide:eraser"}
+::callout{color="warning" icon="lucide:eraser"}
 Component names must start with a capital letter
 ::
 
@@ -67,7 +69,7 @@ React components are [compiled](https://babeljs.io/repl#?browsers=defaults%2C%20
 ### React.createElement
 
 JSX components create [**Virtual DOM abstractions**](https://codepen.io/eepson123tw/pen/XWxjXGj?editors=1111) through createElement methods during compilation.
-Simply put, each component function is a layer of encapsulation, but underneath it's still JavaScript. We convert it to real DOM through Render and inject it into the [DOM tree](/view/frontend/dom.md).
+Simply put, each component function is a layer of encapsulation, but underneath it's still JavaScript. We convert it to real DOM through Render and inject it into the [DOM tree](/en/frontend/dom).
 
 ### React.Render
 
@@ -145,8 +147,7 @@ Just as we can pass parameters into functions, components also accept parameters
 
 In the example, we can destructure all properties from the passed props object through destructuring. But be careful with this usage, as it will pass all values.
 
-::alert{type="warning" icon="lucide:accessibility"}
-
+::callout{color="warning" icon="lucide:accessibility"}
 - Props.children is a special property, not an attribute we defined that's passed down from the parent layer. It can be viewed as a placeholder that can be filled by its parent component.
 - When a component needs to change its props, new values must be passed because immutability must be maintained! Don't change props in components to avoid unpredictable errors!!
 ::

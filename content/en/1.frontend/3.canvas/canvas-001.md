@@ -1,7 +1,7 @@
 ---
 title: Particle Practice
 description: Canvas, Drawing art, Particles
-icon: 'lucide:alarm-clock-check'
+icon: i-lucide-alarm-clock-check
 gitTalk: false
 date: 2025-01-19 15:32:20
 read: '20'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-alarm-clock-check
 ---
 
 > Canvas Particle Practice - Day 001 [Lyrics Player](https://fet-skills.zeabur.app/canvas-lyrics-player.html)

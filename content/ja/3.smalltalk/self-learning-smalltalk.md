@@ -1,7 +1,7 @@
 ---
 title: 自學的進程
 description: review、life、smallTalk
-icon: 'lucide:boom-box'
+icon: i-lucide-boom-box
 
 date: 2023-09-30 16:16:10
 read: '8'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-boom-box
 ---
 
 ![self-learning](/images/smalltalk/self-learning.webp)
@@ -23,7 +25,7 @@ authors:
 
 2023 年也過了一半有餘，2022 年的回顧還歷歷在目，寫下要達成的目標也近乎完成了，還多做了幾項，真是佩服自己的無趣，可以心無雜念的做這些事情。2022 年換到的這間大公司，除了薪水不太行以外，其他都非常的好，有會與你討論技術的同事，下班後大家也還是會利用社群軟體，繼續精進自己，整體的氣氛相當的不錯，還有資深的同事不吝於分享的態度，才讓我知道需要前行的道路，會遇到哪些問題。
 
-::alert{type="tips" icon="lucide:hand-platter"}
+::callout{color="success" icon="lucide:hand-platter"}
 前端的大家真的是太棒了。
 ::
 
@@ -46,7 +48,7 @@ authors:
 
 現在還可以有時間去學習 Blender 建模的基礎，自己建構 3D 模型，真是佩服自己😇，最近還跟同事一起玩起了side-project，用react 寫功能等等，天天都很充實。
 
-::alert{type="info" icon="lucide:info"}
+::callout{color="info" icon="lucide:info"}
 這樣一回顧，日文系的我能走到這裡，我也是覺得自己運氣很好，這一路上遇到了許多帶來正向觀念的同事及前輩們，謝謝你們。
 ::
 

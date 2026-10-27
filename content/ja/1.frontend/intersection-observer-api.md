@@ -1,7 +1,7 @@
 ---
 title: 實作一個可視區域導讀提醒
 description: Intersection Observer API
-icon: 'lucide:dessert'
+icon: i-lucide-dessert
 gitTalk: false
 date: 2022-11-05 00:08:25
 read: '20'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-dessert
 ---
 
 > 實作一個可視區域導讀提醒

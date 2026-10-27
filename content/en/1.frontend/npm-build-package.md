@@ -1,7 +1,7 @@
 ---
 title: Publishing an NPM Component
 description: NPM, Vue, Package publish
-icon: 'lucide:package'
+icon: i-lucide-package
 gitTalk: false
 date: 2024-08-03 13:09:00
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-package
 ---
 
 > Publishing an npm [component](https://www.npmjs.com/package/@eepson123tw/canvas-meme)
@@ -144,7 +146,7 @@ Some pitfalls you really only know after stepping on them 😭
 I originally thought packaging only required setting up the output properly. Following online tutorials and documentation, it should be simple to go live 😊, but I was still too naive.
 To configure package.json and vite.config, there's a very important reminder:
 
-::alert{type="info"}
+::callout{color="info"}
 "author": "Must be the actual person and correct", <== After nearly an hour of publishing and questioning life, I discovered changing this fixed it 👼
 ::
 

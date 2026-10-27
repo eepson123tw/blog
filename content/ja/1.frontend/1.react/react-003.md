@@ -1,7 +1,7 @@
 ---
 title: Day 3 狀態與副作用
 description: 學習 React 框架
-icon: 'lucide:air-vent'
+icon: i-lucide-air-vent
 gitTalk: false
 date: 2023-05-06 19:00:20
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-air-vent
 ---
 > 學習 React 框架 - 003 組件狀態與副作用更新
 
@@ -63,7 +65,7 @@ FancyNameBox(
 
 [範例](https://codepen.io/eepson123tw/pen/NWOyNYP?editors=1010)
 
-::alert{type="warning" icon="lucide:eraser"}
+::callout{color="warning" icon="lucide:eraser"}
 從範例中我們可以觀察我們在組件中調用 useState,並設置初始值,依照我們定義的方式更改 state,並且 state 變更後,頁面 rerender 後發現狀態已被更新.
 ::
 
@@ -74,7 +76,7 @@ FancyNameBox(
 1. 讓原先會在 rerender 後不能保存的狀態值,繼續存在.
 2. 狀態更新後再次觸發了 rerender.
 
-::alert{type="warning" icon="lucide:eraser"}
+::callout{color="warning" icon="lucide:eraser"}
 useState 是一個封裝後的閉包空間,就是狀態抽象的實作.
 ::
 
@@ -94,7 +96,7 @@ function useState(state) {
 
 ## 狀態管理 Array Object
 
-::alert{type="danger" icon="lucide:ambulance"}
+::callout{color="error" icon="lucide:ambulance"}
 React 狀態管理中,必須將任何型別的資料視為不可變的,不應直接改變在 React 狀態下的對象。相反，當你想更新一個對象(or 陣列)時，需要**創建一個新對象（或複制一個現有對象**），然後設置狀態使用該 copy.
 ::
 

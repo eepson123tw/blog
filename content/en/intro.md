@@ -1,9 +1,8 @@
 ---
 title: Intro - Frontend Chronicles
 description: Growing together with the blog
-icon: 'lucide:ambulance'
+icon: i-lucide-ambulance
 gitTalk: true
-breadcrumb: false
 date: 2022-10-28 23:45:03
 read: '1'
 authors:
@@ -12,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-ambulance
 ---
 
 I've been blogging for 3 years now.

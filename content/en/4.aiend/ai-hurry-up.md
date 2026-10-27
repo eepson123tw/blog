@@ -1,7 +1,7 @@
 ---
 title: AI Help Me Out
 description: RAG, Embedding, Agent
-icon: 'lucide:rotate-3d'
+icon: i-lucide-rotate-3d
 gitTalk: true
 date: 2025-02-02 12:07:00
 read: '10'
@@ -13,13 +13,15 @@ authors:
     target: _blank
 badges:
   - value: This field is evolving rapidly; information may change
+navigation:
+  icon: i-lucide-rotate-3d
 ---
 
 After attending [webconf 2024](https://webconf.tw/) with some of my former colleagues, we noticed that although a few AI-related keywords were mentioned in the talks, most people still had a vague understanding of what AI is actually capable of.
 
 They asked me if I could write a post to explain some of the concepts, so I created this slide deck.
 
-::alert{to="https://ai-hurry-up.zeabur.app" type="info" target="_blank" icon="lucide:link"}
+::callout{color="info" icon="lucide:link"}
   AI Help Me Out – ai-hurry-up
 ::
 
@@ -92,7 +94,7 @@ For example, in the image above I used **n8n** (a free, open-source workflow aut
 
 Of course, this is just a simple demo—real-world use cases can be much more complex.
 
-::alert{ type="success" target="_blank" icon="lucide:badge-alert"}
+::callout{color="success" icon="lucide:badge-alert"}
   Who knows? Maybe one day we’ll have **Engineer Agents** 😈
 ::
 

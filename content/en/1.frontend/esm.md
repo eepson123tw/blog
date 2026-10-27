@@ -1,7 +1,7 @@
 ---
 title: ESM Module Principles
 description: ESM modular development
-icon: 'lucide:code'
+icon: i-lucide-code
 gitTalk: false
 date: 2024-03-14 12:25:00
 read: '10'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-code
 ---
 
 ESM modules are a standard for modular development in JavaScript. They allow developers to split code into multiple modules and import these modules where needed. ESM modules use the `import` and `export` keywords to define and use modules.
@@ -152,7 +154,7 @@ There are three main steps:
 2. File fetching (URL, filesystem load)
 3. Parsing files into records
 
-::alert{type="success" icon="lucide:lightbulb"}
+::callout{color="success" icon="lucide:lightbulb"}
 This part will recursively parse dependent module files, searching layer by layer. If a file depends on too many modules, the main thread will inevitably be blocked by loading.
 ::
 
@@ -185,7 +187,7 @@ These memory areas are not yet assigned values at this stage. `They only get act
 
 ## Summary
 
-::alert{type="success" icon="lucide:lightbulb"}
+::callout{color="success" icon="lucide:lightbulb"}
 require synchronously resolves, while import has pre-parsing before executing code, making it easier to perform tree-shaking and analyze loading points, etc.
 ::
 

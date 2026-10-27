@@ -1,7 +1,7 @@
 ---
 title: Applications of Type Guards and Enums
 Description: Type Guard and Enum
-icon: 'lucide:radar'
+icon: i-lucide-radar
 date: 2024-06-29 21:28:30
 read: '10'
 authors:
@@ -10,6 +10,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-radar
 ---
 > Applications of Type Guards and Enums
 
@@ -17,7 +19,7 @@ authors:
 
 Literally translated, Type Guard means "type guardian." We often need to create complex types based on backend API responses or programmatic logic operations. Sometimes VS Code throws errors, prompting us to exclude certain uncertain type definitions. While we can use officially defined [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html) for some operations, more often we need to design these complex type definitions ourselves to narrow types to our desired scope. This is where type guards come in handy.
 
-::alert{type='info' icon='lucide:info'}
+::callout{color="info"}
 Type Guard is a runtime check used to narrow the type range of variables.
 ::
 

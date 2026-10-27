@@ -1,5 +1,4 @@
 export const imageConfig = {
-  dir: 'public',
   screens: {
     'xs': 320,
     'sm': 640,

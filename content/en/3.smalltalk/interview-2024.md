@@ -1,7 +1,7 @@
 ---
 title: 2024 面試紀錄
 description: 面試紀錄及反思
-icon: 'lucide:info'
+icon: i-lucide-info
 
 date: 2024-07-24 22:11:10
 read: '5'
@@ -11,6 +11,8 @@ authors:
     avatar: https://www.github.com/eepson123tw.png
     to: https://github.com/eepson123tw
     target: _blank
+navigation:
+  icon: i-lucide-info
 ---
 
 ![interview](/images/smalltalk/interview.webp)
@@ -59,7 +61,7 @@ authors:
 
 感謝在 2020 年下定決心轉職且一路不放棄的自己，及一路陪伴的轉職夥伴及好友們！
 
-::alert{type="info" icon="lucide:lightbulb"}
+::callout{color="info" icon="lucide:lightbulb"}
 **Fake It Til You Make It!**
 ::
 
@@ -96,6 +98,6 @@ authors:
 希望在這個新興項目及快速增長的產業中，學習不同視野與能力，繼續挑戰自己的邊界，趁年輕多方嘗試。
 期望能安慰到與我有同樣境遇的人，不要放棄希望！
 
-::alert{type="success" icon="lucide:lightbulb"}
+::callout{color="success" icon="lucide:lightbulb"}
   **Do Not Go Gentle into That Good Night!**
 ::
