@@ -8,9 +8,10 @@ description: フロントエンド開発、React、Vue、独学、3Dモジュー
 ::hero-alt
 ---
 announcement:
-  title: 'Nuxt.js Docsで構築'
-  icon: '🎉'
-  to: https://github.com/ZTL-UwU/shadcn-docs-nuxt/releases/latest
+  title: 'RSS で新着記事を購読'
+  icon: 'lucide:rss'
+  to: https://www.aaron-shih.com/rss.xml
+  target: _blank
 actions:
   - name: 始める
     to: /ja/intro
@@ -26,6 +27,9 @@ mobileRight: 'top'
 #right
 ![logo](/logo.webp)
 
+::
+
+::latest-posts
 ::
 
 ::card-group
