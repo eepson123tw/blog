@@ -101,7 +101,7 @@ useHead({
   meta: [{ property: 'article:modified_time', content: `${page.value?.date}` }],
 });
 
-defineOgImageComponent('BlogPost', {
+defineOgImage('BlogPost', {
   title: page.value?.title,
   description: page.value?.description,
   colorMode: 'light',
